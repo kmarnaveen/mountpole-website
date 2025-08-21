@@ -1,0 +1,1170 @@
+{
+  "products": [
+    {
+      "id": "iphone-15-pro-max-256gb-black-titanium",
+      "name": "iPhone 15 Pro Max",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "price": 1199.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The ultimate iPhone experience. Forged in titanium and featuring the groundbreaking A17 Pro chip, a customizable Action Button, and the most advanced Pro camera system ever.",
+      "specifications": {
+        "display": "6.7-inch Super Retina XDR display with ProMotion technology",
+        "chip": "A17 Pro chip with 6-core GPU",
+        "storage": "256GB",
+        "camera": "Pro camera system: 48MP Main, 12MP Ultra Wide, 12MP Telephoto with 5x optical zoom",
+        "battery": "Up to 29 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 6E, Bluetooth 5.3",
+        "material": "Titanium design",
+        "colors": [
+          "Natural Titanium",
+          "Blue Titanium",
+          "White Titanium",
+          "Black Titanium"
+        ]
+      },
+      "features": [
+        "Pro Camera System",
+        "Action Button",
+        "Titanium Design",
+        "Dynamic Island",
+        "Face ID"
+      ],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-black?wid=5120&hei=2880&fmt=webp&qlt=90&.v=cHJOTXEwTU92OEtKVDV2cVB1R2FTSjlERndlRTljaUdZeHJGM3dlLzR2OUFsUUpuUVQ3cUdJUXc0NW5mTVpFdE9MekhWSGZtV1pvV240QzNuTk80VS9jVTIwcEJjL3Axby9SNE1Ma0phb1dEdlJGYjQxc1NwMWpTZjJjMXIvZnE&traceId=1",
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-pro-max-black-titanium-select?wid=5120&hei=2880&fmt=webp&qlt=90&.v=UW1GckZzVUVBMzNQWXNQRU9hNlNaZz09",
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-finish-select-202309-6-7inch-black?wid=5120&hei=2880&fmt=webp&qlt=90&.v=cHJOTXEwTU92OEtKVDV2cVB1R2FTSjlERndlRTljaUdZeHJGM3dlLzR2OUFsUUpuUVQ3cUdJUXc0NW5mTVpFdE9MekhWSGZtV1pvV240QzNuTk80VS9jVTIwcEJjL3Axby9SNE1Ma0phb1dEdlJGYjQxc1NwMWpTZjJjMXIvZnE&traceId=1",
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-pro-camera-select-202309?wid=5120&hei=2880&fmt=webp&qlt=90&.v=cHJOTXEwTU92OEtKVDV2cVB1R2FTSjlERndlRTljaUdZeHJGM3dlLzR2OUFsUUpuUVQ3cUdJUXc0NW5mTVpFdE9MekhWSGZtV1pvV240QzNuTk80VS9jVTIwcEJjL3Axby9SNE1Ma0phb1dEdlJGYjQxc1NwMWpTZjJjMXIvZnE&traceId=1"
+      ],
+      "sku": "APL-IP15PM-256-BT",
+      "tags": [
+        "flagship",
+        "5g",
+        "titanium",
+        "pro-camera",
+        "ios",
+        "action-button"
+      ]
+    },
+    {
+      "id": "galaxy-s24-ultra-512gb-titanium-black",
+      "name": "Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "price": 1299.99,
+      "salePrice": 1199.99,
+      "currency": "USD",
+      "description": "The most advanced Galaxy smartphone ever. Built with titanium and powered by Galaxy AI for a truly intelligent mobile experience. Includes S Pen for ultimate productivity.",
+      "specifications": {
+        "display": "6.8-inch Quad HD+ Dynamic AMOLED 2X Display with 120Hz refresh rate",
+        "chip": "Snapdragon 8 Gen 3 for Galaxy",
+        "storage": "512GB",
+        "camera": "200MP Wide, 12MP Ultra Wide, 50MP Telephoto (5x), 10MP Telephoto (3x)",
+        "battery": "5,000mAh with 45W Super Fast Charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3, USB-C",
+        "material": "Titanium frame",
+        "colors": [
+          "Titanium Black",
+          "Titanium Gray",
+          "Titanium Violet",
+          "Titanium Yellow"
+        ]
+      },
+      "features": [
+        "AI Photo Editing",
+        "Circle to Search",
+        "Titanium Frame",
+        "S Pen Included",
+        "Galaxy AI"
+      ],
+      "images": [
+        "https://m.media-amazon.com/images/I/717Q2swzhBL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61tYvfHfFfL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71fBHX8GVTL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71wk9XGqVyL._SL1500_.jpg"
+      ],
+      "sku": "SAM-GS24U-512-TB",
+      "tags": [
+        "flagship",
+        "galaxy-ai",
+        "s-pen",
+        "titanium",
+        "android",
+        "200mp-camera"
+      ]
+    },
+    {
+      "id": "pixel-9-pro-128gb-obsidian",
+      "name": "Pixel 9 Pro",
+      "category": "Smartphones",
+      "brand": "Google",
+      "price": 999.99,
+      "salePrice": 899.99,
+      "currency": "USD",
+      "description": "The most intelligent Pixel yet. Experience the power of Google AI built right into your phone with advanced photography, helpful features, and 7 years of security updates.",
+      "specifications": {
+        "display": "6.3-inch OLED Smooth Display with 120Hz refresh rate",
+        "chip": "Google Tensor G4 with Titan M security coprocessor",
+        "storage": "128GB",
+        "camera": "Triple rear camera: 50MP Wide, 48MP Ultra Wide, 48MP Telephoto with 5x optical zoom",
+        "battery": "4700mAh with all-day battery life",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3, USB-C",
+        "colors": ["Obsidian", "Porcelain", "Hazel", "Rose Quartz"]
+      },
+      "features": [
+        "Magic Eraser",
+        "Call Screen",
+        "Pure Android",
+        "7 Years Updates",
+        "Gemini AI"
+      ],
+      "images": [
+        "https://m.media-amazon.com/images/I/51xiDpq5ODL._SL1000_.jpg",
+        "https://m.media-amazon.com/images/I/61NqhpMAQ3L._SL1000_.jpg",
+        "https://m.media-amazon.com/images/I/61Qu9k2CGQL._SL1000_.jpg",
+        "https://m.media-amazon.com/images/I/61YGfvGCaHL._SL1000_.jpg"
+      ],
+      "sku": "GGL-PX9P-128-OB",
+      "tags": [
+        "google-ai",
+        "best-camera",
+        "android",
+        "clean-software",
+        "tensor-g4"
+      ]
+    },
+    {
+      "id": "iphone-15-128gb-black",
+      "name": "iPhone 15",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "price": 799.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "iPhone 15 brings you Dynamic Island, a 48MP Main camera, and USB-C\u2014all in a durable color-infused glass and aluminum design.",
+      "specifications": {
+        "display": "6.1-inch Super Retina XDR display",
+        "chip": "A16 Bionic chip",
+        "storage": "128GB",
+        "camera": "48MP Main camera with 2x Telephoto, 12MP Ultra Wide",
+        "battery": "Up to 20 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 6, Bluetooth 5.3",
+        "colors": ["Black", "Blue", "Green", "Yellow", "Pink"]
+      },
+      "features": ["Dynamic Island", "Ceramic Shield", "Face ID", "USB-C"],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-black?wid=5120&hei=2880&fmt=webp&qlt=90&.v=cHJOTXEwTU92OEtKVDV2cVB1R2FTSjlERndlRTljaUdZeHJGM3dlLzR2OUFsUUpuUVQ3cUdJUXc0NW5mTVpFdE9MekhWSGZtV1pvV240QzNuTk80VS9jVTIwcEJjL3Axby9SNE1La0phb1dEdlJGYjQxc1NwMWpTZjJjMXIvZnE&traceId=1"
+      ],
+      "sku": "APL-IP15-128-BK",
+      "tags": ["dynamic-island", "usb-c", "ios", "48mp-camera"]
+    },
+    {
+      "id": "galaxy-s24-256gb-onyx-black",
+      "name": "Galaxy S24",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "price": 799.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Meet Galaxy AI on the Galaxy S24. Get Google's most advanced AI right in your pocket and see how it transforms the way you search, call, text, and more.",
+      "specifications": {
+        "display": "6.2-inch Dynamic AMOLED 2X with 120Hz refresh rate",
+        "chip": "Snapdragon 8 Gen 3 for Galaxy",
+        "storage": "256GB",
+        "camera": "50MP Wide, 12MP Ultra Wide, 10MP Telephoto with 3x optical zoom",
+        "battery": "4000mAh with 25W Fast Charging",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3",
+        "colors": ["Onyx Black", "Marble Gray", "Cobalt Violet", "Amber Yellow"]
+      },
+      "features": [
+        "Galaxy AI",
+        "One UI 6.1",
+        "Wireless Charging",
+        "Circle to Search"
+      ],
+      "images": [
+        "https://vsprod.vijaysales.com/media/catalog/product/2/2/225659_1_.jpg?optimize=medium&fit=bounds&height=500&width=500"
+      ],
+      "sku": "SAM-GS24-256-OB",
+      "tags": ["galaxy-ai", "amoled", "android", "5g"]
+    },
+    {
+      "id": "pixel-9-128gb-obsidian",
+      "name": "Pixel 9",
+      "category": "Smartphones",
+      "brand": "Google",
+      "price": 699.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 22,
+      "description": "Pixel 9 with Google AI built in. Take amazing photos, get things done more easily, and enjoy an all-day battery life.",
+      "specifications": {
+        "display": "6.3-inch Actua display with 120Hz refresh rate",
+        "chip": "Google Tensor G4",
+        "storage": "128GB",
+        "camera": "50MP Wide and 48MP Ultra Wide cameras",
+        "battery": "4700mAh all-day battery",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3",
+        "colors": ["Obsidian", "Porcelain", "Wintergreen", "Peony"]
+      },
+      "features": [
+        "Night Sight",
+        "Live Translate",
+        "Car Crash Detection",
+        "Gemini AI"
+      ],
+      "images": [
+        "https://m.media-amazon.com/images/I/51xiDpq5ODL._SL1000_.jpg"
+      ],
+      "sku": "GGL-PX9-128-OB",
+      "tags": ["google-ai", "night-sight", "android", "tensor-g4"]
+    },
+    {
+      "id": "ipad-pro-129-256gb-space-gray",
+      "name": "iPad Pro 12.9\",",
+      "category": "Tablets",
+      "brand": "Apple",
+      "price": 1099.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 12,
+      "description": "The ultimate iPad experience with the revolutionary M2 chip. Features a stunning Liquid Retina XDR display and works with Apple Pencil and Magic Keyboard.",
+      "specifications": {
+        "display": "12.9-inch Liquid Retina XDR display with ProMotion, True Tone, and P3 wide color",
+        "chip": "Apple M2 chip with 8-core CPU and 10-core GPU",
+        "storage": "256GB",
+        "camera": "12MP Wide camera, 10MP Ultra Wide camera with Center Stage, LiDAR Scanner",
+        "battery": "Up to 10 hours of web surfing on Wi\u2011Fi",
+        "connectivity": "Wi-Fi 6E, Bluetooth 5.3, USB-C with Thunderbolt support",
+        "colors": ["Space Gray", "Silver"]
+      },
+      "features": [
+        "Apple Pencil Support",
+        "Magic Keyboard Compatible",
+        "5G Cellular",
+        "Thunderbolt"
+      ],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-glass-select-gallery-1-202405?wid=5120&hei=2880&fmt=webp&qlt=90&.v=QU8rTGFZUkxWbm1Fc0VaUXQ2QVNpSU5sSFgwakNWNmlhZ2d5NGpHdllWY09WV3R2ZHdZMXRzTjZIcWdMTlg4eUJQYkhSV3V1dC9oa0s5K3lqMGtUaFYrNkhvSzBtcy9ubWtTZUpaU0lsQ2Mra0tCNG5uVUtreW84V0xBbE4rVTk&traceId=1",
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-12-select-wifi-spacegray-202405?wid=2000&hei=2000&fmt=webp&qlt=90&.v=RnNDSW5ta2Y5QVllUzVYdWVFYVBLK1ZOZStOOXNqL2w4cjQxelJpZXk4TzZoQlVLRWszNzlNMktwRU9Gb0VKVkpFWkNhYnBGcEMzbGl3T2lXR2hCUXU4VDBFVkQzWU9Zb1AxK3NEL1RFQT0=",
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-12-select-cell-spacegray-202405?wid=2000&hei=2000&fmt=webp&qlt=90&.v=RnNDSW5ta2Y5QVllUzVYdWVFYVBLK1ZOZStOOXNqL2w4cjQxelJpZXk4TzZoQlVLRWszNzlNMktwRU9Gb0VKVkpFWkNhYnBGcEMzbGl3T2lXR2hCUXU4VDBFVkQzWU9Zb1AxK3NEL1RFQT0=",
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-accessories-select-gallery-1-202405?wid=5120&hei=2880&fmt=webp&qlt=90&.v=QU8rTGFZUkxWbm1Fc0VaUXQ2QVNpSU5sSFgwakNWNmlhZ2d5NGpHdllWY09WV3R2ZHdZMXRzTjZIcWdMTlg4eUJQYkhSV3V1dC9oa0s5K3lqMGtUaFYrNkhvSzBtcy9ubWtTZUpaU0lsQ2Mra0tCNG5uVUtreW84V0xBbE4rVTk&traceId=1"
+      ],
+      "sku": "APL-IPADP129-256-SG",
+      "tags": ["m2-chip", "xdr-display", "pro", "creative", "apple-pencil"]
+    },
+    {
+      "id": "ipad-air-64gb-blue",
+      "name": "iPad Air",
+      "category": "Tablets",
+      "brand": "Apple",
+      "price": 599.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 18,
+      "description": "Powerful, colorful, and wonderful. iPad Air is more capable than ever with the M1 chip and a gorgeous 10.9-inch Liquid Retina display.",
+      "specifications": {
+        "display": "10.9-inch Liquid Retina display with True Tone and P3 wide color",
+        "chip": "Apple M1 chip with 8-core CPU",
+        "storage": "64GB",
+        "camera": "12MP Wide camera with Smart HDR 3",
+        "battery": "Up to 10 hours of web surfing on Wi\u2011Fi",
+        "connectivity": "Wi-Fi 6, Bluetooth 5.0, USB-C",
+        "colors": ["Space Gray", "Starlight", "Pink", "Purple", "Blue"]
+      },
+      "features": [
+        "Apple Pencil (2nd gen)",
+        "Magic Keyboard",
+        "Touch ID",
+        "USB-C"
+      ],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-air-select-wifi-blue-202203?wid=940&hei=1112&fmt=png-alpha&.v=1645065732688"
+      ],
+      "sku": "APL-IPADA-64-BL",
+      "tags": ["m1-chip", "liquid-retina", "touch-id", "colorful"]
+    },
+    {
+      "id": "galaxy-tab-s9-ultra-256gb-graphite",
+      "name": "Galaxy Tab S9 Ultra",
+      "category": "Tablets",
+      "brand": "Samsung",
+      "price": 1199.99,
+      "salePrice": 1099.99,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 8,
+      "description": "The largest, most immersive Galaxy Tab yet. Experience a massive 14.6\" Dynamic AMOLED 2X display with an included S Pen for ultimate productivity and creativity.",
+      "specifications": {
+        "display": "14.6-inch Dynamic AMOLED 2X with 120Hz refresh rate",
+        "chip": "Qualcomm Snapdragon 8 Gen 2 for Galaxy",
+        "storage": "256GB (expandable up to 1TB with microSD)",
+        "camera": "13MP + 6MP dual front cameras, 13MP + 8MP rear cameras",
+        "battery": "11,200mAh with 45W Super Fast Charging",
+        "connectivity": "Wi-Fi 6E, Bluetooth 5.3, 5G (optional)",
+        "colors": ["Graphite", "Beige", "Cream"]
+      },
+      "features": [
+        "S Pen Included",
+        "DeX Mode",
+        "5G Ready",
+        "IP68 Water Resistant"
+      ],
+      "images": [
+        "https://vsprod.vijaysales.com/media/catalog/product/2/2/221574-image1_1.jpg?optimize=medium&fit=bounds&height=500&width=500",
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-x910nzaainu/gallery/in-galaxy-tab-s9-ultra-5g-sm-x910nzaainu-537855063?$650_519_PNG$",
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-x910nzaainu/gallery/in-galaxy-tab-s9-ultra-5g-sm-x910nzaainu-537855064?$650_519_PNG$",
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-x910nzaainu/gallery/in-galaxy-tab-s9-ultra-5g-sm-x910nzaainu-537855065?$650_519_PNG$"
+      ],
+      "sku": "SAM-TABS9U-256-GR",
+      "tags": [
+        "large-screen",
+        "s-pen-included",
+        "amoled",
+        "dex",
+        "android-tablet"
+      ]
+    },
+    {
+      "id": "galaxy-tab-s9-plus-256gb-graphite",
+      "name": "Galaxy Tab S9+",
+      "category": "Tablets",
+      "brand": "Samsung",
+      "price": 999.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 15,
+      "description": "Premium productivity tablet with a brilliant 12.4\" Dynamic AMOLED 2X display and included S Pen for professional work and creative tasks.",
+      "specifications": {
+        "display": "12.4-inch Dynamic AMOLED 2X with 120Hz refresh rate",
+        "chip": "Qualcomm Snapdragon 8 Gen 2 for Galaxy",
+        "storage": "256GB (expandable up to 1TB with microSD)",
+        "camera": "13MP + 6MP dual cameras",
+        "battery": "10,090mAh with 45W Super Fast Charging",
+        "connectivity": "Wi-Fi 6E, Bluetooth 5.3",
+        "colors": ["Graphite", "Beige", "Lavender"]
+      },
+      "features": [
+        "S Pen Included",
+        "Book Cover Keyboard",
+        "Fast Charging",
+        "Samsung Knox"
+      ],
+      "images": [
+        "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-tab-s9-x710-sm-x710nzaainu-536631-sm-x710nzaainu-thumb-536630"
+      ],
+      "sku": "SAM-TABS9P-256-GR",
+      "tags": ["s-pen", "amoled", "productivity", "samsung-knox"]
+    },
+    {
+      "id": "pixel-tablet-128gb-porcelain",
+      "name": "Pixel Tablet",
+      "category": "Tablets",
+      "brand": "Google",
+      "price": 499.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 20,
+      "description": "The helpful tablet that's ready for anything. Transform your tablet into a smart home hub with the included Charging Speaker Dock.",
+      "specifications": {
+        "display": "11-inch LCD with 2560 x 1600 resolution",
+        "chip": "Google Tensor G2",
+        "storage": "128GB",
+        "camera": "8MP front and rear cameras",
+        "battery": "All-day battery life",
+        "connectivity": "Wi-Fi 6, Bluetooth 5.2, USB-C",
+        "colors": ["Porcelain", "Hazel", "Rose"]
+      },
+      "features": [
+        "Charging Speaker Dock",
+        "Hub Mode",
+        "Pure Android",
+        "Google AI"
+      ],
+      "images": [
+        "https://lh3.googleusercontent.com/fGp-ynTNGhQh1tGgTyGCIeUBqE30ECwUOkR4A7VLLKztexE-Kd4JGC5Bpvvh8GjP8S0U1D3e5Zx1"
+      ],
+      "sku": "GGL-PTAB-128-PO",
+      "tags": ["hub-mode", "speaker-dock", "tensor-g2", "smart-home"]
+    },
+    {
+      "id": "ipad-10th-gen-64gb-blue",
+      "name": "iPad (10th generation)",
+      "category": "Tablets",
+      "brand": "Apple",
+      "price": 449.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 25,
+      "description": "Colorfully reimagined and more versatile than ever. iPad is more capable, intuitive, and fun with the A14 Bionic chip and a gorgeous 10.9-inch Liquid Retina display.",
+      "specifications": {
+        "display": "10.9-inch Liquid Retina display with True Tone",
+        "chip": "A14 Bionic chip with 6-core CPU",
+        "storage": "64GB",
+        "camera": "12MP Wide back camera, 12MP Ultra Wide front camera with Center Stage",
+        "battery": "Up to 10 hours of web surfing on Wi\u2011Fi",
+        "connectivity": "Wi-Fi 6, Bluetooth 5.2, USB-C",
+        "colors": ["Blue", "Pink", "Yellow", "Silver"]
+      },
+      "features": [
+        "Apple Pencil (1st gen)",
+        "Magic Keyboard Folio",
+        "Touch ID",
+        "Center Stage"
+      ],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-10th-gen-finish-select-202210-blue-wifi?wid=5120&hei=2880&fmt=webp&qlt=90&.v=1664411207213"
+      ],
+      "sku": "APL-IPAD10-64-BL",
+      "tags": ["a14-bionic", "colorful", "affordable", "center-stage"]
+    },
+    {
+      "id": "studio-display-27-5k",
+      "name": "Studio Display",
+      "category": "Monitors & Displays",
+      "brand": "Apple",
+      "price": 1599.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 6,
+      "description": "A breathtaking 27-inch 5K Retina display with a 12MP Ultra Wide camera, three-mic array, and six-speaker sound system with Spatial Audio support.",
+      "specifications": {
+        "size": "27-inch",
+        "resolution": "5K (5120 x 2880) at 218 pixels per inch",
+        "refreshRate": "60Hz",
+        "connectivity": "One Thunderbolt 3 (USB-C) port, three USB-C ports",
+        "camera": "12MP Ultra Wide camera with Center Stage",
+        "audio": "High-fidelity six-speaker system with force-cancelling woofers"
+      },
+      "features": [
+        "5K Retina Display",
+        "12MP Ultra Wide Camera",
+        "Six-Speaker Sound",
+        "Thunderbolt 3"
+      ],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/studio-display?wid=5120&hei=2880&fmt=jpeg&qlt=90&.v=1645719063505"
+      ],
+      "sku": "APL-STUDIOD-27-5K",
+      "tags": [
+        "5k",
+        "retina",
+        "built-in-camera",
+        "thunderbolt",
+        "spatial-audio"
+      ]
+    },
+    {
+      "id": "pro-display-xdr-32-6k",
+      "name": "Pro Display XDR",
+      "category": "Monitors & Displays",
+      "brand": "Apple",
+      "price": 4999.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 2,
+      "description": "The world's best pro display. Extreme Dynamic Range and breathtaking image quality meet groundbreaking design in the ultimate creative canvas.",
+      "specifications": {
+        "size": "32-inch",
+        "resolution": "6K (6016 x 3384) at 218 pixels per inch",
+        "refreshRate": "60Hz",
+        "connectivity": "One Thunderbolt 3 (USB-C) port, three USB-C ports"
+      },
+      "features": [
+        "6K Retina XDR",
+        "1000 nits sustained",
+        "P3 Wide Color",
+        "Reference Mode"
+      ],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/pro-display-xdr?wid=5120&hei=2880&fmt=jpeg&qlt=90&.v=1571954925392"
+      ],
+      "sku": "APL-PRODXDR-32-6K",
+      "tags": ["6k", "xdr", "professional", "reference-monitor", "hdr"]
+    },
+    {
+      "id": "odyssey-oled-g9-49-dqhd",
+      "name": "Odyssey OLED G9",
+      "category": "Monitors & Displays",
+      "brand": "Samsung",
+      "price": 2199.99,
+      "salePrice": 1999.99,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 4,
+      "description": "The world's first Dual QHD OLED gaming monitor. Experience breathtaking 49\" curved display with 240Hz refresh rate for the ultimate gaming immersion.",
+      "specifications": {
+        "size": "49-inch",
+        "resolution": "Dual QHD (5120 x 1440)",
+        "refreshRate": "240Hz",
+        "connectivity": "HDMI 2.1, DisplayPort 1.4, USB Hub"
+      },
+      "features": [
+        "OLED Technology",
+        "240Hz Gaming",
+        "1800R Curve",
+        "AMD FreeSync Premium"
+      ],
+      "images": [
+        "https://images.samsung.com/is/image/samsung/p6pim/levant/ls49cg954euxen/gallery/levant-odyssey-oled-g9-g95sc-ls49cg954euxen-536365171?$650_519_PNG$"
+      ],
+      "sku": "SAM-OLEDG9-49-DQHD",
+      "tags": ["gaming", "oled", "ultrawide", "240hz", "curved"]
+    },
+    {
+      "id": "odyssey-neo-g7-32-4k",
+      "name": "Odyssey Neo G7",
+      "category": "Monitors & Displays",
+      "brand": "Samsung",
+      "price": 899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 8,
+      "description": "High-performance 4K gaming monitor with Mini LED technology, 165Hz refresh rate, and 1000R curvature for immersive gaming.",
+      "specifications": {
+        "size": "32-inch",
+        "resolution": "4K (3840 x 2160)",
+        "refreshRate": "165Hz",
+        "connectivity": "HDMI 2.1, DisplayPort 1.4"
+      },
+      "features": ["Mini LED", "HDR10+", "G-Sync Compatible", "Curved 1000R"],
+      "images": [
+        "https://images.samsung.com/is/image/samsung/p6pim/levant/ls32bg752euxen/gallery/levant-odyssey-neo-g7-g75sb-ls32bg752euxen-532148468?$650_519_PNG$"
+      ],
+      "sku": "SAM-NEOG7-32-4K",
+      "tags": ["gaming", "4k", "mini-led", "hdr", "curved"]
+    },
+    {
+      "id": "smart-monitor-m8-32-4k",
+      "name": "Smart Monitor M8",
+      "category": "Monitors & Displays",
+      "brand": "Samsung",
+      "price": 729.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 10,
+      "description": "All-in-one smart monitor and entertainment hub with 4K resolution, Smart TV apps, and wireless connectivity for work and play.",
+      "specifications": {
+        "size": "32-inch",
+        "resolution": "4K (3840 x 2160)",
+        "refreshRate": "60Hz",
+        "connectivity": "USB-C 65W, HDMI, Wireless DeX"
+      },
+      "features": ["Smart TV Apps", "Wireless DeX", "USB-C 65W", "IoT Hub"],
+      "images": [
+        "https://images.samsung.com/is/image/samsung/p6pim/levant/ls32cm801euxen/gallery/levant-smart-monitor-m8-m80c-ls32cm801euxen-532148346?$650_519_PNG$"
+      ],
+      "sku": "SAM-SMARTM8-32-4K",
+      "tags": ["smart-monitor", "4k", "wireless-dex", "usb-c", "entertainment"]
+    },
+    {
+      "id": "pixelbook-display-27-4k",
+      "name": "Pixelbook Display",
+      "category": "Monitors & Displays",
+      "brand": "Google",
+      "price": 899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 7,
+      "description": "Smart display optimized for the Google ecosystem with Chrome OS integration, Google Assistant, and seamless connectivity.",
+      "specifications": {
+        "size": "27-inch",
+        "resolution": "4K (3840 x 2160)",
+        "refreshRate": "60Hz",
+        "connectivity": "USB-C, HDMI, Wi-Fi"
+      },
+      "features": [
+        "Chrome OS Integration",
+        "Google Assistant",
+        "USB-C Hub",
+        "Ambient EQ"
+      ],
+      "images": [
+        "https://lh3.googleusercontent.com/fGp-ynTNGhQh1tGgTyGCIeUBqE30ECwUOkR4A7VLLKztexE-Kd4JGC5Bpvvh8GjP8S0U1D3e5Zx2"
+      ],
+      "sku": "GGL-PIXELD-27-4K",
+      "tags": ["chrome-os", "google-assistant", "smart-display", "ambient-eq"]
+    },
+    {
+      "id": "apple-watch-series-9-45mm-midnight",
+      "name": "Apple Watch Series 9",
+      "category": "Wearables",
+      "brand": "Apple",
+      "price": 399.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 30,
+      "description": "The most advanced Apple Watch yet. Featuring the breakthrough S9 chip, a magical new way to use your watch without touching the screen, and a brighter display.",
+      "specifications": {
+        "caseSize": "45mm",
+        "display": "Always-On Retina display",
+        "chip": "S9 SiP with 4-core Neural Engine",
+        "features": "Double Tap, Blood Oxygen app, ECG app, Crash Detection",
+        "battery": "All-day 18-hour battery life",
+        "connectivity": "GPS + Cellular options available"
+      },
+      "features": [
+        "Double Tap",
+        "Siri on Device",
+        "Carbon Neutral",
+        "Blood Oxygen",
+        "ECG"
+      ],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ultra-case-unselect-gallery-1-202409?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=aTVJSEliNW9jb25zalBlTm16VmMxcWpkNHRJWDMzcTg3NWRxV0pydTcvSUxMekYrWHVDVjVJT1ZDYVlkUjdVUnc2NytHaDA2aFdROEtrekNxcXV6T3VmenhDNGxXRVM5RSs4RlRpMXdYVWhCUjJHK0dyT0t2cDF1RTlMancyMG8"
+      ],
+      "sku": "APL-AW9-45-MIDNIGHT",
+      "tags": ["s9-chip", "double-tap", "ecg", "blood-oxygen", "carbon-neutral"]
+    },
+    {
+      "id": "galaxy-watch6-40mm-graphite",
+      "name": "Galaxy Watch6",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 329.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 22,
+      "description": "Know your body better with Galaxy Watch6. Advanced health monitoring, sleep insights, and a sleek design that fits your lifestyle.",
+      "specifications": {
+        "caseSize": "40mm",
+        "display": "1.3-inch Super AMOLED",
+        "chip": "Samsung Exynos W930",
+        "features": "Sleep Tracking, Body Composition, Fall Detection",
+        "battery": "Up to 30 hours",
+        "connectivity": "Bluetooth, Wi-Fi"
+      },
+      "features": [
+        "Body Composition",
+        "Fall Detection",
+        "Water Resistant",
+        "Sleep Tracking"
+      ],
+      "images": [
+        "https://m.media-amazon.com/images/I/61wSQcwjpqL._AC_SL1500_.jpg"
+      ],
+      "sku": "SAM-GW6-40-GRAPHITE",
+      "tags": [
+        "body-composition",
+        "sleep-tracking",
+        "wear-os",
+        "health-monitoring"
+      ]
+    },
+    {
+      "id": "pixel-watch-2-41mm-obsidian",
+      "name": "Pixel Watch 2",
+      "category": "Wearables",
+      "brand": "Google",
+      "price": 349.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 18,
+      "description": "The helpful smartwatch that's better for your health and fitness. With Fitbit's most advanced health sensors and Google's most helpful software.",
+      "specifications": {
+        "caseSize": "41mm",
+        "display": "AMOLED display with Always-on",
+        "chip": "Snapdragon W5 Gen 1",
+        "features": "Fitbit Integration, Heart Rate monitoring, GPS",
+        "battery": "24-hour battery life",
+        "connectivity": "Bluetooth, Wi-Fi, 4G LTE"
+      },
+      "features": [
+        "Safety Check",
+        "Gmail Notifications",
+        "Google Pay",
+        "Fitbit Premium"
+      ],
+      "images": [
+        "https://m.media-amazon.com/images/I/71gCMKYhJ5L._AC_SL1500_.jpg"
+      ],
+      "sku": "GGL-PW2-41-OBSIDIAN",
+      "tags": ["fitbit", "health-sensors", "google-pay", "safety-check"]
+    },
+    {
+      "id": "apple-watch-se-44mm-starlight",
+      "name": "Apple Watch SE",
+      "category": "Wearables",
+      "brand": "Apple",
+      "price": 249.99,
+      "salePrice": null,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 35,
+      "description": "All the essentials to help you monitor your fitness, keep connected, track your health, and stay safe. Now with Crash Detection and enhanced workout metrics.",
+      "specifications": {
+        "caseSize": "44mm",
+        "display": "Retina display",
+        "chip": "S8 SiP",
+        "features": "Activity Rings, Fall Detection, Emergency SOS",
+        "battery": "All-day 18-hour battery life",
+        "connectivity": "GPS + Cellular options"
+      },
+      "features": [
+        "Fall Detection",
+        "Emergency SOS",
+        "Family Setup",
+        "Crash Detection"
+      ],
+      "images": [
+        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/se-case-unselect-gallery-1-202409?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=VUJlellZRStNS2ViOXFkSTY1R3RCcWpkNHRJWDMzcTg3NWRxV0pydTcvSUxMekYrWHVDVjVJT1ZDYVlkUjdVUnc2NytHaDA2aFdROEtrekNxcXV6T3VmenhDNGxXRVM5RSs4RlRpMXdYVWg"
+      ],
+      "sku": "APL-AWSE-44-STARLIGHT",
+      "tags": [
+        "affordable",
+        "essential-features",
+        "family-setup",
+        "crash-detection"
+      ]
+    },
+    {
+      "id": "galaxy-watch6-classic-47mm-black",
+      "name": "Galaxy Watch6 Classic",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 429.99,
+      "salePrice": 389.99,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 14,
+      "description": "The classic returns with the signature rotating bezel. Premium materials, advanced health monitoring, and the iconic design you love.",
+      "specifications": {
+        "caseSize": "47mm",
+        "display": "1.5-inch Super AMOLED",
+        "chip": "Samsung Exynos W930",
+        "features": "Rotating Bezel, Body Composition, Advanced Sleep",
+        "battery": "Up to 40 hours",
+        "connectivity": "Bluetooth, Wi-Fi"
+      },
+      "features": [
+        "Premium Materials",
+        "Advanced Sleep",
+        "Pro Workouts",
+        "Rotating Bezel"
+      ],
+      "images": [
+        "https://m.media-amazon.com/images/I/51QrZjh7GPL._AC_SL1500_.jpg"
+      ],
+      "sku": "SAM-GW6C-47-BLACK",
+      "tags": ["rotating-bezel", "premium", "classic-design", "advanced-health"]
+    },
+    {
+      "id": "galaxy-buds2-pro-graphite",
+      "name": "Galaxy Buds2 Pro",
+      "category": "Audio",
+      "brand": "Samsung",
+      "price": 199.99,
+      "salePrice": 179.99,
+      "currency": "USD",
+      "inStock": true,
+      "stockQuantity": 45,
+      "description": "Escape into your own world with Galaxy Buds2 Pro. Enjoy active noise cancellation, 360 Audio, and Hi-Fi sound quality in a comfortable, secure fit.",
+      "specifications": {
+        "driver": "2-way speaker (woofer + tweeter)",
+        "activeNoiseCancelling": "Intelligent ANC",
+        "audioCodec": "Samsung Seamless Codec, SBC, AAC",
+        "battery": "Up to 8 hours (ANC on), 29 hours with case",
+        "connectivity": "Bluetooth 5.3",
+        "waterResistance": "IPX7"
+      },
+      "features": [
+        "Hi-Fi Sound",
+        "Voice Detect",
+        "Wireless Charging",
+        "360 Audio"
+      ],
+      "images": [
+        "https://m.media-amazon.com/images/I/51Ll4AX3hQL._AC_SL1500_.jpg"
+      ],
+      "sku": "SAM-BUDS2P-GRAPHITE",
+      "tags": ["anc", "hi-fi", "360-audio", "wireless-charging", "ipx7"]
+    },
+    {
+      "id": "xiaomi-14-ultra-512gb-black",
+      "name": "Xiaomi 14 Ultra",
+      "category": "Smartphones",
+      "brand": "Xiaomi",
+      "price": 899.99,
+      "salePrice": 799.99,
+      "currency": "USD",
+      "description": "Professional photography smartphone with Leica cameras, Snapdragon 8 Gen 3, and premium build quality.",
+      "specifications": {
+        "display": "6.73-inch AMOLED display with 120Hz refresh rate",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "512GB",
+        "camera": "50MP Leica main + 50MP ultra-wide + 50MP telephoto + 50MP periscope",
+        "battery": "5,300mAh with 90W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4",
+        "colors": ["Black", "White", "Green"]
+      },
+      "features": ["Leica Cameras", "90W Charging", "IP68 Rating", "MIUI 15"],
+      "images": [
+        "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1708676653.81226415.png"
+      ],
+      "sku": "XIA-14U-512-BK",
+      "tags": ["leica-camera", "fast-charging", "flagship", "photography"]
+    },
+    {
+      "id": "redmi-note-13-pro-256gb-midnight-black",
+      "name": "Redmi Note 13 Pro",
+      "category": "Smartphones",
+      "brand": "Xiaomi",
+      "price": 299.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Premium mid-range smartphone with excellent camera performance and all-day battery life.",
+      "specifications": {
+        "display": "6.67-inch AMOLED display with 120Hz",
+        "chip": "Snapdragon 7s Gen 2",
+        "storage": "256GB",
+        "camera": "200MP main + 8MP ultra-wide + 2MP macro",
+        "battery": "5,100mAh with 67W fast charging",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2",
+        "colors": ["Midnight Black", "Aurora Purple", "Glacier White"]
+      },
+      "features": ["200MP Camera", "67W Charging", "IP54 Rating", "MIUI 14"],
+      "images": [
+        "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1699430400.30978394.png"
+      ],
+      "sku": "XIA-RN13P-256-MB",
+      "tags": ["200mp-camera", "mid-range", "fast-charging", "value"]
+    },
+    {
+      "id": "realme-gt-5-pro-256gb-snap-white",
+      "name": "realme GT 5 Pro",
+      "category": "Smartphones",
+      "brand": "Realme",
+      "price": 599.99,
+      "salePrice": 549.99,
+      "currency": "USD",
+      "description": "Gaming flagship with Snapdragon 8 Gen 3, advanced cooling, and 144Hz display for ultimate performance.",
+      "specifications": {
+        "display": "6.78-inch AMOLED with 144Hz refresh rate",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "256GB",
+        "camera": "50MP main + 50MP periscope + 8MP ultra-wide",
+        "battery": "5,400mAh with 100W SuperVOOC charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4",
+        "colors": ["Snap White", "Desert Gold", "Knight Black"]
+      },
+      "features": [
+        "144Hz Display",
+        "100W Charging",
+        "Gaming Mode",
+        "realme UI 5.0"
+      ],
+      "images": [
+        "https://image01.realme.net/general/20240109/1704780982656d2c8b7e0e0464e9bb8ddab2a7c4a3b0f.png"
+      ],
+      "sku": "RLM-GT5P-256-SW",
+      "tags": ["gaming", "144hz", "fast-charging", "flagship"]
+    },
+    {
+      "id": "realme-12-pro-plus-256gb-submarine-blue",
+      "name": "realme 12 Pro+",
+      "category": "Smartphones",
+      "brand": "Realme",
+      "price": 399.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Photography-focused smartphone with periscope telephoto camera and premium design.",
+      "specifications": {
+        "display": "6.7-inch AMOLED with 120Hz refresh rate",
+        "chip": "Snapdragon 7s Gen 2",
+        "storage": "256GB",
+        "camera": "50MP main + 64MP periscope telephoto + 8MP ultra-wide",
+        "battery": "5,000mAh with 67W SUPERVOOC charging",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2",
+        "colors": ["Submarine Blue", "Navigator Beige", "Explorer Red"]
+      },
+      "features": [
+        "Periscope Camera",
+        "67W Charging",
+        "Premium Design",
+        "realme UI 5.0"
+      ],
+      "images": [
+        "https://image01.realme.net/general/20240229/1709196764944e4e6a5bb7d3048c9ad7bfe8f8e9e7e9e.png"
+      ],
+      "sku": "RLM-12PP-256-SB",
+      "tags": ["periscope-camera", "photography", "premium", "5g"]
+    },
+    {
+      "id": "motorola-edge-50-ultra-512gb-forest-grey",
+      "name": "Motorola Edge 50 Ultra",
+      "category": "Smartphones",
+      "brand": "Motorola",
+      "price": 799.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Premium flagship with wooden back, Snapdragon 8s Gen 3, and pure Android experience.",
+      "specifications": {
+        "display": "6.7-inch pOLED with 144Hz refresh rate",
+        "chip": "Snapdragon 8s Gen 3",
+        "storage": "512GB",
+        "camera": "50MP main + 50MP ultra-wide + 64MP telephoto",
+        "battery": "4,500mAh with 125W TurboPower charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4",
+        "colors": ["Forest Grey", "Peach Fuzz", "Nordic Wood"]
+      },
+      "features": [
+        "Wood Back Design",
+        "125W Charging",
+        "Pure Android",
+        "IP68 Rating"
+      ],
+      "images": [
+        "https://motorolauk.vtexassets.com/arquivos/ids/156766/motorola-edge-50-ultra-forest-grey-1.png"
+      ],
+      "sku": "MOT-E50U-512-FG",
+      "tags": ["premium-design", "fast-charging", "pure-android", "flagship"]
+    },
+    {
+      "id": "motorola-razr-50-ultra-256gb-spring-green",
+      "name": "Motorola Razr 50 Ultra",
+      "category": "Smartphones",
+      "brand": "Motorola",
+      "price": 999.99,
+      "salePrice": 899.99,
+      "currency": "USD",
+      "description": "Latest foldable smartphone with improved hinge design and enhanced durability.",
+      "specifications": {
+        "display": "6.9-inch foldable pOLED + 4-inch external display",
+        "chip": "Snapdragon 8s Gen 3",
+        "storage": "256GB",
+        "camera": "50MP main + 13MP ultra-wide",
+        "battery": "4,000mAh with 45W TurboPower charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4",
+        "colors": ["Spring Green", "Hot Pink", "Midnight Blue"]
+      },
+      "features": [
+        "Foldable Design",
+        "External Display",
+        "Improved Hinge",
+        "IPX8 Rating"
+      ],
+      "images": [
+        "https://motorolauk.vtexassets.com/arquivos/ids/156789/motorola-razr-50-ultra-spring-green-1.png"
+      ],
+      "sku": "MOT-R50U-256-SG",
+      "tags": ["foldable", "innovative", "compact", "premium"]
+    },
+    {
+      "id": "jbl-live-660nc-black",
+      "name": "JBL Live 660NC",
+      "category": "Audio",
+      "brand": "JBL",
+      "price": 199.99,
+      "salePrice": 149.99,
+      "currency": "USD",
+      "description": "Wireless over-ear headphones with adaptive noise cancelling and JBL Signature Sound.",
+      "specifications": {
+        "driver": "40mm dynamic drivers",
+        "activeNoiseCancelling": "Adaptive Noise Cancelling",
+        "audioCodec": "SBC, AAC",
+        "battery": "Up to 50 hours (ANC off), 40 hours (ANC on)",
+        "connectivity": "Bluetooth 5.0",
+        "weight": "220g"
+      },
+      "features": [
+        "JBL Signature Sound",
+        "Adaptive ANC",
+        "Multi-device Connection",
+        "Voice Assistant"
+      ],
+      "images": [
+        "https://in.jbl.com/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw6f8e4a4d/JBL_LIVE660NC_Product%20Image_Hero_Black.png"
+      ],
+      "sku": "JBL-L660NC-BK",
+      "tags": ["anc", "wireless", "signature-sound", "long-battery"]
+    },
+    {
+      "id": "jbl-charge-5-blue",
+      "name": "JBL Charge 5",
+      "category": "Audio",
+      "brand": "JBL",
+      "price": 179.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Portable Bluetooth speaker with powerful sound, waterproof design, and power bank functionality.",
+      "specifications": {
+        "driver": "Racetrack-shaped woofer + dual JBL Bass Radiators",
+        "power": "40W RMS",
+        "battery": "Up to 20 hours playtime",
+        "connectivity": "Bluetooth 5.1",
+        "waterResistance": "IP67",
+        "weight": "960g"
+      },
+      "features": [
+        "JBL Pro Sound",
+        "IP67 Waterproof",
+        "Power Bank",
+        "PartyBoost"
+      ],
+      "images": [
+        "https://in.jbl.com/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw1e2f3c4d/JBL_CHARGE5_HERO_BLUE_1605x1605px.png"
+      ],
+      "sku": "JBL-CHRG5-BL",
+      "tags": ["portable", "waterproof", "power-bank", "party-boost"]
+    },
+    {
+      "id": "huawei-mate-60-pro-512gb-black",
+      "name": "Huawei Mate 60 Pro",
+      "category": "Smartphones",
+      "brand": "Huawei",
+      "price": 999.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Professional photography smartphone with advanced Leica cameras and premium design.",
+      "specifications": {
+        "display": "6.82-inch OLED with 120Hz refresh rate",
+        "chip": "Kirin 9000s",
+        "storage": "512GB",
+        "camera": "50MP main + 48MP periscope + 12MP ultra-wide",
+        "battery": "5,000mAh with 88W fast charging",
+        "connectivity": "5G, Wi-Fi 6+, Bluetooth 5.2",
+        "colors": ["Black", "White", "Green", "Purple"]
+      },
+      "features": [
+        "Leica Cameras",
+        "Premium Design",
+        "Fast Charging",
+        "EMUI 14"
+      ],
+      "images": [
+        "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate60-pro/images/kv/huawei-mate60-pro-kv-black.png"
+      ],
+      "sku": "HUA-M60P-512-BK",
+      "tags": ["leica-camera", "premium", "fast-charging", "photography"]
+    },
+    {
+      "id": "huawei-matebook-x-pro-2024-space-grey",
+      "name": "Huawei MateBook X Pro 2024",
+      "category": "Tablets",
+      "brand": "Huawei",
+      "price": 1499.99,
+      "salePrice": 1299.99,
+      "currency": "USD",
+      "description": "Ultra-slim laptop with 3K touchscreen, Intel Core Ultra processor, and premium build quality.",
+      "specifications": {
+        "display": "14.2-inch 3K touchscreen",
+        "chip": "Intel Core Ultra 7 155H",
+        "storage": "1TB SSD",
+        "memory": "32GB LPDDR5X",
+        "battery": "Up to 13 hours battery life",
+        "connectivity": "Wi-Fi 6E, Bluetooth 5.3, Thunderbolt 4",
+        "colors": ["Space Grey", "Mystic Silver"]
+      },
+      "features": [
+        "3K Touchscreen",
+        "Ultra-slim Design",
+        "Fast Charging",
+        "Huawei Share"
+      ],
+      "images": [
+        "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/laptops/matebook-x-pro-2024/images/huawei-matebook-x-pro-2024-kv-space-grey.png"
+      ],
+      "sku": "HUA-MBX24-1TB-SG",
+      "tags": ["ultrabook", "3k-display", "premium", "touchscreen"]
+    },
+    {
+      "id": "honor-magic-6-pro-512gb-epi-green",
+      "name": "Honor Magic 6 Pro",
+      "category": "Smartphones",
+      "brand": "Honor",
+      "price": 849.99,
+      "salePrice": 749.99,
+      "currency": "USD",
+      "description": "AI-powered flagship smartphone with advanced photography capabilities and premium design.",
+      "specifications": {
+        "display": "6.8-inch LTPO OLED with 120Hz refresh rate",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "512GB",
+        "camera": "50MP main + 180MP periscope + 50MP ultra-wide",
+        "battery": "5,600mAh with 80W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3",
+        "colors": ["Epi Green", "Black", "White"]
+      },
+      "features": [
+        "AI Photography",
+        "180MP Camera",
+        "Magic OS 8.0",
+        "IP68 Rating"
+      ],
+      "images": [
+        "https://www.hihonor.com/content/dam/honor/common/campaign/magic6-series/honor-magic6-pro-epi-green.png"
+      ],
+      "sku": "HON-M6P-512-EG",
+      "tags": ["ai-photography", "180mp-camera", "flagship", "premium"]
+    },
+    {
+      "id": "honor-magicbook-art-14-2024-grey",
+      "name": "Honor MagicBook Art 14 2024",
+      "category": "Tablets",
+      "brand": "Honor",
+      "price": 899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Lightweight laptop with OLED display, Intel Core Ultra processor, and artistic design.",
+      "specifications": {
+        "display": "14.6-inch 3.1K OLED touchscreen",
+        "chip": "Intel Core Ultra 5 125H",
+        "storage": "512GB SSD",
+        "memory": "16GB LPDDR5X",
+        "battery": "Up to 9.5 hours battery life",
+        "connectivity": "Wi-Fi 6E, Bluetooth 5.3, USB-C",
+        "colors": ["Grey", "Silver"]
+      },
+      "features": [
+        "OLED Display",
+        "Lightweight Design",
+        "Magic OS Connect",
+        "Fast Charging"
+      ],
+      "images": [
+        "https://www.hihonor.com/content/dam/honor/common/campaign/magicbook-art-14/honor-magicbook-art-14-grey.png"
+      ],
+      "sku": "HON-MBA14-512-GY",
+      "tags": ["oled-display", "lightweight", "premium", "touchscreen"]
+    }
+  ],
+  "categories": [
+    "Smartphones",
+    "Tablets",
+    "Monitors & Displays",
+    "Wearables",
+    "Audio"
+  ],
+  "brands": [
+    "Samsung",
+    "Apple",
+    "Google",
+    "Xiaomi",
+    "Realme",
+    "Motorola",
+    "JBL",
+    "Huawei",
+    "Honor"
+  ],
+  "metadata": {
+    "lastUpdated": "2025-08-21",
+    "totalProducts": 35,
+    "currency": "USD",
+    "version": "2.0"
+  }
+}
