@@ -383,8 +383,8 @@ export default function HonorPage() {
           <h2 className="text-3xl font-bold mb-6">Join the Honor Community</h2>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
             Connect with millions of Honor users worldwide. Share experiences,
-            get support, and discover new ways to unlock the magic of your Honor
-            device.
+            discover features, and explore the full potential of your Honor
+            device through our business partnerships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -398,7 +398,7 @@ export default function HonorPage() {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-blue-600"
             >
-              Get Support
+              Learn More
             </Button>
           </div>
         </div>

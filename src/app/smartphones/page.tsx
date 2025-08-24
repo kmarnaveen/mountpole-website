@@ -81,13 +81,12 @@ export default function SmartphonesPage() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
             {/* Gemini-style gradient text */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent leading-tight">
-              Smartphones
+              Mobile Solutions
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
-              Discover the latest smartphones from Apple, Samsung, and Google.
-              Explore cutting-edge features, powerful specifications, and find
-              your perfect device.
+              Discover MountPole&apos;s comprehensive smartphone collection from trusted brands like Apple, Samsung, and Xiaomi.
+              Get wholesale pricing and authentic products with global distribution services.
             </p>
 
             <div className="mt-6 md:mt-8">
@@ -100,7 +99,7 @@ export default function SmartphonesPage() {
                 }}
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105"
               >
-                Explore Smartphones
+                Get Wholesale Pricing
               </button>
             </div>
           </div>
@@ -157,7 +156,7 @@ export default function SmartphonesPage() {
       <section id="smartphones-section" className="py-12 md:py-16 px-4">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
-            Featured Smartphones
+            Enterprise Mobile Devices
           </h2>
 
           {/* Results Info */}
@@ -232,18 +231,23 @@ export default function SmartphonesPage() {
                           </div>
                         </div>
 
-                        {/* Action Button */}
+                        {/* Action Buttons */}
                         <div className="pt-4 space-y-2">
-                          <Link href={`/product/${phone.id}`}>
-                            <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                              View Details
-                            </Button>
-                          </Link>
-                          <Link href={`/brands/${phone.brand.toLowerCase()}`}>
-                            <Button className="w-full" variant="outline">
-                              View Brand
-                            </Button>
-                          </Link>
+                          <div className="flex gap-2">
+                            <Link href={`/product/${phone.id}`} className="flex-1">
+                              <Button className="w-full" variant="outline">
+                                View Details
+                              </Button>
+                            </Link>
+                            <Link href={`/contact?type=quote&product=${phone.id}`} className="flex-1">
+                              <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                                Request Quote
+                              </Button>
+                            </Link>
+                          </div>
+                          <p className="text-xs text-gray-500 text-center">
+                            Volume pricing available
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -269,30 +273,30 @@ export default function SmartphonesPage() {
       <section className="py-16 bg-gray-50 px-4">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-12 text-gray-900">
-            Why Choose These Smartphones?
+            Why Choose Our Mobile Solutions?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <div className="text-center">
               <Camera className="mx-auto h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="font-semibold mb-2">Advanced Camera Systems</h3>
+              <h3 className="font-semibold mb-2">Enterprise Security</h3>
               <p className="text-gray-600">
-                Pro-level photography with AI-enhanced features
+                Advanced security features and enterprise-grade encryption
               </p>
             </div>
 
             <div className="text-center">
               <Cpu className="mx-auto h-12 w-12 text-green-600 mb-4" />
-              <h3 className="font-semibold mb-2">Flagship Performance</h3>
+              <h3 className="font-semibold mb-2">Business Performance</h3>
               <p className="text-gray-600">
-                Latest processors for seamless multitasking
+                Latest processors optimized for professional workflows
               </p>
             </div>
 
             <div className="text-center">
               <Battery className="mx-auto h-12 w-12 text-purple-600 mb-4" />
-              <h3 className="font-semibold mb-2">All-Day Battery</h3>
+              <h3 className="font-semibold mb-2">All-Day Productivity</h3>
               <p className="text-gray-600">
-                Fast charging and wireless charging capabilities
+                Extended battery life for demanding business applications
               </p>
             </div>
           </div>

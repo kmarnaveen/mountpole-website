@@ -19,11 +19,11 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-8 md:py-12">
           <div className="text-center max-w-2xl mx-auto">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4">
-              Stay Updated
+              Partner with MountPole
             </h3>
             <p className="text-sm sm:text-base text-gray-300 mb-4 md:mb-6 leading-relaxed">
-              Get the latest news about product launches, tech insights, and
-              industry updates.
+              Get the latest updates on wholesale pricing, new brand partnerships, 
+              and distribution opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-md mx-auto">
               <Input
@@ -48,12 +48,11 @@ export default function Footer() {
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">M</span>
               </div>
-              <span className="text-lg sm:text-xl font-bold">Mountpole</span>
+              <span className="text-lg sm:text-xl font-bold">MountPole</span>
             </div>
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-              Your trusted partner for premium electronics information. We
-              showcase the latest smartphones, tablets, wearables, and monitors
-              from top brands.
+              Your trusted global technology distributor. We connect businesses worldwide with 
+              authentic products from leading brands through reliable wholesale partnerships and distribution excellence.
             </p>
             <div className="flex space-x-3 md:space-x-4">
               <Button
@@ -97,9 +96,7 @@ export default function Footer() {
                 { name: "About Us", href: "/about" },
                 { name: "Products", href: "/products" },
                 { name: "Brands", href: "/brands" },
-                { name: "Support", href: "/support" },
                 { name: "Contact", href: "/contact" },
-                { name: "Blog", href: "/blog" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -124,8 +121,6 @@ export default function Footer() {
                 { name: "Tablets", href: "/tablets" },
                 { name: "Wearables", href: "/wearables" },
                 { name: "Monitors", href: "/monitors" },
-                { name: "Accessories", href: "/accessories" },
-                { name: "Latest Tech", href: "/latest" },
               ].map((category) => (
                 <li key={category.name}>
                   <Link
@@ -148,19 +143,19 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 mt-1 flex-shrink-0" />
                 <div className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                  <p>123 Technology Street</p>
-                  <p>Electronics District</p>
-                  <p>City, State 12345</p>
+                  <p>8333 NW 53RD Street, Suite 450</p>
+                  <p>Doral FL – 33166, USA</p>
+                  <p>Mississauga, Ontario, Canada</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 flex-shrink-0" />
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+14376613501"
                   className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base"
                 >
-                  +1 (234) 567-8900
+                  +1 437 661 3501
                 </a>
               </div>
 
@@ -183,7 +178,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-4 md:py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0 text-center md:text-left">
             <div className="text-gray-400 text-xs sm:text-sm">
-              © 2024 Mountpole. All rights reserved.
+              © 2024 MountPole. All rights reserved.
             </div>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm">

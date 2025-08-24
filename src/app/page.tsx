@@ -180,45 +180,47 @@ export default function Home() {
   const heroItems = [
     {
       id: "1",
-      title: "Premium Gaming Monitors",
+      title: "Partner With MountPole",
       description:
-        "Experience ultimate visual clarity with our cutting-edge gaming monitors. Featuring high refresh rates, HDR support, and stunning 4K resolution for the most immersive gaming experience.",
+        "Join forces with a trusted global technology distributor. Whether you're a retailer, reseller, or enterprise buyer, MountPole provides authentic products, competitive wholesale pricing, and reliable supply chains to fuel your business growth.",
       video: "/01-hd01-DM-Series-kv-pc-1440x6401.webm",
-      textPosition: "start" as const, // Text positioned at start (left)
+      textPosition: "start" as const,
       cta: {
-        text: "Explore Monitors",
-        href: "/monitors",
+        text: "Start Partnership",
+        href: "/contact?type=partnership",
       },
     },
     {
       id: "2",
-      title: "Two sizes. Same Pro.",
-      description: "",
+      title: "Global Technology Distribution",
+      description:
+        "Connecting the world with technology you trust. MountPole distributes premium brands like Apple, Samsung, Xiaomi, and more across the USA, Canada, Latin America, and beyond.",
       image: "/pixel-9-pro-banner.png",
-      textPosition: "top-center" as const, // Text positioned at top center
-      href: "/smartphones", // Direct link instead of CTA button
+      textPosition: "top-center" as const,
+      href: "/smartphones",
     },
     {
       id: "3",
-      title: "Latest Smartphones",
+      title: "Global Reach, Trusted Brands",
       description:
-        "Discover the newest smartphone technology with cutting-edge cameras, lightning-fast processors, and innovative features that keep you connected and productive.",
+        "Serving partners across the USA, Canada, Latin America, and beyond. Distributing world-class electronics and lifestyle products with reliable bulk supply and competitive margins for resellers.",
       video: "/large_2x.mp4",
-      textPosition: "start" as const, // Text positioned at start (left)
+      textPosition: "start" as const,
       cta: {
-        text: "Shop Smartphones",
-        href: "/smartphones",
+        text: "Become a Partner",
+        href: "/contact?type=business",
       },
     },
 
     {
       id: "5",
-      title: "",
-      description: "",
+      title: "Apple Business Solutions",
+      description:
+        "Authorized Apple Business Partner - Get enterprise pricing and dedicated business solutions for your technology needs",
       image:
         "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/aalp-magsafe-header-202503?wid=2880&hei=960&fmt=png-alpha&.v=Z0FvN205Yit0amxaU0VEclhjUVpkQ1UrSEpTSlJCQnBKOXVkZ0ZzTVBSSmNIMFFzd3RXdklnTGRTZDNHMExMN0FBdXY2YUtQNTBqTXdOQ1ZyYzhsU1FsYVJ0UGoyVHJsd2tKa2lWMzVuNU0",
-      textPosition: "start" as const, // Changed from "end" to "start" since "end" is not in the union type
-      href: "/brands/apple",
+      textPosition: "start" as const,
+      href: "/contact?type=apple-business",
     },
   ];
 
@@ -249,8 +251,8 @@ export default function Home() {
             <div className="container mx-auto">
               <ProductCarousel
                 products={typedFeaturedProducts}
-                title="Featured Products"
-                subtitle="Discover our most popular devices with exclusive offers"
+                title="Premium Technology from Trusted Brands"
+                subtitle="Apple | Samsung | Xiaomi | Tecno | Infinix | Oppo | Realme | JBL | Dyson"
                 autoPlay={true}
                 autoPlayInterval={5000}
                 showQuickView={true}
@@ -261,47 +263,71 @@ export default function Home() {
           </section>
 
           {/* Categories Section */}
-          <section className="py-16 px-4">
+          <section className="py-8 md:py-16 px-4">
             <div className="container mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                Shop by Category
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
+                Products & Solutions
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
                   <CardHeader className="text-center">
-                    <Smartphone className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-                    <CardTitle>Smartphones</CardTitle>
+                    <Smartphone className="mx-auto h-8 w-8 md:h-12 md:w-12 text-blue-600 mb-2 md:mb-4 group-hover:scale-110 transition-transform" />
+                    <CardTitle>Smartphones &</CardTitle>
                     <CardDescription>
-                      Latest iPhone, Galaxy & Pixel
+                      Latest devices from Apple, Samsung, Oppo, Realme, Tecno,
+                      Infinix, and Xiaomi — catering to every market segment
                     </CardDescription>
                   </CardHeader>
                 </Card>
 
                 <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
                   <CardHeader className="text-center">
-                    <Tablet className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-                    <CardTitle>Tablets</CardTitle>
+                    <svg
+                      className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                    </svg>
+                    <CardTitle>Audio & Lifestyle</CardTitle>
                     <CardDescription>
-                      iPad, Galaxy Tab & Pixel Tablet
+                      Premium sound and accessories from JBL and others, built
+                      to enhance everyday living
                     </CardDescription>
                   </CardHeader>
                 </Card>
 
                 <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
                   <CardHeader className="text-center">
-                    <Watch className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-                    <CardTitle>Wearables</CardTitle>
+                    <svg
+                      className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                    <CardTitle>Home & Personal Tech</CardTitle>
                     <CardDescription>
-                      Apple Watch, Galaxy Watch & More
+                      Dyson's cutting-edge appliances and a growing range of
+                      smart home innovations
                     </CardDescription>
                   </CardHeader>
                 </Card>
 
                 <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
                   <CardHeader className="text-center">
-                    <Monitor className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-                    <CardTitle>Monitors</CardTitle>
-                    <CardDescription>High-resolution displays</CardDescription>
+                    <svg
+                      className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                    </svg>
+                    <CardTitle>Accessories & Spare Parts</CardTitle>
+                    <CardDescription>
+                      Chargers, batteries, protective gear, and OEM-certified
+                      spare parts — ensuring complete solutions
+                    </CardDescription>
                   </CardHeader>
                 </Card>
               </div>
@@ -309,10 +335,10 @@ export default function Home() {
           </section>
 
           {/* Brand Highlights */}
-          <section className="py-16 bg-gray-50 px-4">
+          <section className="py-8 md:py-16 bg-gray-50 px-4">
             <div className="container mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                Featured Brands
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
+                Brands We Work With
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <Card className="text-center group hover:shadow-xl transition-shadow">
@@ -407,34 +433,137 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Why Mountpole */}
-          <section className="py-16 px-4">
+          {/* Company Highlights Section */}
+          <section className="py-8 md:py-16 bg-blue-50 px-4">
             <div className="container mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                Why Choose Mountpole?
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
+                Why Choose MountPole
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <svg
+                      className="mx-auto h-12 w-12 text-blue-600 mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    <CardTitle className="text-lg">Global Reach</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 text-sm">
+                      Serving partners across the USA, Canada, Latin America,
+                      and beyond
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <Shield className="mx-auto h-12 w-12 text-green-600 mb-4" />
+                    <CardTitle className="text-lg">Trusted Brands</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 text-sm">
+                      Distributing world-class electronics and lifestyle
+                      products
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <svg
+                      className="mx-auto h-12 w-12 text-purple-600 mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" />
+                    </svg>
+                    <CardTitle className="text-lg">
+                      Wholesale Expertise
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 text-sm">
+                      Reliable bulk supply and competitive margins for resellers
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <svg
+                      className="mx-auto h-12 w-12 text-red-600 mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <CardTitle className="text-lg">Innovation Driven</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 text-sm">
+                      Keeping you ahead with the latest in mobile and consumer
+                      technology
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <Smartphone className="mx-auto h-12 w-12 text-orange-600 mb-4" />
+                    <CardTitle className="text-lg">Quality Assurance</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 text-sm">
+                      Rigorous quality checks and authentic products guaranteed
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="text-center mt-8">
+                <Link href="/contact?type=services">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                    Learn More About Our Services
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {/* Why Mountpole for Business */}
+          <section className="py-8 md:py-16 px-4">
+            <div className="container mx-auto">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
+                Why Choose Mountpole for Business?
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="text-center">
                   <Shield className="mx-auto h-12 w-12 text-green-600 mb-4" />
-                  <h3 className="font-semibold mb-2">Authentic Products</h3>
+                  <h3 className="font-semibold mb-2">
+                    Dedicated Account Manager
+                  </h3>
                   <p className="text-gray-600">
-                    100% genuine products with official warranties
+                    Personal account manager for seamless procurement
                   </p>
                 </div>
 
                 <div className="text-center">
                   <Shield className="mx-auto h-12 w-12 text-yellow-500 mb-4" />
-                  <h3 className="font-semibold mb-2">Multi-Brand</h3>
+                  <h3 className="font-semibold mb-2">Volume Discounts</h3>
                   <p className="text-gray-600">
-                    Authorized retailer for top electronics brands
+                    Competitive bulk pricing for enterprise orders
                   </p>
                 </div>
 
                 <div className="text-center">
                   <Monitor className="mx-auto h-12 w-12 text-purple-600 mb-4" />
-                  <h3 className="font-semibold mb-2">Product Showcase</h3>
+                  <h3 className="font-semibold mb-2">Fast Deployment</h3>
                   <p className="text-gray-600">
-                    Comprehensive display of latest technology
+                    Quick device setup and configuration services
                   </p>
                 </div>
               </div>
@@ -566,28 +695,28 @@ export default function Home() {
                   Explore products from all our partner brands
                 </p>
                 <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 md:gap-4">
-                  <Link href="/smartphones">
+                  <Link href="/contact?type=quote&category=smartphones">
                     <Button
                       variant="outline"
                       className="hover:bg-blue-600 hover:text-white w-full sm:w-auto"
                     >
-                      View Smartphones
+                      Get Mobile Quotes
                     </Button>
                   </Link>
-                  <Link href="/tablets">
+                  <Link href="/contact?type=quote&category=tablets">
                     <Button
                       variant="outline"
                       className="hover:bg-blue-600 hover:text-white w-full sm:w-auto"
                     >
-                      View Tablets
+                      Get Tablet Quotes
                     </Button>
                   </Link>
-                  <Link href="/wearables">
+                  <Link href="/contact?type=quote&category=wearables">
                     <Button
                       variant="outline"
                       className="hover:bg-blue-600 hover:text-white w-full sm:w-auto"
                     >
-                      View Wearables
+                      Get Wearable Quotes
                     </Button>
                   </Link>
                 </div>
@@ -596,10 +725,10 @@ export default function Home() {
           </section>
 
           {/* Featured Products */}
-          <section className="py-16 bg-gray-50 px-4">
+          <section className="py-8 md:py-16 bg-gray-50 px-4">
             <div className="container mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                Popular Products
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
+                Recommended for Enterprise
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Show popular products from our database */}
@@ -650,26 +779,47 @@ export default function Home() {
                           <Badge
                             variant={product.inStock ? "default" : "secondary"}
                           >
-                            {product.inStock ? "In Stock" : "Out of Stock"}
+                            {product.inStock ? "Available" : "Contact Us"}
                           </Badge>
-                          {product.category === "Smartphones" && (
-                            <Badge variant="outline">Best Seller</Badge>
-                          )}
+                          <Badge
+                            variant="outline"
+                            className="text-blue-600 border-blue-600"
+                          >
+                            Volume Pricing Available
+                          </Badge>
                         </div>
                       </div>
-                      <Link href={`/product/${product.id}`}>
-                        <Button className="w-full" variant="outline">
-                          View Details
-                        </Button>
-                      </Link>
+                      <div className="flex gap-2">
+                        <Link
+                          href={`/product/${product.id}`}
+                          className="flex-1"
+                        >
+                          <Button className="w-full" variant="outline">
+                            View Details
+                          </Button>
+                        </Link>
+                        <Link
+                          href={`/contact?type=quote&product=${product.id}`}
+                          className="flex-1"
+                        >
+                          <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                            Request Quote
+                          </Button>
+                        </Link>
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
               <div className="text-center mt-8">
+                <Link href="/contact?type=business">
+                  <Button variant="outline" size="lg" className="mr-4">
+                    Request Business Quote
+                  </Button>
+                </Link>
                 <Link href="/smartphones">
                   <Button variant="outline" size="lg">
-                    View All Products
+                    View All Solutions
                   </Button>
                 </Link>
               </div>

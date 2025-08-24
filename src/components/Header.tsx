@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -36,12 +37,28 @@ import {
   Shield,
   HeadphonesIcon,
   X,
+  Headphones,
 } from "lucide-react";
+import { StreamSearch } from "@/components/StreamSearch";
+import productsData from "../../products.json";
+import { Product } from "@/types/product";
 
 export default function Header() {
+  const router = useRouter();
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Search placeholders
+  const searchPlaceholder = "Search products...";
+  const mobileSearchPlaceholder = "Search for products, brands...";
+
+  // Handle hydration
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const categories = [
     {
@@ -124,18 +141,26 @@ export default function Header() {
     { name: "Home", icon: Home, href: "/", color: "text-blue-600" },
     { name: "About", icon: Info, href: "/about", color: "text-green-600" },
     {
-      name: "Support",
-      icon: HelpCircle,
-      href: "/support",
-      color: "text-orange-600",
-    },
-    {
       name: "Contact",
       icon: Phone,
       href: "/contact",
       color: "text-purple-600",
     },
   ];
+
+  // Search handlers
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+    } else {
+      router.push('/search');
+    }
+  };
+
+  const handleDesktopSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSearch(searchQuery);
+  };
 
   return (
     <>
@@ -147,7 +172,7 @@ export default function Header() {
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">M</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">Mountpole</span>
+              <span className="text-xl font-bold text-gray-900">MountPole</span>
             </Link>
 
             {/* Mobile Search Button */}
@@ -164,41 +189,42 @@ export default function Header() {
 
       {/* Mobile Search Overlay */}
       {isMobileSearchOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-white">
-          <div className="p-4">
-            <div className="flex items-center space-x-3 mb-6">
+        <div className="md:hidden fixed inset-0 z-[9998] bg-white">
+          <div className="p-3">
+            <div className="flex items-center space-x-2 mb-4">
               <button
                 onClick={() => setIsMobileSearchOpen(false)}
-                className="p-2 hover:bg-gray-100 rounded-full"
+                className="p-1.5 hover:bg-gray-100 rounded-full"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
-              <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                  placeholder="Search for products, brands..."
-                  className="pl-10 h-12 text-base"
-                  autoFocus
+              <div className="flex-1">
+                <StreamSearch
+                  products={productsData.products as Product[]}
+                  placeholder={mobileSearchPlaceholder}
+                  className="w-full"
+                  maxResults={6}
+                  onSelectResult={() => setIsMobileSearchOpen(false)}
                 />
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div>
-                <h3 className="font-semibold mb-3 text-gray-900">
+                <h3 className="font-medium mb-2 text-gray-900 text-sm">
                   Popular Categories
                 </h3>
-                <div className="grid grid-cols-1 gap-2">
+                <div className="grid grid-cols-1 gap-1.5">
                   {categories.slice(0, 5).map((category) => {
                     const Icon = category.icon;
                     return (
                       <Link
                         key={category.name}
                         href={category.href}
-                        className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="flex items-center space-x-2.5 p-2.5 rounded-lg hover:bg-gray-50 transition-colors"
                         onClick={() => setIsMobileSearchOpen(false)}
                       >
-                        <Icon className={`h-5 w-5 ${category.color}`} />
+                        <Icon className={`h-4 w-4 ${category.color}`} />
                         <div>
                           <span className="font-medium text-sm">
                             {category.name}
@@ -214,20 +240,20 @@ export default function Header() {
               </div>
 
               <div>
-                <h3 className="font-semibold mb-3 text-gray-900">
+                <h3 className="font-medium mb-2 text-gray-900 text-sm">
                   Popular Brands
                 </h3>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-1.5">
                   {brands.slice(0, 6).map((brand) => (
                     <Link
                       key={brand.name}
                       href={brand.href}
-                      className="p-3 rounded-lg hover:bg-gray-50 transition-colors text-center"
+                      className="p-2 rounded-lg hover:bg-gray-50 transition-colors text-center"
                       onClick={() => setIsMobileSearchOpen(false)}
                     >
                       <span className="font-medium text-sm">{brand.name}</span>
                       {brand.badge && (
-                        <span className="block text-xs text-blue-600 mt-1">
+                        <span className="block text-xs text-blue-600 mt-0.5">
                           {brand.badge}
                         </span>
                       )}
@@ -241,7 +267,7 @@ export default function Header() {
       )}
 
       {/* Desktop Header - Sticky with full functionality */}
-      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b hidden md:block">
+      <header className="sticky top-0 z-[9999] w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b hidden md:block">
         <div className="container mx-auto px-4">
           {/* Top bar */}
           <div className="flex items-center justify-between py-4">
@@ -250,34 +276,17 @@ export default function Header() {
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">M</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">Mountpole</span>
+              <span className="text-xl font-bold text-gray-900">MountPole</span>
             </Link>
 
             {/* Search Bar - Desktop */}
             <div className="hidden md:flex flex-1 max-w-md mx-8">
-              <div className="relative w-full">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                <Input
-                  type="search"
-                  placeholder="Search products..."
-                  className="pl-10 pr-4 w-full"
-                  onFocus={() => setIsSearchFocused(true)}
-                  onBlur={() => setIsSearchFocused(false)}
-                />
-                {isSearchFocused && (
-                  <div className="absolute top-full left-0 right-0 mt-2 bg-white border rounded-lg shadow-lg p-4 z-50">
-                    <div className="space-y-2">
-                      <p className="text-sm text-gray-500">Popular searches:</p>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge variant="secondary">iPhone 15</Badge>
-                        <Badge variant="secondary">Galaxy S24</Badge>
-                        <Badge variant="secondary">Pixel 9</Badge>
-                        <Badge variant="secondary">iPad</Badge>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
+              <StreamSearch
+                products={productsData.products as Product[]}
+                placeholder={isMounted ? `${searchPlaceholder} (Press / or ⌘K)` : searchPlaceholder}
+                className="w-full"
+                maxResults={6}
+              />
             </div>
 
             {/* Right side actions */}
@@ -321,7 +330,7 @@ export default function Header() {
                           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                           <Input
                             type="search"
-                            placeholder="Search products..."
+                            placeholder={searchPlaceholder}
                             className="pl-10 pr-4 w-full"
                           />
                         </div>
@@ -392,7 +401,7 @@ export default function Header() {
                       {/* Brands */}
                       <div className="p-4 border-b">
                         <h3 className="font-semibold text-gray-900 mb-3 flex items-center">
-                          <HeadphonesIcon className="h-4 w-4 mr-2 text-green-500" />
+                          <Headphones className="h-4 w-4 mr-2 text-green-500" />
                           Top Brands
                         </h3>
                         <div className="space-y-1">
@@ -542,17 +551,6 @@ export default function Header() {
                       className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
                     >
                       About
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href="/support"
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                    >
-                      Support
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>

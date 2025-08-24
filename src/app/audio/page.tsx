@@ -98,16 +98,16 @@ export default function AudioPage() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
             {/* Gemini-style gradient text */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent leading-tight">
-              Audio
+              Professional Audio Solutions
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
-              Immerse yourself in exceptional sound quality. Discover wireless
-              earbuds and headphones with advanced noise cancellation and Hi-Fi
-              audio.
+              Enhance workplace communication with enterprise-grade audio
+              equipment. Crystal-clear calls, immersive meetings, and
+              productivity-focused sound solutions.
             </p>
 
-            <div className="mt-6 md:mt-8">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => {
                   const productsSection =
@@ -116,8 +116,13 @@ export default function AudioPage() {
                 }}
                 className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105"
               >
-                Explore Audio
+                View Solutions
               </button>
+              <Link href="/contact?type=business&category=audio">
+                <button className="bg-white/20 hover:bg-white/30 text-white border border-white/40 px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 backdrop-blur-sm">
+                  Get Volume Pricing
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -135,11 +140,11 @@ export default function AudioPage() {
                 </span>
               </div>
               <div className="flex gap-4 text-sm text-gray-600">
-                <span>Premium Brands</span>
+                <span>Enterprise Grade</span>
                 <span>•</span>
-                <span>Latest Technology</span>
+                <span>Volume Discounts</span>
                 <span>•</span>
-                <span>Expert Tested</span>
+                <span>Quality Assured</span>
               </div>
             </div>
           </div>
@@ -260,11 +265,22 @@ export default function AudioPage() {
                           </div>
                         )}
 
-                        <Link href={`/product/${product.id}`}>
-                          <Button className="w-full" variant="outline">
-                            View Details
-                          </Button>
-                        </Link>
+                        <div className="flex flex-col gap-2">
+                          <Link href={`/product/${product.id}`}>
+                            <Button className="w-full" variant="outline">
+                              View Details
+                            </Button>
+                          </Link>
+                          <Link
+                            href={`/contact?type=quote&product=${
+                              product.id
+                            }&name=${encodeURIComponent(product.name)}`}
+                          >
+                            <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                              Get Bulk Pricing
+                            </Button>
+                          </Link>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>

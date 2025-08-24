@@ -126,13 +126,12 @@ export default function TabletsPage() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
             {/* Gemini-style gradient text */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent leading-tight">
-              Tablets
+              Business Tablets
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
-              Discover powerful tablets for creativity, productivity, and
-              entertainment. From iPad Pro to Surface tablets, find your perfect
-              companion.
+              Enhance workplace productivity with professional tablets from Apple, Microsoft, and Samsung.
+              Perfect for creative teams, field work, and executive presentations.
             </p>
 
             <div className="mt-6 md:mt-8">
@@ -144,7 +143,7 @@ export default function TabletsPage() {
                 }}
                 className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105"
               >
-                Explore Tablets
+                Get Business Pricing
               </button>
             </div>
           </div>
@@ -282,11 +281,21 @@ export default function TabletsPage() {
                           ))}
                         </div>
 
-                        <Link href={`/product/${tablet.id}`}>
-                          <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                            View Details
-                          </Button>
-                        </Link>
+                        <div className="flex gap-2 mt-4">
+                          <Link href={`/product/${tablet.id}`} className="flex-1">
+                            <Button className="w-full" variant="outline">
+                              View Details
+                            </Button>
+                          </Link>
+                          <Link href={`/contact?type=quote&product=${tablet.id}`} className="flex-1">
+                            <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                              Request Quote
+                            </Button>
+                          </Link>
+                        </div>
+                        <p className="text-xs text-gray-500 text-center mt-2">
+                          Enterprise pricing available
+                        </p>
                       </div>
                     </CardContent>
                   </Card>

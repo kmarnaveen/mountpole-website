@@ -28,6 +28,12 @@ import {
   Palette,
   ArrowLeft,
   MessageCircle,
+  ShoppingCart,
+  Download,
+  Users,
+  CreditCard,
+  FileText,
+  Building,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -52,26 +58,16 @@ export default function DynamicProductDetailsPage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Generate WhatsApp URL with product information
-  const generateWhatsAppURL = () => {
-    if (!product) return "";
+  // Generate contact URLs for B2B actions
+  const generateQuoteURL = () => {
+    if (!product) return "/contact";
+    return `/contact?type=quote&product=${product.id}&name=${encodeURIComponent(product.name)}`;
+  };
 
-    const baseURL = "https://wa.me/";
-    const phoneNumber = ""; // Add your WhatsApp business number here
-    const productURL = `${window.location.origin}/product/${product.id}`;
-    const message = `Hi! I'm interested in the ${product.name} from ${product.brand}.
-
-Product Details:
-- Name: ${product.name}
-- Brand: ${product.brand}
-- Category: ${product.category}
-
-Product Link: ${productURL}
-
-Could you please provide more information about this product?`;
-
-    const encodedMessage = encodeURIComponent(message);
-    return `${baseURL}${phoneNumber}?text=${encodedMessage}`;
+  const generateSpecSheetURL = () => {
+    if (!product) return "/contact";
+    // In a real implementation, this would link to actual spec sheets
+    return `/contact?type=spec-sheet&product=${product.id}&name=${encodeURIComponent(product.name)}`;
   };
 
   // Show skeleton while loading
@@ -245,26 +241,60 @@ Could you please provide more information about this product?`;
 
             {/* Actions */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Button
-                size="lg"
-                className="flex-1 bg-green-600 hover:bg-green-700 text-sm sm:text-base py-3 sm:py-4 px-4 sm:px-6 min-h-[48px] sm:min-h-[52px]"
-                onClick={() => {
-                  if (typeof window !== "undefined") {
-                    window.open(generateWhatsAppURL(), "_blank");
-                  }
-                }}
-              >
-                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                <span className="truncate">Query on WhatsApp</span>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-sm sm:text-base py-3 sm:py-4 px-4 sm:px-6 min-h-[48px] sm:min-h-[52px]"
-              >
-                <Share2 className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                <span className="truncate">Share</span>
-              </Button>
+              <Link href={generateQuoteURL()} className="flex-1">
+                <Button
+                  size="lg"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-sm sm:text-base py-3 sm:py-4 px-4 sm:px-6 min-h-[48px] sm:min-h-[52px]"
+                >
+                  <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+                  <span className="truncate">Add to Quote List</span>
+                </Button>
+              </Link>
+              <Link href={generateSpecSheetURL()}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-sm sm:text-base py-3 sm:py-4 px-4 sm:px-6 min-h-[48px] sm:min-h-[52px]"
+                >
+                  <Download className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
+                  <span className="truncate">Download Spec Sheet</span>
+                </Button>
+              </Link>
+            </div>
+
+            {/* B2B Information */}
+            <div className="bg-blue-50 rounded-lg p-4 sm:p-6">
+              <h3 className="text-lg font-semibold mb-4 text-blue-900">Business Solutions</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex items-start gap-3">
+                  <Users className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">Bulk Orders</h4>
+                    <p className="text-sm text-gray-600">Volume discounts available for orders of 10+ units</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Shield className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">Enterprise Warranty</h4>
+                    <p className="text-sm text-gray-600">Extended warranty and comprehensive service options</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Building className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">MDM Compatible</h4>
+                    <p className="text-sm text-gray-600">Mobile Device Management integration ready</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CreditCard className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">Business Financing</h4>
+                    <p className="text-sm text-gray-600">Flexible payment terms and leasing options</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Trust Indicators */}

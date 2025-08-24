@@ -90,15 +90,15 @@ export default function WearablesPage() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
             {/* Gemini-style gradient text */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent leading-tight">
-              Wearables
+              Wearable Technology for Business
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
-              Track your health, stay connected, and enhance your lifestyle.
-              Discover smart watches and fitness trackers that fit your needs.
+              Empower your workforce with enterprise-grade wearables. Health monitoring, 
+              productivity tracking, and seamless integration for your business ecosystem.
             </p>
 
-            <div className="mt-6 md:mt-8">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => {
                   const productsSection =
@@ -107,8 +107,13 @@ export default function WearablesPage() {
                 }}
                 className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105"
               >
-                Explore Wearables
+                Explore Solutions
               </button>
+              <Link href="/contact?type=business&category=wearables">
+                <button className="bg-white/20 hover:bg-white/30 text-white border border-white/40 px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 backdrop-blur-sm">
+                  Get Enterprise Quote
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -118,7 +123,7 @@ export default function WearablesPage() {
       <section id="wearables-section" className="py-16 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            Featured Wearables
+            Enterprise Wearable Solutions
           </h2>
 
           {/* Results Info */}
@@ -228,11 +233,18 @@ export default function WearablesPage() {
                           </div>
                         )}
 
-                        <Link href={`/product/${product.id}`}>
-                          <Button className="w-full" variant="outline">
-                            View Details
-                          </Button>
-                        </Link>
+                        <div className="flex flex-col gap-2">
+                          <Link href={`/product/${product.id}`}>
+                            <Button className="w-full" variant="outline">
+                              View Details
+                            </Button>
+                          </Link>
+                          <Link href={`/contact?type=quote&product=${product.id}&name=${encodeURIComponent(product.name)}`}>
+                            <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                              Request Quote
+                            </Button>
+                          </Link>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>

@@ -198,7 +198,7 @@ export default function Carousel({
                 />
               ) : null}
               <div
-                className={`relative h-full flex px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 ${
+                className={`absolute inset-0 h-full flex px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 z-50 ${
                   item.textPosition === "top-center"
                     ? "items-start justify-center pt-4 sm:pt-10 md:pt-14"
                     : "items-center justify-start"
@@ -207,12 +207,12 @@ export default function Carousel({
                 <div
                   className={`max-w-xl md:max-w-2xl lg:max-w-3xl ${
                     item.textPosition === "top-center" ? "text-center" : ""
-                  }`}
+                  } bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-8 md:p-10  shadow-2xl relative z-50`}
                 >
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight text-black drop-shadow-lg">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight text-white drop-shadow-lg">
                     {item.title}
                   </h2>
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 md:mb-8 leading-relaxed max-w-lg md:max-w-xl lg:max-w-2xl text-white drop-shadow-md">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 md:mb-8 leading-relaxed max-w-lg md:max-w-xl lg:max-w-2xl text-white/90 drop-shadow-md">
                     {item.description}
                   </p>
                   {item.cta && (
@@ -225,7 +225,7 @@ export default function Carousel({
                     >
                       <Button
                         size="lg"
-                        className="bg-black text-white hover:bg-gray-200 font-semibold px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base md:text-lg transition-all duration-200 hover:scale-105"
+                        className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30 font-semibold px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base md:text-lg transition-all duration-200 hover:scale-105 shadow-lg"
                         asChild
                       >
                         <a href={item.cta.href}>{item.cta.text}</a>

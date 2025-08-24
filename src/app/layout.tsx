@@ -4,15 +4,16 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileDock from "@/components/MobileDock";
+import { SearchProvider } from "@/contexts/SearchContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mountpole - Premium Electronics Store",
+  title: "MountPole - Global Technology Distributor",
   description:
-    "Discover the latest smartphones, tablets, wearables, and monitors from Samsung, Apple, and Google Pixel. Your trusted electronics retailer.",
+    "Your trusted partner in technology distribution. Connecting the world with premium brands like Apple, Samsung, Xiaomi, and more. Wholesale pricing and authentic products worldwide.",
   keywords:
-    "smartphones, tablets, wearables, monitors, Samsung, Apple, Google Pixel, electronics",
+    "technology distributor, wholesale electronics, Apple distributor, Samsung distributor, Xiaomi distributor, global distribution, wholesale pricing, authentic products",
 };
 
 export default function RootLayout({
@@ -23,10 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <main className="pb-16 md:pb-0">{children}</main>
-        <Footer />
-        <MobileDock />
+        <SearchProvider>
+          <Header />
+          <main className="pb-16 md:pb-0">{children}</main>
+          <Footer />
+          <MobileDock />
+        </SearchProvider>
       </body>
     </html>
   );

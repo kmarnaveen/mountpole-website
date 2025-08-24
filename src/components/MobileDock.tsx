@@ -37,6 +37,7 @@ export default function MobileDock() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    company: "",
     phone: "",
     query: "",
   });
@@ -86,10 +87,10 @@ export default function MobileDock() {
       localStorage.setItem("contactFormSubmitted", "true");
 
       // Reset form and show success
-      setFormData({ name: "", email: "", phone: "", query: "" });
+      setFormData({ name: "", email: "", company: "", phone: "", query: "" });
       setIsContactFormOpen(false);
       alert(
-        "Thank you! Your message has been sent successfully. We'll get back to you soon!"
+        "Thank you for your interest in partnering with MountPole! Our business development team will contact you within 24 hours to discuss wholesale opportunities and partnership options."
       );
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -234,25 +235,26 @@ export default function MobileDock() {
     <>
       {/* Contact Form Modal */}
       {isContactFormOpen && (
-        <div className="fixed inset-0 z-50">
+        <div className="fixed inset-0 z-[9995]">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/20"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={() => setIsContactFormOpen(false)}
           />
           {/* Modal */}
-          <div className="absolute bottom-0 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 left-0 right-0 md:w-[650px] lg:w-[750px] md:max-w-[90vw] bg-white rounded-t-2xl md:rounded-2xl max-h-[75vh] md:max-h-[80vh] overflow-hidden animate-in slide-in-from-bottom md:zoom-in duration-300 shadow-xl border border-gray-200 mb-20 md:mb-0">
+          <div className="absolute bottom-0 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 left-0 right-0 md:w-[650px] lg:w-[750px] md:max-w-[90vw] bg-white/95 backdrop-blur-xl rounded-t-2xl md:rounded-2xl max-h-[75vh] md:max-h-[80vh] overflow-hidden animate-in slide-in-from-bottom md:zoom-in duration-300 shadow-2xl border border-white/20 mb-20 md:mb-0">
             {/* Professional Header */}
-            <div className="bg-gray-900 text-white px-6 py-4 border-b border-gray-200">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-lg md:text-xl font-semibold">
-                    Contact Us
+                    Partner with MountPole
                   </h2>
+                  <p className="text-blue-100 text-sm mt-1">Global Technology Distribution</p>
                 </div>
                 <button
                   onClick={() => setIsContactFormOpen(false)}
-                  className="p-2 hover:bg-gray-700 rounded-md transition-colors"
+                  className="p-2 hover:bg-white/20 rounded-md transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -295,13 +297,37 @@ export default function MobileDock() {
 
                     <div className="space-y-2">
                       <label
+                        htmlFor="company"
+                        className="flex items-center text-sm md:text-base font-medium text-gray-800"
+                      >
+                        <div className="w-6 h-6 md:w-7 md:h-7 bg-purple-600 rounded flex items-center justify-center mr-3">
+                          <Building2 className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                        </div>
+                        Company Name
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all duration-200 text-sm md:text-base bg-white"
+                        placeholder="Your company or business"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email and Phone in Row */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div className="space-y-2">
+                      <label
                         htmlFor="email"
                         className="flex items-center text-sm md:text-base font-medium text-gray-800"
                       >
                         <div className="w-6 h-6 md:w-7 md:h-7 bg-green-600 rounded flex items-center justify-center mr-3">
                           <Mail className="h-3 w-3 md:h-4 md:w-4 text-white" />
                         </div>
-                        Email Address *
+                        Business Email *
                       </label>
                       <input
                         type="email"
@@ -314,16 +340,13 @@ export default function MobileDock() {
                         placeholder="your@company.com"
                       />
                     </div>
-                  </div>
 
-                  {/* Phone and Message in Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="space-y-2">
                       <label
                         htmlFor="phone"
                         className="flex items-center text-sm md:text-base font-medium text-gray-800"
                       >
-                        <div className="w-6 h-6 md:w-7 md:h-7 bg-purple-600 rounded flex items-center justify-center mr-3">
+                        <div className="w-6 h-6 md:w-7 md:h-7 bg-orange-600 rounded flex items-center justify-center mr-3">
                           <Phone className="h-3 w-3 md:h-4 md:w-4 text-white" />
                         </div>
                         Phone Number
@@ -338,28 +361,28 @@ export default function MobileDock() {
                         placeholder="+1 (555) 123-4567"
                       />
                     </div>
+                  </div>
 
-                    {/* Professional Message Field */}
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="query"
-                        className="flex items-center text-sm md:text-base font-medium text-gray-800"
-                      >
-                        <div className="w-6 h-6 md:w-7 md:h-7 bg-orange-600 rounded flex items-center justify-center mr-3">
-                          <MessageSquare className="h-3 w-3 md:h-4 md:w-4 text-white" />
-                        </div>
-                        Query
-                      </label>
-                      <textarea
-                        id="query"
-                        name="query"
-                        value={formData.query}
-                        onChange={handleInputChange}
-                        rows={2}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 resize-none transition-all duration-200 text-sm md:text-base bg-white"
-                        placeholder="Your inquiry or message..."
-                      />
-                    </div>
+                  {/* Message Field - Full Width */}
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="query"
+                      className="flex items-center text-sm md:text-base font-medium text-gray-800"
+                    >
+                      <div className="w-6 h-6 md:w-7 md:h-7 bg-indigo-600 rounded flex items-center justify-center mr-3">
+                        <MessageSquare className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                      </div>
+                      Your Business Inquiry
+                    </label>
+                    <textarea
+                      id="query"
+                      name="query"
+                      value={formData.query}
+                      onChange={handleInputChange}
+                      rows={3}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 resize-none transition-all duration-200 text-sm md:text-base bg-white"
+                      placeholder="Tell us about your wholesale needs, partnership interest, or product requirements..."
+                    />
                   </div>
                 </form>
               </div>
@@ -383,15 +406,15 @@ export default function MobileDock() {
                   ) : (
                     <>
                       <Send className="h-5 w-5" />
-                      <span>Send Query</span>
+                      <span>Send Partnership Inquiry</span>
                     </>
                   )}
                 </button>
 
                 {/* Professional Footer */}
-                <div className="text-center">
+                <div className="text-center py-3">
                   <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
-                    Response within 24 hours • Secure & confidential
+                    Response within 24 hours • Wholesale pricing available • Authorized distributor
                   </p>
                 </div>
               </div>
@@ -402,14 +425,14 @@ export default function MobileDock() {
 
       {/* Categories Bottom Slider */}
       {isCategoriesOpen && (
-        <div className="md:hidden fixed inset-0 z-50">
+        <div className="md:hidden fixed inset-0 z-[9996]">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/20"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={() => setCategoriesOpen(false)}
           />
           {/* Slider */}
-          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[70vh] overflow-hidden animate-in slide-in-from-bottom duration-300">
+          <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl rounded-t-2xl max-h-[70vh] overflow-hidden animate-in slide-in-from-bottom duration-300 border-t border-white/20">
             <div className="p-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold">Categories</h2>
@@ -456,14 +479,14 @@ export default function MobileDock() {
 
       {/* Brands Bottom Slider */}
       {isBrandsOpen && (
-        <div className="md:hidden fixed inset-0 z-50">
+        <div className="md:hidden fixed inset-0 z-[9996]">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/20"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={() => setBrandsOpen(false)}
           />
           {/* Slider */}
-          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[70vh] overflow-hidden animate-in slide-in-from-bottom duration-300">
+          <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl rounded-t-2xl max-h-[70vh] overflow-hidden animate-in slide-in-from-bottom duration-300 border-t border-white/20">
             <div className="p-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold">Brands</h2>
@@ -577,13 +600,6 @@ export default function MobileDock() {
               >
                 About Us
               </Link>
-              <Link
-                href="/support"
-                className="block p-3 rounded-lg hover:bg-muted transition-colors font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Support
-              </Link>
             </div>
           </div>
         </SheetContent>
@@ -598,7 +614,7 @@ export default function MobileDock() {
       </button>
 
       {/* Mobile Dock */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[9997] bg-white/80 backdrop-blur-lg border-t border-border/50">
         <div className="flex items-center justify-around py-2">
           {dockItems.map((item) => {
             const Icon = item.icon;

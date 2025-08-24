@@ -177,32 +177,31 @@ export default function BrandsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-20 px-4">
+      <section className="bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 text-white py-20 px-4">
         <div className="container mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Our{" "}
+            Trusted{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Brands
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Discover the world&apos;s leading technology brands. From
-            Apple&apos;s innovation to Samsung&apos;s cutting-edge displays,
-            Google&apos;s AI experiences, Xiaomi&apos;s flagship performance,
-            and many more premium brands that shape the future.
+          <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
+            MountPole proudly distributes the world&apos;s most trusted technology brands. 
+            From Apple&apos;s innovation to Samsung&apos;s cutting-edge displays, 
+            we bring you authentic products from leading manufacturers worldwide.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <div className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
               <Users className="h-5 w-5" />
-              <span className="text-sm">Premium Brands</span>
+              <span className="text-sm">Authorized Distributor</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
               <Award className="h-5 w-5" />
-              <span className="text-sm">Award Winning</span>
+              <span className="text-sm">Genuine Products</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
               <TrendingUp className="h-5 w-5" />
-              <span className="text-sm">Latest Technology</span>
+              <span className="text-sm">Global Wholesale</span>
             </div>
           </div>
         </div>
@@ -213,11 +212,11 @@ export default function BrandsPage() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Choose Your Brand
+              Our Brand Partners
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Each brand offers unique innovations and experiences. Explore our
-              curated selection of premium technology products.
+              As an authorized global distributor, we partner with leading brands to bring you 
+              authentic products with competitive wholesale pricing and reliable supply chains.
             </p>
           </div>
 

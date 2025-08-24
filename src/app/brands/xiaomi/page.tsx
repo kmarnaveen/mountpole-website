@@ -288,7 +288,7 @@ export default function XiaomiPage() {
                   </li>
                   <li className="flex items-center">
                     <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Global Community Support
+                    Global Community Access
                   </li>
                 </ul>
               </div>
