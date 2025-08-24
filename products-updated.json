@@ -1,0 +1,1085 @@
+{
+  "products": [
+    {
+      "id": "apple-watch-series-9-45mm",
+      "name": "Apple Watch Series 9",
+      "category": "Wearables",
+      "brand": "Apple",
+      "price": 429.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The most advanced Apple Watch yet with the powerful S9 SiP and new health features.",
+      "specifications": {
+        "display": "45mm Always-On Retina display",
+        "chip": "S9 SiP with 64-bit dual-core processor",
+        "storage": "64GB",
+        "connectivity": "GPS + Cellular options, Wi-Fi, Bluetooth 5.3",
+        "battery": "Up to 18 hours",
+        "sensors": "Blood Oxygen, ECG, Temperature sensing",
+        "waterResistance": "50 meters"
+      },
+      "features": [
+        "Double Tap gesture",
+        "Precision Finding for iPhone",
+        "Crash Detection",
+        "Temperature sensing",
+        "Blood Oxygen monitoring"
+      ],
+      "inStock": true,
+      "stockQuantity": 25,
+      "variants": [
+        {
+          "size": "45MM",
+          "band": "Sport Band",
+          "colors": ["Midnight", "Starlight", "Pink", "Blue", "Red"]
+        }
+      ],
+      "sku": "APL-AW9-45-SB",
+      "tags": ["smartwatch", "health", "fitness", "apple", "series-9"]
+    },
+    {
+      "id": "iphone-16-256gb",
+      "name": "iPhone 16",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "price": 899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The latest iPhone with advanced A18 chip and enhanced camera system.",
+      "specifications": {
+        "display": "6.1-inch Super Retina XDR display",
+        "chip": "A18 chip with 6-core GPU",
+        "storage": "256GB",
+        "camera": "Advanced dual-camera system with 48MP Main",
+        "battery": "Up to 22 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 6E, Bluetooth 5.3",
+        "material": "Aluminum design"
+      },
+      "features": [
+        "Action Button",
+        "Dynamic Island",
+        "Face ID",
+        "Ceramic Shield front",
+        "Water resistant to 6 meters"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "storage": "256GB",
+          "region": "India",
+          "colors": ["Black", "White", "Pink", "Teal", "Ultramarine"]
+        }
+      ],
+      "sku": "APL-IP16-256-IN",
+      "tags": ["smartphone", "5g", "a18", "camera", "ios", "latest"]
+    },
+    {
+      "id": "iphone-cases-mix",
+      "name": "iPhone Cases Collection",
+      "category": "Accessories",
+      "brand": "Apple",
+      "price": 49.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Premium cases for iPhone 14, 14 Plus, 14 Pro, 14 Pro Max, 15, and 15 Plus models.",
+      "specifications": {
+        "material": "Silicone/Leather/Clear options",
+        "compatibility": "iPhone 14 series, iPhone 15 series",
+        "protection": "Drop protection up to 6 feet",
+        "wireless": "MagSafe compatible"
+      },
+      "features": [
+        "MagSafe compatible",
+        "Premium materials",
+        "Perfect fit",
+        "Easy installation"
+      ],
+      "inStock": true,
+      "stockQuantity": 50,
+      "variants": [
+        {
+          "models": [
+            "iPhone 14",
+            "iPhone 14 Plus",
+            "iPhone 14 Pro",
+            "iPhone 14 Pro Max",
+            "iPhone 15",
+            "iPhone 15 Plus"
+          ],
+          "colors": ["Black", "White", "Blue", "Pink", "Clear", "Brown Leather"]
+        }
+      ],
+      "sku": "APL-CASE-MIX",
+      "tags": ["case", "protection", "magsafe", "accessories"]
+    },
+    {
+      "id": "itel-a70-4gb-256gb",
+      "name": "iTel A70",
+      "category": "Smartphones",
+      "brand": "Itel",
+      "price": 149.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Affordable smartphone with generous storage and modern features.",
+      "specifications": {
+        "display": "6.6-inch HD+ display",
+        "processor": "Unisoc Tiger T606",
+        "ram": "4GB",
+        "storage": "256GB",
+        "camera": "48MP rear camera, 8MP front",
+        "battery": "4000mAh",
+        "os": "Android 14"
+      },
+      "features": [
+        "Large storage capacity",
+        "Dual SIM support",
+        "Face unlock",
+        "Expandable storage"
+      ],
+      "inStock": true,
+      "stockQuantity": 20,
+      "variants": [
+        {
+          "ram": "4GB",
+          "storage": "256GB",
+          "region": "EU",
+          "colors": ["Black", "Blue", "Gold", "Green"]
+        }
+      ],
+      "sku": "ITL-A70-4256-EU",
+      "tags": ["budget", "android", "dual-sim", "large-storage"]
+    },
+    {
+      "id": "samsung-a066-4gb-128gb",
+      "name": "Samsung Galaxy A06",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "price": 179.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Entry-level 5G smartphone with essential features.",
+      "specifications": {
+        "display": "6.5-inch PLS LCD",
+        "processor": "MediaTek Helio G85",
+        "ram": "4GB",
+        "storage": "128GB",
+        "camera": "50MP main, 2MP depth",
+        "battery": "5000mAh",
+        "connectivity": "5G, Wi-Fi, Bluetooth 5.0"
+      },
+      "features": [
+        "5G connectivity",
+        "Large battery",
+        "Expandable storage",
+        "Samsung One UI"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        {
+          "ram": "4GB",
+          "storage": "128GB",
+          "network": "5G",
+          "region": "Latin",
+          "colors": ["Black"]
+        }
+      ],
+      "sku": "SAM-A066-4128-5G-LAT",
+      "tags": ["budget", "5g", "samsung", "android"]
+    },
+    {
+      "id": "samsung-s24-ultra-12gb-256gb",
+      "name": "Samsung Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "price": 1299.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The ultimate Samsung flagship with S Pen and AI features.",
+      "specifications": {
+        "display": "6.8-inch Dynamic AMOLED 2X, 120Hz",
+        "processor": "Snapdragon 8 Gen 3",
+        "ram": "12GB",
+        "storage": "256GB/512GB",
+        "camera": "200MP main, 50MP periscope telephoto, 10MP telephoto, 12MP ultra-wide",
+        "battery": "5000mAh, 45W fast charging",
+        "spen": "Built-in S Pen"
+      },
+      "features": [
+        "S Pen built-in",
+        "Galaxy AI features",
+        "200MP camera",
+        "100x Space Zoom",
+        "Titanium frame"
+      ],
+      "inStock": true,
+      "stockQuantity": 8,
+      "variants": [
+        {
+          "ram": "12GB",
+          "storage": "256GB",
+          "region": "Latin",
+          "colors": ["Yellow"]
+        },
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "Arabic",
+          "colors": ["Black", "Grey", "Violet"]
+        }
+      ],
+      "sku": "SAM-S24U-12256-LAT",
+      "tags": ["flagship", "s-pen", "ai", "camera", "premium"]
+    },
+    {
+      "id": "samsung-s25-edge-12gb-512gb",
+      "name": "Samsung Galaxy S25 Edge",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "price": 1199.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Next-generation Samsung flagship with edge display technology.",
+      "specifications": {
+        "display": "6.7-inch Dynamic AMOLED Edge, 120Hz",
+        "processor": "Snapdragon 8 Gen 4",
+        "ram": "12GB",
+        "storage": "512GB",
+        "camera": "108MP main, 12MP ultra-wide, 10MP telephoto",
+        "battery": "4800mAh, 45W fast charging",
+        "design": "Edge display"
+      },
+      "features": [
+        "Edge display design",
+        "Latest Snapdragon processor",
+        "Advanced camera system",
+        "Premium build quality"
+      ],
+      "inStock": true,
+      "stockQuantity": 6,
+      "variants": [
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "English",
+          "colors": ["Jet Black", "Silver"]
+        }
+      ],
+      "sku": "SAM-S25E-12512-EN",
+      "tags": ["flagship", "edge-display", "premium", "latest"]
+    },
+    {
+      "id": "samsung-s25-ultra-12gb",
+      "name": "Samsung Galaxy S25 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "price": 1399.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The ultimate Samsung flagship with enhanced S Pen and AI capabilities.",
+      "specifications": {
+        "display": "6.8-inch Dynamic AMOLED 2X, 120Hz",
+        "processor": "Snapdragon 8 Gen 4",
+        "ram": "12GB",
+        "storage": "512GB/1TB",
+        "camera": "200MP main with advanced AI processing",
+        "battery": "5000mAh, 45W fast charging",
+        "spen": "Enhanced S Pen with AI features"
+      },
+      "features": [
+        "Enhanced S Pen with AI",
+        "200MP camera system",
+        "Premium titanium build",
+        "Advanced Galaxy AI"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "12GB",
+          "storage": "1TB",
+          "region": "Latin",
+          "colors": ["Black", "Grey", "Silver", "White"]
+        },
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "Latin",
+          "colors": ["Black"]
+        }
+      ],
+      "sku": "SAM-S25U-121TB-LAT",
+      "tags": ["flagship", "s-pen", "ai", "premium", "latest"]
+    },
+    {
+      "id": "samsung-fold6-12gb-512gb",
+      "name": "Samsung Galaxy Z Fold6",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "price": 1899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Revolutionary foldable smartphone with dual screens.",
+      "specifications": {
+        "display": "7.6-inch main, 6.3-inch cover display",
+        "processor": "Snapdragon 8 Gen 3",
+        "ram": "12GB",
+        "storage": "512GB",
+        "camera": "50MP main, 12MP ultra-wide, 10MP telephoto",
+        "battery": "4400mAh",
+        "design": "Foldable"
+      },
+      "features": [
+        "Foldable design",
+        "Dual screens",
+        "S Pen support",
+        "Multitasking capabilities"
+      ],
+      "inStock": true,
+      "stockQuantity": 4,
+      "variants": [
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "Asian",
+          "colors": ["Pink"]
+        }
+      ],
+      "sku": "SAM-FOLD6-12512-AS",
+      "tags": ["foldable", "premium", "dual-screen", "innovation"]
+    },
+    {
+      "id": "samsung-flip7-12gb",
+      "name": "Samsung Galaxy Z Flip7",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "price": 1099.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Compact foldable smartphone with clamshell design.",
+      "specifications": {
+        "display": "6.7-inch main, 3.4-inch cover display",
+        "processor": "Snapdragon 8 Gen 3",
+        "ram": "12GB",
+        "storage": "256GB/512GB",
+        "camera": "50MP main, 12MP ultra-wide",
+        "battery": "3700mAh",
+        "design": "Clamshell foldable"
+      },
+      "features": [
+        "Compact foldable design",
+        "Cover screen functionality",
+        "Premium build quality",
+        "FlexCam features"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "ram": "12GB",
+          "storage": "256GB",
+          "region": "Thai",
+          "colors": ["Black", "Blue"]
+        },
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "Thai",
+          "colors": ["Black", "Blue"]
+        },
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "Arabic",
+          "colors": ["Jet Black"]
+        },
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "Canada",
+          "colors": ["Jet Black"]
+        }
+      ],
+      "sku": "SAM-FLIP7-12256-TH",
+      "tags": ["foldable", "compact", "premium", "clamshell"]
+    },
+    {
+      "id": "samsung-tab-a9-wifi-4gb-64gb",
+      "name": "Samsung Galaxy Tab A9",
+      "category": "Tablets",
+      "brand": "Samsung",
+      "price": 229.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Affordable tablet for everyday use with Wi-Fi connectivity.",
+      "specifications": {
+        "display": "8.7-inch TFT LCD",
+        "processor": "MediaTek Helio G99",
+        "ram": "4GB",
+        "storage": "64GB",
+        "camera": "8MP rear, 2MP front",
+        "battery": "5100mAh",
+        "connectivity": "Wi-Fi only"
+      },
+      "features": [
+        "Lightweight design",
+        "Long battery life",
+        "Expandable storage",
+        "Samsung One UI"
+      ],
+      "inStock": true,
+      "stockQuantity": 18,
+      "variants": [
+        {
+          "ram": "4GB",
+          "storage": "64GB",
+          "connectivity": "Wi-Fi",
+          "region": "Arabic",
+          "colors": ["Graphite", "Silver", "Blue"]
+        }
+      ],
+      "sku": "SAM-TABA9-464-WIFI-AR",
+      "tags": ["tablet", "budget", "wifi", "portable"]
+    },
+    {
+      "id": "samsung-tab-a9plus-wifi-4gb-64gb",
+      "name": "Samsung Galaxy Tab A9+",
+      "category": "Tablets",
+      "brand": "Samsung",
+      "price": 269.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Enhanced tablet with larger screen and improved performance.",
+      "specifications": {
+        "display": "11-inch TFT LCD",
+        "processor": "Qualcomm Snapdragon 695",
+        "ram": "4GB",
+        "storage": "64GB",
+        "camera": "8MP rear, 5MP front",
+        "battery": "7040mAh",
+        "connectivity": "Wi-Fi only"
+      },
+      "features": [
+        "Large 11-inch display",
+        "Enhanced performance",
+        "Long battery life",
+        "Premium design"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        {
+          "ram": "4GB",
+          "storage": "64GB",
+          "connectivity": "Wi-Fi",
+          "region": "Latin",
+          "colors": ["Grey"]
+        }
+      ],
+      "sku": "SAM-TABA9P-464-WIFI-LAT",
+      "tags": ["tablet", "large-screen", "wifi", "performance"]
+    },
+    {
+      "id": "samsung-tab-a9plus-cellular-8gb-128gb",
+      "name": "Samsung Galaxy Tab A9+ Cellular",
+      "category": "Tablets",
+      "brand": "Samsung",
+      "price": 329.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Enhanced tablet with cellular connectivity and increased memory.",
+      "specifications": {
+        "display": "11-inch TFT LCD",
+        "processor": "Qualcomm Snapdragon 695",
+        "ram": "8GB",
+        "storage": "128GB",
+        "camera": "8MP rear, 5MP front",
+        "battery": "7040mAh",
+        "connectivity": "Wi-Fi + Cellular"
+      },
+      "features": [
+        "Cellular connectivity",
+        "8GB RAM for multitasking",
+        "128GB storage",
+        "Large display"
+      ],
+      "inStock": true,
+      "stockQuantity": 8,
+      "variants": [
+        {
+          "ram": "8GB",
+          "storage": "128GB",
+          "connectivity": "Wi-Fi + Cellular",
+          "region": "India",
+          "colors": ["Graphite"]
+        }
+      ],
+      "sku": "SAM-TABA9P-8128-CELL-IN",
+      "tags": ["tablet", "cellular", "performance", "connectivity"]
+    },
+    {
+      "id": "samsung-tab-s10-fe-wifi5g-8gb-128gb",
+      "name": "Samsung Galaxy Tab S10 FE",
+      "category": "Tablets",
+      "brand": "Samsung",
+      "price": 449.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Premium tablet with S Pen support and 5G connectivity.",
+      "specifications": {
+        "display": "12.4-inch Super AMOLED",
+        "processor": "Exynos 1380",
+        "ram": "8GB",
+        "storage": "128GB",
+        "camera": "8MP rear, 12MP front",
+        "battery": "10090mAh",
+        "connectivity": "Wi-Fi + 5G",
+        "spen": "S Pen included"
+      },
+      "features": [
+        "S Pen included",
+        "5G connectivity",
+        "Premium AMOLED display",
+        "Long battery life"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "8GB",
+          "storage": "128GB",
+          "connectivity": "Wi-Fi + 5G",
+          "region": "Latin",
+          "colors": ["Grey"]
+        }
+      ],
+      "sku": "SAM-TABS10FE-8128-5G-LAT",
+      "tags": ["tablet", "premium", "s-pen", "5g"]
+    },
+    {
+      "id": "samsung-tab-s10plus-fe-8gb-128gb",
+      "name": "Samsung Galaxy Tab S10+ FE",
+      "category": "Tablets",
+      "brand": "Samsung",
+      "price": 549.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Larger premium tablet with enhanced features and S Pen.",
+      "specifications": {
+        "display": "12.4-inch Super AMOLED, 120Hz",
+        "processor": "Exynos 1380",
+        "ram": "8GB",
+        "storage": "128GB",
+        "camera": "8MP rear, 12MP ultra-wide front",
+        "battery": "10090mAh",
+        "connectivity": "Wi-Fi + Cellular options",
+        "spen": "S Pen included"
+      },
+      "features": [
+        "Large premium display",
+        "S Pen included",
+        "Enhanced performance",
+        "Professional features"
+      ],
+      "inStock": true,
+      "stockQuantity": 6,
+      "variants": [
+        {
+          "ram": "8GB",
+          "storage": "128GB",
+          "colors": ["Graphite", "Blue", "Silver"]
+        }
+      ],
+      "sku": "SAM-TABS10PFE-8128",
+      "tags": ["tablet", "premium", "large", "s-pen"]
+    },
+    {
+      "id": "samsung-watch7-40mm",
+      "name": "Samsung Galaxy Watch7 40mm",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 299.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Advanced smartwatch with health monitoring and fitness tracking.",
+      "specifications": {
+        "display": "1.3-inch Super AMOLED",
+        "processor": "Exynos W1000",
+        "memory": "2GB RAM, 32GB storage",
+        "battery": "425mAh",
+        "connectivity": "Bluetooth, Wi-Fi, GPS, NFC",
+        "sensors": "Heart rate, SpO2, temperature, accelerometer",
+        "waterResistance": "5ATM + IP68"
+      },
+      "features": [
+        "Advanced health monitoring",
+        "Sleep tracking",
+        "Fitness coaching",
+        "Samsung Pay"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "size": "40mm",
+          "region": "Arabic",
+          "colors": ["Green", "Cream"]
+        }
+      ],
+      "sku": "SAM-GW7-40-AR",
+      "tags": ["smartwatch", "health", "fitness", "wearable"]
+    },
+    {
+      "id": "samsung-watch7-44mm",
+      "name": "Samsung Galaxy Watch7 44mm",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 329.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Larger advanced smartwatch with extended battery life.",
+      "specifications": {
+        "display": "1.5-inch Super AMOLED",
+        "processor": "Exynos W1000",
+        "memory": "2GB RAM, 32GB storage",
+        "battery": "590mAh",
+        "connectivity": "Bluetooth, Wi-Fi, GPS, NFC",
+        "sensors": "Heart rate, SpO2, temperature, accelerometer",
+        "waterResistance": "5ATM + IP68"
+      },
+      "features": [
+        "Larger display",
+        "Extended battery life",
+        "Advanced health monitoring",
+        "Premium design"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        {
+          "size": "44mm",
+          "region": "Arabic",
+          "colors": ["Green", "Cream"]
+        }
+      ],
+      "sku": "SAM-GW7-44-AR",
+      "tags": ["smartwatch", "large", "health", "premium"]
+    },
+    {
+      "id": "samsung-watch8-series",
+      "name": "Samsung Galaxy Watch8",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 349.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Latest generation smartwatch with enhanced AI features.",
+      "specifications": {
+        "display": "Super AMOLED, Always-on",
+        "processor": "Exynos W1000+",
+        "memory": "2GB RAM, 32GB storage",
+        "battery": "Up to 40 hours",
+        "connectivity": "Bluetooth 5.3, Wi-Fi, GPS, NFC",
+        "sensors": "Advanced health sensors, temperature",
+        "waterResistance": "5ATM + IP68"
+      },
+      "features": [
+        "Enhanced AI features",
+        "Improved battery life",
+        "Advanced health tracking",
+        "Premium materials"
+      ],
+      "inStock": true,
+      "stockQuantity": 20,
+      "variants": [
+        {
+          "size": "40mm",
+          "region": "Arabic",
+          "colors": ["Silver", "Graphite"]
+        },
+        {
+          "size": "44mm",
+          "region": "Arabic",
+          "colors": ["Silver", "Graphite"]
+        },
+        {
+          "size": "44mm",
+          "region": "Latin",
+          "colors": ["Graphite"]
+        },
+        {
+          "size": "46mm",
+          "region": "Arabic",
+          "colors": ["Black", "White"]
+        },
+        {
+          "size": "46mm",
+          "region": "Latin",
+          "colors": ["Black", "White"]
+        }
+      ],
+      "sku": "SAM-GW8-VAR",
+      "tags": ["smartwatch", "latest", "ai", "premium"]
+    },
+    {
+      "id": "samsung-watch-ultra-2024",
+      "name": "Samsung Galaxy Watch Ultra 2024",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 649.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Ultra-premium smartwatch with titanium build and advanced features.",
+      "specifications": {
+        "display": "1.5-inch Super AMOLED, Sapphire crystal",
+        "processor": "Exynos W1000 Ultra",
+        "memory": "2GB RAM, 32GB storage",
+        "battery": "590mAh, up to 60 hours",
+        "build": "Titanium case",
+        "connectivity": "Bluetooth 5.3, Wi-Fi, GPS, Cellular",
+        "waterResistance": "10ATM + IP68"
+      },
+      "features": [
+        "Titanium construction",
+        "Extended battery life",
+        "Professional sports features",
+        "Premium materials"
+      ],
+      "inStock": true,
+      "stockQuantity": 5,
+      "variants": [
+        {
+          "year": "2024",
+          "colors": ["Grey", "White"]
+        }
+      ],
+      "sku": "SAM-GWU-2024",
+      "tags": ["ultra", "premium", "titanium", "professional"]
+    },
+    {
+      "id": "samsung-watch-ultra-2025",
+      "name": "Samsung Galaxy Watch Ultra 2025",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 699.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Latest ultra-premium smartwatch with cutting-edge technology.",
+      "specifications": {
+        "display": "1.5-inch Super AMOLED, Sapphire crystal",
+        "processor": "Exynos W1100 Ultra",
+        "memory": "3GB RAM, 64GB storage",
+        "battery": "650mAh, up to 80 hours",
+        "build": "Grade 5 Titanium",
+        "connectivity": "Bluetooth 5.4, Wi-Fi 6E, GPS, Cellular",
+        "waterResistance": "10ATM + IP68"
+      },
+      "features": [
+        "Latest titanium build",
+        "Enhanced AI capabilities",
+        "Professional sports tracking",
+        "Extended battery life"
+      ],
+      "inStock": true,
+      "stockQuantity": 8,
+      "variants": [
+        {
+          "year": "2025",
+          "region": "Latin",
+          "colors": ["White", "Grey", "Blue", "Silver"]
+        },
+        {
+          "year": "2025",
+          "region": "Arabic",
+          "colors": ["Grey", "Blue", "Silver"]
+        }
+      ],
+      "sku": "SAM-GWU-2025",
+      "tags": ["ultra", "latest", "titanium", "premium"]
+    },
+    {
+      "id": "samsung-watch-fit3",
+      "name": "Samsung Galaxy Watch Fit3",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 199.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Fitness-focused smartwatch with rectangular display.",
+      "specifications": {
+        "display": "1.6-inch Super AMOLED rectangular",
+        "processor": "Exynos W920",
+        "memory": "1.5GB RAM, 16GB storage",
+        "battery": "208mAh, up to 13 days",
+        "connectivity": "Bluetooth, Wi-Fi, GPS",
+        "sensors": "Heart rate, SpO2, accelerometer",
+        "waterResistance": "5ATM + IP68"
+      },
+      "features": [
+        "Rectangular fitness display",
+        "Long battery life",
+        "Comprehensive fitness tracking",
+        "Lightweight design"
+      ],
+      "inStock": true,
+      "stockQuantity": 22,
+      "variants": [
+        {
+          "region": "Arabic",
+          "colors": ["Grey", "Silver"]
+        }
+      ],
+      "sku": "SAM-GWFIT3-AR",
+      "tags": ["fitness", "rectangular", "battery", "sports"]
+    },
+    {
+      "id": "samsung-watch6-classic-47mm",
+      "name": "Samsung Galaxy Watch6 Classic",
+      "category": "Wearables",
+      "brand": "Samsung",
+      "price": 429.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Classic smartwatch with rotating bezel and premium design.",
+      "specifications": {
+        "display": "1.5-inch Super AMOLED",
+        "processor": "Exynos W930",
+        "memory": "2GB RAM, 16GB storage",
+        "battery": "425mAh",
+        "design": "Rotating bezel",
+        "connectivity": "Bluetooth, Wi-Fi, GPS, NFC",
+        "waterResistance": "5ATM + IP68"
+      },
+      "features": [
+        "Classic rotating bezel",
+        "Premium stainless steel",
+        "Advanced health monitoring",
+        "Samsung Pay support"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "size": "47mm",
+          "region": "Arabic",
+          "colors": ["Silver"]
+        },
+        {
+          "size": "47mm",
+          "edition": "ASTRO",
+          "colors": ["Black"]
+        }
+      ],
+      "sku": "SAM-GW6C-47-AR",
+      "tags": ["classic", "bezel", "premium", "steel"]
+    },
+    {
+      "id": "samsung-buds-core",
+      "name": "Samsung Galaxy Buds Core",
+      "category": "Audio",
+      "brand": "Samsung",
+      "price": 79.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Essential true wireless earbuds with quality sound.",
+      "specifications": {
+        "driver": "6.5mm dynamic driver",
+        "battery": "5 hours + 18 hours with case",
+        "connectivity": "Bluetooth 5.3",
+        "features": "Touch controls, voice assistant",
+        "waterResistance": "IPX7",
+        "caseType": "Compact charging case"
+      },
+      "features": [
+        "True wireless design",
+        "Touch controls",
+        "Voice assistant support",
+        "Water resistant"
+      ],
+      "inStock": true,
+      "stockQuantity": 30,
+      "variants": [
+        {
+          "region": "Arabic",
+          "colors": ["Black", "White"]
+        }
+      ],
+      "sku": "SAM-BUDS-CORE-AR",
+      "tags": ["earbuds", "wireless", "budget", "water-resistant"]
+    },
+    {
+      "id": "samsung-buds3",
+      "name": "Samsung Galaxy Buds3",
+      "category": "Audio",
+      "brand": "Samsung",
+      "price": 179.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Advanced true wireless earbuds with ANC and premium sound.",
+      "specifications": {
+        "driver": "10mm dynamic driver",
+        "battery": "6 hours + 24 hours with case",
+        "anc": "Active Noise Cancellation",
+        "connectivity": "Bluetooth 5.3",
+        "features": "360 Audio, Adaptive EQ",
+        "waterResistance": "IPX7"
+      },
+      "features": [
+        "Active Noise Cancellation",
+        "360 Audio support",
+        "Adaptive EQ",
+        "Premium sound quality"
+      ],
+      "inStock": true,
+      "stockQuantity": 25,
+      "variants": [
+        {
+          "region": "Arabic",
+          "colors": ["Silver", "White"]
+        }
+      ],
+      "sku": "SAM-BUDS3-AR",
+      "tags": ["earbuds", "anc", "premium", "360-audio"]
+    },
+    {
+      "id": "samsung-buds-pro3",
+      "name": "Samsung Galaxy Buds Pro3",
+      "category": "Audio",
+      "brand": "Samsung",
+      "price": 249.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Professional-grade true wireless earbuds with advanced features.",
+      "specifications": {
+        "driver": "11mm dynamic + balanced armature",
+        "battery": "8 hours + 30 hours with case",
+        "anc": "Intelligent ANC",
+        "connectivity": "Bluetooth 5.3, multipoint",
+        "features": "360 Audio, Voice Detect, Adaptive Sound",
+        "waterResistance": "IPX7"
+      },
+      "features": [
+        "Dual driver system",
+        "Intelligent ANC",
+        "Voice detection",
+        "Professional audio quality"
+      ],
+      "inStock": true,
+      "stockQuantity": 18,
+      "variants": [
+        {
+          "region": "Arabic",
+          "colors": ["Silver", "White"]
+        }
+      ],
+      "sku": "SAM-BUDSPRO3-AR",
+      "tags": ["earbuds", "pro", "dual-driver", "intelligent-anc"]
+    },
+    {
+      "id": "samsung-smart-tag2",
+      "name": "Samsung SmartTag2",
+      "category": "Accessories",
+      "brand": "Samsung",
+      "price": 29.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Bluetooth tracker for finding your belongings.",
+      "specifications": {
+        "connectivity": "Bluetooth 5.3",
+        "battery": "CR2032, up to 500 days",
+        "range": "Up to 120 meters",
+        "waterResistance": "IP67",
+        "compatibility": "Galaxy smartphones",
+        "features": "SmartThings Find network"
+      },
+      "features": [
+        "Long battery life",
+        "Water resistant",
+        "SmartThings network",
+        "Precise tracking"
+      ],
+      "inStock": true,
+      "stockQuantity": 50,
+      "variants": [
+        {
+          "package": "Single Pack",
+          "colors": ["Black", "White", "Blue", "Yellow"]
+        }
+      ],
+      "sku": "SAM-STAG2-SINGLE",
+      "tags": ["tracker", "bluetooth", "find", "accessories"]
+    },
+    {
+      "id": "samsung-adapter-15w",
+      "name": "Samsung 15W Adapter",
+      "category": "Accessories",
+      "brand": "Samsung",
+      "price": 19.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Official Samsung 15W fast charging adapter.",
+      "specifications": {
+        "power": "15W",
+        "input": "100-240V AC",
+        "output": "5V/3A, 9V/1.67A",
+        "connector": "USB-C",
+        "plug": "3-pin",
+        "certification": "Safety certified"
+      },
+      "features": [
+        "Fast charging support",
+        "Universal compatibility",
+        "Safety certified",
+        "Compact design"
+      ],
+      "inStock": true,
+      "stockQuantity": 75,
+      "variants": [
+        {
+          "power": "15W",
+          "plug": "3-pin",
+          "colors": ["Black", "White"]
+        }
+      ],
+      "sku": "SAM-ADPT-15W-3PIN",
+      "tags": ["charger", "adapter", "fast-charging", "official"]
+    },
+    {
+      "id": "iphone-15-pro-max-256gb-black-titanium",
+      "name": "iPhone 15 Pro Max",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "price": 1199.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The ultimate iPhone experience. Forged in titanium and featuring the groundbreaking A17 Pro chip.",
+      "specifications": {
+        "display": "6.7-inch Super Retina XDR display with ProMotion technology",
+        "chip": "A17 Pro chip with 6-core GPU",
+        "storage": "256GB",
+        "camera": "Pro camera system: 48MP Main, 12MP Ultra Wide, 12MP Telephoto with 5x optical zoom",
+        "battery": "Up to 29 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 6E, Bluetooth 5.3"
+      },
+      "features": [
+        "Pro Camera System",
+        "Action Button",
+        "Titanium Design",
+        "Dynamic Island",
+        "Face ID"
+      ],
+      "inStock": false,
+      "stockQuantity": 0,
+      "sku": "APL-IP15PM-256-BT",
+      "tags": [
+        "flagship",
+        "5g",
+        "titanium",
+        "pro-camera",
+        "ios",
+        "out-of-stock"
+      ]
+    }
+  ]
+}

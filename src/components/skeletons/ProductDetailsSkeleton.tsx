@@ -48,12 +48,14 @@ export function ProductDetailsSkeleton() {
               </div>
               <Skeleton className="h-8 sm:h-10 w-3/4 mb-3 sm:mb-4" />
 
-              {/* Price */}
+              {/* Price - Commented out */}
+              {/* 
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <Skeleton className="h-8 sm:h-10 w-24" />
                 <Skeleton className="h-6 w-16" />
                 <Skeleton className="h-6 w-20" />
               </div>
+              */}
             </div>
 
             {/* Description */}

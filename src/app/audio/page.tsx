@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,13 +13,41 @@ import { Badge } from "@/components/ui/badge";
 import { Headphones, Volume2, Mic, Filter } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ProductGridSkeleton } from "@/components/skeletons/ProductSkeleton";
+import {
+  Pagination,
+  usePagination,
+  PaginationInfo,
+} from "@/components/ui/pagination";
 import productsData from "../../../products.json";
 
 export default function AudioPage() {
+  const [isLoading, setIsLoading] = useState(true);
+
   // Filter audio products from the JSON data
   const audioProducts = productsData.products.filter(
     (product) => product.category === "Audio"
   );
+
+  // Pagination logic
+  const {
+    currentPage,
+    totalPages,
+    paginatedItems: paginatedAudioProducts,
+    setCurrentPage,
+    totalItems,
+    startIndex,
+    endIndex,
+  } = usePagination(audioProducts, 8); // 8 items per page
+
+  // Simulate loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Group by brand for display
   const productsByBrand = audioProducts.reduce((acc, product) => {
@@ -35,31 +66,59 @@ export default function AudioPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-900 via-blue-900 to-indigo-900 text-white py-20 px-4">
-        <div className="container mx-auto text-center">
-          <Headphones className="w-20 h-20 mx-auto mb-6 text-purple-300" />
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Premium{" "}
-            <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
+      {/* Video Hero Section with Gemini-style design */}
+      <section className="relative h-[70vh] md:h-[80vh] overflow-hidden flex items-center">
+        {/* Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-10"
+          autoPlay
+          muted
+          loop
+          playsInline
+          onError={(e) => {
+            // Hide video and show gradient fallback if video fails to load
+            e.currentTarget.style.display = "none";
+          }}
+        >
+          <source
+            src="https://storage.googleapis.com/mannequin/blobs/375cfe4d-bae7-42af-84e9-5fe1babe8dbb.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Fallback gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 z-5"></div>
+
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/40 z-15"></div>
+
+        {/* Content Overlay with Gemini-style styling */}
+        <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          {/* Subtle background for all content */}
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
+            {/* Gemini-style gradient text */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent leading-tight">
               Audio
-            </span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Immerse yourself in exceptional sound quality. Discover wireless
-            earbuds and headphones with advanced noise cancellation and Hi-Fi
-            audio.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-8">
-            {audioTypes.map((type, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2"
+            </h1>
+
+            <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
+              Immerse yourself in exceptional sound quality. Discover wireless
+              earbuds and headphones with advanced noise cancellation and Hi-Fi
+              audio.
+            </p>
+
+            <div className="mt-6 md:mt-8">
+              <button
+                onClick={() => {
+                  const productsSection =
+                    document.getElementById("audio-section");
+                  productsSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105"
               >
-                <type.icon className="h-5 w-5" />
-                <span className="text-sm">{type.name}</span>
-              </div>
-            ))}
+                Explore Audio
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -88,149 +147,141 @@ export default function AudioPage() {
       </section>
 
       {/* Products by Brand */}
-      <section className="py-16 px-4">
+      <section id="audio-section" className="py-16 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
             Audio Products
           </h2>
 
-          {Object.entries(productsByBrand).map(([brand, products]) => (
-            <div key={brand} className="mb-16">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {brand} Audio
-                </h3>
-                <Link href={`/brands/${brand.toLowerCase()}`}>
-                  <Button variant="outline" size="sm">
-                    View All {brand} Products
-                  </Button>
-                </Link>
-              </div>
+          {/* Results Info */}
+          <div className="flex justify-between items-center mb-8">
+            <PaginationInfo
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalItems={totalItems}
+              startIndex={startIndex}
+              endIndex={endIndex}
+            />
+            <div className="text-sm text-gray-600">
+              {totalItems} audio product{totalItems !== 1 ? "s" : ""} available
+            </div>
+          </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {products.map((product) => (
+          {isLoading ? (
+            <ProductGridSkeleton />
+          ) : (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-8">
+                {paginatedAudioProducts.map((product) => (
                   <Card
                     key={product.id}
                     className="group hover:shadow-xl transition-all duration-300 border border-gray-200"
                   >
                     <CardHeader className="pb-4">
                       <div className="aspect-square bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                        {product.images && product.images[0] ? (
-                          <Image
-                            src={product.images[0]}
-                            alt={product.name}
-                            width={250}
-                            height={250}
-                            className="object-contain p-6 group-hover:scale-105 transition-transform duration-300"
-                          />
-                        ) : (
-                          <Headphones className="h-20 w-20 text-purple-400" />
-                        )}
+                        <Image
+                          src={
+                            product.images?.[0] ||
+                            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4="
+                          }
+                          alt={product.name}
+                          width={250}
+                          height={250}
+                          className="object-contain p-6 group-hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
 
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
-                          <Badge
-                            variant="secondary"
-                            className="text-xs bg-purple-100 text-purple-700"
-                          >
+                          <Badge variant="secondary" className="text-xs">
                             {product.brand}
                           </Badge>
+                          <Badge
+                            variant={product.inStock ? "default" : "secondary"}
+                            className="text-xs"
+                          >
+                            {product.inStock ? "In Stock" : "Out of Stock"}
+                          </Badge>
                         </div>
-
-                        <CardTitle className="text-xl group-hover:text-purple-600 transition-colors leading-tight">
+                        <CardTitle className="text-lg group-hover:text-purple-600 transition-colors">
                           {product.name}
                         </CardTitle>
-
-                        <CardDescription className="text-gray-600">
-                          {product.description || "High-quality audio device"}
+                        <CardDescription className="text-sm">
+                          {product.description || "Premium audio experience"}
                         </CardDescription>
                       </div>
                     </CardHeader>
 
-                    <CardContent className="space-y-6">
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {product.description}
-                      </p>
-
-                      {/* Key Specifications */}
+                    <CardContent className="pt-0">
                       <div className="space-y-3">
-                        <h4 className="font-semibold text-sm text-gray-700">
-                          Key Specifications:
-                        </h4>
-                        <div className="space-y-2 text-sm">
-                          {product.specifications?.driver && (
-                            <div className="flex justify-between">
-                              <span className="text-gray-500">Driver:</span>
-                              <span className="font-medium">
-                                {product.specifications.driver}
-                              </span>
-                            </div>
-                          )}
-                          {product.specifications?.activeNoiseCancelling && (
-                            <div className="flex justify-between">
-                              <span className="text-gray-500">ANC:</span>
-                              <span className="font-medium">
-                                {product.specifications.activeNoiseCancelling}
-                              </span>
-                            </div>
-                          )}
-                          {product.specifications?.battery && (
-                            <div className="flex justify-between">
-                              <span className="text-gray-500">Battery:</span>
-                              <span className="font-medium">
-                                {product.specifications.battery}
-                              </span>
-                            </div>
-                          )}
-                          {product.specifications?.waterResistance && (
-                            <div className="flex justify-between">
-                              <span className="text-gray-500">
-                                Water Resistance:
-                              </span>
-                              <span className="font-medium">
-                                {product.specifications.waterResistance}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
+                        {/* Specifications */}
+                        {product.specifications && (
+                          <div className="space-y-2">
+                            {product.specifications.connectivity && (
+                              <div className="flex justify-between text-sm">
+                                <span className="text-gray-500">
+                                  Connectivity:
+                                </span>
+                                <span className="font-medium">
+                                  {product.specifications.connectivity}
+                                </span>
+                              </div>
+                            )}
+                            {product.specifications.battery && (
+                              <div className="flex justify-between text-sm">
+                                <span className="text-gray-500">Battery:</span>
+                                <span className="font-medium">
+                                  {product.specifications.battery}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        )}
 
-                      {/* Features */}
-                      <div className="space-y-3">
-                        <h4 className="font-semibold text-sm text-gray-700">
-                          Features:
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
+                        {/* Features */}
+                        <div className="flex flex-wrap gap-1">
                           {product.features
-                            .slice(0, 4)
+                            ?.slice(0, 3)
                             .map((feature, index) => (
                               <Badge
                                 key={index}
                                 variant="outline"
-                                className="text-xs"
+                                className="text-xs text-purple-600"
                               >
                                 {feature}
                               </Badge>
                             ))}
                         </div>
-                      </div>
 
-                      {/* Action Button */}
-                      <div className="pt-2">
-                        <Button
-                          className="w-full bg-purple-600 hover:bg-purple-700"
-                          size="lg"
-                        >
-                          View Details
-                        </Button>
+                        {/* Stock Info */}
+                        {product.stockQuantity && product.inStock && (
+                          <div className="text-xs text-gray-500">
+                            {product.stockQuantity} units available
+                          </div>
+                        )}
+
+                        <Link href={`/product/${product.id}`}>
+                          <Button className="w-full" variant="outline">
+                            View Details
+                          </Button>
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
-            </div>
-          ))}
+
+              {/* Pagination */}
+              <div className="mt-12">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                  className="mb-8"
+                />
+              </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -240,7 +291,7 @@ export default function AudioPage() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
             Why Choose Premium Audio?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <div className="text-center">
               <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Headphones className="h-8 w-8 text-purple-600" />

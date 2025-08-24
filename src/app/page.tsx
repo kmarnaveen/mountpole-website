@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -35,79 +35,141 @@ export default function Home() {
 
     return () => clearTimeout(timer);
   }, []);
-  // Sample product data for carousels
-  const featuredProducts = [
-    {
-      id: "iphone-15-pro-max-256gb-black-titanium",
-      name: "iPhone 15 Pro Max",
-      brand: "Apple",
+
+  // Transform products from JSON to carousel format
+  const transformProductForCarousel = (product: any) => {
+    // Generate default colors if not available
+    const defaultColors = ["#1d1d1f", "#f5f5dc", "#faf0e6", "#e6e6fa"];
+
+    // Extract key features from specifications
+    const features = [];
+    if (product.specifications?.chip || product.specifications?.processor) {
+      features.push(
+        product.specifications.chip || product.specifications.processor
+      );
+    }
+    if (product.specifications?.camera) {
+      features.push(product.specifications.camera);
+    }
+    if (
+      product.specifications?.spen === "Built-in S Pen" ||
+      product.specifications?.spen === "S Pen included"
+    ) {
+      features.push("S Pen included");
+    }
+    if (product.features && product.features.length > 0) {
+      features.push(...product.features.slice(0, 2));
+    }
+
+    // Create quick specs from specifications
+    const quickSpecs: { [key: string]: string } = {};
+    if (product.specifications?.storage) {
+      quickSpecs.Storage = product.specifications.storage;
+    }
+    if (product.specifications?.ram) {
+      quickSpecs.RAM = product.specifications.ram;
+    }
+    if (product.specifications?.display) {
+      quickSpecs.Display = product.specifications.display.includes("inch")
+        ? product.specifications.display.split(" ")[0] + " inch"
+        : product.specifications.display;
+    }
+    if (
+      product.specifications?.camera &&
+      product.specifications.camera.includes("MP")
+    ) {
+      quickSpecs.Camera = product.specifications.camera.split(" ")[0];
+    }
+
+    return {
+      id: product.id,
+      name: product.name,
+      brand: product.brand,
       image:
-        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-black?wid=5120&hei=2880&fmt=webp&qlt=90&.v=cHJOTXEwTU92OEtKVDV2cVB1R2FTSjlERndlRTljaUdZeHJGM3dlLzR2OUFsUUpuUVQ3cUdJUXc0NW5mTVpFdE9MekhWSGZtV1pvV240QzNuTk80VS9jVTIwcEJjL3Axby9SNE1Ma0phb1dEdlJGYjQxc1NwMWpTZjJjMXIvZnE&traceId=1",
-      isNew: true,
-      isBestSeller: true,
-      discount: "8% off",
-      colors: ["#1d1d1f", "#f5f5dc", "#faf0e6", "#e6e6fa"],
-      features: ["A17 Pro chip", "Pro camera system", "Titanium design"],
-      quickSpecs: { Storage: "256GB", Display: "6.7 inch" },
-    },
-    {
-      id: "galaxy-s24-ultra-512gb-titanium-black",
-      name: "Galaxy S24 Ultra",
-      brand: "Samsung",
-      image: "https://m.media-amazon.com/images/I/717Q2swzhBL._SL1500_.jpg",
-      isBestSeller: true,
-      discount: "13% off",
-      colors: ["#1a1a1a", "#8b4513", "#dda0dd", "#f5f5dc"],
-      features: ["Galaxy AI", "S Pen included", "200MP camera"],
-      quickSpecs: { Storage: "512GB", RAM: "12GB" },
-    },
-    {
-      id: "pixel-9-pro-128gb-obsidian",
-      name: "Pixel 9 Pro",
-      brand: "Google",
-      image: "https://m.media-amazon.com/images/I/51xiDpq5ODL._SL1000_.jpg",
-      isNew: true,
-      discount: "10% off",
-      colors: ["#000000", "#ffffff", "#ff69b4", "#40e0d0"],
-      features: ["Gemini AI", "Magic Eraser", "Pure Android"],
-      quickSpecs: { Storage: "128GB", Camera: "50MP" },
-    },
-    {
-      id: "ipad-pro-129-256gb-space-gray",
-      name: 'iPad Pro 12.9"',
-      brand: "Apple",
-      image:
-        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-glass-select-gallery-1-202405?wid=5120&hei=2880&fmt=webp&qlt=90&.v=QU8rTGFZUkxWbm1Fc0VaUXQ2QVNpSU5sSFgwakNWNmlhZ2d5NGpHdllWY09WV3R2ZHdZMXRzTjZIcWdMTlg4eUJQYkhSV3V1dC9oa0s5K3lqMGtUaFYrNkhvSzBtcy9ubWtTZUpaU0lsQ2Mra0tCNG5uVUtreW84V0xBbE4rVTk&traceId=1",
-      isNew: true,
-      isLimitedTime: true,
-      colors: ["#c0c0c0", "#1a1a1a"],
-      features: ["M4 chip", "Liquid Retina XDR", "Apple Pencil Pro"],
-      quickSpecs: { Display: "13 inch", Storage: "256GB" },
-    },
-    {
-      id: "galaxy-tab-s9-ultra-256gb-graphite",
-      name: "Galaxy Tab S9 Ultra",
-      brand: "Samsung",
-      image:
-        "https://vsprod.vijaysales.com/media/catalog/product/2/2/221574-image1_1.jpg?optimize=medium&fit=bounds&height=500&width=500",
-      discount: "11% off",
-      colors: ["#708090", "#2f4f4f"],
-      features: ["S Pen included", "DeX mode", "14.6 inch display"],
-      quickSpecs: { Display: "14.6 inch", RAM: "12GB" },
-    },
-    {
-      id: "apple-watch-series-9-45mm-midnight",
-      name: "Apple Watch Series 9",
-      brand: "Apple",
-      image:
-        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ultra-case-unselect-gallery-1-202409?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=aTVJSEliNW9jb25zalBlTm16VmMxcWpkNHRJWDMzcTg3NWRxV0pydTcvSUxMekYrWHVDVjVJT1ZDYVlkUjdVUnc2NytHaDA2aFdROEtrekNxcXV6T3VmenhDNGxXRVM5RSs4RlRpMXdYVWhCUjJHK0dyT0t2cDF1RTlMancyMG8",
-      isNew: true,
-      isBestSeller: true,
-      colors: ["#ff6347", "#32cd32", "#1e90ff"],
-      features: ["49mm titanium", "Action button", "100m water resistant"],
-      quickSpecs: { Size: "49mm", Battery: "36 hours" },
-    },
-  ];
+        product.images?.[0] ||
+        "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4=",
+      isNew:
+        product.tags?.includes("latest") ||
+        product.name.includes("Series 9") ||
+        product.name.includes("iPhone 16"),
+      isBestSeller:
+        product.stockQuantity >= 10 && product.category === "Smartphones", // Removed price-based logic
+      // discount: product.salePrice ? `${Math.round(((product.price - product.salePrice) / product.price) * 100)}% off` : null, // Commented out discount
+      discount: undefined, // No discounts displayed
+      colors: defaultColors,
+      features: features.slice(0, 3),
+      quickSpecs,
+    };
+  };
+
+  // Get featured products (mix of categories, prioritize flagship devices)
+  const getFeaturedProducts = () => {
+    const products = productsData?.products || [];
+
+    // Prioritize flagship devices and popular categories (removed price-based filtering)
+    const flagship = products.filter(
+      (p: any) =>
+        p.name.toLowerCase().includes("ultra") ||
+        p.name.toLowerCase().includes("pro") ||
+        p.name.toLowerCase().includes("series")
+      // p.price > 800 // Commented out price-based filtering
+    );
+
+    const other = products.filter(
+      (p: any) => !flagship.some((f: any) => f.id === p.id)
+    );
+
+    // Mix flagship and other products, limit to 6
+    const selected = [...flagship.slice(0, 4), ...other.slice(0, 2)].slice(
+      0,
+      6
+    );
+
+    return selected.map(transformProductForCarousel);
+  };
+
+  const featuredProducts = getFeaturedProducts();
+
+  // Get popular products (different from featured, mix of all categories)
+  const getPopularProducts = () => {
+    const products = productsData?.products || [];
+
+    // Skip products already used in featured
+    const featuredIds = featuredProducts.map((p) => p.id);
+    const remaining = products.filter((p: any) => !featuredIds.includes(p.id));
+
+    // Prioritize products with good stock and variety across categories
+    const smartphones = remaining
+      .filter((p: any) => p.category === "Smartphones")
+      .slice(0, 2);
+    const tablets = remaining
+      .filter((p: any) => p.category === "Tablets")
+      .slice(0, 1);
+    const wearables = remaining
+      .filter((p: any) => p.category === "Wearables")
+      .slice(0, 1);
+    const accessories = remaining
+      .filter(
+        (p: any) => p.category === "Accessories" || p.category === "Audio"
+      )
+      .slice(0, 2);
+
+    // Combine and ensure we have 6 products
+    const selected = [...smartphones, ...tablets, ...wearables, ...accessories];
+
+    // If we don't have 6, fill with remaining products
+    if (selected.length < 6) {
+      const usedIds = selected.map((p) => p.id);
+      const additional = remaining
+        .filter((p: any) => !usedIds.includes(p.id))
+        .slice(0, 6 - selected.length);
+      selected.push(...additional);
+    }
+
+    return selected.slice(0, 6);
+  };
+
+  const popularProducts = getPopularProducts();
 
   // Type-safe product data for carousel
   const typedFeaturedProducts = featuredProducts.map((product) => ({
@@ -122,7 +184,7 @@ export default function Home() {
       description:
         "Experience ultimate visual clarity with our cutting-edge gaming monitors. Featuring high refresh rates, HDR support, and stunning 4K resolution for the most immersive gaming experience.",
       video: "/01-hd01-DM-Series-kv-pc-1440x6401.webm",
-      textPosition: "start", // Text positioned at start (left)
+      textPosition: "start" as const, // Text positioned at start (left)
       cta: {
         text: "Explore Monitors",
         href: "/monitors",
@@ -133,7 +195,7 @@ export default function Home() {
       title: "Two sizes. Same Pro.",
       description: "",
       image: "/pixel-9-pro-banner.png",
-      textPosition: "top-center", // Text positioned at top center
+      textPosition: "top-center" as const, // Text positioned at top center
       href: "/smartphones", // Direct link instead of CTA button
     },
     {
@@ -142,7 +204,7 @@ export default function Home() {
       description:
         "Discover the newest smartphone technology with cutting-edge cameras, lightning-fast processors, and innovative features that keep you connected and productive.",
       video: "/large_2x.mp4",
-      textPosition: "start", // Text positioned at start (left)
+      textPosition: "start" as const, // Text positioned at start (left)
       cta: {
         text: "Shop Smartphones",
         href: "/smartphones",
@@ -155,7 +217,7 @@ export default function Home() {
       description: "",
       image:
         "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/aalp-magsafe-header-202503?wid=2880&hei=960&fmt=png-alpha&.v=Z0FvN205Yit0amxaU0VEclhjUVpkQ1UrSEpTSlJCQnBKOXVkZ0ZzTVBSSmNIMFFzd3RXdklnTGRTZDNHMExMN0FBdXY2YUtQNTBqTXdOQ1ZyYzhsU1FsYVJ0UGoyVHJsd2tKa2lWMzVuNU0",
-      textPosition: "end", // Text positioned at start (left)
+      textPosition: "start" as const, // Changed from "end" to "start" since "end" is not in the union type
       href: "/brands/apple",
     },
   ];
@@ -540,8 +602,8 @@ export default function Home() {
                 Popular Products
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Show first 6 products from our database */}
-                {productsData.products.slice(0, 6).map((product: any) => (
+                {/* Show popular products from our database */}
+                {popularProducts.map((product: any) => (
                   <Card
                     key={product.id}
                     className="group hover:shadow-lg transition-shadow"
@@ -549,11 +611,19 @@ export default function Home() {
                     <CardHeader>
                       <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                         <Image
-                          src={product.images[0]}
-                          alt={product.name}
+                          src={
+                            product.images?.[0] ||
+                            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4="
+                          }
+                          alt={product.name || "Product Image"}
                           width={300}
                           height={300}
                           className="w-full h-full object-contain p-4"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src =
+                              "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4=";
+                          }}
                         />
                       </div>
                       <CardTitle className="text-lg">{product.name}</CardTitle>
@@ -563,7 +633,29 @@ export default function Home() {
                     </CardHeader>
                     <CardContent>
                       <div className="flex justify-between items-center mb-4">
-                        <Badge>Display Only</Badge>
+                        {/* Price section commented out */}
+                        {/* 
+                        <div className="flex flex-col">
+                          <span className="text-2xl font-bold text-gray-900">
+                            ${product.price?.toFixed(2) || 'N/A'}
+                          </span>
+                          {product.salePrice && (
+                            <span className="text-sm text-gray-500 line-through">
+                              ${product.salePrice.toFixed(2)}
+                            </span>
+                          )}
+                        </div>
+                        */}
+                        <div className="flex flex-col gap-1">
+                          <Badge
+                            variant={product.inStock ? "default" : "secondary"}
+                          >
+                            {product.inStock ? "In Stock" : "Out of Stock"}
+                          </Badge>
+                          {product.category === "Smartphones" && (
+                            <Badge variant="outline">Best Seller</Badge>
+                          )}
+                        </div>
                       </div>
                       <Link href={`/product/${product.id}`}>
                         <Button className="w-full" variant="outline">

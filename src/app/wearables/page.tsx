@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,215 +20,236 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ProductGridSkeleton } from "@/components/skeletons/ProductSkeleton";
+import {
+  Pagination,
+  usePagination,
+  PaginationInfo,
+} from "@/components/ui/pagination";
+import productsData from "../../../products.json";
 
 export default function WearablesPage() {
-  const wearables = [
-    {
-      id: 1,
-      name: "Apple Watch Series 9",
-      brand: "Apple",
-      image:
-        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ultra-case-unselect-gallery-1-202409?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=aTVJSEliNW9jb25zalBlTm16VmMxcWpkNHRJWDMzcTg3NWRxV0pydTcvSUxMekYrWHVDVjVJT1ZDYVlkUjdVUnc2NytHaDA2aFdROEtrekNxcXV6T3VmenhDNGxXRVM5RSs4RlRpMXdYVWhCUjJHK0dyT0t2cDF1RTlMancyMG8",
-      category: "Smart Watch",
-      specs: ["S9 Chip", "Always-On Display", "Blood Oxygen", "ECG"],
-      features: ["Double Tap", "Siri on Device", "Carbon Neutral"],
-    },
-    {
-      id: 2,
-      name: "Galaxy Watch6",
-      brand: "Samsung",
-      image: "https://m.media-amazon.com/images/I/61wSQcwjpqL._AC_SL1500_.jpg",
-      category: "Smart Watch",
-      specs: ["Exynos W930", '1.5" Display', "Sleep Tracking", "40mm"],
-      features: ["Body Composition", "Fall Detection", "Water Resistant"],
-    },
-    {
-      id: 3,
-      name: "Pixel Watch 2",
-      brand: "Google",
-      image: "https://m.media-amazon.com/images/I/71gCMKYhJ5L._AC_SL1500_.jpg",
-      category: "Smart Watch",
-      specs: ["Snapdragon W5", "Fitbit Integration", "Heart Rate", "GPS"],
-      features: ["Safety Check", "Gmail Notifications", "Google Pay"],
-    },
-    {
-      id: 4,
-      name: "Apple Watch SE",
-      brand: "Apple",
-      image:
-        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/se-case-unselect-gallery-1-202409?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=VUJlellZRStNS2ViOXFkSTY1R3RCcWpkNHRJWDMzcTg3NWRxV0pydTcvSUxMekYrWHVDVjVJT1ZDYVlkUjdVUnc2NytHaDA2aFdROEtrekNxcXV6T3VmenhDNGxXRVM5RSs4RlRpMXdYVWg",
-      category: "Smart Watch",
-      specs: ["S8 Chip", "Retina Display", "Activity Rings", "44mm"],
-      features: ["Fall Detection", "Emergency SOS", "Family Setup"],
-    },
-    {
-      id: 5,
-      name: "Galaxy Watch6 Classic",
-      brand: "Samsung",
-      image: "https://m.media-amazon.com/images/I/51QrZjh7GPL._AC_SL1500_.jpg",
-      category: "Smart Watch",
-      specs: ["Rotating Bezel", '1.5" Display', "47mm", "Titanium"],
-      features: ["Premium Materials", "Advanced Sleep", "Pro Workouts"],
-    },
-    {
-      id: 6,
-      name: "Galaxy Buds2 Pro",
-      brand: "Samsung",
-      image: "https://m.media-amazon.com/images/I/51Ll4AX3hQL._AC_SL1500_.jpg",
-      category: "Earbuds",
-      specs: ["ANC", "360 Audio", "8hr Battery", "IPX7"],
-      features: ["Hi-Fi Sound", "Voice Detect", "Wireless Charging"],
-    },
-  ];
+  const [isLoading, setIsLoading] = useState(true);
 
-  const categories = ["All", "Smart Watches", "Earbuds", "Fitness Trackers"];
+  // Filter wearables from the products data
+  const wearables = productsData.products.filter(
+    (product: { category: string }) => product.category === "Wearables"
+  );
+
+  // Pagination logic
+  const {
+    currentPage,
+    totalPages,
+    paginatedItems: paginatedWearables,
+    totalItems,
+    startIndex,
+    endIndex,
+    setCurrentPage,
+  } = usePagination(wearables, 8); // 8 items per page
+
+  // Simulate loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-900 via-purple-800 to-blue-900 text-white py-16 px-4">
-        <div className="container mx-auto text-center">
-          <div className="mb-8">
-            <Watch className="mx-auto h-16 w-16 text-purple-400 mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Wearables</h1>
-            <p className="text-xl text-purple-100 max-w-2xl mx-auto">
-              Stay connected and healthy with the latest smartwatches and
-              wearable technology. Track your fitness, receive notifications,
-              and more.
-            </p>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-white">
+      {/* Video Hero Section with Gemini-style design */}
+      <section className="relative h-[70vh] md:h-[80vh] overflow-hidden flex items-center">
+        {/* Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-10"
+          autoPlay
+          muted
+          loop
+          playsInline
+          onError={(e) => {
+            // Hide video and show gradient fallback if video fails to load
+            e.currentTarget.style.display = "none";
+          }}
+        >
+          <source
+            src="https://www.apple.com/105/media/ww/watch/2024/f0b51c31-e8a5-44d7-b23d-51bd2858454a/anim/hero/large_2x.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-      {/* Filter Section */}
-      <section className="py-8 px-4 border-b bg-white">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap gap-4 items-center justify-between">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <Badge
-                  key={category}
-                  variant="outline"
-                  className="cursor-pointer hover:bg-purple-50"
-                >
-                  {category}
-                </Badge>
-              ))}
-            </div>
-            <div className="flex gap-2">
-              <Badge
-                variant="outline"
-                className="cursor-pointer hover:bg-purple-50"
+        {/* Fallback gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 z-5"></div>
+
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/40 z-15"></div>
+
+        {/* Content Overlay with Gemini-style styling */}
+        <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          {/* Subtle background for all content */}
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
+            {/* Gemini-style gradient text */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent leading-tight">
+              Wearables
+            </h1>
+
+            <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
+              Track your health, stay connected, and enhance your lifestyle.
+              Discover smart watches and fitness trackers that fit your needs.
+            </p>
+
+            <div className="mt-6 md:mt-8">
+              <button
+                onClick={() => {
+                  const productsSection =
+                    document.getElementById("wearables-section");
+                  productsSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105"
               >
-                Apple
-              </Badge>
-              <Badge
-                variant="outline"
-                className="cursor-pointer hover:bg-purple-50"
-              >
-                Samsung
-              </Badge>
-              <Badge
-                variant="outline"
-                className="cursor-pointer hover:bg-purple-50"
-              >
-                Google
-              </Badge>
+                Explore Wearables
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="py-12 px-4">
+      <section id="wearables-section" className="py-16 px-4">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {wearables.map((device) => (
-              <Card
-                key={device.id}
-                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg"
-              >
-                <CardHeader className="pb-4">
-                  <div className="aspect-square bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-                    {device.image ? (
-                      <Image
-                        src={device.image}
-                        alt={device.name}
-                        width={200}
-                        height={200}
-                        className="w-full h-full object-contain p-4"
-                      />
-                    ) : device.category === "Earbuds" ? (
-                      <div className="flex space-x-2">
-                        <div className="w-8 h-12 bg-gray-700 rounded-full"></div>
-                        <div className="w-8 h-12 bg-gray-700 rounded-full"></div>
-                      </div>
-                    ) : (
-                      <Watch className="h-24 w-24 text-purple-400" />
-                    )}
-                    <div className="absolute top-2 right-2">
-                      <Badge className="bg-purple-500">{device.brand}</Badge>
-                    </div>
-                    <div className="absolute top-2 left-2">
-                      <Badge variant="secondary" className="text-xs">
-                        {device.category}
-                      </Badge>
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl group-hover:text-purple-600 transition-colors">
-                    {device.name}
-                  </CardTitle>
-                </CardHeader>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Featured Wearables
+          </h2>
 
-                <CardContent className="space-y-4">
-                  {/* Key Specs */}
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm text-gray-700">
-                      Key Specifications:
-                    </h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {device.specs.map((spec, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center space-x-1"
-                        >
-                          <div className="w-1 h-1 bg-purple-500 rounded-full"></div>
-                          <span className="text-xs text-gray-600">{spec}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Features */}
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm text-gray-700">
-                      Features:
-                    </h4>
-                    <div className="flex flex-wrap gap-1">
-                      {device.features.map((feature, index) => (
-                        <Badge
-                          key={index}
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          {feature}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="pt-4">
-                    <Link href={`/brands/${device.brand.toLowerCase()}`}>
-                      <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                        View Details
-                      </Button>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Results Info */}
+          <div className="flex justify-between items-center mb-8">
+            <PaginationInfo
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalItems={totalItems}
+              startIndex={startIndex}
+              endIndex={endIndex}
+            />
+            <div className="text-sm text-gray-600">
+              {totalItems} wearable{totalItems !== 1 ? "s" : ""} available
+            </div>
           </div>
+
+          {isLoading ? (
+            <ProductGridSkeleton />
+          ) : (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-8">
+                {paginatedWearables.map((product: any) => (
+                  <Card
+                    key={product.id}
+                    className="group hover:shadow-xl transition-all duration-300 border border-gray-200"
+                  >
+                    <CardHeader className="pb-4">
+                      <div className="aspect-square bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <Image
+                          src={
+                            product.images?.[0] ||
+                            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4="
+                          }
+                          alt={product.name}
+                          width={250}
+                          height={250}
+                          className="object-contain p-6 group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Badge variant="secondary" className="text-xs">
+                            {product.brand}
+                          </Badge>
+                          <Badge
+                            variant={product.inStock ? "default" : "secondary"}
+                            className="text-xs"
+                          >
+                            {product.inStock ? "In Stock" : "Out of Stock"}
+                          </Badge>
+                        </div>
+                        <CardTitle className="text-lg group-hover:text-purple-600 transition-colors">
+                          {product.name}
+                        </CardTitle>
+                        <CardDescription className="text-sm">
+                          {product.description || "Smart wearable technology"}
+                        </CardDescription>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent className="pt-0">
+                      <div className="space-y-3">
+                        {/* Specifications */}
+                        {product.specifications && (
+                          <div className="space-y-2">
+                            {product.specifications.battery && (
+                              <div className="flex justify-between text-sm">
+                                <span className="text-gray-500">Battery:</span>
+                                <span className="font-medium">
+                                  {product.specifications.battery}
+                                </span>
+                              </div>
+                            )}
+                            {product.specifications.waterResistance && (
+                              <div className="flex justify-between text-sm">
+                                <span className="text-gray-500">
+                                  Water Resistance:
+                                </span>
+                                <span className="font-medium">
+                                  {product.specifications.waterResistance}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Features */}
+                        <div className="flex flex-wrap gap-1">
+                          {product.features
+                            ?.slice(0, 3)
+                            .map((feature: string, index: number) => (
+                              <Badge
+                                key={index}
+                                variant="outline"
+                                className="text-xs text-purple-600"
+                              >
+                                {feature}
+                              </Badge>
+                            ))}
+                        </div>
+
+                        {/* Stock Info */}
+                        {product.stockQuantity && product.inStock && (
+                          <div className="text-xs text-gray-500">
+                            {product.stockQuantity} units available
+                          </div>
+                        )}
+
+                        <Link href={`/product/${product.id}`}>
+                          <Button className="w-full" variant="outline">
+                            View Details
+                          </Button>
+                        </Link>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Pagination */}
+              <div className="mt-12">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                  className="mb-8"
+                />
+              </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -235,28 +259,28 @@ export default function WearablesPage() {
           <h2 className="text-3xl font-bold mb-12 text-gray-900">
             Wearable Technology Benefits
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <div className="text-center">
               <Heart className="mx-auto h-12 w-12 text-red-600 mb-4" />
               <h3 className="font-semibold mb-2">Health Monitoring</h3>
               <p className="text-gray-600">
-                Track heart rate, sleep, and activity levels
+                Track your heart rate, sleep patterns, and fitness goals with
+                advanced sensors.
               </p>
             </div>
-
-            <div className="text-center">
-              <Smartphone className="mx-auto h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="font-semibold mb-2">Smart Notifications</h3>
-              <p className="text-gray-600">
-                Stay connected without reaching for your phone
-              </p>
-            </div>
-
             <div className="text-center">
               <Activity className="mx-auto h-12 w-12 text-green-600 mb-4" />
               <h3 className="font-semibold mb-2">Fitness Tracking</h3>
               <p className="text-gray-600">
-                Monitor workouts and achieve fitness goals
+                Monitor your daily activities, workouts, and calories burned.
+              </p>
+            </div>
+            <div className="text-center">
+              <Smartphone className="mx-auto h-12 w-12 text-blue-600 mb-4" />
+              <h3 className="font-semibold mb-2">Smart Connectivity</h3>
+              <p className="text-gray-600">
+                Stay connected with notifications, calls, and messaging on your
+                wrist.
               </p>
             </div>
           </div>
