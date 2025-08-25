@@ -194,7 +194,7 @@ export default function Header() {
             <div className="flex items-center space-x-2 mb-4">
               <button
                 onClick={() => setIsMobileSearchOpen(false)}
-                className="p-1.5 hover:bg-gray-100 rounded-full"
+                className=" hover:bg-gray-100 rounded-full"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -266,31 +266,49 @@ export default function Header() {
         </div>
       )}
 
-      {/* Desktop Header - Sticky with full functionality */}
-      <header className="sticky top-0 z-[9999] w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b hidden md:block">
-        <div className="container mx-auto px-4">
-          {/* Top bar */}
-          <div className="flex items-center justify-between py-4">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
+      {/* Desktop Header - Professional Design */}
+      <header className="sticky top-0 z-[9999] w-full bg-white shadow-sm border-b border-gray-200 hidden md:block">
+        <div className="container mx-auto px-6">
+          {/* Top bar - Enhanced spacing and typography */}
+          <div className="flex items-center justify-between py-5">
+            {/* Logo - More professional styling */}
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                <span className="text-white font-bold text-xl">M</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">MountPole</span>
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-gray-900 tracking-tight">
+                  MountPole
+                </span>
+                <span className="text-xs text-gray-500 font-medium tracking-wide">
+                  B2B DISTRIBUTOR
+                </span>
+              </div>
             </Link>
 
-            {/* Search Bar - Desktop */}
-            <div className="hidden md:flex flex-1 max-w-md mx-8">
+            {/* Search Bar - Enhanced design */}
+            <div className="flex-1 max-w-xl mx-12">
               <StreamSearch
                 products={productsData.products as Product[]}
-                placeholder={isMounted ? `${searchPlaceholder} (Press / or ⌘K)` : searchPlaceholder}
-                className="w-full"
+                placeholder={
+                  isMounted
+                    ? `${searchPlaceholder} (Press / or ⌘K)`
+                    : searchPlaceholder
+                }
+                className="w-full rounded-lg backdrop-blur-sm focus:bg-white focus:border-blue-500 transition-all duration-200 shadow-sm hover:shadow-md"
                 maxResults={6}
               />
             </div>
 
-            {/* Right side actions */}
-            <div className="flex items-center space-x-4">
+            {/* Right side actions - Enhanced styling */}
+            <div className="flex items-center space-x-6">
+              {/* Contact CTA Button */}
+              <Link href="/contact">
+                <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+                  Get Quote
+                </Button>
+              </Link>
+
               {/* Mobile menu */}
               <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild>
@@ -474,30 +492,34 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Navigation - Desktop */}
-          <div className="hidden md:flex items-center justify-between py-2 border-t">
+          {/* Navigation - Professional Design */}
+          <div className="hidden md:flex items-center justify-between py-3 border-t border-gray-100">
             <NavigationMenu>
-              <NavigationMenuList>
-                {/* Categories */}
+              <NavigationMenuList className="space-x-1">
+                {/* Categories - Enhanced styling */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="h-11 px-6 font-semibold text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 rounded-lg">
+                    Categories
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    <div className="grid w-[500px] gap-4 p-6 md:w-[600px] md:grid-cols-2 lg:w-[700px] bg-white shadow-xl rounded-xl border border-gray-100">
                       {categories.map((category) => (
                         <NavigationMenuLink key={category.name} asChild>
                           <Link
                             href={category.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            className="group block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:shadow-md border border-transparent hover:border-blue-100"
                           >
-                            <div className="flex items-center space-x-2">
-                              <category.icon className="h-5 w-5 text-blue-600" />
-                              <div className="text-sm font-medium leading-none">
+                            <div className="flex items-center space-x-3">
+                              <div className="p-2 rounded-lg bg-gradient-to-br from-blue-100 to-cyan-100 group-hover:from-blue-200 group-hover:to-cyan-200 transition-all duration-200">
+                                <category.icon className="h-5 w-5 text-blue-600" />
+                              </div>
+                              <div className="text-base font-semibold leading-none text-gray-900 group-hover:text-blue-700 transition-colors">
                                 {category.name}
                               </div>
                             </div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            <p className="line-clamp-2 text-sm leading-relaxed text-gray-600 group-hover:text-gray-700 ml-11">
                               Latest {category.name.toLowerCase()} from top
-                              brands
+                              brands with professional support
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -506,49 +528,67 @@ export default function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* Brands */}
+                {/* Brands - Enhanced styling */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Brands</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="h-11 px-6 font-semibold text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 rounded-lg">
+                    Brands
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-4">
-                      {brands.map((brand) => (
-                        <NavigationMenuLink key={brand.name} asChild>
-                          <Link
-                            href={brand.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">
-                              {brand.name}
-                            </div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Explore {brand.name} products
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      ))}
+                    <div className="w-[450px] p-6 bg-white shadow-xl rounded-xl border border-gray-100">
+                      <div className="grid gap-3 mb-4">
+                        {brands.map((brand) => (
+                          <NavigationMenuLink key={brand.name} asChild>
+                            <Link
+                              href={brand.href}
+                              className="group flex items-center justify-between select-none rounded-lg p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:shadow-sm border border-transparent hover:border-blue-100"
+                            >
+                              <div className="flex-1">
+                                <div className="flex items-center space-x-2 mb-1">
+                                  <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-blue-700 transition-colors">
+                                    {brand.name}
+                                  </div>
+                                  {brand.badge && (
+                                    <Badge
+                                      variant="secondary"
+                                      className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 border-blue-200"
+                                    >
+                                      {brand.badge}
+                                    </Badge>
+                                  )}
+                                </div>
+                                <p className="text-xs leading-relaxed text-gray-600 group-hover:text-gray-700">
+                                  {brand.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
                       <NavigationMenuLink asChild>
                         <Link
                           href="/brands"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground border-t mt-2 pt-4"
+                          className="flex items-center justify-center select-none rounded-lg p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600 hover:text-white border-t-2 border-gray-100 mt-3 pt-4 bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700 font-medium"
                         >
-                          <div className="text-sm font-medium leading-none text-center">
-                            View All Brands
+                          <div className="text-center">
+                            <div className="text-sm font-semibold leading-none mb-1">
+                              View All Brands
+                            </div>
+                            <p className="text-xs leading-relaxed opacity-80">
+                              Compare all available brands and products
+                            </p>
                           </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground text-center">
-                            Compare all available brands
-                          </p>
                         </Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* Other Links */}
+                {/* Other Links - Enhanced styling */}
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
                       href="/about"
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                      className="inline-flex h-11 w-max items-center justify-center rounded-lg bg-background px-6 py-2 text-sm font-semibold transition-all duration-200 hover:bg-blue-50 hover:text-blue-600 text-gray-700"
                     >
                       About
                     </Link>
@@ -559,7 +599,7 @@ export default function Header() {
                   <NavigationMenuLink asChild>
                     <Link
                       href="/contact"
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                      className="inline-flex h-11 w-max items-center justify-center rounded-lg bg-background px-6 py-2 text-sm font-semibold transition-all duration-200 hover:bg-blue-50 hover:text-blue-600 text-gray-700"
                     >
                       Contact
                     </Link>
@@ -568,11 +608,8 @@ export default function Header() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <div className="flex items-center space-x-4">
-              <Badge variant="outline" className="text-xs">
-                Display & Information Only
-              </Badge>
-            </div>
+            {/* Professional Status Badge */}
+            <div className="flex items-center space-x-4"></div>
           </div>
         </div>
       </header>

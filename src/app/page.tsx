@@ -10,11 +10,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Smartphone, Tablet, Watch, Monitor, Shield } from "lucide-react";
+import {
+  Smartphone,
+  Tablet,
+  Watch,
+  Monitor,
+  Shield,
+  Zap,
+  Eye,
+  ShoppingCart,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Carousel from "@/components/ui/carousel";
 import ProductCarousel from "@/components/ui/product-carousel";
+import FormModal from "@/components/ui/FormModal";
+import { useFormModal } from "@/hooks/useFormModal";
 import {
   HeroSkeleton,
   ProductCarouselSkeleton,
@@ -26,6 +37,15 @@ import productsData from "../../products.json";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const {
+    isOpen,
+    formType,
+    category,
+    title,
+    description,
+    openForm,
+    closeForm,
+  } = useFormModal();
 
   // Simulate loading
   useEffect(() => {
@@ -119,10 +139,10 @@ export default function Home() {
       (p: any) => !flagship.some((f: any) => f.id === p.id)
     );
 
-    // Mix flagship and other products, limit to 6
-    const selected = [...flagship.slice(0, 4), ...other.slice(0, 2)].slice(
+    // Mix flagship and other products, limit to 8 for better carousel display
+    const selected = [...flagship.slice(0, 5), ...other.slice(0, 3)].slice(
       0,
-      6
+      8
     );
 
     return selected.map(transformProductForCarousel);
@@ -180,18 +200,44 @@ export default function Home() {
   const heroItems = [
     {
       id: "1",
-      title: "Partner With MountPole",
+      title: "Global Technology Distribution",
       description:
-        "Join forces with a trusted global technology distributor. Whether you're a retailer, reseller, or enterprise buyer, MountPole provides authentic products, competitive wholesale pricing, and reliable supply chains to fuel your business growth.",
+        "Connecting the world with technology you trust. MountPole distributes premium brands like Apple, Samsung, Xiaomi, and more across the USA, Canada, Latin America, and beyond.",
       video: "/01-hd01-DM-Series-kv-pc-1440x6401.webm",
       textPosition: "start" as const,
       cta: {
         text: "Start Partnership",
-        href: "/contact?type=partnership",
+        action: () =>
+          openForm("partnership", {
+            title: "Start Your Partnership",
+            description:
+              "Join forces with a trusted global technology distributor",
+          }),
       },
     },
     {
       id: "2",
+      title: "Partner With MountPole",
+      description:
+        "Join forces with a trusted global technology distributor. Whether you're a retailer, reseller, or enterprise buyer, MountPole provides authentic products, competitive wholesale pricing, and reliable supply chains to fuel your business growth.",
+      image:
+        "https://www.actualidadiphone.com/wp-content/uploads/2025/07/Apple-Beta-ios-macos-26.jpg.webp",
+      textPosition: "top-center" as const,
+      href: "/smartphones",
+    },
+
+    {
+      id: "3",
+      title: "Business Solutions",
+      description:
+        " Get enterprise pricing and dedicated business solutions for your technology needs",
+      image:
+        "http://i.pinimg.com/1200x/2e/03/db/2e03dbb1a04e5f7a42c809f10531d399.jpg",
+      textPosition: "top-center" as const,
+      href: "/smartphones",
+    },
+    {
+      id: "4",
       title: "Global Technology Distribution",
       description:
         "Connecting the world with technology you trust. MountPole distributes premium brands like Apple, Samsung, Xiaomi, and more across the USA, Canada, Latin America, and beyond.",
@@ -200,7 +246,7 @@ export default function Home() {
       href: "/smartphones",
     },
     {
-      id: "3",
+      id: "5",
       title: "Global Reach, Trusted Brands",
       description:
         "Serving partners across the USA, Canada, Latin America, and beyond. Distributing world-class electronics and lifestyle products with reliable bulk supply and competitive margins for resellers.",
@@ -208,24 +254,17 @@ export default function Home() {
       textPosition: "start" as const,
       cta: {
         text: "Become a Partner",
-        href: "/contact?type=business",
+        action: () =>
+          openForm("partnership", {
+            title: "Become a Partner",
+            description: "Start your partnership with MountPole today",
+          }),
       },
-    },
-
-    {
-      id: "5",
-      title: "Apple Business Solutions",
-      description:
-        "Authorized Apple Business Partner - Get enterprise pricing and dedicated business solutions for your technology needs",
-      image:
-        "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/aalp-magsafe-header-202503?wid=2880&hei=960&fmt=png-alpha&.v=Z0FvN205Yit0amxaU0VEclhjUVpkQ1UrSEpTSlJCQnBKOXVkZ0ZzTVBSSmNIMFFzd3RXdklnTGRTZDNHMExMN0FBdXY2YUtQNTBqTXdOQ1ZyYzhsU1FsYVJ0UGoyVHJsd2tKa2lWMzVuNU0",
-      textPosition: "start" as const,
-      href: "/contact?type=apple-business",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white overflow-x-hidden">
       {isLoading ? (
         <>
           <HeroSkeleton />
@@ -246,13 +285,484 @@ export default function Home() {
             />
           </section>
 
+          {/* Brands We Work With */}
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50 px-3 sm:px-4 md:px-6 lg:px-8">
+            <div className="container mx-auto max-w-7xl">
+              <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-6">
+                  Brands We Work With
+                </h2>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
+                  Partnering with leading technology brands to bring you the
+                  latest and greatest in electronics. From flagship smartphones
+                  to professional audio equipment, we offer comprehensive
+                  solutions.
+                </p>
+              </div>
+
+              {/* All Brands - Fully Responsive Grid Layout */}
+              <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+                {/* Apple */}
+                <Card className="text-center group hover:shadow-xl transition-all duration-300 bg-white h-full flex flex-col border border-gray-200 hover:border-gray-300">
+                  <CardHeader className="pb-2 sm:pb-3 md:pb-4 pt-3 sm:pt-4 md:pt-6 px-3 sm:px-4 md:px-6">
+                    <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 bg-white rounded-2xl sm:rounded-3xl mx-auto mb-2 sm:mb-3 md:mb-4 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/5c/a8/fb/5ca8fbb105d7fe666dc22e36633107a1.jpg"
+                        alt="Apple Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
+                      Apple
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
+                      iPhone, iPad, Apple Watch, Studio Display, MacBook
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
+                    <Link href="/brands/apple" className="block">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full group-hover:bg-black group-hover:text-white transition-colors font-medium text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3 h-auto"
+                      >
+                        Explore Apple
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Samsung */}
+                <Card className="text-center group hover:shadow-xl transition-all duration-300 bg-white h-full flex flex-col border border-gray-200 hover:border-gray-300">
+                  <CardHeader className="pb-2 sm:pb-3 md:pb-4 pt-3 sm:pt-4 md:pt-6 px-3 sm:px-4 md:px-6">
+                    <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 bg-white rounded-2xl sm:rounded-3xl mx-auto mb-2 sm:mb-3 md:mb-4 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                      <Image
+                        src="https://images.samsung.com/is/image/samsung/assets/global/about-us/brand/logo/300_186_4.png?$568_N_PNG$"
+                        alt="Samsung Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
+                      Samsung
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
+                      Galaxy smartphones, tablets, watches, monitors
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
+                    <Link href="/brands/samsung" className="block">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors font-medium text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3 h-auto"
+                      >
+                        Explore Samsung
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Google */}
+                <Card className="text-center group hover:shadow-xl transition-all duration-300 bg-white h-full flex flex-col border border-gray-200 hover:border-gray-300">
+                  <CardHeader className="pb-2 sm:pb-3 md:pb-4 pt-3 sm:pt-4 md:pt-6 px-3 sm:px-4 md:px-6">
+                    <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 bg-white rounded-2xl sm:rounded-3xl mx-auto mb-2 sm:mb-3 md:mb-4 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/59/7f/11/597f11b631d7d94492f1adb95110cc44.jpg"
+                        alt="Google Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
+                      Google
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
+                      Pixel phones, Pixel Watch, Pixel Tablet, Nest devices
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
+                    <Link href="/brands/google" className="block">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full group-hover:bg-blue-500 group-hover:text-white transition-colors font-medium text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3 h-auto"
+                      >
+                        Explore Google
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Xiaomi */}
+                <Card className="text-center group hover:shadow-xl transition-all duration-300 bg-white h-full flex flex-col border border-gray-200 hover:border-gray-300">
+                  <CardHeader className="pb-2 sm:pb-3 md:pb-4 pt-3 sm:pt-4 md:pt-6 px-3 sm:px-4 md:px-6">
+                    <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 bg-white rounded-2xl sm:rounded-3xl mx-auto mb-2 sm:mb-3 md:mb-4 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/0a/06/57/0a06573f82b48bd48f95e4a4e5dc4ca2.jpg"
+                        alt="Xiaomi Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
+                      Xiaomi
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
+                      Redmi, Mi smartphones, tablets, smart home devices
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
+                    <Link href="/brands/xiaomi" className="block">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full group-hover:bg-orange-600 group-hover:text-white transition-colors font-medium text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3 h-auto"
+                      >
+                        Explore Xiaomi
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Realme */}
+                <Card className="text-center group hover:shadow-xl transition-all duration-300 bg-white h-full flex flex-col border border-gray-200 hover:border-gray-300">
+                  <CardHeader className="pb-2 sm:pb-3 md:pb-4 pt-3 sm:pt-4 md:pt-6 px-3 sm:px-4 md:px-6">
+                    <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 bg-white rounded-2xl sm:rounded-3xl mx-auto mb-2 sm:mb-3 md:mb-4 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/736x/71/71/0f/71710f762b6af383a73f9760fda3a3ae.jpg"
+                        alt="Realme Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
+                      Realme
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
+                      Affordable smartphones, earbuds, smart watches
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
+                    <Link href="/brands/realme" className="block">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full group-hover:bg-yellow-600 group-hover:text-white transition-colors font-medium text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3 h-auto"
+                      >
+                        Explore Realme
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Motorola */}
+                <Card className="text-center group hover:shadow-xl transition-all duration-300 bg-white h-full flex flex-col border border-gray-200 hover:border-gray-300">
+                  <CardHeader className="pb-2 sm:pb-3 md:pb-4 pt-3 sm:pt-4 md:pt-6 px-3 sm:px-4 md:px-6">
+                    <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 bg-white rounded-2xl sm:rounded-3xl mx-auto mb-2 sm:mb-3 md:mb-4 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/736x/31/c4/1d/31c41de9898d1c809ab5f385a5ca88fb.jpg"
+                        alt="Motorola Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
+                      Motorola
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
+                      Moto smartphones, razr foldables, enterprise solutions
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
+                    <Link href="/brands/motorola" className="block">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full group-hover:bg-blue-700 group-hover:text-white transition-colors font-medium text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3 h-auto"
+                      >
+                        Explore Motorola
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* JBL */}
+                <Card className="text-center group hover:shadow-xl transition-all duration-300 bg-white h-full flex flex-col border border-gray-200 hover:border-gray-300">
+                  <CardHeader className="pb-2 sm:pb-3 md:pb-4 pt-3 sm:pt-4 md:pt-6 px-3 sm:px-4 md:px-6">
+                    <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 bg-white rounded-2xl sm:rounded-3xl mx-auto mb-2 sm:mb-3 md:mb-4 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/2c/ac/2a/2cac2ac8597cc2ea27601b198ea42685.jpg"
+                        alt="JBL Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
+                      JBL
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
+                      Premium speakers, headphones, audio equipment
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
+                    <Link href="/brands/jbl" className="block">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full group-hover:bg-orange-600 group-hover:text-white transition-colors font-medium text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3 h-auto"
+                      >
+                        Explore JBL
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Huawei */}
+                <Card className="text-center group hover:shadow-xl transition-shadow bg-white">
+                  <CardHeader>
+                    <div className="h-20 w-20 bg-white rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/22/b4/6c/22b46c6e80b2f5c1f6178e08223cc726.jpg"
+                        alt="Huawei Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-16 h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-xl font-bold">Huawei</CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Smartphones, tablets, smartwatches, networking
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link href="/brands/huawei">
+                      <Button
+                        variant="outline"
+                        className="w-full group-hover:bg-red-600 group-hover:text-white transition-colors font-medium"
+                      >
+                        Explore Huawei
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* itel */}
+                <Card className="text-center group hover:shadow-xl transition-shadow bg-white">
+                  <CardHeader>
+                    <div className="h-20 w-20 bg-white rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/ab/da/0e/abda0e194c3b29039022fd9f001c1375.jpg"
+                        alt="itel Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-16 h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-xl font-bold">itel</CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Affordable smartphones, feature phones, accessories
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link href="/brands/itel">
+                      <Button
+                        variant="outline"
+                        className="w-full group-hover:bg-green-600 group-hover:text-white transition-colors font-medium"
+                      >
+                        Explore itel
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Tecno */}
+                <Card className="text-center group hover:shadow-xl transition-shadow bg-white">
+                  <CardHeader>
+                    <div className="h-20 w-20 bg-white rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/736x/4b/44/9b/4b449baf9a14ddce95e5932ef1b01ab2.jpg"
+                        alt="Tecno Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-16 h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-xl font-bold">Tecno</CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Spark, Camon, Phantom smartphones and tablets
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link href="/brands/tecno">
+                      <Button
+                        variant="outline"
+                        className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors font-medium"
+                      >
+                        Explore Tecno
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Infinix */}
+                <Card className="text-center group hover:shadow-xl transition-shadow bg-white">
+                  <CardHeader>
+                    <div className="h-20 w-20 bg-white rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/ad/7b/e4/ad7be4021d5bd53a45ede6417fad731d.jpg"
+                        alt="Infinix Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-16 h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-xl font-bold">Infinix</CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Note, Hot, Zero series smartphones and accessories
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link href="/brands/infinix">
+                      <Button
+                        variant="outline"
+                        className="w-full group-hover:bg-purple-600 group-hover:text-white transition-colors font-medium"
+                      >
+                        Explore Infinix
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Oppo */}
+                <Card className="text-center group hover:shadow-xl transition-shadow bg-white">
+                  <CardHeader>
+                    <div className="h-20 w-20 bg-white rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/9f/c2/60/9fc2604b5e46b15575f807ffacf7c95c.jpg"
+                        alt="Oppo Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-16 h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-xl font-bold">Oppo</CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Find, Reno smartphones, earbuds, smart devices
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link href="/brands/oppo">
+                      <Button
+                        variant="outline"
+                        className="w-full group-hover:bg-green-600 group-hover:text-white transition-colors font-medium"
+                      >
+                        Explore Oppo
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Dyson */}
+                <Card className="text-center group hover:shadow-xl transition-shadow bg-white">
+                  <CardHeader>
+                    <div className="h-20 w-20 bg-white rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
+                      <Image
+                        src="https://i.pinimg.com/1200x/39/c5/ec/39c5ec7414b550a0d61938a41690100e.jpg"
+                        alt="Dyson Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain w-16 h-16"
+                      />
+                    </div>
+                    <CardTitle className="text-xl font-bold">Dyson</CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Vacuum cleaners, air purifiers, hair care appliances
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link href="/brands/dyson">
+                      <Button
+                        variant="outline"
+                        className="w-full group-hover:bg-gray-800 group-hover:text-white transition-colors font-medium"
+                      >
+                        Explore Dyson
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="text-center mt-6 sm:mt-8 md:mt-10 lg:mt-12">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 mb-4 sm:mb-5 md:mb-6 px-4 sm:px-0">
+                  Explore products from all our partner brands
+                </p>
+                <div className="flex flex-col xs:flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto px-4 sm:px-6">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      openForm("category-quote", {
+                        category: "smartphones",
+                        title: "Mobile Quote Request",
+                        description:
+                          "Get wholesale pricing for smartphones from Apple, Samsung, Google, Xiaomi and more.",
+                      })
+                    }
+                    className="w-full sm:w-auto hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-base py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-6 md:px-8 font-medium border-2 hover:border-blue-600"
+                  >
+                    Get Mobile Quotes
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      openForm("category-quote", {
+                        category: "tablets",
+                        title: "Tablet Quote Request",
+                        description:
+                          "Request pricing for iPads, Galaxy Tabs and other tablet devices.",
+                      })
+                    }
+                    className="w-full sm:w-auto hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-base py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-6 md:px-8 font-medium border-2 hover:border-blue-600"
+                  >
+                    Get Tablet Quotes
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      openForm("category-quote", {
+                        category: "wearables",
+                        title: "Wearable Quote Request",
+                        description:
+                          "Get quotes for smartwatches, fitness trackers and wearable tech.",
+                      })
+                    }
+                    className="w-full sm:w-auto hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-base py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-6 md:px-8 font-medium border-2 hover:border-blue-600"
+                  >
+                    Get Wearable Quotes
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Featured Products Carousel */}
-          <section className="py-16 px-4 bg-white">
-            <div className="container mx-auto">
+          <section className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 bg-white">
+            <div className="container mx-auto max-w-7xl">
               <ProductCarousel
                 products={typedFeaturedProducts}
-                title="Premium Technology from Trusted Brands"
-                subtitle="Apple | Samsung | Xiaomi | Tecno | Infinix | Oppo | Realme | JBL | Dyson"
+                title=""
+                subtitle=""
                 autoPlay={true}
                 autoPlayInterval={5000}
                 showQuickView={true}
@@ -263,70 +773,67 @@ export default function Home() {
           </section>
 
           {/* Categories Section */}
-          <section className="py-8 md:py-16 px-4">
-            <div className="container mx-auto">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
+          <section className="py-6 sm:py-8 md:py-12 lg:py-16 px-3 sm:px-4 md:px-6">
+            <div className="container mx-auto max-w-7xl">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-900">
                 Products & Solutions
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardHeader className="text-center">
-                    <Smartphone className="mx-auto h-8 w-8 md:h-12 md:w-12 text-blue-600 mb-2 md:mb-4 group-hover:scale-110 transition-transform" />
-                    <CardTitle>Smartphones &</CardTitle>
-                    <CardDescription>
-                      Latest devices from Apple, Samsung, Oppo, Realme, Tecno,
-                      Infinix, and Xiaomi — catering to every market segment
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+                <Card className="group hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader className="text-center p-4 sm:p-5 md:p-6">
+                    <Smartphone className="mx-auto h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600 mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform" />
+                    <CardTitle className="text-sm sm:text-base md:text-lg mb-2">
+                      Mobiles
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm leading-relaxed">
+                      Latest smartphones from Apple, Samsung, Oppo, Realme,
+                      Tecno, Infinix, and Xiaomi — catering to every market
+                      segment
                     </CardDescription>
                   </CardHeader>
                 </Card>
 
-                <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardHeader className="text-center">
+                <Card className="group hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader className="text-center p-4 sm:p-5 md:p-6">
+                    <Tablet className="mx-auto h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600 mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform" />
+                    <CardTitle className="text-sm sm:text-base md:text-lg mb-2">
+                      Tablets
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm leading-relaxed">
+                      iPad and Android tablets for productivity, creativity, and
+                      entertainment across all use cases
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="group hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader className="text-center p-4 sm:p-5 md:p-6">
+                    <Monitor className="mx-auto h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600 mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform" />
+                    <CardTitle className="text-sm sm:text-base md:text-lg mb-2">
+                      Monitors
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm leading-relaxed">
+                      Professional displays and studio monitors for design,
+                      gaming, and business applications
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="group hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader className="text-center p-4 sm:p-5 md:p-6">
                     <svg
-                      className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform"
+                      className="mx-auto h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600 mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
                     </svg>
-                    <CardTitle>Audio & Lifestyle</CardTitle>
-                    <CardDescription>
-                      Premium sound and accessories from JBL and others, built
-                      to enhance everyday living
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardHeader className="text-center">
-                    <svg
-                      className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                    </svg>
-                    <CardTitle>Home & Personal Tech</CardTitle>
-                    <CardDescription>
-                      Dyson's cutting-edge appliances and a growing range of
-                      smart home innovations
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardHeader className="text-center">
-                    <svg
-                      className="mx-auto h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                    </svg>
-                    <CardTitle>Accessories & Spare Parts</CardTitle>
-                    <CardDescription>
-                      Chargers, batteries, protective gear, and OEM-certified
-                      spare parts — ensuring complete solutions
+                    <CardTitle className="text-sm sm:text-base md:text-lg mb-2">
+                      Audio
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm leading-relaxed">
+                      Premium sound equipment and accessories from JBL and
+                      others, built to enhance everyday living
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -334,411 +841,646 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Brand Highlights */}
-          <section className="py-8 md:py-16 bg-gray-50 px-4">
-            <div className="container mx-auto">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
-                Brands We Work With
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card className="text-center group hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <div className="h-20 w-20 bg-gradient-to-br from-gray-900 to-black rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg">
-                      <svg
-                        className="w-12 h-12 text-white"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                      </svg>
-                    </div>
-                    <CardTitle className="text-xl font-bold">Apple</CardTitle>
-                    <CardDescription className="text-gray-600">
-                      iPhone, iPad, Apple Watch, Studio Display
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Link href="/brands/apple">
-                      <Button
-                        variant="outline"
-                        className="w-full group-hover:bg-black group-hover:text-white transition-colors font-medium"
-                      >
-                        Explore Apple
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center group hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <div className="h-20 w-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg">
-                      <svg
-                        className="w-12 h-12 text-white"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10zm-10 6c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z" />
-                        <path d="M8.5 8.5h2c1.1 0 2 .9 2 2v.5h-1.5v-.5c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v3c0 .28.22.5.5.5h2c.28 0 .5-.22.5-.5V13H12v.5c0 1.1-.9 2-2 2h-2c-1.1 0-2-.9-2-2v-3c0-1.1.9-2 2-2z" />
-                        <path d="M15.5 8.5c1.1 0 2 .9 2 2v3c0 1.1-.9 2-2 2h-2v-1.5h2c.28 0 .5-.22.5-.5v-3c0-.28-.22-.5-.5-.5h-1.5v1h1v1h-1.5v-2.5h2z" />
-                      </svg>
-                    </div>
-                    <CardTitle className="text-xl font-bold">Samsung</CardTitle>
-                    <CardDescription className="text-gray-600">
-                      Galaxy smartphones, tablets, watches, monitors
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Link href="/brands/samsung">
-                      <Button
-                        variant="outline"
-                        className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors font-medium"
-                      >
-                        Explore Samsung
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center group hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <div className="h-20 w-20 bg-gradient-to-br from-blue-500 to-green-500 rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-lg">
-                      <svg
-                        className="w-12 h-12 text-white"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                      </svg>
-                    </div>
-                    <CardTitle className="text-xl font-bold">Google</CardTitle>
-                    <CardDescription className="text-gray-600">
-                      Pixel phones, Pixel Watch, Pixel Tablet
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Link href="/brands/google">
-                      <Button
-                        variant="outline"
-                        className="w-full group-hover:bg-blue-500 group-hover:text-white transition-colors font-medium"
-                      >
-                        Explore Google
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </section>
-
-          {/* Company Highlights Section */}
-          <section className="py-8 md:py-16 bg-blue-50 px-4">
-            <div className="container mx-auto">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
+          {/* Why Choose MountPole - Combined Section with Carousels */}
+          <section className="py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-blue-50 px-3 sm:px-4 md:px-6">
+            <div className="container mx-auto max-w-7xl">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-center mb-3 sm:mb-4 md:mb-6 text-gray-900">
                 Why Choose MountPole
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <svg
-                      className="mx-auto h-12 w-12 text-blue-600 mb-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                    </svg>
-                    <CardTitle className="text-lg">Global Reach</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-sm">
-                      Serving partners across the USA, Canada, Latin America,
-                      and beyond
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <Shield className="mx-auto h-12 w-12 text-green-600 mb-4" />
-                    <CardTitle className="text-lg">Trusted Brands</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-sm">
-                      Distributing world-class electronics and lifestyle
-                      products
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <svg
-                      className="mx-auto h-12 w-12 text-purple-600 mb-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" />
-                    </svg>
-                    <CardTitle className="text-lg">
-                      Wholesale Expertise
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-sm">
-                      Reliable bulk supply and competitive margins for resellers
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <svg
-                      className="mx-auto h-12 w-12 text-red-600 mb-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
-                    <CardTitle className="text-lg">Innovation Driven</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-sm">
-                      Keeping you ahead with the latest in mobile and consumer
-                      technology
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <Smartphone className="mx-auto h-12 w-12 text-orange-600 mb-4" />
-                    <CardTitle className="text-lg">Quality Assurance</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-sm">
-                      Rigorous quality checks and authentic products guaranteed
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <div className="text-center mt-8">
-                <Link href="/contact?type=services">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                    Learn More About Our Services
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* Why Mountpole for Business */}
-          <section className="py-8 md:py-16 px-4">
-            <div className="container mx-auto">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
-                Why Choose Mountpole for Business?
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <Shield className="mx-auto h-12 w-12 text-green-600 mb-4" />
-                  <h3 className="font-semibold mb-2">
-                    Dedicated Account Manager
-                  </h3>
-                  <p className="text-gray-600">
-                    Personal account manager for seamless procurement
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <Shield className="mx-auto h-12 w-12 text-yellow-500 mb-4" />
-                  <h3 className="font-semibold mb-2">Volume Discounts</h3>
-                  <p className="text-gray-600">
-                    Competitive bulk pricing for enterprise orders
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <Monitor className="mx-auto h-12 w-12 text-purple-600 mb-4" />
-                  <h3 className="font-semibold mb-2">Fast Deployment</h3>
-                  <p className="text-gray-600">
-                    Quick device setup and configuration services
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Brands We Work With */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 md:mb-4 text-gray-900">
-                Brands We Work With
-              </h2>
-              <p className="text-sm sm:text-base md:text-lg text-gray-600 text-center mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-                Partnering with leading technology brands to bring you the
-                latest and greatest in electronics
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+                Trusted by businesses and individuals worldwide for reliable
+                technology solutions, competitive pricing, and exceptional
+                service across all markets.
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 items-center justify-items-center">
-                {/* Samsung */}
-                <div className="group flex flex-col items-center space-y-2 md:space-y-3 p-3 md:p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-sm md:text-lg">
-                      S
-                    </span>
-                  </div>
-                  <span className="font-semibold text-sm md:text-base text-gray-700 group-hover:text-blue-600 transition-colors text-center">
-                    Samsung
-                  </span>
+              {/* Combined Benefits Carousel - Interactive for All Devices */}
+              <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+                <div className="relative">
+                  <Carousel
+                    items={[
+                      {
+                        id: 1,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-purple-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Wholesale Expertise
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Reliable bulk supply and competitive margins for
+                                resellers
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 2,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Shield className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-green-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Dedicated Account Manager
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Personal account manager for seamless
+                                procurement
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 3,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-yellow-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Volume Discounts
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Competitive bulk pricing for enterprise orders
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 4,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Monitor className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-purple-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Fast Deployment
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Quick device setup and configuration services
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 5,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-blue-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Global Reach
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Serving partners across the USA, Canada, Latin
+                                America, and beyond
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 6,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Shield className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-green-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Trusted Brands
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Distributing world-class electronics and
+                                lifestyle products
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 7,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-red-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Innovation Driven
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Keeping you ahead with the latest in mobile and
+                                consumer technology
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 8,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Smartphone className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-orange-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Quality Assurance
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Rigorous quality checks and authentic products
+                                guaranteed
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                    ]}
+                    itemsPerSlide={1}
+                    autoPlay={true}
+                    autoPlayInterval={4500}
+                    showDots={true}
+                    className="px-2 sm:px-4 md:hidden"
+                  />
                 </div>
 
-                {/* Apple */}
-                <div className="group flex flex-col items-center space-y-2 md:space-y-3 p-3 md:p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <svg
-                      className="w-6 h-6 md:w-10 md:h-10 text-white"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                    </svg>
-                  </div>
-                  <span className="font-semibold text-sm md:text-base text-gray-700 group-hover:text-gray-800 transition-colors text-center">
-                    Apple
-                  </span>
+                {/* Tablet: 2 items per slide */}
+                <div className="hidden md:block lg:hidden">
+                  <Carousel
+                    items={[
+                      {
+                        id: 1,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-purple-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Wholesale Expertise
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Reliable bulk supply and competitive margins for
+                                resellers
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 2,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Shield className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-green-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Dedicated Account Manager
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Personal account manager for seamless
+                                procurement
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 3,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-yellow-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Volume Discounts
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Competitive bulk pricing for enterprise orders
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 4,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Monitor className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-purple-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Fast Deployment
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Quick device setup and configuration services
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 5,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-blue-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Global Reach
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Serving partners across the USA, Canada, Latin
+                                America, and beyond
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 6,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Shield className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-green-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Trusted Brands
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Distributing world-class electronics and
+                                lifestyle products
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 7,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-red-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Innovation Driven
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Keeping you ahead with the latest in mobile and
+                                consumer technology
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 8,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Smartphone className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-orange-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Quality Assurance
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Rigorous quality checks and authentic products
+                                guaranteed
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                    ]}
+                    itemsPerSlide={2}
+                    autoPlay={true}
+                    autoPlayInterval={4500}
+                    showDots={true}
+                    className="px-4"
+                  />
                 </div>
 
-                {/* Google */}
-                <div className="group flex flex-col items-center space-y-2 md:space-y-3 p-3 md:p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <svg
-                      className="w-6 h-6 md:w-10 md:h-10 text-white"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                    </svg>
-                  </div>
-                  <span className="font-semibold text-sm md:text-base text-gray-700 group-hover:text-blue-600 transition-colors text-center">
-                    Google
-                  </span>
-                </div>
-
-                {/* Xiaomi */}
-                <div className="group flex flex-col items-center space-y-3 p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-lg">Mi</span>
-                  </div>
-                  <span className="font-semibold text-gray-700 group-hover:text-orange-600 transition-colors">
-                    Xiaomi
-                  </span>
-                </div>
-
-                {/* Realme */}
-                <div className="group flex flex-col items-center space-y-3 p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-sm">RM</span>
-                  </div>
-                  <span className="font-semibold text-gray-700 group-hover:text-yellow-600 transition-colors">
-                    Realme
-                  </span>
-                </div>
-
-                {/* Motorola */}
-                <div className="group flex flex-col items-center space-y-3 p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-700 to-indigo-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-lg">M</span>
-                  </div>
-                  <span className="font-semibold text-gray-700 group-hover:text-blue-700 transition-colors">
-                    Motorola
-                  </span>
-                </div>
-
-                {/* JBL */}
-                <div className="group flex flex-col items-center space-y-3 p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-lg">JBL</span>
-                  </div>
-                  <span className="font-semibold text-gray-700 group-hover:text-orange-600 transition-colors">
-                    JBL
-                  </span>
-                </div>
-
-                {/* Huawei */}
-                <div className="group flex flex-col items-center space-y-3 p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-lg">H</span>
-                  </div>
-                  <span className="font-semibold text-gray-700 group-hover:text-red-600 transition-colors">
-                    Huawei
-                  </span>
-                </div>
-
-                {/* Honor */}
-                <div className="group flex flex-col items-center space-y-3 p-6 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-lg">H</span>
-                  </div>
-                  <span className="font-semibold text-gray-700 group-hover:text-blue-600 transition-colors">
-                    Honor
-                  </span>
+                {/* Desktop: 3 items per slide */}
+                <div className="hidden lg:block">
+                  <Carousel
+                    items={[
+                      {
+                        id: 1,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-purple-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Wholesale Expertise
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Reliable bulk supply and competitive margins for
+                                resellers
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 2,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Shield className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-green-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Dedicated Account Manager
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Personal account manager for seamless
+                                procurement
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 3,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-yellow-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Volume Discounts
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Competitive bulk pricing for enterprise orders
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 4,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Monitor className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-purple-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Fast Deployment
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Quick device setup and configuration services
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 5,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-blue-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Global Reach
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Serving partners across the USA, Canada, Latin
+                                America, and beyond
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 6,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Shield className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-green-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Trusted Brands
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Distributing world-class electronics and
+                                lifestyle products
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 7,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <svg
+                                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-red-600 mb-2 sm:mb-3 md:mb-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                              </svg>
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Innovation Driven
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Keeping you ahead with the latest in mobile and
+                                consumer technology
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                      {
+                        id: 8,
+                        content: (
+                          <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+                            <CardHeader className="p-3 sm:p-4 md:p-6">
+                              <Smartphone className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-orange-600 mb-2 sm:mb-3 md:mb-4" />
+                              <CardTitle className="text-sm sm:text-base md:text-lg">
+                                Quality Assurance
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
+                              <p className="text-gray-600 text-xs sm:text-sm">
+                                Rigorous quality checks and authentic products
+                                guaranteed
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ),
+                      },
+                    ]}
+                    itemsPerSlide={3}
+                    autoPlay={true}
+                    autoPlayInterval={4500}
+                    showDots={true}
+                    className="px-2 sm:px-4"
+                  />
                 </div>
               </div>
 
-              <div className="text-center mt-8 md:mt-12">
-                <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 md:mb-6">
-                  Explore products from all our partner brands
-                </p>
-                <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 md:gap-4">
-                  <Link href="/contact?type=quote&category=smartphones">
-                    <Button
-                      variant="outline"
-                      className="hover:bg-blue-600 hover:text-white w-full sm:w-auto"
-                    >
-                      Get Mobile Quotes
-                    </Button>
-                  </Link>
-                  <Link href="/contact?type=quote&category=tablets">
-                    <Button
-                      variant="outline"
-                      className="hover:bg-blue-600 hover:text-white w-full sm:w-auto"
-                    >
-                      Get Tablet Quotes
-                    </Button>
-                  </Link>
-                  <Link href="/contact?type=quote&category=wearables">
-                    <Button
-                      variant="outline"
-                      className="hover:bg-blue-600 hover:text-white w-full sm:w-auto"
-                    >
-                      Get Wearable Quotes
-                    </Button>
-                  </Link>
+              <div className="text-center mt-12">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    size="lg"
+                    onClick={() =>
+                      openForm("contact", {
+                        title: "Learn About Our Services",
+                        description:
+                          "Get in touch to learn more about our global distribution services",
+                      })
+                    }
+                    className="bg-blue-600 hover:bg-blue-700"
+                  >
+                    Learn More About Our Services
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    onClick={() =>
+                      openForm("partnership", {
+                        title: "Business Partnership",
+                        description:
+                          "Partner with MountPole for global technology distribution",
+                      })
+                    }
+                    className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                  >
+                    Business Partnerships
+                  </Button>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Featured Products */}
-          <section className="py-8 md:py-16 bg-gray-50 px-4">
+          <section className="py-12 md:py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100/30 px-4">
             <div className="container mx-auto">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
-                Recommended for Enterprise
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="text-center mb-12 md:mb-16">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                  Featured Products
+                </h2>
+                <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
+                  Discover our carefully curated selection of premium technology
+                  products from leading brands.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {/* Show popular products from our database */}
-                {popularProducts.map((product: any) => (
+                {popularProducts.map((product: any, index: number) => (
                   <Card
                     key={product.id}
-                    className="group hover:shadow-lg transition-shadow"
+                    className="group hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-gray-300 hover:-translate-y-1 bg-white relative overflow-hidden"
                   >
-                    <CardHeader>
-                      <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    {/* Model Number */}
+                    <div className="absolute top-4 right-4 z-10">
+                      <div className="bg-white/95 backdrop-blur-sm rounded-lg px-3 py-1 border border-gray-200 shadow-sm">
+                        <span className="text-xs font-medium text-gray-600">
+                          #{index + 1}
+                        </span>
+                      </div>
+                    </div>
+
+                    <CardHeader className="pb-4">
+                      <div className="aspect-square bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-xl mb-6 flex items-center justify-center overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <Image
                           src={
                             product.images?.[0] ||
@@ -747,7 +1489,7 @@ export default function Home() {
                           alt={product.name || "Product Image"}
                           width={300}
                           height={300}
-                          className="w-full h-full object-contain p-4"
+                          className="w-full h-full object-contain p-6 transition-transform duration-300"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             target.src =
@@ -755,78 +1497,152 @@ export default function Home() {
                           }}
                         />
                       </div>
-                      <CardTitle className="text-lg">{product.name}</CardTitle>
-                      <CardDescription>
-                        {product.brand} • {product.category}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex justify-between items-center mb-4">
-                        {/* Price section commented out */}
-                        {/* 
-                        <div className="flex flex-col">
-                          <span className="text-2xl font-bold text-gray-900">
-                            ${product.price?.toFixed(2) || 'N/A'}
-                          </span>
-                          {product.salePrice && (
-                            <span className="text-sm text-gray-500 line-through">
-                              ${product.salePrice.toFixed(2)}
-                            </span>
-                          )}
-                        </div>
-                        */}
-                        <div className="flex flex-col gap-1">
-                          <Badge
-                            variant={product.inStock ? "default" : "secondary"}
-                          >
-                            {product.inStock ? "Available" : "Contact Us"}
-                          </Badge>
+
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
                           <Badge
                             variant="outline"
-                            className="text-blue-600 border-blue-600"
+                            className="text-xs font-medium text-gray-600 border-gray-300 bg-gray-50"
                           >
-                            Volume Pricing Available
+                            {product.brand}
                           </Badge>
+                          <div className="flex items-center space-x-1"></div>
+                        </div>
+
+                        <CardTitle className="text-lg md:text-xl group-hover:text-gray-700 transition-colors duration-300">
+                          {product.name}
+                        </CardTitle>
+
+                        <CardDescription className="text-sm text-gray-600 line-clamp-2">
+                          High-quality {product.category.toLowerCase()} with
+                          advanced features and reliable performance for
+                          professional use.
+                        </CardDescription>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-0 space-y-4">
+                      {/* Product Features */}
+                      <div className="space-y-2">
+                        <h4 className="font-medium text-sm text-gray-900">
+                          Specifications:
+                        </h4>
+                        <div className="space-y-1">
+                          <div className="flex items-center text-xs text-gray-600">
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
+                            Professional grade quality
+                          </div>
+                          <div className="flex items-center text-xs text-gray-600">
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
+                            Comprehensive warranty
+                          </div>
+                          <div className="flex items-center text-xs text-gray-600">
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
+                            Technical support included
+                          </div>
                         </div>
                       </div>
-                      <div className="flex gap-2">
-                        <Link
-                          href={`/product/${product.id}`}
-                          className="flex-1"
-                        >
-                          <Button className="w-full" variant="outline">
-                            View Details
-                          </Button>
-                        </Link>
-                        <Link
-                          href={`/contact?type=quote&product=${product.id}`}
-                          className="flex-1"
-                        >
-                          <Button className="w-full bg-blue-600 hover:bg-blue-700">
+
+                      {/* Status and Actions */}
+                      <div className="flex flex-col gap-3 pt-3 border-t border-gray-100">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <Badge
+                              variant="outline"
+                              className="text-xs border-gray-300 text-gray-600 bg-gray-50"
+                            >
+                              In Stock
+                            </Badge>
+                            <span className="text-xs text-gray-500">
+                              Model #{product.id}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex gap-3">
+                          <Link
+                            href={`/product/${product.id}`}
+                            className="flex-1"
+                          >
+                            <Button
+                              className="w-full border-gray-300 hover:bg-gray-50 hover:border-gray-400"
+                              variant="outline"
+                              size="sm"
+                            >
+                              <Eye className="w-4 h-4 mr-2" />
+                              View Details
+                            </Button>
+                          </Link>
+                          <Button
+                            onClick={() =>
+                              openForm("quote", {
+                                title: `Quote Request: ${product.name}`,
+                                description: `Get wholesale pricing for ${product.name} and bulk ordering options`,
+                              })
+                            }
+                            className="w-full bg-gray-900 hover:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+                            size="sm"
+                          >
+                            <ShoppingCart className="w-4 h-4 mr-2" />
                             Request Quote
                           </Button>
-                        </Link>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
-              <div className="text-center mt-8">
-                <Link href="/contact?type=business">
-                  <Button variant="outline" size="lg" className="mr-4">
-                    Request Business Quote
-                  </Button>
-                </Link>
-                <Link href="/smartphones">
-                  <Button variant="outline" size="lg">
-                    View All Solutions
-                  </Button>
-                </Link>
+
+              {/* Call to Action Section */}
+              <div className="text-center mt-12 md:mt-16 space-y-4">
+                <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 md:p-12 text-white">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4">
+                    Explore Our Complete Collection
+                  </h3>
+                  <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                    Discover more premium technology products from leading
+                    brands, all backed by professional support and warranty.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button
+                      size="lg"
+                      onClick={() =>
+                        openForm("contact", {
+                          title: "Contact Sales Team",
+                          description:
+                            "Get in touch with our sales team for personalized assistance",
+                        })
+                      }
+                      className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-8"
+                    >
+                      Contact Sales
+                    </Button>
+                    <Link href="/smartphones">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-8"
+                      >
+                        View All Products
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
         </>
       )}
+
+      {/* Form Modal */}
+      <FormModal
+        isOpen={isOpen}
+        onClose={closeForm}
+        formType={formType}
+        category={category}
+        title={title}
+        description={description}
+      />
     </div>
   );
 }

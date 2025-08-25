@@ -63,6 +63,22 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "script.google.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.actualidadiphone.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i0.wp.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+      },
+      {
+        protocol: "http",
+        hostname: "i.pinimg.com",
+      },
     ],
   },
 };

@@ -316,18 +316,18 @@ export default function ProductCarousel({
               className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 flex-shrink-0 px-2 md:px-3"
             >
               <Card
-                className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/90 backdrop-blur-sm hover:bg-white hover:scale-[1.02] relative overflow-hidden"
+                className="group hover:shadow-xl transition-all duration-500 border border-gray-200 bg-white hover:bg-white hover:scale-[1.01] hover:border-gray-300 relative overflow-hidden h-full flex flex-col"
                 onMouseEnter={() => setHoveredProduct(product.id)}
                 onMouseLeave={() => setHoveredProduct(null)}
               >
-                <CardContent className="p-0">
+                <CardContent className="p-0 flex flex-col h-full flex-1">
                   {/* Product Image */}
                   <div
                     className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-t-lg overflow-hidden"
                     onDragStart={(e) => e.preventDefault()}
                   >
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Subtle gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     {/* Product Image */}
                     <div className="relative w-full h-full">
@@ -335,93 +335,54 @@ export default function ProductCarousel({
                         src={product.image}
                         alt={product.name}
                         fill
-                        className="object-contain p-4"
+                        className="object-contain p-6 group-hover:scale-105 transition-transform duration-300"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       />
                     </div>
 
-                    {/* Badges */}
-                    {/* <div className="absolute top-3 left-3 flex flex-col space-y-2 z-20">
-                      {product.isNew && (
-                        <Badge className="bg-green-500 text-white px-2 py-1 text-xs font-medium animate-pulse">
-                          <Zap className="w-3 h-3 mr-1" />
-                          New
-                        </Badge>
-                      )}
-                      {product.isBestSeller && (
-                        <Badge className="bg-orange-500 text-white px-2 py-1 text-xs font-medium">
-                          🔥 Best Seller
-                        </Badge>
-                      )}
-                      {product.isLimitedTime && (
-                        <Badge className="bg-red-500 text-white px-2 py-1 text-xs font-medium animate-bounce">
-                          ⚡ Limited
-                        </Badge>
-                      )}
-                      {product.discount && (
-                        <Badge className="bg-red-600 text-white px-2 py-1 text-xs font-medium">
-                          {product.discount}
-                        </Badge>
-                      )}
-                    </div> */}
-
-                    {/* Quick Actions */}
-                    {/* <div className="absolute top-3 right-3 flex flex-col space-y-2 z-20">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          toggleFavorite(product.id);
-                        }}
-                        className="bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-all duration-200 hover:scale-110 shadow-lg"
-                      >
-                        <Heart
-                          className={cn(
-                            "h-4 w-4 transition-colors",
-                            favorites.has(product.id)
-                              ? "text-red-500 fill-red-500"
-                              : "text-gray-600"
-                          )}
-                        />
-                      </button>
-
-                      {showQuickView && (
-                        <Link href={`/product/${product.id}`}>
-                          <button className="bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-all duration-200 hover:scale-110 shadow-lg">
-                            <Eye className="h-4 w-4 text-gray-600" />
-                          </button>
-                        </Link>
-                      )}
-                    </div> */}
+                    {/* Brand Identifier */}
+                    <div className="absolute bottom-3 right-3 z-20">
+                      <div className="bg-white/95 backdrop-blur-sm rounded-lg px-3 py-1 shadow-sm border border-gray-200">
+                        <span className="text-xs font-medium text-gray-700">
+                          {product.brand}
+                        </span>
+                      </div>
+                    </div>
 
                     {/* Hover overlay with quick actions */}
                     <div
                       className={cn(
-                        "absolute inset-0 bg-black/60 flex items-center justify-center transition-all duration-300 z-30",
+                        "absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent flex items-end justify-center transition-all duration-300 z-30",
                         hoveredProduct === product.id
                           ? "opacity-100"
                           : "opacity-0 pointer-events-none"
                       )}
                     >
-                      <div className="flex space-x-3">
-                        <Link href={`/product/${product.id}`}>
+                      <div className="flex space-x-2 p-4 w-full">
+                        <Link
+                          href={`/product/${product.id}`}
+                          className="flex-1"
+                        >
                           <Button
                             size="sm"
-                            className="bg-white text-black hover:bg-gray-100 transform hover:scale-105 transition-all duration-200"
+                            className="w-full bg-white/95 backdrop-blur-sm text-gray-900 hover:bg-white border-0 transform hover:scale-105 transition-all duration-200 shadow-lg font-medium"
                           >
                             <Eye className="w-4 h-4 mr-2" />
-                            Quick View
+                            View Details
                           </Button>
                         </Link>
-                        {showAddToCart && (
+                        <Link
+                          href={`/contact?type=quote&product=${product.id}`}
+                          className="flex-1"
+                        >
                           <Button
                             size="sm"
-                            variant="outline"
-                            className="bg-white/90 text-black hover:bg-white border-white transform hover:scale-105 transition-all duration-200"
+                            className="w-full bg-gray-900 hover:bg-gray-800 text-white border-0 transform hover:scale-105 transition-all duration-200 shadow-lg font-medium"
                           >
                             <ShoppingCart className="w-4 h-4 mr-2" />
-                            Add to Cart
+                            Get Quote
                           </Button>
-                        )}
+                        </Link>
                       </div>
                     </div>
 
@@ -447,67 +408,98 @@ export default function ProductCarousel({
                   </div>
 
                   {/* Product Info */}
-                  <div className="p-4 space-y-4">
-                    {/* Brand */}
-                    <div className="flex items-center justify-between">
-                      <Badge variant="outline" className="text-xs font-medium">
-                        {product.brand}
-                      </Badge>
-                    </div>
-
-                    {/* Product Name */}
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-sm md:text-base line-clamp-2 group-hover:text-blue-600 transition-colors leading-tight">
+                  <div className="p-4 space-y-3 bg-white flex-1 flex flex-col justify-between">
+                    {/* Product Name and Rating */}
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-gray-900 text-sm md:text-base line-clamp-2 group-hover:text-gray-700 transition-colors leading-tight">
                         {product.name}
                       </h3>
 
-                      {/* Quick Specs */}
-                      {product.quickSpecs && (
-                        <div className="mt-2 flex flex-wrap gap-1">
-                          {Object.entries(product.quickSpecs)
-                            .slice(0, 2)
-                            .map(([key, value]) => (
-                              <span
-                                key={key}
-                                className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
-                              >
-                                {value}
-                              </span>
-                            ))}
+                      {/* Star Rating */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-1">
+                          {[...Array(5)].map((_, i) => (
+                            <svg
+                              key={i}
+                              className="w-3 h-3 text-yellow-400"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          ))}
+                          <span className="text-xs text-gray-500 ml-1">
+                            4.8
+                          </span>
                         </div>
-                      )}
-
-                      {/* Features */}
-                      {product.features && product.features.length > 0 && (
-                        <div className="mt-2">
-                          <p className="text-xs text-gray-600 line-clamp-1">
-                            {product.features.slice(0, 2).join(" • ")}
-                          </p>
-                        </div>
-                      )}
+                        <span className="text-xs text-gray-400 font-medium">
+                          ID: {product.id}
+                        </span>
+                      </div>
                     </div>
 
+                    {/* Key Features */}
+                    {product.features && product.features.length > 0 && (
+                      <div className="space-y-1">
+                        {product.features.slice(0, 2).map((feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center text-xs text-gray-600"
+                          >
+                            <div className="w-1 h-1 bg-gray-400 rounded-full mr-2"></div>
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Quick Specs */}
+                    {product.quickSpecs && (
+                      <div className="flex flex-wrap gap-1">
+                        {Object.entries(product.quickSpecs)
+                          .slice(0, 2)
+                          .map(([key, value]) => (
+                            <span
+                              key={key}
+                              className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded-md border border-gray-200"
+                            >
+                              {value}
+                            </span>
+                          ))}
+                      </div>
+                    )}
+
                     {/* Actions */}
-                    <div className="flex items-center justify-center pt-2 border-t border-gray-100">
+                    <div className="flex items-center justify-between pt-3 border-t border-gray-200">
+                      <div className="flex items-center space-x-1">
+                        <span className="text-xs text-gray-500">Model</span>
+                        <Badge
+                          variant="outline"
+                          className="text-xs px-2 py-0 border-gray-300 text-gray-600 bg-gray-50"
+                        >
+                          In Stock
+                        </Badge>
+                      </div>
                       <div className="flex space-x-2">
                         <Link href={`/product/${product.id}`}>
                           <Button
                             size="sm"
                             variant="outline"
-                            className="text-xs hover:bg-blue-50 hover:border-blue-200 transition-all duration-200 hover:scale-105"
+                            className="text-xs px-3 py-1 h-7 hover:bg-gray-50 hover:border-gray-400 hover:text-gray-700 transition-all duration-200 border-gray-300"
                           >
                             Details
                           </Button>
                         </Link>
-                        {showAddToCart && (
+                        <Link
+                          href={`/contact?type=quote&product=${product.id}`}
+                        >
                           <Button
                             size="sm"
-                            className="text-xs bg-blue-600 hover:bg-blue-700 transition-all duration-200 hover:scale-105"
+                            className="text-xs px-3 py-1 h-7 bg-gray-900 hover:bg-gray-800 text-white transition-all duration-200"
                           >
-                            <ShoppingCart className="w-3 h-3 mr-1" />
-                            Add
+                            Quote
                           </Button>
-                        )}
+                        </Link>
                       </div>
                     </div>
                   </div>
