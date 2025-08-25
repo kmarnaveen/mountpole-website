@@ -58,17 +58,21 @@ function SearchPageContent() {
 
   // Available filters
   const categories = useMemo(
-    () => searchEngine.getCategories(),
-    [searchEngine]
+    () => isMounted ? searchEngine.getCategories() : [],
+    [searchEngine, isMounted]
   );
-  const brands = useMemo(() => searchEngine.getBrands(), [searchEngine]);
+  const brands = useMemo(() => isMounted ? searchEngine.getBrands() : [], [searchEngine, isMounted]);
   const priceRangeData = useMemo(
-    () => searchEngine.getPriceRange(),
-    [searchEngine]
+    () => isMounted ? searchEngine.getPriceRange() : { min: 0, max: 2000 },
+    [searchEngine, isMounted]
   );
 
   // Search results
   const searchResults = useMemo(() => {
+    if (!isMounted) {
+      return { results: [], total: 0, suggestions: [] };
+    }
+
     const filters: SearchFilters = {
       ...(selectedCategory &&
         selectedCategory !== "all" && { category: selectedCategory }),
@@ -86,6 +90,8 @@ function SearchPageContent() {
 
     return searchEngine.search(options);
   }, [
+    isMounted,
+    searchEngine,
     searchQuery,
     selectedCategory,
     selectedBrand,
@@ -136,7 +142,7 @@ function SearchPageContent() {
   const clearFilters = () => {
     setSelectedCategory("all");
     setSelectedBrand("all");
-    setPriceRange([priceRangeData.min, priceRangeData.max]);
+    setPriceRange([priceRangeData.min || 0, priceRangeData.max || 2000]);
     setInStockOnly(false);
     setSortBy("relevance");
   };
@@ -175,8 +181,19 @@ function SearchPageContent() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Search Header */}
-      <div className="bg-white border-b sticky top-0 z-40">
+      {!isMounted && (
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading search...</p>
+          </div>
+        </div>
+      )}
+      
+      {isMounted && (
+        <>
+          {/* Search Header */}
+          <div className="bg-white border-b sticky top-0 z-40">
         <div className="container mx-auto px-4 py-3 md:py-6">
           <form onSubmit={handleSearch} className="max-w-3xl mx-auto">
             <div className="relative">
@@ -505,13 +522,22 @@ function SearchPageContent() {
           </div>
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 }
 
 export default function SearchPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading search...</p>
+        </div>
+      </div>
+    }>
       <SearchPageContent />
     </Suspense>
   );
