@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -33,7 +33,7 @@ import {
   Headphones,
 } from "lucide-react";
 
-export default function ContactPage() {
+function ContactForm() {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -527,5 +527,13 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ContactForm />
+    </Suspense>
   );
 }
