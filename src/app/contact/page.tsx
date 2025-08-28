@@ -44,33 +44,63 @@ function ContactForm() {
     message: "",
   });
 
-  // Auto-populate form based on URL parameters
+  // Auto-populate form based on URL parameters with enterprise-grade routing
   useEffect(() => {
     const type = searchParams.get("type");
     const product = searchParams.get("product");
     const productName = searchParams.get("name");
     const category = searchParams.get("category");
+    const intent = searchParams.get("intent");
+    const source = searchParams.get("source");
+
+    // Partnership routing - redirect to dedicated partnership page
+    if (type === "partnership" || type === "business") {
+      // Build sophisticated partnership URL with context
+      const partnershipParams = new URLSearchParams();
+      partnershipParams.set("type", type);
+      if (intent) partnershipParams.set("intent", intent);
+      if (source) partnershipParams.set("source", source);
+      if (category) partnershipParams.set("category", category);
+
+      // Preserve UTM parameters for tracking
+      searchParams.forEach((value, key) => {
+        if (key.startsWith("utm_")) {
+          partnershipParams.set(key, value);
+        }
+      });
+
+      // Redirect to partnership page with full context
+      window.location.href = `/partnership?${partnershipParams.toString()}`;
+      return;
+    }
+
+    // Quote routing - redirect to dedicated quote page
+    if (type === "quote") {
+      // Build sophisticated quote URL with context
+      const quoteParams = new URLSearchParams();
+      quoteParams.set("type", type);
+      if (product) quoteParams.set("product", product);
+      if (productName) quoteParams.set("name", productName);
+      if (category) quoteParams.set("category", category);
+      if (intent) quoteParams.set("intent", intent);
+      if (source) quoteParams.set("source", source);
+
+      // Preserve UTM parameters for tracking
+      searchParams.forEach((value, key) => {
+        if (key.startsWith("utm_")) {
+          quoteParams.set(key, value);
+        }
+      });
+
+      // Redirect to quote page with full context
+      window.location.href = `/quote?${quoteParams.toString()}`;
+      return;
+    }
 
     let defaultInquiryType = "";
     let defaultMessage = "";
 
-    if (type === "quote") {
-      defaultInquiryType = "quote";
-      if (productName) {
-        defaultMessage = `I'm interested in getting a quote for the ${productName}. Please provide pricing information for bulk orders.`;
-      } else {
-        defaultMessage =
-          "I'm interested in getting a quote for your products. Please provide pricing information for bulk orders.";
-      }
-    } else if (type === "business") {
-      defaultInquiryType = "enterprise-solutions";
-      if (category) {
-        defaultMessage = `I'm interested in enterprise solutions for ${category}. Please contact me to discuss our business requirements.`;
-      } else {
-        defaultMessage =
-          "I'm interested in enterprise solutions. Please contact me to discuss our business requirements.";
-      }
-    } else if (type === "spec-sheet") {
+    if (type === "spec-sheet") {
       defaultInquiryType = "product-info";
       if (productName) {
         defaultMessage = `I would like to download the technical specification sheet for the ${productName}. Please provide detailed technical documentation.`;
@@ -117,10 +147,10 @@ function ContactForm() {
   const departments = [
     {
       icon: Headphones,
-      title: "Wholesale & Distribution",
+      title: "Customer Support",
       email: "sales@mountpole.com",
       description:
-        "Bulk orders, wholesale pricing, and global distribution solutions",
+        "Product information, technical support, and customer service inquiries",
     },
     {
       icon: Users,
@@ -165,8 +195,8 @@ function ContactForm() {
           </h1>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto">
             Ready to partner with a trusted global technology distributor?
-            Contact our team for wholesale pricing, partnership opportunities,
-            and business solutions.
+            Contact our team for partnership opportunities, support, and
+            business solutions.
           </p>
         </div>
       </section>
@@ -260,12 +290,6 @@ function ContactForm() {
                           <SelectValue placeholder="Select inquiry type" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="quote">
-                            Requesting a Quote
-                          </SelectItem>
-                          <SelectItem value="bulk-pricing">
-                            Bulk Pricing Inquiry
-                          </SelectItem>
                           <SelectItem value="product-info">
                             Product Information
                           </SelectItem>

@@ -77,7 +77,7 @@ export default function CategoryQuoteForm({ category, onSuccess, onCancel }: Cat
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzCategoryQuote_kmarnaveen97_gmail_com_endpoint/exec",
+        "https://script.google.com/macros/s/AKfycbyA1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0E1F2G3/exec",
         {
           method: "POST",
           mode: "no-cors",

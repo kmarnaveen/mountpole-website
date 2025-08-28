@@ -61,7 +61,9 @@ export default function DynamicProductDetailsPage() {
   // Generate contact URLs for B2B actions
   const generateQuoteURL = () => {
     if (!product) return "/contact";
-    return `/contact?type=quote&product=${product.id}&name=${encodeURIComponent(product.name)}`;
+    return `/quote?product=${product.id}&type=bulk&name=${encodeURIComponent(
+      product.name
+    )}`;
   };
 
   const generateSpecSheetURL = () => {

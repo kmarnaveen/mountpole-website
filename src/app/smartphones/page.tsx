@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useModals } from "@/components/modals/ModalProvider";
 import { Smartphone, Zap, Camera, Battery, Cpu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,6 +23,7 @@ import {
 import productsData from "../../../products.json";
 
 export default function SmartphonesPage() {
+  const { openQuoteModal } = useModals()
   const [isLoading, setIsLoading] = useState(true);
 
   // Filter smartphones from the products data
@@ -85,8 +87,9 @@ export default function SmartphonesPage() {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
-              Discover MountPole&apos;s comprehensive smartphone collection from trusted brands like Apple, Samsung, and Xiaomi.
-              Get wholesale pricing and authentic products with global distribution services.
+              Discover MountPole&apos;s comprehensive smartphone collection from
+              trusted brands like Apple, Samsung, and Xiaomi. Get wholesale
+              pricing and authentic products with global distribution services.
             </p>
 
             <div className="mt-6 md:mt-8">
@@ -234,16 +237,25 @@ export default function SmartphonesPage() {
                         {/* Action Buttons */}
                         <div className="pt-4 space-y-2">
                           <div className="flex gap-2">
-                            <Link href={`/product/${phone.id}`} className="flex-1">
+                            <Link
+                              href={`/product/${phone.id}`}
+                              className="flex-1"
+                            >
                               <Button className="w-full" variant="outline">
                                 View Details
                               </Button>
                             </Link>
-                            <Link href={`/contact?type=quote&product=${phone.id}`} className="flex-1">
-                              <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                                Request Quote
-                              </Button>
-                            </Link>
+                            <Button 
+                              onClick={() => openQuoteModal({
+                                productId: phone.id,
+                                productName: phone.name,
+                                category: 'smartphones',
+                                type: 'bulk'
+                              })}
+                              className="flex-1 w-full bg-blue-600 hover:bg-blue-700"
+                            >
+                              Request Quote
+                            </Button>
                           </div>
                           <p className="text-xs text-gray-500 text-center">
                             Volume pricing available

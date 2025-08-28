@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useModals } from '@/components/modals/ModalProvider';
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -37,6 +38,7 @@ import {
 import productsData from "../../../products.json";
 
 export default function TabletsPage() {
+  const { openQuoteModal } = useModals()
   const [isLoading, setIsLoading] = useState(true);
 
   // Filter tablets from the products data
@@ -130,8 +132,9 @@ export default function TabletsPage() {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
-              Enhance workplace productivity with professional tablets from Apple, Microsoft, and Samsung.
-              Perfect for creative teams, field work, and executive presentations.
+              Enhance workplace productivity with professional tablets from
+              Apple, Microsoft, and Samsung. Perfect for creative teams, field
+              work, and executive presentations.
             </p>
 
             <div className="mt-6 md:mt-8">
@@ -222,7 +225,7 @@ export default function TabletsPage() {
                         <Image
                           src={
                             tablet.images?.[0] ||
-                            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4="
+                            "https://i.pinimg.com/1200x/6d/c4/0b/6dc40bce4f8fae6c1a44dcb7d221561f.jpg"
                           }
                           alt={tablet.name}
                           width={200}
@@ -282,16 +285,25 @@ export default function TabletsPage() {
                         </div>
 
                         <div className="flex gap-2 mt-4">
-                          <Link href={`/product/${tablet.id}`} className="flex-1">
+                          <Link
+                            href={`/product/${tablet.id}`}
+                            className="flex-1"
+                          >
                             <Button className="w-full" variant="outline">
                               View Details
                             </Button>
                           </Link>
-                          <Link href={`/contact?type=quote&product=${tablet.id}`} className="flex-1">
-                            <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                              Request Quote
-                            </Button>
-                          </Link>
+                          <Button 
+                            onClick={() => openQuoteModal({
+                              productId: tablet.id,
+                              productName: tablet.name,
+                              category: 'tablets',
+                              type: 'bulk'
+                            })}
+                            className="flex-1 w-full bg-blue-600 hover:bg-blue-700"
+                          >
+                            Request Quote
+                          </Button>
                         </div>
                         <p className="text-xs text-gray-500 text-center mt-2">
                           Enterprise pricing available

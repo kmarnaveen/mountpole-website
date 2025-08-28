@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import NewsletterFormGlass from "@/components/forms/NewsletterFormGlass";
 import {
   Facebook,
   Twitter,
@@ -15,29 +15,6 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white hidden md:block">
       {/* Newsletter Section */}
-      <div className="border-b border-gray-800">
-        <div className="container mx-auto px-4 py-8 md:py-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4">
-              Partner with MountPole
-            </h3>
-            <p className="text-sm sm:text-base text-gray-300 mb-4 md:mb-6 leading-relaxed">
-              Get the latest updates on wholesale pricing, new brand partnerships, 
-              and distribution opportunities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 text-sm sm:text-base"
-              />
-              <Button className="bg-cyan-500 hover:bg-cyan-600 w-full sm:w-auto px-6">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-8 md:py-12">
@@ -51,8 +28,9 @@ export default function Footer() {
               <span className="text-lg sm:text-xl font-bold">MountPole</span>
             </div>
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-              Your trusted global technology distributor. We connect businesses worldwide with 
-              authentic products from leading brands through reliable wholesale partnerships and distribution excellence.
+              Your trusted global technology distributor. We connect businesses
+              worldwide with authentic products from leading brands through
+              reliable wholesale partnerships and distribution excellence.
             </p>
             <div className="flex space-x-3 md:space-x-4">
               <Button

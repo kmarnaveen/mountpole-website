@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useModals } from "@/components/modals/ModalProvider";
 import {
   Smartphone,
   Tablet,
@@ -24,8 +25,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Carousel from "@/components/ui/carousel";
 import ProductCarousel from "@/components/ui/product-carousel";
-import FormModal from "@/components/ui/FormModal";
-import { useFormModal } from "@/hooks/useFormModal";
 import {
   HeroSkeleton,
   ProductCarouselSkeleton,
@@ -37,15 +36,8 @@ import productsData from "../../products.json";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const {
-    isOpen,
-    formType,
-    category,
-    title,
-    description,
-    openForm,
-    closeForm,
-  } = useFormModal();
+  const { openQuoteModal, openCategoryQuoteModal, openPartnershipModal } =
+    useModals();
 
   // Simulate loading
   useEffect(() => {
@@ -105,9 +97,7 @@ export default function Home() {
       id: product.id,
       name: product.name,
       brand: product.brand,
-      image:
-        product.images?.[0] ||
-        "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4=",
+      image: product.images?.[0] || "/placeholder-product.png",
       isNew:
         product.tags?.includes("latest") ||
         product.name.includes("Series 9") ||
@@ -207,12 +197,7 @@ export default function Home() {
       textPosition: "start" as const,
       cta: {
         text: "Start Partnership",
-        action: () =>
-          openForm("partnership", {
-            title: "Start Your Partnership",
-            description:
-              "Join forces with a trusted global technology distributor",
-          }),
+        href: "/partnership?source=homepage-hero&intent=distributor&utm_campaign=global-distribution",
       },
     },
     {
@@ -223,7 +208,10 @@ export default function Home() {
       image:
         "https://www.actualidadiphone.com/wp-content/uploads/2025/07/Apple-Beta-ios-macos-26.jpg.webp",
       textPosition: "top-center" as const,
-      href: "/smartphones",
+      cta: {
+        text: "Partner With MountPole",
+        href: "/partnership?source=homepage-carousel&intent=reseller&utm_campaign=partner-growth",
+      },
     },
 
     {
@@ -234,7 +222,10 @@ export default function Home() {
       image:
         "http://i.pinimg.com/1200x/2e/03/db/2e03dbb1a04e5f7a42c809f10531d399.jpg",
       textPosition: "top-center" as const,
-      href: "/smartphones",
+      cta: {
+        text: "Enterprise Partnership",
+        href: "/partnership?source=homepage-carousel&intent=enterprise&utm_campaign=business-solutions",
+      },
     },
     {
       id: "4",
@@ -254,11 +245,7 @@ export default function Home() {
       textPosition: "start" as const,
       cta: {
         text: "Become a Partner",
-        action: () =>
-          openForm("partnership", {
-            title: "Become a Partner",
-            description: "Start your partnership with MountPole today",
-          }),
+        href: "/partnership?source=homepage-hero&intent=regional&utm_campaign=global-reach",
       },
     },
   ];
@@ -709,14 +696,7 @@ export default function Home() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() =>
-                      openForm("category-quote", {
-                        category: "smartphones",
-                        title: "Mobile Quote Request",
-                        description:
-                          "Get wholesale pricing for smartphones from Apple, Samsung, Google, Xiaomi and more.",
-                      })
-                    }
+                    onClick={() => openCategoryQuoteModal("smartphones")}
                     className="w-full sm:w-auto hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-base py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-6 md:px-8 font-medium border-2 hover:border-blue-600"
                   >
                     Get Mobile Quotes
@@ -724,14 +704,7 @@ export default function Home() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() =>
-                      openForm("category-quote", {
-                        category: "tablets",
-                        title: "Tablet Quote Request",
-                        description:
-                          "Request pricing for iPads, Galaxy Tabs and other tablet devices.",
-                      })
-                    }
+                    onClick={() => openCategoryQuoteModal("tablets")}
                     className="w-full sm:w-auto hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-base py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-6 md:px-8 font-medium border-2 hover:border-blue-600"
                   >
                     Get Tablet Quotes
@@ -739,14 +712,7 @@ export default function Home() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() =>
-                      openForm("category-quote", {
-                        category: "wearables",
-                        title: "Wearable Quote Request",
-                        description:
-                          "Get quotes for smartwatches, fitness trackers and wearable tech.",
-                      })
-                    }
+                    onClick={() => openCategoryQuoteModal("wearables")}
                     className="w-full sm:w-auto hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-base py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-6 md:px-8 font-medium border-2 hover:border-blue-600"
                   >
                     Get Wearable Quotes
@@ -1418,33 +1384,20 @@ export default function Home() {
 
               <div className="text-center mt-12">
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    size="lg"
-                    onClick={() =>
-                      openForm("contact", {
-                        title: "Learn About Our Services",
-                        description:
-                          "Get in touch to learn more about our global distribution services",
-                      })
-                    }
-                    className="bg-blue-600 hover:bg-blue-700"
-                  >
-                    Learn More About Our Services
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    onClick={() =>
-                      openForm("partnership", {
-                        title: "Business Partnership",
-                        description:
-                          "Partner with MountPole for global technology distribution",
-                      })
-                    }
-                    className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
-                  >
-                    Business Partnerships
-                  </Button>
+                  <Link href="/contact?type=services">
+                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                      Learn More About Our Services
+                    </Button>
+                  </Link>
+                  <Link href="/partnership?source=homepage-cta&intent=enterprise&utm_campaign=business-partnerships">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                    >
+                      Business Partnerships
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -1483,8 +1436,7 @@ export default function Home() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <Image
                           src={
-                            product.images?.[0] ||
-                            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4="
+                            product.images?.[0] || "/placeholder-product.png"
                           }
                           alt={product.name || "Product Image"}
                           width={300}
@@ -1492,8 +1444,7 @@ export default function Home() {
                           className="w-full h-full object-contain p-6 transition-transform duration-300"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            target.src =
-                              "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4=";
+                            target.src = "/placeholder-product.png";
                           }}
                         />
                       </div>
@@ -1575,12 +1526,14 @@ export default function Home() {
                           </Link>
                           <Button
                             onClick={() =>
-                              openForm("quote", {
-                                title: `Quote Request: ${product.name}`,
-                                description: `Get wholesale pricing for ${product.name} and bulk ordering options`,
+                              openQuoteModal({
+                                quoteType: "bulk",
+                                productId: product.id,
+                                productName: product.name,
+                                productContext: `${product.name} - Bulk Quote Request`,
                               })
                             }
-                            className="w-full bg-gray-900 hover:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+                            className="flex-1 w-full bg-gray-900 hover:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
                             size="sm"
                           >
                             <ShoppingCart className="w-4 h-4 mr-2" />
@@ -1604,19 +1557,14 @@ export default function Home() {
                     brands, all backed by professional support and warranty.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button
-                      size="lg"
-                      onClick={() =>
-                        openForm("contact", {
-                          title: "Contact Sales Team",
-                          description:
-                            "Get in touch with our sales team for personalized assistance",
-                        })
-                      }
-                      className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-8"
-                    >
-                      Contact Sales
-                    </Button>
+                    <Link href="/partnership?source=homepage-footer-cta&intent=enterprise&utm_campaign=contact-sales">
+                      <Button
+                        size="lg"
+                        className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-8"
+                      >
+                        Contact Sales
+                      </Button>
+                    </Link>
                     <Link href="/smartphones">
                       <Button
                         variant="outline"
@@ -1633,16 +1581,6 @@ export default function Home() {
           </section>
         </>
       )}
-
-      {/* Form Modal */}
-      <FormModal
-        isOpen={isOpen}
-        onClose={closeForm}
-        formType={formType}
-        category={category}
-        title={title}
-        description={description}
-      />
     </div>
   );
 }

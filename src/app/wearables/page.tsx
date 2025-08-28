@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useModals } from '@/components/modals/ModalProvider';
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -29,6 +30,7 @@ import {
 import productsData from "../../../products.json";
 
 export default function WearablesPage() {
+  const { openQuoteModal } = useModals()
   const [isLoading, setIsLoading] = useState(true);
 
   // Filter wearables from the products data
@@ -94,8 +96,9 @@ export default function WearablesPage() {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
-              Empower your workforce with enterprise-grade wearables. Health monitoring, 
-              productivity tracking, and seamless integration for your business ecosystem.
+              Empower your workforce with enterprise-grade wearables. Health
+              monitoring, productivity tracking, and seamless integration for
+              your business ecosystem.
             </p>
 
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -155,7 +158,7 @@ export default function WearablesPage() {
                         <Image
                           src={
                             product.images?.[0] ||
-                            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmOGZhZmMiLz48cmVjdCB4PSI1MCIgeT0iMTUwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEyIiBmaWxsPSIjZTJlOGYwIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjIxMCIgcj0iMjAiIGZpbGw9IiNjYmQ1ZTEiLz48cGF0aCBkPSJNMTYwIDI0MGw0MC00MCA2MCA2MCA0MC00MHY4MEgxNjB2LTYweiIgZmlsbD0iI2NiZDVlMSIvPjx0ZXh0IHg9IjIwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5Qcm9kdWN0IEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5QbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4="
+                            "https://i.pinimg.com/1200x/6d/c4/0b/6dc40bce4f8fae6c1a44dcb7d221561f.jpg"
                           }
                           alt={product.name}
                           width={250}
@@ -239,11 +242,17 @@ export default function WearablesPage() {
                               View Details
                             </Button>
                           </Link>
-                          <Link href={`/contact?type=quote&product=${product.id}&name=${encodeURIComponent(product.name)}`}>
-                            <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                              Request Quote
-                            </Button>
-                          </Link>
+                          <Button 
+                            onClick={() => openQuoteModal({
+                              productId: product.id,
+                              productName: product.name,
+                              category: 'wearables',
+                              type: 'bulk'
+                            })}
+                            className="w-full bg-purple-600 hover:bg-purple-700"
+                          >
+                            Request Quote
+                          </Button>
                         </div>
                       </div>
                     </CardContent>

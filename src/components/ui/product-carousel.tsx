@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useModals } from '@/components/modals/ModalProvider';
 import {
   ChevronLeft,
   ChevronRight,
@@ -51,6 +52,7 @@ export default function ProductCarousel({
   showQuickView = true,
   showAddToCart = false,
 }: ProductCarouselProps) {
+  const { openQuoteModal } = useModals()
   const [currentIndex, setCurrentIndex] = useState(0);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
@@ -371,18 +373,19 @@ export default function ProductCarousel({
                             View Details
                           </Button>
                         </Link>
-                        <Link
-                          href={`/contact?type=quote&product=${product.id}`}
-                          className="flex-1"
+                        <Button
+                          onClick={() => openQuoteModal({
+                            productId: product.id,
+                            productName: product.name,
+                            category: product.category.toLowerCase(),
+                            type: 'bulk'
+                          })}
+                          size="sm"
+                          className="flex-1 w-full bg-gray-900 hover:bg-gray-800 text-white border-0 transform hover:scale-105 transition-all duration-200 shadow-lg font-medium"
                         >
-                          <Button
-                            size="sm"
-                            className="w-full bg-gray-900 hover:bg-gray-800 text-white border-0 transform hover:scale-105 transition-all duration-200 shadow-lg font-medium"
-                          >
-                            <ShoppingCart className="w-4 h-4 mr-2" />
-                            Get Quote
-                          </Button>
-                        </Link>
+                          <ShoppingCart className="w-4 h-4 mr-2" />
+                          Get Quote
+                        </Button>
                       </div>
                     </div>
 
@@ -490,16 +493,18 @@ export default function ProductCarousel({
                             Details
                           </Button>
                         </Link>
-                        <Link
-                          href={`/contact?type=quote&product=${product.id}`}
+                        <Button
+                          onClick={() => openQuoteModal({
+                            productId: product.id,
+                            productName: product.name,
+                            category: product.category.toLowerCase(),
+                            type: 'bulk'
+                          })}
+                          size="sm"
+                          className="text-xs px-3 py-1 h-7 bg-gray-900 hover:bg-gray-800 text-white transition-all duration-200"
                         >
-                          <Button
-                            size="sm"
-                            className="text-xs px-3 py-1 h-7 bg-gray-900 hover:bg-gray-800 text-white transition-all duration-200"
-                          >
-                            Quote
-                          </Button>
-                        </Link>
+                          Quote
+                        </Button>
                       </div>
                     </div>
                   </div>

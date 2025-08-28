@@ -620,7 +620,7 @@ export default function MobileDock() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 <Link
-                  href="/contact?type=quote"
+                  href="/quote"
                   className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-blue-200 group"
                   onClick={() => setIsMenuOpen(false)}
                 >

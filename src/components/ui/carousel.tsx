@@ -16,8 +16,7 @@ interface CarouselItem {
   href?: string; // Direct link for clickable banners
   cta?: {
     text: string;
-    href?: string;
-    action?: () => void;
+    href: string;
   };
   content?: React.ReactNode; // Support for custom React components
 }
@@ -313,23 +312,13 @@ export default function Carousel({
                               : ""
                           }
                         >
-                          {item.cta.action ? (
-                            <Button
-                              size="default"
-                              className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30 font-semibold px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 md:py-2.5 text-xs sm:text-sm md:text-base transition-all duration-200 hover:scale-105 shadow-lg"
-                              onClick={item.cta.action}
-                            >
-                              {item.cta.text}
-                            </Button>
-                          ) : (
-                            <Button
-                              size="default"
-                              className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30 font-semibold px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 md:py-2.5 text-xs sm:text-sm md:text-base transition-all duration-200 hover:scale-105 shadow-lg"
-                              asChild
-                            >
-                              <a href={item.cta.href}>{item.cta.text}</a>
-                            </Button>
-                          )}
+                          <Button
+                            size="default"
+                            className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30 font-semibold px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 md:py-2.5 text-xs sm:text-sm md:text-base transition-all duration-200 hover:scale-105 shadow-lg"
+                            asChild
+                          >
+                            <a href={item.cta.href}>{item.cta.text}</a>
+                          </Button>
                         </div>
                       )}
                     </div>

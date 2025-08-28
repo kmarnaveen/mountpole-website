@@ -5,13 +5,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MessageSquare, Send, Smartphone } from "lucide-react";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 interface MobileContactFormProps {
   onSuccess?: () => void;
   onCancel?: () => void;
 }
 
-export default function MobileContactForm({ onSuccess, onCancel }: MobileContactFormProps) {
+export default function MobileContactForm({
+  onSuccess,
+  onCancel,
+}: MobileContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -37,7 +41,7 @@ export default function MobileContactForm({ onSuccess, onCancel }: MobileContact
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzMobileContact_kmarnaveen97_gmail_com_endpoint/exec",
+        "https://script.google.com/macros/s/AKfycbyJ7K8L9M0N1O2P3Q4R5S6T7U8V9W0X1Y2Z3A4B5C6D7E8F9G0H1I2J3K4L5M6N7O8P9/exec",
         {
           method: "POST",
           mode: "no-cors",
@@ -83,12 +87,8 @@ export default function MobileContactForm({ onSuccess, onCancel }: MobileContact
         <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3">
           <Smartphone className="h-6 w-6 text-white" />
         </div>
-        <h2 className="text-xl font-bold text-gray-900 mb-1">
-          Quick Contact
-        </h2>
-        <p className="text-gray-600 text-sm">
-          Get fast response from our team
-        </p>
+        <h2 className="text-xl font-bold text-gray-900 mb-1">Quick Contact</h2>
+        <p className="text-gray-600 text-sm">Get fast response from our team</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -144,7 +144,10 @@ export default function MobileContactForm({ onSuccess, onCancel }: MobileContact
 
         {/* Subject */}
         <div className="space-y-1">
-          <label htmlFor="subject" className="text-sm font-medium text-gray-800">
+          <label
+            htmlFor="subject"
+            className="text-sm font-medium text-gray-800"
+          >
             Subject
           </label>
           <Input
@@ -160,7 +163,10 @@ export default function MobileContactForm({ onSuccess, onCancel }: MobileContact
 
         {/* Message */}
         <div className="space-y-1">
-          <label htmlFor="message" className="text-sm font-medium text-gray-800">
+          <label
+            htmlFor="message"
+            className="text-sm font-medium text-gray-800"
+          >
             Message *
           </label>
           <Textarea
@@ -228,11 +234,16 @@ export default function MobileContactForm({ onSuccess, onCancel }: MobileContact
               variant="outline"
               size="sm"
               className="flex-1 text-xs"
-              onClick={() => window.open("mailto:kmarnaveen97@gmail.com")}
+              onClick={() => window.open("mailto:hello@mountpole.com")}
             >
               <Mail className="h-3 w-3 mr-1" />
               Email
             </Button>
+            <WhatsAppButton
+              variant="mobile-dock"
+              className="flex-1"
+              message="Hi! I need help with wholesale products. Can you assist me?"
+            />
           </div>
         </div>
 
