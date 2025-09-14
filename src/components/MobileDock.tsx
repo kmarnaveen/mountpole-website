@@ -268,7 +268,7 @@ export default function MobileDock() {
           {/* Modal */}
           <div className="absolute bottom-0 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 left-0 right-0 md:w-[650px] lg:w-[750px] md:max-w-[90vw] bg-white/95 backdrop-blur-xl rounded-t-2xl md:rounded-2xl max-h-[75vh] md:max-h-[80vh] overflow-hidden animate-in slide-in-from-bottom md:zoom-in duration-300 shadow-2xl border border-white/20 mb-20 md:mb-0">
             {/* Professional Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 border-b border-gray-200">
+            <div className="bg-blue-600 text-white px-6 py-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-lg md:text-xl font-semibold">

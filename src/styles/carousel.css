@@ -1,4 +1,4 @@
-/* Carousel Touch Optimizations */
+/* World-Class Premium Carousel Optimizations */
 .carousel-container {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -8,6 +8,28 @@
   user-select: none;
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Premium smooth transitions */
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* World-class shadow and depth */
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.carousel-container:hover {
+  /* Premium hover elevation */
+  transform: translateZ(0) translateY(-2px);
+  box-shadow: 
+    0 35px 60px -12px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .carousel-container * {
@@ -21,20 +43,511 @@
 
 .carousel-slide {
   pointer-events: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* World-class slide transitions */
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.carousel-slide img {
+.carousel-slide img,
+.carousel-slide video {
   pointer-events: none;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Premium media scaling */
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Smooth scrolling for mobile */
+.carousel-slide:hover img,
+.carousel-slide:hover video {
+  /* Subtle premium zoom on hover */
+  transform: scale(1.02);
+}
+
+/* Hardware acceleration for smooth animations */
+.carousel-container [data-carousel-item] {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* Mobile-specific optimizations */
 @media (max-width: 768px) {
   .carousel-container {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  
+  /* Reduce motion on mobile if preferred */
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-container * {
+      animation-duration: 0.01s !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01s !important;
+    }
+  }
+}
+
+/* Touch feedback */
+.carousel-container button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease-out;
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .carousel-container img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Focus styles for accessibility */
+.carousel-container button:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+}
+
+/* Performance optimizations */
+.carousel-container {
+  contain: layout style paint;
+  isolation: isolate;
+}
+
+/* Smooth gradient transitions */
+.carousel-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+/* Loading states */
+.carousel-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Apple-style blur effects */
+.carousel-backdrop {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.carousel-glass {
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Professional Mobile Carousel Optimizations */
+@media (max-width: 640px) {
+  .carousel-mobile-title {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 6px !important;
+    /* Professional text shadows for readability */
+    text-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.8),
+      0 2px 8px rgba(0, 0, 0, 0.6);
+    /* Enhanced contrast */
+    font-weight: 700 !important;
+    letter-spacing: -0.02em;
+  }
+
+  .carousel-mobile-text {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+    /* Professional text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.7),
+      0 2px 6px rgba(0, 0, 0, 0.5);
+    /* Optimal reading width (mobile) */
+    max-width: 280px !important;
+    /* Enhanced spacing for readability */
+    word-spacing: 0.05em;
+  }
+
+  /* Professional glassmorphism enhancement */
+  .carousel-mobile-text::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+/* Professional Carousel Enhancements */
+.embla__slide {
+  /* Hardware acceleration for smooth performance */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+  
+  /* Professional touch interactions */
+  touch-action: pan-x;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Advanced glassmorphism effects */
+.embla__slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Professional button hover effects */
+.embla__slide button {
+  /* Smooth micro-interactions */
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.embla__slide button:hover {
+  /* Professional elevation */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.embla__slide button:active {
+  /* Tactile feedback */
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+/* Professional focus states */
+.embla__slide button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+  box-shadow: 
+    0 0 0 4px rgba(255, 255, 255, 0.2),
+    0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced carousel controls positioning */
+.embla__prev,
+.embla__next {
+  /* Strategic positioning following rule of thirds */
+  top: 50%;
+  transform: translateY(-50%);
+  
+  /* Professional glassmorphism */
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  
+  /* Smooth interactions */
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+}
+
+.embla__prev:hover,
+.embla__next:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-50%) scale(1.05) !important;
+}
+
+/* Professional indicators */
+.embla__dots {
+  /* Strategic bottom positioning */
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Enhanced spacing */
+  gap: 8px;
+}
+
+.embla__dot {
+  /* Professional sizing and spacing */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  
+  /* Enhanced glassmorphism */
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  /* Smooth transitions */
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.embla__dot--selected {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+/* Professional responsive text optimization */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .carousel-mobile-title {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+  
+  .carousel-mobile-text {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    max-width: 400px !important;
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1024px) {
+  .carousel-mobile-title {
+    /* Golden ratio typography scaling */
+    font-size: clamp(24px, 3vw, 48px) !important;
+    line-height: 1.2 !important;
+  }
+  
+  .carousel-mobile-text {
+    font-size: clamp(16px, 1.8vw, 24px) !important;
+    line-height: 1.5 !important;
+    /* Optimal reading width (desktop) */
+    max-width: 65ch !important;
+  }
+}
+
+/* Professional loading states */
+.embla__slide[data-loading="true"] {
+  opacity: 0.6;
+  filter: blur(1px);
+  transition: all 0.3s ease-out;
+}
+
+.embla__slide[data-loaded="true"] {
+  opacity: 1;
+  filter: blur(0);
+  transition: all 0.5s ease-out;
+}
+
+/* Extra small screens (iPhone SE, small Android) */
+@media (max-width: 375px) {
+  .carousel-mobile-text {
+    font-size: 9px !important;
+    line-height: 1.1;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  
+  .carousel-mobile-title {
+    font-size: 14px !important;
+    line-height: 1.0;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+  
+  /* Ultra compact carousel on very small screens */
+  .carousel-container {
+    min-height: 180px !important;
+  }
+}
+
+/* World-Class Premium Animations */
+@keyframes premiumSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100px) scale(0.95);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes premiumFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes premiumGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes premiumFloating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Apply premium animations */
+.carousel-container {
+  animation: premiumSlideIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-container:hover {
+  animation: premiumGlow 3s ease-in-out infinite;
+}
+
+/* Premium text animations */
+.carousel-mobile-title {
+  animation: premiumFadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.carousel-mobile-text {
+  animation: premiumFadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+}
+
+/* Floating elements */
+.animate-floating {
+  animation: premiumFloating 6s ease-in-out infinite;
+}
+
+/* Premium button hover effects with professional timing */
+.carousel-container button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Professional shimmer effect for navigation arrows */
+.carousel-container button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.4s ease-out;
+}
+
+.carousel-container button:hover::before {
+  left: 100%;
+}
+
+/* Enhanced touch feedback with proper timing */
+.carousel-container button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease-out;
+}
+
+/* Professional focus states for keyboard navigation */
+.carousel-container button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Safe area positioning for various screen sizes */
+@media (max-width: 480px) {
+  .carousel-container button[aria-label*="slide"] {
+    /* Ensure arrows don't interfere with swipe gestures */
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+}
+
+/* Professional hover states for better UX */
+.carousel-container:hover button[aria-label*="slide"] {
+  opacity: 0.8;
+  transform: translateY(-50%);
+}
+
+.carousel-container button[aria-label*="slide"]:hover {
+  opacity: 1 !important;
+}
+
+/* Ensure proper z-index layering */
+.carousel-container button[aria-label*="slide"] {
+  z-index: 40;
+}
+
+.carousel-container button[aria-label*="Pause"],
+.carousel-container button[aria-label*="Play"] {
+  z-index: 30;
+}
+
+/* World-class scroll indicators */
+.premium-scroll-indicator {
+  animation: premiumFloating 2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Premium backdrop blur enhancement */
+@supports (backdrop-filter: blur(20px)) {
+  .backdrop-blur-premium {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+/* Subtle parallax effect for depth */
+@media (prefers-reduced-motion: no-preference) {
+  .carousel-parallax {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .carousel-parallax > * {
+    transform: translateZ(0);
+    transition: transform 0.1s ease-out;
   }
 }

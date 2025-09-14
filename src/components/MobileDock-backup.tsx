@@ -3,10 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useModals } from "@/components/modals/ModalProvider";
 import {
   Home,
   Smartphone,
-  Menu,
+  Search,
   Tablet,
   Watch,
   Monitor,
@@ -20,6 +21,8 @@ import {
   Mail,
   MessageSquare,
   ChevronRight,
+  TrendingUp,
+  Headphones,
 } from "lucide-react";
 import {
   Sheet,
@@ -29,13 +32,24 @@ import {
 } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import MobileContactForm from "@/components/forms/MobileContactForm";
+import { StreamSearch } from "@/components/StreamSearch";
+import productsData from "../../products.json";
+import { Product } from "@/types/product";
 
 export default function MobileDock() {
+  const { openQuoteModal, openPartnershipModal } = useModals();
   const [isCategoriesOpen, setCategoriesOpen] = useState(false);
   const [isBrandsOpen, setBrandsOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    query: "",
+  });
 
   // Auto-popup logic for homepage
   useEffect(() => {
@@ -57,11 +71,44 @@ export default function MobileDock() {
     }
   }, []);
 
-  // Handle successful form submission
-  const handleFormSuccess = () => {
-    // Mark form as submitted to prevent auto-popup in future visits
-    localStorage.setItem("contactFormSubmitted", "true");
-    setIsContactFormOpen(false);
+  // Handle form submission and mark as submitted
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbwzOlcIiyseWdYs7zJgm7qMB3whg3JQvUwy-NawF4yDjBiEX9F-_zC6doe0yoWzmccdzw/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            timestamp: new Date().toISOString(),
+          }),
+        }
+      );
+
+      // Mark form as submitted to prevent auto-popup in future visits
+      localStorage.setItem("contactFormSubmitted", "true");
+
+      // Reset form and show success
+      setFormData({ name: "", email: "", company: "", phone: "", query: "" });
+      setIsContactFormOpen(false);
+      alert(
+        "Thank you for your interest in partnering with MountPole! Our business development team will contact you within 24 hours to discuss wholesale opportunities and partnership options."
+      );
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert(
+        "Sorry, there was an error sending your message. Please try again or contact us directly."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const dockItems = [
@@ -82,9 +129,9 @@ export default function MobileDock() {
       action: "brands",
     },
     {
-      name: "Menu",
-      icon: Menu,
-      action: "menu",
+      name: "Search",
+      icon: Search,
+      action: "search",
     },
   ];
 
@@ -195,21 +242,21 @@ export default function MobileDock() {
     if (item.action === "categories") {
       // Close other menus first
       setBrandsOpen(false);
-      setIsMenuOpen(false);
+      setIsSearchOpen(false);
       // Toggle categories
       setCategoriesOpen(!isCategoriesOpen);
     } else if (item.action === "brands") {
       // Close other menus first
       setCategoriesOpen(false);
-      setIsMenuOpen(false);
+      setIsSearchOpen(false);
       // Toggle brands
       setBrandsOpen(!isBrandsOpen);
-    } else if (item.action === "menu") {
+    } else if (item.action === "search") {
       // Close other menus first
       setCategoriesOpen(false);
       setBrandsOpen(false);
-      // Toggle menu
-      setIsMenuOpen(!isMenuOpen);
+      // Toggle search
+      setIsSearchOpen(!isSearchOpen);
     }
   };
 
@@ -224,40 +271,17 @@ export default function MobileDock() {
             onClick={() => setIsContactFormOpen(false)}
           />
           {/* Modal */}
-          <div className="absolute bottom-0 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 left-0 right-0 md:w-[500px] bg-white rounded-t-2xl md:rounded-2xl max-h-[85vh] overflow-hidden animate-in slide-in-from-bottom md:zoom-in duration-300 shadow-2xl mb-20 md:mb-0">
-            {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 flex items-center justify-between">
-              <div>
-                <h2 className="text-lg font-semibold">Partner with MountPole</h2>
-                <p className="text-blue-100 text-sm">Quick Contact</p>
-              </div>
-              <button
-                onClick={() => setIsContactFormOpen(false)}
-                className="p-2 hover:bg-white/20 rounded-md transition-colors"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            {/* Form Content */}
-            <div className="p-6 overflow-y-auto max-h-[calc(85vh-80px)]">
-              <MobileContactForm 
-                onSuccess={handleFormSuccess}
-                onCancel={() => setIsContactFormOpen(false)}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Enhanced Categories Bottom Slider */}
+          <div className="absolute bottom-0 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 left-0 right-0 md:w-[650px] lg:w-[750px] md:max-w-[90vw] bg-white/95 backdrop-blur-xl rounded-t-2xl md:rounded-2xl max-h-[75vh] md:max-h-[80vh] overflow-hidden animate-in slide-in-from-bottom md:zoom-in duration-300 shadow-2xl border border-white/20 mb-20 md:mb-0">
+            {/* Professional Header */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-lg md:text-xl font-semibold">
                     Partner with MountPole
                   </h2>
-                  <p className="text-blue-100 text-sm mt-1">Global Technology Distribution</p>
+                  <p className="text-blue-100 text-sm mt-1">
+                    Global Technology Distribution
+                  </p>
                 </div>
                 <button
                   onClick={() => setIsContactFormOpen(false)}
@@ -421,7 +445,8 @@ export default function MobileDock() {
                 {/* Professional Footer */}
                 <div className="text-center py-3">
                   <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
-                    Response within 24 hours • Wholesale pricing available • Authorized distributor
+                    Response within 24 hours • Wholesale pricing available •
+                    Authorized distributor
                   </p>
                 </div>
               </div>
@@ -429,7 +454,6 @@ export default function MobileDock() {
           </div>
         </div>
       )}
-
       {/* Enhanced Categories Bottom Slider */}
       {isCategoriesOpen && (
         <div className="md:hidden fixed inset-0 z-[9998]">
@@ -445,7 +469,9 @@ export default function MobileDock() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-xl font-bold">Product Categories</h2>
-                  <p className="text-blue-100 text-sm mt-1">Browse by category</p>
+                  <p className="text-blue-100 text-sm mt-1">
+                    Browse by category
+                  </p>
                 </div>
                 <button
                   onClick={() => setCategoriesOpen(false)}
@@ -467,12 +493,19 @@ export default function MobileDock() {
                       className="flex items-center space-x-4 p-5 rounded-2xl bg-white hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md border border-gray-100 group"
                       onClick={() => setCategoriesOpen(false)}
                     >
-                      <div className={`p-4 rounded-2xl ${
-                        index % 5 === 0 ? 'bg-blue-100' :
-                        index % 5 === 1 ? 'bg-green-100' :
-                        index % 5 === 2 ? 'bg-purple-100' :
-                        index % 5 === 3 ? 'bg-orange-100' : 'bg-red-100'
-                      } group-hover:scale-110 transition-transform`}>
+                      <div
+                        className={`p-4 rounded-2xl ${
+                          index % 5 === 0
+                            ? "bg-blue-100"
+                            : index % 5 === 1
+                            ? "bg-green-100"
+                            : index % 5 === 2
+                            ? "bg-purple-100"
+                            : index % 5 === 3
+                            ? "bg-orange-100"
+                            : "bg-red-100"
+                        } group-hover:scale-110 transition-transform`}
+                      >
                         <Icon className={`h-7 w-7 ${category.color}`} />
                       </div>
                       <div className="flex-1">
@@ -492,7 +525,6 @@ export default function MobileDock() {
           </div>
         </div>
       )}
-
       {/* Enhanced Brands Bottom Slider */}
       {isBrandsOpen && (
         <div className="md:hidden fixed inset-0 z-[9998]">
@@ -508,7 +540,9 @@ export default function MobileDock() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-xl font-bold">Our Brands</h2>
-                  <p className="text-purple-100 text-sm mt-1">Premium technology partners</p>
+                  <p className="text-purple-100 text-sm mt-1">
+                    Premium technology partners
+                  </p>
                 </div>
                 <button
                   onClick={() => setBrandsOpen(false)}
@@ -539,16 +573,25 @@ export default function MobileDock() {
                             className="object-contain w-full h-full"
                           />
                         ) : (
-                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg ${
-                            index % 8 === 0 ? 'bg-gradient-to-br from-blue-500 to-blue-600' :
-                            index % 8 === 1 ? 'bg-gradient-to-br from-gray-700 to-gray-800' :
-                            index % 8 === 2 ? 'bg-gradient-to-br from-red-500 to-pink-500' :
-                            index % 8 === 3 ? 'bg-gradient-to-br from-orange-500 to-red-500' :
-                            index % 8 === 4 ? 'bg-gradient-to-br from-purple-500 to-purple-600' :
-                            index % 8 === 5 ? 'bg-gradient-to-br from-green-500 to-green-600' :
-                            index % 8 === 6 ? 'bg-gradient-to-br from-yellow-500 to-orange-500' :
-                            'bg-gradient-to-br from-indigo-500 to-purple-600'
-                          }`}>
+                          <div
+                            className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg ${
+                              index % 8 === 0
+                                ? "bg-gradient-to-br from-blue-500 to-blue-600"
+                                : index % 8 === 1
+                                ? "bg-gradient-to-br from-gray-700 to-gray-800"
+                                : index % 8 === 2
+                                ? "bg-gradient-to-br from-red-500 to-pink-500"
+                                : index % 8 === 3
+                                ? "bg-gradient-to-br from-orange-500 to-red-500"
+                                : index % 8 === 4
+                                ? "bg-gradient-to-br from-purple-500 to-purple-600"
+                                : index % 8 === 5
+                                ? "bg-gradient-to-br from-green-500 to-green-600"
+                                : index % 8 === 6
+                                ? "bg-gradient-to-br from-yellow-500 to-orange-500"
+                                : "bg-gradient-to-br from-indigo-500 to-purple-600"
+                            }`}
+                          >
                             {brand.name.charAt(0)}
                           </div>
                         )}
@@ -559,7 +602,10 @@ export default function MobileDock() {
                             {brand.name}
                           </h3>
                           {brand.badge && (
-                            <Badge variant="secondary" className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700">
+                            <Badge
+                              variant="secondary"
+                              className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700"
+                            >
                               {brand.badge}
                             </Badge>
                           )}
@@ -572,7 +618,7 @@ export default function MobileDock() {
                   </Link>
                 ))}
               </div>
-              
+
               {/* View All Brands Button */}
               <Link
                 href="/brands"
@@ -585,10 +631,140 @@ export default function MobileDock() {
           </div>
         </div>
       )}
+      {/* Enhanced Search Overlay - Apple iOS Style */}
+      {isSearchOpen && (
+        <div className="fixed inset-0 z-[99999] bg-white animate-in slide-in-from-bottom duration-300">
+          {/* Search Header */}
+          <div className="sticky top-0 bg-white/95 backdrop-blur-xl border-b border-gray-100/50 px-4 py-3">
+            <div className="flex items-center space-x-3">
+              {/* Back Button */}
+              <button
+                onClick={() => setIsSearchOpen(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors active:scale-95"
+              >
+                <X className="h-5 w-5 text-gray-600" />
+              </button>
 
-      {/* Enhanced Menu Sheet */}
-      <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-        <SheetContent side="right" className="w-full p-0 bg-gradient-to-br from-gray-50 to-blue-50 z-[9999]">
+              {/* Search Input */}
+              <div className="flex-1 relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Search className="h-4 w-4 text-gray-400" />
+                </div>
+                <StreamSearch
+                  products={productsData.products as Product[]}
+                  placeholder="Search products, brands..."
+                  className="w-full pl-10 pr-4 py-3 bg-gray-100/80 border-0 rounded-2xl text-base focus:bg-white focus:ring-2 focus:ring-blue-500/30 transition-all"
+                  maxResults={8}
+                  onSelectResult={() => setIsSearchOpen(false)}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Search Content */}
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
+            {/* Popular Searches */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
+                <TrendingUp className="h-4 w-4 mr-2 text-blue-500" />
+                Popular Searches
+              </h3>
+              <div className="space-y-2">
+                {['iPhone 15', 'Samsung Galaxy', 'iPad Pro', 'MacBook Air', 'Apple Watch', 'AirPods Pro'].map((term) => (
+                  <button
+                    key={term}
+                    onClick={() => {
+                      window.location.href = `/search?q=${encodeURIComponent(term)}`;
+                      setIsSearchOpen(false);
+                    }}
+                    className="w-full flex items-center p-3 bg-gray-50/80 hover:bg-gray-100/80 rounded-2xl transition-all duration-200 active:scale-[0.98] text-left"
+                  >
+                    <Search className="h-4 w-4 text-gray-400 mr-3 flex-shrink-0" />
+                    <span className="text-sm font-medium text-gray-700">{term}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Categories Grid */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
+                <Monitor className="h-4 w-4 mr-2 text-green-500" />
+                Browse Categories
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {categories.map((category) => {
+                  const Icon = category.icon;
+                  return (
+                    <button
+                      key={category.name}
+                      onClick={() => {
+                        window.location.href = category.href;
+                        setIsSearchOpen(false);
+                      }}
+                      className="flex flex-col items-center p-4 bg-gray-50/80 hover:bg-gray-100/80 rounded-2xl transition-all duration-200 active:scale-[0.98] text-center"
+                    >
+                      <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-2 shadow-sm">
+                        <Icon className={`h-6 w-6 ${category.color}`} />
+                      </div>
+                      <span className="text-sm font-semibold text-gray-900 mb-1">{category.name}</span>
+                      <span className="text-xs text-gray-500 leading-tight">{category.description}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Brands Grid */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
+                <Headphones className="h-4 w-4 mr-2 text-purple-500" />
+                Top Brands
+              </h3>
+              <div className="grid grid-cols-3 gap-3">
+                {brands.slice(0, 6).map((brand) => (
+                  <button
+                    key={brand.name}
+                    onClick={() => {
+                      window.location.href = brand.href;
+                      setIsSearchOpen(false);
+                    }}
+                    className="flex flex-col items-center p-3 bg-gray-50/80 hover:bg-gray-100/80 rounded-2xl transition-all duration-200 active:scale-[0.98] text-center"
+                  >
+                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-2 shadow-sm">
+                      <span className="text-lg font-bold text-gray-700">{brand.name.charAt(0)}</span>
+                    </div>
+                    <span className="text-xs font-semibold text-gray-900 mb-1">{brand.name}</span>
+                    {brand.badge && (
+                      <span className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">
+                        {brand.badge}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Spacing for dock */}
+            <div className="h-32" />
+          </div>
+
+          {/* Search Footer */}
+          <div className="sticky bottom-0 bg-white/95 backdrop-blur-xl border-t border-gray-100/50 px-4 py-3">
+            <div className="flex items-center justify-center text-xs text-gray-500">
+              <span>Search across {productsData.products.length}+ products</span>
+            </div>
+          </div>
+        </div>
+      )}
+      </Sheet>
+
+      {/* Enhanced Floating Contact Button */}
+      {false && (
+        <SheetContent
+          side="right"
+          className="w-full p-0 bg-gradient-to-br from-gray-50 to-blue-50 z-[9999]"
+        >
           {/* Professional Header */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
             <div className="flex items-center justify-between">
@@ -597,8 +773,12 @@ export default function MobileDock() {
                   <span className="text-white font-bold text-lg">M</span>
                 </div>
                 <div>
-                  <SheetTitle className="text-white text-xl font-bold">MountPole</SheetTitle>
-                  <p className="text-blue-100 text-sm">B2B Technology Distribution</p>
+                  <SheetTitle className="text-white text-xl font-bold">
+                    MountPole
+                  </SheetTitle>
+                  <p className="text-blue-100 text-sm">
+                    B2B Technology Distribution
+                  </p>
                 </div>
               </div>
               <button
@@ -609,7 +789,7 @@ export default function MobileDock() {
               </button>
             </div>
           </div>
-          
+
           {/* Scrollable Content */}
           <div className="flex-1 overflow-y-auto p-6 space-y-8">
             {/* Quick Actions */}
@@ -619,28 +799,45 @@ export default function MobileDock() {
                 Quick Actions
               </h3>
               <div className="grid grid-cols-2 gap-3">
-                <Link
-                  href="/quote"
+                <button
+                  onClick={() => {
+                    openQuoteModal({
+                      productId: "mobile-dock-general",
+                      productName: "General Quote Request",
+                      category: "general",
+                      type: "bulk",
+                    });
+                    setIsMenuOpen(false);
+                  }}
                   className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-blue-200 group"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
-                  <span className="font-semibold text-gray-900 text-sm">Get Quote</span>
-                  <span className="text-xs text-gray-500 text-center">Wholesale pricing</span>
-                </Link>
-                <Link
-                  href="/contact?type=partnership"
+                  <span className="font-semibold text-gray-900 text-sm">
+                    Get Quote
+                  </span>
+                  <span className="text-xs text-gray-500 text-center">
+                    Wholesale pricing
+                  </span>
+                </button>
+                <button
+                  onClick={() => {
+                    openPartnershipModal();
+                    setIsMenuOpen(false);
+                  }}
                   className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-purple-200 group"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                     <Building2 className="h-6 w-6 text-white" />
                   </div>
-                  <span className="font-semibold text-gray-900 text-sm">Partner</span>
-                  <span className="text-xs text-gray-500 text-center">Join network</span>
-                </Link>
+                  <span className="font-semibold text-gray-900 text-sm">
+                    Partner
+                  </span>
+                  <span className="text-xs text-gray-500 text-center">
+                    Join network
+                  </span>
+                </button>
               </div>
             </div>
 
@@ -662,20 +859,40 @@ export default function MobileDock() {
                       className="flex items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-gray-200 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform ${
-                        index % 4 === 0 ? 'bg-blue-100' :
-                        index % 4 === 1 ? 'bg-green-100' :
-                        index % 4 === 2 ? 'bg-purple-100' : 'bg-orange-100'
-                      }`}>
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform ${
+                          index % 4 === 0
+                            ? "bg-blue-100"
+                            : index % 4 === 1
+                            ? "bg-green-100"
+                            : index % 4 === 2
+                            ? "bg-purple-100"
+                            : "bg-orange-100"
+                        }`}
+                      >
                         <Icon className={`h-6 w-6 ${category.color}`} />
                       </div>
                       <div className="flex-1">
-                        <div className="font-semibold text-gray-900">{category.name}</div>
-                        <div className="text-sm text-gray-600">{category.description}</div>
+                        <div className="font-semibold text-gray-900">
+                          {category.name}
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          {category.description}
+                        </div>
                       </div>
                       <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-gray-200 transition-colors">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <svg
+                          className="w-4 h-4 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
                         </svg>
                       </div>
                     </Link>
@@ -711,23 +928,35 @@ export default function MobileDock() {
                             className="object-contain w-full h-full"
                           />
                         ) : (
-                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm ${
-                            index % 6 === 0 ? 'bg-gradient-to-br from-blue-500 to-blue-600' :
-                            index % 6 === 1 ? 'bg-gradient-to-br from-gray-700 to-gray-800' :
-                            index % 6 === 2 ? 'bg-gradient-to-br from-red-500 to-pink-500' :
-                            index % 6 === 3 ? 'bg-gradient-to-br from-orange-500 to-red-500' :
-                            index % 6 === 4 ? 'bg-gradient-to-br from-purple-500 to-purple-600' :
-                            'bg-gradient-to-br from-green-500 to-green-600'
-                          }`}>
+                          <div
+                            className={`w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm ${
+                              index % 6 === 0
+                                ? "bg-gradient-to-br from-blue-500 to-blue-600"
+                                : index % 6 === 1
+                                ? "bg-gradient-to-br from-gray-700 to-gray-800"
+                                : index % 6 === 2
+                                ? "bg-gradient-to-br from-red-500 to-pink-500"
+                                : index % 6 === 3
+                                ? "bg-gradient-to-br from-orange-500 to-red-500"
+                                : index % 6 === 4
+                                ? "bg-gradient-to-br from-purple-500 to-purple-600"
+                                : "bg-gradient-to-br from-green-500 to-green-600"
+                            }`}
+                          >
                             {brand.name.charAt(0)}
                           </div>
                         )}
                       </div>
                       <div>
                         <div className="flex items-center justify-center space-x-1">
-                          <span className="font-semibold text-gray-900 text-sm">{brand.name}</span>
+                          <span className="font-semibold text-gray-900 text-sm">
+                            {brand.name}
+                          </span>
                           {brand.badge && (
-                            <Badge variant="secondary" className="text-xs px-1.5 py-0.5 bg-blue-100 text-blue-700">
+                            <Badge
+                              variant="secondary"
+                              className="text-xs px-1.5 py-0.5 bg-blue-100 text-blue-700"
+                            >
                               {brand.badge}
                             </Badge>
                           )}
@@ -764,56 +993,73 @@ export default function MobileDock() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-gray-200 transition-colors">
-                    <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      className="w-5 h-5 text-gray-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <div className="font-semibold text-gray-900">About MountPole</div>
-                    <div className="text-sm text-gray-600">Our story & mission</div>
+                    <div className="font-semibold text-gray-900">
+                      About MountPole
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      Our story & mission
+                    </div>
                   </div>
                 </Link>
-                <Link
-                  href="/contact"
+                <button
+                  onClick={() => {
+                    openPartnershipModal();
+                    setIsMenuOpen(false);
+                  }}
                   className="flex items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-gray-200 group"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors">
                     <Mail className="w-5 h-5 text-green-600" />
                   </div>
                   <div className="flex-1">
-                    <div className="font-semibold text-gray-900">Contact Us</div>
+                    <div className="font-semibold text-gray-900">
+                      Contact Us
+                    </div>
                     <div className="text-sm text-gray-600">Get in touch</div>
                   </div>
-                </Link>
+                </button>
               </div>
             </div>
           </div>
         </SheetContent>
       </Sheet>
-
       {/* Enhanced Floating Contact Button */}
       <button
         onClick={() => setIsContactFormOpen(true)}
-        className="fixed bottom-24 md:bottom-6 right-6 z-40 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 border border-white/20 backdrop-blur-sm group"
+        className="fixed bottom-24 md:bottom-6 right-6 z-40 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white p-4 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 border border-white/20 backdrop-blur-sm group"
       >
         <Phone className="h-6 w-6 group-hover:rotate-12 transition-transform" />
         <div className="absolute -top-2 -left-2 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
           <span className="text-white text-xs font-bold">!</span>
         </div>
       </button>
-
-      {/* Enhanced Mobile Dock */}
+      ;{/* Enhanced Mobile Dock */}
       <div className="md:hidden fixed bottom-4 left-4 right-4 z-[9999]">
         {/* Modern Floating Dock */}
         <div className="bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-2">
           <div className="flex items-center justify-around">
             {dockItems.map((item, index) => {
               const Icon = item.icon;
-              const isActive = item.active || 
+              const isActive =
+                item.active ||
                 (item.action === "categories" && isCategoriesOpen) ||
                 (item.action === "brands" && isBrandsOpen) ||
-                (item.action === "menu" && isMenuOpen);
+                (item.action === "search" && isSearchOpen);
 
               if (item.href) {
                 return (
@@ -826,8 +1072,18 @@ export default function MobileDock() {
                         : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                     }`}
                   >
-                    <Icon className={`h-5 w-5 mb-1 ${isActive ? 'drop-shadow-sm' : ''}`} />
-                    <span className={`text-xs font-medium ${isActive ? 'drop-shadow-sm' : ''}`}>{item.name}</span>
+                    <Icon
+                      className={`h-5 w-5 mb-1 ${
+                        isActive ? "drop-shadow-sm" : ""
+                      }`}
+                    />
+                    <span
+                      className={`text-xs font-medium ${
+                        isActive ? "drop-shadow-sm" : ""
+                      }`}
+                    >
+                      {item.name}
+                    </span>
                   </Link>
                 );
               }
@@ -837,22 +1093,30 @@ export default function MobileDock() {
                   key={item.name}
                   onClick={() => handleDockItemClick(item)}
                   className={`flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-200 relative group ${
-                    isActive 
+                    isActive
                       ? "text-white bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg scale-105"
                       : "text-gray-600 hover:text-gray-900 hover:bg-gray-100 hover:scale-105"
                   }`}
                 >
-                  <Icon className={`h-5 w-5 mb-1 ${isActive ? 'drop-shadow-sm' : ''}`} />
-                  <span className={`text-xs font-medium ${isActive ? 'drop-shadow-sm' : ''}`}>{item.name}</span>
-                  {item.action === "menu" && !isActive && (
-                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                  )}
+                  <Icon
+                    className={`h-5 w-5 mb-1 ${
+                      isActive ? "drop-shadow-sm" : ""
+                    }`}
+                  />
+                  <span
+                    className={`text-xs font-medium ${
+                      isActive ? "drop-shadow-sm" : ""
+                    }`}
+                  >
+                    {item.name}
+                  </span>
                 </button>
               );
             })}
           </div>
         </div>
       </div>
+      ;
     </>
   );
 }

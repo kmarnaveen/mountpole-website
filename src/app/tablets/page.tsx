@@ -293,13 +293,15 @@ export default function TabletsPage() {
                               View Details
                             </Button>
                           </Link>
-                          <Button 
-                            onClick={() => openQuoteModal({
-                              productId: tablet.id,
-                              productName: tablet.name,
-                              category: 'tablets',
-                              type: 'bulk'
-                            })}
+                          <Button
+                            onClick={() =>
+                              openQuoteModal({
+                                productId: tablet.id,
+                                productName: tablet.name,
+                                category: "tablets",
+                                type: "bulk",
+                              })
+                            }
                             className="flex-1 w-full bg-blue-600 hover:bg-blue-700"
                           >
                             Request Quote
@@ -395,32 +397,6 @@ export default function TabletsPage() {
                 </p>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            Find Your Perfect Tablet
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-            Whether you&apos;re a creative professional, student, or
-            entertainment enthusiast, there&apos;s a tablet here that fits your
-            needs and budget.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/tablets">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                Browse All Tablets
-              </Button>
-            </Link>
-            <Link href="/brands/apple">
-              <Button size="lg" variant="outline">
-                Browse by Brand
-              </Button>
-            </Link>
           </div>
         </div>
       </section>

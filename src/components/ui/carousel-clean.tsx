@@ -43,84 +43,6 @@ export interface CarouselProps {
   className?: string;
 }
 
-// Enhanced Video Component with Professional Error Handling
-const VideoSlide = React.memo<{
-  video: string;
-  isActive: boolean;
-  title?: string;
-}>(({ video, isActive, title }) => {
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-
-  React.useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-
-    const handleVideoPlay = async () => {
-      if (isActive) {
-        try {
-          // Reset video to beginning
-          videoElement.currentTime = 0;
-
-          // Attempt to play
-          const playPromise = videoElement.play();
-
-          if (playPromise !== undefined) {
-            await playPromise;
-            console.log(`✅ Video playing successfully: ${video}`);
-          }
-        } catch (error) {
-          console.warn(
-            `⚠️ Video autoplay failed (this is normal): ${video}`,
-            error
-          );
-          // Autoplay failed - this is expected in many browsers
-          // Video will still be visible and user can click to play if needed
-        }
-      } else {
-        videoElement.pause();
-      }
-    };
-
-    handleVideoPlay();
-  }, [isActive, video]);
-
-  return (
-    <div className="relative w-full h-full">
-      <video
-        ref={videoRef}
-        src={video}
-        muted
-        loop
-        playsInline
-        controls={false}
-        disablePictureInPicture
-        disableRemotePlayback
-        className="w-full h-full object-cover"
-        preload="metadata"
-        onError={(e) => {
-          console.error(`❌ Video failed to load: ${video}`, e);
-        }}
-        onLoadedData={() => {
-          console.log(`📹 Video loaded successfully: ${video}`);
-        }}
-        onCanPlay={() => {
-          console.log(`▶️ Video ready to play: ${video}`);
-        }}
-        style={{
-          backgroundColor: "#000",
-        }}
-      >
-        <source src={video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      {/* Professional video overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/15 pointer-events-none" />
-    </div>
-  );
-});
-
-VideoSlide.displayName = "VideoSlide";
-
 // Optimized Slide Content Component with Memoization
 const SlideContent = React.memo<{
   item: CarouselItem;
@@ -138,9 +60,17 @@ const SlideContent = React.memo<{
       />
     )}
 
-    {/* Enhanced Media Content with Professional Video Support */}
+    {/* Media Content */}
     {item.video ? (
-      <VideoSlide video={item.video} isActive={isActive} title={item.title} />
+      <video
+        src={item.video}
+        autoPlay={isActive}
+        muted
+        loop
+        playsInline
+        className="w-full h-full object-cover"
+        preload={isActive ? "auto" : "metadata"}
+      />
     ) : item.image ? (
       <div className="relative w-full h-full">
         <Image
@@ -161,136 +91,104 @@ const SlideContent = React.memo<{
       <div className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-900 to-black" />
     )}
 
-    {/* Professional Content Overlay with Mobile-Optimized Positioning */}
+    {/* Content Overlay */}
     <div
       className={cn(
         "absolute inset-0 flex z-25",
-        // Mobile-first positioning - prevents overflow
         item.textPosition === "top-center"
-          ? "items-start justify-center text-center px-3 sm:px-6 lg:px-8 pt-6 sm:pt-12 md:pt-16 lg:pt-20"
+          ? "items-start justify-center text-center px-4 sm:px-8 pt-6 sm:pt-16 md:pt-20"
           : item.textPosition === "bottom-center"
-          ? "items-end justify-center text-center px-3 sm:px-6 lg:px-8 pb-6 sm:pb-12 md:pb-16 lg:pb-20"
-          : "items-center justify-start px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20",
-        // Mobile-optimized vertical spacing
-        "py-4 sm:py-6 md:py-8"
+          ? "items-end justify-center text-center px-4 sm:px-8 pb-6 sm:pb-16 md:pb-20"
+          : "items-center justify-start px-4 sm:px-8 md:px-12 lg:px-16",
+        "py-4 sm:py-6"
       )}
     >
       <div
         className={cn(
           "relative z-30 group/content",
-          // Mobile-optimized max-widths - prevents overflow
-          "w-full",
-          item.textPosition?.includes("center")
-            ? "max-w-[280px] sm:max-w-md md:max-w-lg lg:max-w-xl text-center"
-            : "max-w-[220px] sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg text-left",
-          // Mobile-optimized spacing - compact but readable
-          "p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8",
-          // Reduced positioning for mobile
-          item.textPosition === "start" && "ml-0 sm:ml-2 md:ml-4 lg:ml-6",
-          // Subtle, professional interactions
-          "transition-all duration-200 ease-out",
-          "hover:scale-[1.005] hover:-translate-y-0.5",
+          "w-full max-w-[300px] sm:max-w-lg md:max-w-xl lg:max-w-2xl",
+          item.textPosition?.includes("center") ? "text-center" : "text-left",
+          "bg-gradient-to-br from-black/40 via-black/30 to-black/50",
+          "sm:backdrop-blur-2xl border border-white/30 hover:border-white/40",
+          "rounded-2xl sm:rounded-3xl lg:rounded-[2rem]",
+          "shadow-2xl shadow-black/60 hover:shadow-black/80",
+          "p-4 sm:p-8 md:p-10 lg:p-12",
+          item.textPosition === "start" && "ml-0 sm:ml-4 md:ml-8",
+          "transition-all duration-500 ease-out",
+          "hover:scale-[1.02] hover:-translate-y-1",
           "transform-gpu will-change-transform"
         )}
       >
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-2xl sm:rounded-3xl lg:rounded-[2rem] opacity-0 group-hover/content:opacity-100 transition-opacity duration-500" />
+
         <h2
           className={cn(
-            "font-bold tracking-tight relative z-10",
-            // Mobile-first typography: Optimized for small screens
-            "text-white",
-            // Optimized text shadow for clarity
-            "drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]",
-            // Mobile-optimized responsive scale - prevents overflow
-            "text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl",
-            // Tight line height for headlines - mobile optimized
-            "leading-[1.1] sm:leading-[1.05] md:leading-[1.0]",
-            // Reduced spacing for mobile - prevents overflow
-            "mb-1.5 sm:mb-2 md:mb-3 lg:mb-4",
-            // System font for performance
-            "font-sans antialiased",
-            // Subtle interaction
-            "group-hover/content:scale-[1.01] transition-transform duration-150 ease-out"
+            "font-bold leading-tight tracking-tight relative z-10",
+            "text-white drop-shadow-2xl",
+            "text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl",
+            "mb-3 sm:mb-4 md:mb-6 lg:mb-8",
+            "bg-gradient-to-r from-white via-white to-gray-100 bg-clip-text",
+            "group-hover/content:scale-[1.02] transition-transform duration-300"
           )}
-          style={{
-            // Single, focused shadow for maximum performance
-            textShadow: "0 2px 8px rgba(0,0,0,0.85)",
-          }}
         >
           {item.title}
         </h2>
 
-        {/* Enhanced Description with Strong Text Shadows for Background Visibility */}
         <p
           className={cn(
-            "font-medium relative z-10",
-            // Mobile-first text treatment: Compact and readable
-            "text-white/90",
-            // Mobile-optimized typography - prevents overflow
-            "text-xs sm:text-sm md:text-base lg:text-lg",
-            // Tighter line height for mobile - saves space
-            "leading-[1.3] sm:leading-[1.35] md:leading-[1.3]",
-            // Smaller max-widths for mobile - prevents overflow
-            item.textPosition?.includes("center")
-              ? "max-w-[240px] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto"
-              : "max-w-[200px] sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg",
-            // Reduced spacing for mobile - prevents overflow
-            "mb-2 sm:mb-3 md:mb-4 lg:mb-5",
-            // Performance optimized font
-            "font-sans antialiased",
-            // Subtle interaction
-            "group-hover/content:text-white transition-colors duration-150"
+            "leading-relaxed font-medium relative z-10",
+            "text-white/95 drop-shadow-xl",
+            "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl",
+            "max-w-[280px] sm:max-w-md md:max-w-lg lg:max-w-xl",
+            "mb-4 sm:mb-6 md:mb-8 lg:mb-10",
+            "text-shadow-lg",
+            "group-hover/content:text-white transition-colors duration-300"
           )}
-          style={{
-            // Efficient shadow for readability
-            textShadow: "0 1px 4px rgba(0,0,0,0.8)",
-          }}
         >
           {item.description}
         </p>
 
-        {/* Apple-Grade CTA Button: Clean, Purposeful, Accessible */}
         {item.cta && (
           <div
             className={cn(
               "relative z-10",
-              // Professional alignment
               item.textPosition?.includes("center")
                 ? "flex justify-center"
                 : "flex justify-start",
-              // Mobile-optimized spacing
-              "mt-3 sm:mt-4 md:mt-5"
+              "mt-2 sm:mt-4"
             )}
           >
             <Button
               className={cn(
-                // Mobile-optimized button design: Compact and accessible
-                "bg-white/95 hover:bg-white active:bg-white/90",
-                "text-black font-medium tracking-normal",
-                // Efficient shadows
-                "shadow-md hover:shadow-lg",
-                "drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]",
-                // Fast, responsive animations
-                "transition-all duration-150 ease-out",
-                "hover:scale-[1.01] hover:-translate-y-0.5",
-                "active:scale-[0.99] active:translate-y-0",
-                // Mobile-first sizing - compact but touchable
-                "px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3",
-                "text-xs sm:text-sm md:text-base lg:text-base",
-                // Consistent rounding
-                "rounded-md sm:rounded-lg lg:rounded-xl",
-                // Professional focus states
-                "focus:ring-2 focus:ring-white/40 focus:ring-offset-1 focus:ring-offset-black/10",
-                // Clean styling
-                "relative overflow-hidden border-0 outline-none"
+                "bg-gradient-to-r from-white/25 via-white/30 to-white/25",
+                "hover:from-white/35 hover:via-white/40 hover:to-white/35",
+                "active:from-white/45 active:via-white/50 active:to-white/45",
+                "sm:backdrop-blur-xl border-2 border-white/40 hover:border-white/60",
+                "text-white font-bold tracking-wide",
+                "shadow-2xl hover:shadow-3xl shadow-black/40",
+                "transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)]",
+                "hover:scale-110 hover:-translate-y-2 hover:rotate-1",
+                "active:scale-105 active:translate-y-0 active:rotate-0",
+                "px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5",
+                "text-sm sm:text-base md:text-lg lg:text-xl",
+                "rounded-xl sm:rounded-2xl",
+                "focus:ring-4 focus:ring-white/50 focus:ring-offset-4 focus:ring-offset-transparent",
+                "relative overflow-hidden group/btn",
+                "before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent",
+                "before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700",
+                "after:absolute after:inset-0 after:rounded-xl after:sm:rounded-2xl",
+                "after:bg-gradient-to-r after:from-blue-400/20 after:via-purple-400/20 after:to-pink-400/20",
+                "after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-300",
+                "after:blur-xl after:-z-10"
               )}
               asChild
             >
               <a
                 href={item.cta.href}
-                className="relative z-10 flex items-center justify-center space-x-2"
+                className="relative z-10 flex items-center space-x-2"
               >
-                <span className="font-semibold">{item.cta.text}</span>
-                <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                <span>{item.cta.text}</span>
+                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
               </a>
             </Button>
           </div>
@@ -315,23 +213,17 @@ export function Carousel({
   priority = false,
   className,
 }: CarouselProps) {
-  // Calculate totals first
-  const totalSlides = Math.ceil(items.length / itemsPerSlide);
-
   // Professional state management
-  const carousel = useCarousel({
-    totalSlides,
-    autoPlay,
-    autoPlayInterval: interval,
-  });
+  const carousel = useCarousel(items, { autoPlay, interval });
 
   // Professional gesture handling
   const gestureHandlers = useGestureHandler({
-    onSwipeLeft: carousel.nextSlide,
-    onSwipeRight: carousel.prevSlide,
+    onPrevious: carousel.prevSlide,
+    onNext: carousel.nextSlide,
   });
 
   // Calculate totals
+  const totalSlides = Math.ceil(items.length / itemsPerSlide);
 
   // Professional aspect ratio utility
   const aspectRatioClass = {
@@ -445,6 +337,15 @@ export function Carousel({
       )}
 
       {/* Professional Dots */}
+      {showDots && (
+        <CarouselDots
+          totalSlides={totalSlides}
+          currentIndex={carousel.currentIndex}
+          onDotClick={carousel.goToSlide}
+          showProgress={showProgress}
+          progress={carousel.progress}
+        />
+      )}
 
       {/* Professional Progress Bar */}
       {showProgress && (

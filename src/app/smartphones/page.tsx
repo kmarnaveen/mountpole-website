@@ -245,13 +245,15 @@ export default function SmartphonesPage() {
                                 View Details
                               </Button>
                             </Link>
-                            <Button 
-                              onClick={() => openQuoteModal({
-                                productId: phone.id,
-                                productName: phone.name,
-                                category: 'smartphones',
-                                type: 'bulk'
-                              })}
+                            <Button
+                              onClick={() =>
+                                openQuoteModal({
+                                  productId: phone.id,
+                                  productName: phone.name,
+                                  category: "smartphones",
+                                  type: "bulk",
+                                })
+                              }
                               className="flex-1 w-full bg-blue-600 hover:bg-blue-700"
                             >
                               Request Quote
@@ -278,40 +280,6 @@ export default function SmartphonesPage() {
               </div>
             </>
           )}
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-gray-50 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12 text-gray-900">
-            Why Choose Our Mobile Solutions?
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center">
-              <Camera className="mx-auto h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="font-semibold mb-2">Enterprise Security</h3>
-              <p className="text-gray-600">
-                Advanced security features and enterprise-grade encryption
-              </p>
-            </div>
-
-            <div className="text-center">
-              <Cpu className="mx-auto h-12 w-12 text-green-600 mb-4" />
-              <h3 className="font-semibold mb-2">Business Performance</h3>
-              <p className="text-gray-600">
-                Latest processors optimized for professional workflows
-              </p>
-            </div>
-
-            <div className="text-center">
-              <Battery className="mx-auto h-12 w-12 text-purple-600 mb-4" />
-              <h3 className="font-semibold mb-2">All-Day Productivity</h3>
-              <p className="text-gray-600">
-                Extended battery life for demanding business applications
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </div>

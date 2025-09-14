@@ -252,48 +252,54 @@ export default function DynamicProductDetailsPage() {
                   <span className="truncate">Add to Quote List</span>
                 </Button>
               </Link>
-              <Link href={generateSpecSheetURL()}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-sm sm:text-base py-3 sm:py-4 px-4 sm:px-6 min-h-[48px] sm:min-h-[52px]"
-                >
-                  <Download className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0" />
-                  <span className="truncate">Download Spec Sheet</span>
-                </Button>
-              </Link>
             </div>
 
             {/* B2B Information */}
             <div className="bg-blue-50 rounded-lg p-4 sm:p-6">
-              <h3 className="text-lg font-semibold mb-4 text-blue-900">Business Solutions</h3>
+              <h3 className="text-lg font-semibold mb-4 text-blue-900">
+                Business Solutions
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-start gap-3">
                   <Users className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
                     <h4 className="font-medium text-gray-900">Bulk Orders</h4>
-                    <p className="text-sm text-gray-600">Volume discounts available for orders of 10+ units</p>
+                    <p className="text-sm text-gray-600">
+                      Volume discounts available for orders of 10+ units
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Shield className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Enterprise Warranty</h4>
-                    <p className="text-sm text-gray-600">Extended warranty and comprehensive service options</p>
+                    <h4 className="font-medium text-gray-900">
+                      Enterprise Warranty
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Extended warranty and comprehensive service options
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Building className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-medium text-gray-900">MDM Compatible</h4>
-                    <p className="text-sm text-gray-600">Mobile Device Management integration ready</p>
+                    <h4 className="font-medium text-gray-900">
+                      MDM Compatible
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Mobile Device Management integration ready
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CreditCard className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Business Financing</h4>
-                    <p className="text-sm text-gray-600">Flexible payment terms and leasing options</p>
+                    <h4 className="font-medium text-gray-900">
+                      Business Financing
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Flexible payment terms and leasing options
+                    </p>
                   </div>
                 </div>
               </div>
@@ -302,38 +308,6 @@ export default function DynamicProductDetailsPage() {
             {/* Trust Indicators */}
           </div>
         </div>
-
-        {/* Specifications */}
-        {specificationsArray.length > 0 && (
-          <div className="mt-16">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Cpu className="h-5 w-5" />
-                  Technical Specifications
-                </CardTitle>
-                <CardDescription>
-                  Detailed technical information about {product.name}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {specificationsArray.map((spec, index) => (
-                    <div
-                      key={index}
-                      className="flex justify-between items-center py-3 border-b border-gray-100"
-                    >
-                      <span className="font-medium text-gray-700">
-                        {spec.label}
-                      </span>
-                      <span className="text-gray-900">{spec.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
 
         {/* Related Products Section */}
         <div className="mt-16">
