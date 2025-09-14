@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 export default function MobileDock() {
   const { openQuoteModal, openPartnershipModal } = useModals();
@@ -268,7 +269,7 @@ export default function MobileDock() {
           {/* Modal */}
           <div className="absolute bottom-0 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 left-0 right-0 md:w-[650px] lg:w-[750px] md:max-w-[90vw] bg-white/95 backdrop-blur-xl rounded-t-2xl md:rounded-2xl max-h-[75vh] md:max-h-[80vh] overflow-hidden animate-in slide-in-from-bottom md:zoom-in duration-300 shadow-2xl border border-white/20 mb-20 md:mb-0">
             {/* Professional Header */}
-            <div className="bg-blue-600 text-white px-6 py-4 border-b border-gray-200">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-lg md:text-xl font-semibold">
@@ -671,8 +672,8 @@ export default function MobileDock() {
                     openQuoteModal({
                       productId: "mobile-dock-general",
                       productName: "General Quote Request",
-                      category: "general",
-                      type: "bulk",
+                      quoteType: "general",
+                      productContext: "bulk",
                     });
                     setIsMenuOpen(false);
                   }}
@@ -905,21 +906,106 @@ export default function MobileDock() {
           </div>
         </SheetContent>
       </Sheet>
-      ;{/* Enhanced Floating Contact Button */}
-      <button
-        onClick={() => setIsContactFormOpen(true)}
-        className="fixed bottom-24 md:bottom-6 right-6 z-40 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white p-4 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 border border-white/20 backdrop-blur-sm group"
-      >
-        <Phone className="h-6 w-6 group-hover:rotate-12 transition-transform" />
-        <div className="absolute -top-2 -left-2 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-          <span className="text-white text-xs font-bold">!</span>
+      {/* Contact Button - Don Norman + Jony Ive Design Philosophy */}
+      <div className="fixed bottom-24 md:bottom-6 right-6 z-40">
+        <button
+          onClick={() => setIsContactFormOpen(true)}
+          className="group relative w-14 h-14 bg-white hover:bg-gray-50 active:bg-gray-100 
+                     rounded-full shadow-lg hover:shadow-xl active:shadow-md
+                     border border-gray-200/80 hover:border-gray-300/80
+                     transition-all duration-200 ease-out
+                     transform hover:scale-[1.02] active:scale-[0.98]
+                     focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:ring-offset-2"
+          aria-label="Contact us"
+          title="Get in touch - We're here to help"
+        >
+          {/* BorderBeam - Subtle indication of interactivity */}
+          <BorderBeam
+            size={45}
+            duration={6}
+            colorFrom="#3b82f6"
+            colorTo="#8b5cf6"
+            borderWidth={1}
+            className="opacity-60 group-hover:opacity-100"
+          />
+
+          {/* Primary Icon - Clear affordance */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Phone
+              className="w-5 h-5 text-gray-700 group-hover:text-blue-600 group-active:text-blue-700
+                         transition-all duration-200 ease-out
+                         group-hover:scale-110 group-active:scale-95"
+              strokeWidth={1.5}
+            />
+          </div>
+
+          {/* Notification Indicator - Clear signaling */}
+          <div
+            className="absolute -top-1 -right-1 w-4 h-4 
+                          bg-gradient-to-br from-red-500 to-red-600 
+                          rounded-full shadow-sm
+                          flex items-center justify-center
+                          animate-pulse"
+          >
+            <div className="w-2 h-2 bg-white rounded-full opacity-90"></div>
+          </div>
+
+          {/* Haptic Feedback Ring - Visual feedback */}
+          <div
+            className="absolute inset-0 rounded-full 
+                          bg-blue-500/0 group-active:bg-blue-500/10
+                          scale-100 group-active:scale-110
+                          transition-all duration-150 ease-out"
+          ></div>
+
+          {/* Subtle Inner Glow - Premium feel */}
+          <div
+            className="absolute inset-0.5 rounded-full 
+                          bg-gradient-to-t from-transparent to-white/40
+                          opacity-0 group-hover:opacity-100
+                          transition-opacity duration-300"
+          ></div>
+        </button>
+
+        {/* Contextual Tooltip - Norman's principle of visibility */}
+        <div
+          className="absolute -top-12 right-0 
+                        opacity-0 group-hover:opacity-100 
+                        transition-all duration-200 ease-out
+                        transform translate-y-2 group-hover:translate-y-0
+                        pointer-events-none"
+        >
+          <div
+            className="bg-gray-900 text-white text-xs font-medium 
+                          px-3 py-1.5 rounded-lg shadow-lg
+                          whitespace-nowrap"
+          >
+            Contact Us
+            <div
+              className="absolute top-full left-1/2 transform -translate-x-1/2
+                            border-l-4 border-r-4 border-t-4
+                            border-transparent border-t-gray-900"
+            ></div>
+          </div>
         </div>
-      </button>
-      ;{/* Enhanced Mobile Dock */}
+      </div>
+      {/* Mobile Navigation Dock - Refined Design */}
       <div className="md:hidden fixed bottom-4 left-4 right-4 z-[9999]">
-        {/* Modern Floating Dock */}
-        <div className="bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-2">
-          <div className="flex items-center justify-around">
+        <div
+          className="relative bg-white/98 backdrop-blur-xl rounded-2xl 
+                        shadow-lg border border-gray-200/60 
+                        p-1 overflow-hidden"
+        >
+          {/* Subtle BorderBeam - Indicates interactivity */}
+          <BorderBeam
+            size={35}
+            duration={12}
+            colorFrom="#f3f4f6"
+            colorTo="#e5e7eb"
+            borderWidth={0.5}
+            className="opacity-50"
+          />
+          <div className="flex items-center justify-around p-1">
             {dockItems.map((item, index) => {
               const Icon = item.icon;
               const isActive =
@@ -933,21 +1019,33 @@ export default function MobileDock() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-200 ${
-                      isActive
-                        ? "text-white bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg scale-105"
-                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                    }`}
+                    className={`group flex flex-col items-center justify-center 
+                               px-3 py-2 rounded-xl transition-all duration-200 ease-out
+                               relative overflow-hidden min-w-[60px]
+                               ${
+                                 isActive
+                                   ? "text-white bg-gradient-to-b from-blue-500 to-blue-600 shadow-md scale-[1.02]"
+                                   : "text-gray-600 hover:text-gray-900 hover:bg-gray-50 active:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
+                               }`}
                   >
+                    {/* Subtle interaction indicator */}
+                    <div
+                      className="absolute inset-0 bg-blue-500/0 group-active:bg-blue-500/5 
+                                    transition-colors duration-150 rounded-xl"
+                    ></div>
+
                     <Icon
-                      className={`h-5 w-5 mb-1 ${
-                        isActive ? "drop-shadow-sm" : ""
-                      }`}
+                      className={`w-5 h-5 mb-1 transition-all duration-200 ease-out
+                                 ${
+                                   isActive
+                                     ? "drop-shadow-sm"
+                                     : "group-hover:scale-105 group-active:scale-95"
+                                 }
+                                 ${isActive ? "" : "stroke-[1.5]"}`}
                     />
                     <span
-                      className={`text-xs font-medium ${
-                        isActive ? "drop-shadow-sm" : ""
-                      }`}
+                      className={`text-xs font-medium transition-all duration-200
+                                 ${isActive ? "drop-shadow-sm" : ""}`}
                     >
                       {item.name}
                     </span>
@@ -959,26 +1057,44 @@ export default function MobileDock() {
                 <button
                   key={item.name}
                   onClick={() => handleDockItemClick(item)}
-                  className={`flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-200 relative group ${
-                    isActive
-                      ? "text-white bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg scale-105"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-100 hover:scale-105"
-                  }`}
+                  className={`group flex flex-col items-center justify-center 
+                             px-3 py-2 rounded-xl transition-all duration-200 ease-out
+                             relative overflow-hidden min-w-[60px]
+                             ${
+                               isActive
+                                 ? "text-white bg-gradient-to-b from-blue-500 to-blue-600 shadow-md scale-[1.02]"
+                                 : "text-gray-600 hover:text-gray-900 hover:bg-gray-50 active:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
+                             }`}
                 >
+                  {/* Subtle interaction indicator */}
+                  <div
+                    className="absolute inset-0 bg-blue-500/0 group-active:bg-blue-500/5 
+                                  transition-colors duration-150 rounded-xl"
+                  ></div>
+
                   <Icon
-                    className={`h-5 w-5 mb-1 ${
-                      isActive ? "drop-shadow-sm" : ""
-                    }`}
+                    className={`w-5 h-5 mb-1 transition-all duration-200 ease-out
+                               ${
+                                 isActive
+                                   ? "drop-shadow-sm"
+                                   : "group-hover:scale-105 group-active:scale-95"
+                               }
+                               ${isActive ? "" : "stroke-[1.5]"}`}
                   />
                   <span
-                    className={`text-xs font-medium ${
-                      isActive ? "drop-shadow-sm" : ""
-                    }`}
+                    className={`text-xs font-medium transition-all duration-200
+                               ${isActive ? "drop-shadow-sm" : ""}`}
                   >
                     {item.name}
                   </span>
+
+                  {/* Menu notification - Refined indicator */}
                   {item.action === "menu" && !isActive && (
-                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                    <div
+                      className="absolute -top-0.5 -right-0.5 w-2 h-2 
+                                    bg-gradient-to-br from-red-500 to-red-600 
+                                    rounded-full shadow-sm animate-pulse"
+                    ></div>
                   )}
                 </button>
               );

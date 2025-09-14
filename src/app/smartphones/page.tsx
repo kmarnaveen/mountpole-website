@@ -15,6 +15,11 @@ import { Smartphone, Zap, Camera, Battery, Cpu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { ProductGridSkeleton } from "@/components/skeletons/ProductSkeleton";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import {
+  OrganizationSchema,
+  WebsiteSchema,
+} from "@/components/seo/StructuredData";
 import {
   Pagination,
   usePagination,
@@ -250,8 +255,8 @@ export default function SmartphonesPage() {
                                 openQuoteModal({
                                   productId: phone.id,
                                   productName: phone.name,
-                                  category: "smartphones",
-                                  type: "bulk",
+                                  productContext: "smartphones",
+                                  quoteType: "bulk",
                                 })
                               }
                               className="flex-1 w-full bg-blue-600 hover:bg-blue-700"

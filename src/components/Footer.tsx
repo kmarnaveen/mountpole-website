@@ -123,7 +123,6 @@ export default function Footer() {
                 <div className="text-gray-300 text-sm sm:text-base leading-relaxed">
                   <p>8333 NW 53RD Street, Suite 450</p>
                   <p>Doral FL – 33166, USA</p>
-                  <p>Mississauga, Ontario, Canada</p>
                 </div>
               </div>
 

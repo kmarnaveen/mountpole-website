@@ -9,7 +9,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Apple Watch Series 9, featuring the powerful S9 SiP chip for a brighter display and magical new ways to interact without touching the screen. Advanced health, safety, and activity features provide helpful insights and assistance when you need it.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Communication/Wearable%20Devices/Images/309297_0_bjgmau.png?tr=w-1000"
+      ],
       "specifications": {
         "display": "45mm Always-On Retina LTPO OLED display, up to 2000 nits",
         "chip": "S9 SiP with 64-bit dual-core processor",
@@ -48,7 +50,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The iPhone 16, powered by the A18 chip and built for Apple Intelligence. It features an advanced dual-camera system, the intuitive Action button, and a durable design with Ceramic Shield front.",
-      "images": [],
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/18433/1740141755_uQp.jpg"
+      ],
       "specifications": {
         "display": "6.1-inch Super Retina XDR display",
         "chip": "A18 chip with 5-core GPU",
@@ -76,6 +80,47 @@
       ],
       "sku": "APL-IP16-256-IN",
       "tags": ["smartphone", "apple", "iphone-16", "ai", "5g"]
+    },
+    {
+      "id": "google-pixel-9-pro",
+      "name": "Google Pixel 9 Pro",
+      "category": "Smartphones",
+      "brand": "GOOGLE",
+      "price": 999.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The Google Pixel 9 Pro features the powerful Tensor G4 chip, advanced AI capabilities, and an enhanced camera system. With its premium design and pure Android experience, it delivers cutting-edge performance and photography excellence.",
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/18698/1744790073_lNl.jpg"
+      ],
+      "specifications": {
+        "display": "6.3-inch LTPO OLED, 120Hz, 2856x1280",
+        "processor": "Google Tensor G4",
+        "ram": "12GB",
+        "storage": "256GB",
+        "camera": "Triple: 50MP Main, 48MP Ultra Wide, 48MP Telephoto",
+        "frontCamera": "42MP",
+        "battery": "4700mAh with 30W fast charging",
+        "os": "Android 14 with 7 years of updates"
+      },
+      "features": [
+        "Google Tensor G4 chip with advanced AI",
+        "Magic Eraser and Best Take photo features",
+        "Call Screen and Live Translate",
+        "7 years of OS and security updates",
+        "Titan M security chip",
+        "IP68 water resistance"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Obsidian", "Porcelain", "Hazel", "Rose"]
+        }
+      ],
+      "sku": "GOO-P9P-256-VAR",
+      "tags": ["smartphone", "google", "pixel", "ai", "pro", "5g"]
     },
     {
       "id": "apple-iphone-cases-various",
@@ -116,8 +161,10 @@
       "price": 109.99,
       "salePrice": null,
       "currency": "USD",
-      "description": "The Itel A70 is a budget-friendly smartphone that offers generous storage and a large display. It features a Dynamic Bar for notifications, a long-lasting battery, and expandable memory, making it a great value for everyday use.",
-      "images": [],
+      "description": "Meet the iTel A70, a budget-friendly smartphone that doesn't compromise on essential features. With its sleek design, reliable performance, and user-friendly interface, it's perfect for everyday communication and basic smartphone tasks.",
+      "images": [
+        "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTttjTSBfABg4MI4NhjOTnMNGJeAhKGZOcl89iZQQvJbgpA9tEkwxPbFrKrtDrERV8e2111xqGV_xX_ZKFD4rBjUEKdl3u0"
+      ],
       "specifications": {
         "display": "6.6-inch HD+ IPS LCD, 720x1612 pixels",
         "processor": "Unisoc T603 Octa-core",
@@ -157,7 +204,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung Galaxy A06 offers an immersive 6.7-inch display, a high-resolution 50MP camera for capturing detailed photos, and a large 5,000mAh battery to power you through the day. It provides a smooth experience for all your essential tasks.",
-      "images": [],
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/17797/1725867736_VIa.jpg"
+      ],
       "specifications": {
         "display": "6.7-inch PLS LCD, 720x1600 pixels",
         "processor": "MediaTek Helio G85",
@@ -198,7 +247,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Experience the epic standard with the Galaxy S24 Ultra. Encased in a durable titanium frame, it features a stunning 6.8-inch flat display, a built-in S Pen to revolutionize how you create, and a pro-grade 200MP camera with unparalleled zoom capabilities, all powered by Galaxy AI.",
-      "images": [],
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/15728/1706079490_W6l.jpg"
+      ],
       "specifications": {
         "display": "6.8-inch Dynamic AMOLED 2X, 120Hz, QHD+",
         "processor": "Snapdragon 8 Gen 3 for Galaxy",
@@ -242,7 +293,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Galaxy S25 Edge combines flagship power with an incredibly slim and light design. It features a stunning edge-to-edge QHD+ display, a powerful 200MP main camera, and the next-generation Snapdragon processor, all enhanced with advanced Galaxy AI tools.",
-      "images": [],
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/18919/1747806358_ieN.jpg"
+      ],
       "specifications": {
         "display": "6.7-inch Dynamic AMOLED Edge, 120Hz, QHD+",
         "processor": "Snapdragon 8 Elite for Galaxy",
@@ -282,7 +335,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The pinnacle of mobile technology, the Galaxy S25 Ultra features a massive 6.9-inch display, the most powerful Snapdragon Elite processor, and an advanced quad-camera system with a 200MP main sensor. It's the ultimate tool for productivity and creativity, complete with an enhanced S Pen and next-gen Galaxy AI.",
-      "images": [],
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/18288/1738564242_N15.jpg"
+      ],
       "specifications": {
         "display": "6.9-inch Dynamic AMOLED 2X, 120Hz, QHD+",
         "processor": "Snapdragon 8 Elite for Galaxy",
@@ -325,8 +380,10 @@
       "price": 1899.99,
       "salePrice": null,
       "currency": "USD",
-      "description": "Unfold a world of possibilities with the Galaxy Z Fold6. Thinner, lighter, and more durable, it features a massive 7.6-inch main display for PC-like productivity and an immersive cinematic experience. Powered by the Snapdragon 8 Gen 3 and enhanced with Galaxy AI, it's the ultimate multitasking machine.",
-      "images": [],
+      "description": "Unfold your world with the Galaxy Z Fold6. This cutting-edge foldable device transforms from a compact phone to a powerful tablet, offering unmatched productivity with its expansive 7.6-inch main display and enhanced multitasking capabilities powered by Galaxy AI.",
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/17430/1720701175_9Of.jpg"
+      ],
       "specifications": {
         "display": "7.6-inch Dynamic AMOLED 2X Main Display, 120Hz",
         "coverDisplay": "6.3-inch Dynamic AMOLED 2X, 120Hz",
@@ -366,7 +423,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Express yourself with the Galaxy Z Flip7. Featuring a larger 4.1-inch cover screen for more functionality when closed, this compact foldable fits perfectly in your pocket. It boasts a powerful new processor, a versatile 50MP camera, and a durable design for peace of mind.",
-      "images": [],
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/19160/1752133404_pIH.jpg"
+      ],
       "specifications": {
         "display": "6.9-inch Dynamic AMOLED 2X Main Display, 120Hz",
         "coverDisplay": "4.1-inch Super AMOLED",
@@ -412,76 +471,6 @@
       "tags": ["smartphone", "samsung", "foldable", "clamshell"]
     },
     {
-      "id": "samsung-smart-tag-2",
-      "name": "Samsung SmartTag2",
-      "category": "Accessories",
-      "brand": "SAMSUNG",
-      "price": 29.99,
-      "salePrice": null,
-      "currency": "USD",
-      "description": "Keep track of your valuables with the Galaxy SmartTag2. With an enhanced battery life of up to 500 days, an IP67 dust and water resistance rating, and intuitive finding features like Compass View, the SmartTag2 helps you locate your items with ease.",
-      "images": [],
-      "specifications": {
-        "connectivity": "Bluetooth 5.3, UWB",
-        "range": "Up to 120 meters (BLE)",
-        "battery": "Replaceable CR2032, up to 500 days",
-        "waterResistance": "IP67",
-        "compatibility": "Galaxy devices with Android OS 9 or higher"
-      },
-      "features": [
-        "Up to 500-day long battery life",
-        "IP67 Water and Dust Resistance",
-        "Compass View for intuitive direction finding",
-        "Search Nearby feature",
-        "Works with Samsung SmartThings Find network"
-      ],
-      "inStock": true,
-      "stockQuantity": 10,
-      "variants": [
-        {
-          "package": "Single Pack",
-          "colors": ["Mix"]
-        }
-      ],
-      "sku": "SAM-T5600-SP",
-      "tags": ["accessory", "samsung", "tracker", "bluetooth"]
-    },
-    {
-      "id": "samsung-adapter-15w-3pin",
-      "name": "Samsung 15W Adapter",
-      "category": "Accessories",
-      "brand": "SAMSUNG",
-      "price": 19.99,
-      "salePrice": null,
-      "currency": "USD",
-      "description": "Give your devices the powerful charging support they deserve with the official Samsung 15W Power Adapter. Enjoy 15W Fast Charging for a wide range of tech essentials with any USB-C enabled device.",
-      "images": [],
-      "specifications": {
-        "power": "15W",
-        "interface": "USB-C",
-        "plug": "3-pin",
-        "fastChargingOutput": "9V / 1.67A",
-        "normalChargeOutput": "5V / 2A"
-      },
-      "features": [
-        "15W Adaptive Fast Charging",
-        "USB-C Power Delivery",
-        "Overcurrent and Short Circuit Protection",
-        "Universal compatibility with USB-C devices"
-      ],
-      "inStock": true,
-      "stockQuantity": 10,
-      "variants": [
-        {
-          "power": "15W",
-          "plug": "3-pin",
-          "colors": ["Mix"]
-        }
-      ],
-      "sku": "SAM-T1510-15W-3P",
-      "tags": ["accessory", "samsung", "charger", "fast-charging"]
-    },
-    {
       "id": "samsung-tab-a9-wifi",
       "name": "Samsung Galaxy Tab A9",
       "category": "Tablets",
@@ -490,7 +479,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Meet the Galaxy Tab A9. Its sleek design and smooth metal body make it easy to handle, while the large, bright display offers an immersive experience for movies and games. Enjoy rich audio with dual speakers and store more of what you love with expandable storage.",
-      "images": [],
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/15215/1700130368_zPd.jpg"
+      ],
       "specifications": {
         "display": "8.7-inch TFT LCD, 1340x800",
         "processor": "MediaTek Helio G99",
@@ -530,7 +521,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Level up your entertainment with the Galaxy Tab A9+. A large 11-inch screen with a smooth 90Hz refresh rate makes everything look and feel amazing. Powered by a Snapdragon processor and featuring Quad Speakers, it’s perfect for gaming, streaming, and multitasking.",
-      "images": [],
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQsW2_e79XHDIVyHUA7V4AEf-BEbaGtMHa6oBmMuUt822eng0BQqx4Tl4jHGGr0oxmPWMMrOMKVh7w-YrWO7gdcYrHQtyauHA"
+      ],
       "specifications": {
         "display": "11.0-inch TFT LCD, 1920x1200, 90Hz",
         "processor": "Qualcomm Snapdragon 695",
@@ -570,7 +563,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Stay connected everywhere with the Galaxy Tab A9+ Cellular. A large 11-inch screen with a smooth 90Hz refresh rate, a Snapdragon processor, and 8GB of RAM for enhanced multitasking. Perfect for work, play, and staying in touch on the go.",
-      "images": [],
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQsW2_e79XHDIVyHUA7V4AEf-BEbaGtMHa6oBmMuUt822eng0BQqx4Tl4jHGGr0oxmPWMMrOMKVh7w-YrWO7gdcYrHQtyauHA"
+      ],
       "specifications": {
         "display": "11.0-inch TFT LCD, 1920x1200, 90Hz",
         "processor": "Qualcomm Snapdragon 695",
@@ -610,7 +605,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Unleash your creativity and productivity with the Galaxy Tab S10 FE. It comes with the versatile S Pen, a powerful Exynos processor, and a large, vibrant display. With 5G connectivity and an all-day battery, it’s designed for work and play anywhere.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/315296_8_opdscq.png?tr=w-1000"
+      ],
       "specifications": {
         "display": "10.9-inch TFT LCD, 2304x1440, 90Hz",
         "processor": "Samsung Exynos 1580",
@@ -651,7 +648,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Experience more with the Galaxy Tab S10+ FE. A larger premium tablet with enhanced features, a powerful processor for smooth performance, and the creative versatility of the included S Pen. Perfect for professionals and creators on the move.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/315296_8_opdscq.png?tr=w-1000"
+      ],
       "specifications": {
         "display": "12.4-inch Display",
         "processor": "Exynos",
@@ -688,7 +687,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Meet the Galaxy Watch7, powered by a new 3nm processor for supercharged performance. It features an upgraded BioActive Sensor for next-level health tracking precision, dual-frequency GPS for accurate navigation, and new Galaxy AI features to help you understand your body better.",
-      "images": [],
+      "images": [
+        "https://assets.sangeethamobiles.com/product_img/17447/1721200006_sjL.jpg"
+      ],
       "specifications": {
         "display": "Super AMOLED, Sapphire Crystal",
         "processor": "Exynos W1000 (3nm)",
@@ -732,7 +733,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The slimmest Galaxy Watch yet. The Galaxy Watch8 combines an elegant, streamlined profile with powerful performance from its 3nm processor. It features a brilliantly bright 3,000-nit display and introduces groundbreaking AI-driven wellness features like Antioxidant Index and Bedtime Guidance.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Communication/Wearable%20Devices/Images/316901_3_s1cljg.png?tr=w-1000"
+      ],
       "specifications": {
         "display": "Super AMOLED, 3000 nits, Sapphire Crystal",
         "processor": "Exynos W1000 (3nm)",
@@ -791,7 +794,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Built for adventurers, the Galaxy Watch Ultra is engineered to thrive in the most challenging environments. It features a rugged titanium case, a brilliant 3,000-nit display, and a battery that lasts up to 100 hours. With dual-frequency GPS and advanced AI-powered health insights, it's the ultimate tool for exploration.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Communication/Wearable%20Devices/Images/308286_3_d68hgc.png?tr=w-1000"
+      ],
       "specifications": {
         "display": "47mm Super AMOLED, 3000 nits, Sapphire Crystal",
         "processor": "Exynos W1000 (3nm)",
@@ -834,7 +839,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Your ultimate fitness partner, the Galaxy Fit3 features a large AMOLED display to view your workout data at a glance. It's slim, light, and comfortable, with a battery that lasts up to 13 days. Track over 100 exercises and monitor your health around the clock.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Wearable/Wearable%20Devices/Images/305253_3_qnhjfc.png?tr=w-1000"
+      ],
       "specifications": {
         "display": "1.6-inch AMOLED, 256x402",
         "battery": "208mAh, up to 13 days",
@@ -870,7 +877,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Essential true wireless earbuds with quality sound, a comfortable fit, and a compact charging case. Perfect for everyday listening on the go.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/316664_0_ikn0gp.png?tr=w-1000"
+      ],
       "specifications": {
         "connectivity": "Bluetooth 5.3",
         "battery": "Up to 6 hours playtime, 24 hours with case",
@@ -903,7 +912,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Galaxy Buds3, with a completely new design for enhanced comfort and sound. Featuring Active Noise Cancellation, 24-bit Hi-Fi audio, and powered by Galaxy AI for real-time translation, they are designed for an immersive listening experience.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Computers%20Peripherals/Headphones%20and%20Earphones/Images/311867_0_ejh5yr.png?tr=w-1000"
+      ],
       "specifications": {
         "connectivity": "Bluetooth 5.4",
         "audio": "24-bit Hi-Fi Audio",
@@ -938,7 +949,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Meet the new shape of sound. The Galaxy Buds3 Pro are completely redesigned to bring you deeper into your audio. Featuring a dual-driver system, adaptive noise control powered by Galaxy AI, and an adaptive equalizer for sound tailored to you.",
-      "images": [],
+      "images": [
+        "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Entertainment/Wireless%20Earbuds/Images/316664_7_ltumvo.png?tr=w-1000"
+      ],
       "specifications": {
         "driver": "Dual Driver: Woofer + Tweeter",
         "anc": "Adaptive Noise Control with Galaxy AI",
@@ -973,7 +986,9 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Timeless design meets modern tech. The Galaxy Watch6 Classic brings back the iconic physical rotating bezel for easy navigation on its largest display yet. Track your wellness with advanced health monitoring and personalized heart rate zones.",
-      "images": [],
+      "images": [
+        "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQD_hYANB8OtoiS86s_TLHZV8aE-OrpAl7NBcMWwLtxxXf-smXjL8F69uBd-TQ8IWpafX0n3el_eN1OoSXjaU2UWjDRrbRP"
+      ],
       "specifications": {
         "display": "Super AMOLED, Sapphire Crystal",
         "processor": "Exynos W930",

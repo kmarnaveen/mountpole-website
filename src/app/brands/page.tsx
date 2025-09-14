@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -186,9 +187,10 @@ export default function BrandsPage() {
             </span>
           </h1>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-            MountPole proudly distributes the world&apos;s most trusted technology brands. 
-            From Apple&apos;s innovation to Samsung&apos;s cutting-edge displays, 
-            we bring you authentic products from leading manufacturers worldwide.
+            MountPole proudly distributes the world&apos;s most trusted
+            technology brands. From Apple&apos;s innovation to Samsung&apos;s
+            cutting-edge displays, we bring you authentic products from leading
+            manufacturers worldwide.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <div className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
@@ -215,8 +217,9 @@ export default function BrandsPage() {
               Our Brand Partners
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              As an authorized global distributor, we partner with leading brands to bring you 
-              authentic products with competitive wholesale pricing and reliable supply chains.
+              As an authorized global distributor, we partner with leading
+              brands to bring you authentic products with competitive wholesale
+              pricing and reliable supply chains.
             </p>
           </div>
 
@@ -250,42 +253,6 @@ export default function BrandsPage() {
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     {brand.description}
                   </p>
-
-                  {/* Brand Stats */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-gray-900">
-                        {brand.productCount}
-                      </div>
-                      <div className="text-sm text-gray-500">Products</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-gray-900">
-                        {brand.categories.length}
-                      </div>
-                      <div className="text-sm text-gray-500">Categories</div>
-                    </div>
-                  </div>
-
-                  {/* Categories */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-2">
-                      Available Categories:
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {brand.categories.map(
-                        (category: string, index: number) => (
-                          <Badge
-                            key={index}
-                            variant="secondary"
-                            className="text-xs"
-                          >
-                            {category}
-                          </Badge>
-                        )
-                      )}
-                    </div>
-                  </div>
 
                   {/* Highlights */}
                   <div className="mb-6">

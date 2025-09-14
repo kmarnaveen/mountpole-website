@@ -566,17 +566,6 @@ export default function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="/support"
-                      className="inline-flex h-11 items-center justify-center rounded-full px-6 py-2 text-sm font-medium transition-all duration-150 hover:bg-gray-50/80 hover:text-black text-gray-800 outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
-                    >
-                      Support
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link
                       href="/contact"
                       className="inline-flex h-11 items-center justify-center rounded-full px-6 py-2 text-sm font-medium transition-all duration-150 hover:bg-gray-50/80 hover:text-black text-gray-800 outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
                     >

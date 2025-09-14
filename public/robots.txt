@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow important directories
+Allow: /images/
+Allow: /icons/
+Allow: /favicon.ico
+
+# Sitemap location
+Sitemap: https://mountpole.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

@@ -207,7 +207,8 @@ export default function Home() {
       title: "Global Reach. Local Results.",
       description:
         "12 countries. 1000+ products. Consistent margins. Reliable delivery. Distribution that actually works.",
-      video: "/01-hd01-DM-Series-kv-pc-1440x6401.webm",
+      image:
+        "https://images.samsung.com/is/image/samsung/assets/us/2501/pfs/mobile/01152025/PFS_FT03_Feature-Full-Bleed_AI-ready-to-gift-pc.jpg?imwidth=1366",
       textPosition: "start" as const,
       cta: {
         text: "Become a Partner",
@@ -220,7 +221,7 @@ export default function Home() {
       description:
         "Retailers trust us for protected margins, authentic products, and supply chains that never fail. Join 500+ growing businesses.",
       image:
-        "https://www.actualidadiphone.com/wp-content/uploads/2025/07/Apple-Beta-ios-macos-26.jpg.webp",
+        "https://webobjects2.cdw.com/is/image/CDW/multi-product-apple-feb-2024?$transparent$&$transparent$",
       textPosition: "top-center" as const,
       cta: {
         text: "Partner With MountPole",
@@ -233,9 +234,10 @@ export default function Home() {
       title: "Enterprise Tech. Enterprise Pricing.",
       description:
         "Bulk orders. Volume discounts. Dedicated support. Technology solutions that fit your budget and timeline.",
-      image:
-        "http://i.pinimg.com/1200x/2e/03/db/2e03dbb1a04e5f7a42c809f10531d399.jpg",
       textPosition: "top-center" as const,
+
+      video: "/01-hd01-DM-Series-kv-pc-1440x6401.webm",
+
       cta: {
         text: "Enterprise Partnership",
         href: "/partnership?source=homepage-carousel&intent=enterprise&utm_campaign=business-solutions",

@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Disable static optimization globally
+  experimental: {
+    dynamicIO: true,
+  },
+  // Force dynamic rendering for all pages
+  output: 'standalone',
   images: {
     remotePatterns: [
       {
@@ -78,6 +84,38 @@ const nextConfig: NextConfig = {
       {
         protocol: "http",
         hostname: "i.pinimg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "assets.sangeethamobiles.com",
+      },
+      {
+        protocol: "https",
+        hostname: "media-ik.croma.com",
+      },
+      {
+        protocol: "https",
+        hostname: "media.tatacroma.com",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn2.gstatic.com",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.samsung.com",
+      },
+      {
+        protocol: "https",
+        hostname: "webobjects2.cdw.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn-reichelt.de",
       },
     ],
   },
