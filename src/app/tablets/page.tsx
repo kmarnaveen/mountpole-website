@@ -3,13 +3,7 @@
 import { useState, useEffect } from "react";
 import { useModals } from '@/components/modals/ModalProvider';
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AppleLogo, SamsungLogo, GoogleLogo } from "@/components/BrandLogos";
 import {
@@ -38,7 +32,7 @@ import {
 import productsData from "../../../products.json";
 
 export default function TabletsPage() {
-  const { openQuoteModal } = useModals()
+  const { openQuoteModal } = useModals();
   const [isLoading, setIsLoading] = useState(true);
 
   // Filter tablets from the products data
@@ -245,45 +239,10 @@ export default function TabletsPage() {
                         </span>
                       </div>
                       <CardTitle className="text-lg">{tablet.name}</CardTitle>
-                      <CardDescription className="text-gray-600">
-                        {tablet.description ||
-                          "Premium tablet with advanced features"}
-                      </CardDescription>
                     </CardHeader>
 
                     <CardContent>
                       <div className="space-y-3">
-                        <div className="grid grid-cols-2 gap-2 text-sm">
-                          <div className="flex items-center">
-                            <Tablet className="h-4 w-4 mr-2 text-gray-500" />
-                            {tablet.specifications.display || "N/A"}
-                          </div>
-                          <div className="flex items-center">
-                            <Cpu className="h-4 w-4 mr-2 text-gray-500" />
-                            {tablet.specifications.chip || "N/A"}
-                          </div>
-                          <div className="flex items-center">
-                            <HardDrive className="h-4 w-4 mr-2 text-gray-500" />
-                            {tablet.specifications.storage || "N/A"}
-                          </div>
-                          <div className="flex items-center">
-                            <Camera className="h-4 w-4 mr-2 text-gray-500" />
-                            {tablet.specifications.camera || "N/A"}
-                          </div>
-                        </div>
-
-                        <div className="flex flex-wrap gap-1">
-                          {tablet.features.slice(0, 3).map((feature, index) => (
-                            <Badge
-                              key={index}
-                              variant="outline"
-                              className="text-xs"
-                            >
-                              {feature}
-                            </Badge>
-                          ))}
-                        </div>
-
                         <div className="flex gap-2 mt-4">
                           <Link
                             href={`/product/${tablet.id}`}

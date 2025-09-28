@@ -1,12 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AppleLogo } from "@/components/BrandLogos";
 import {
@@ -17,6 +11,7 @@ import {
   Tablet,
   Watch,
   Monitor,
+  GamepadIcon,
   Headphones,
 } from "lucide-react";
 import Link from "next/link";
@@ -26,7 +21,7 @@ import productsData from "../../../../products.json";
 export default function ApplePage() {
   // Filter Apple products from the JSON data
   const appleProducts = productsData.products.filter(
-    (product) => product.brand === "Apple"
+    (product) => product.brand.toLowerCase() === "apple"
   );
 
   // Group products by category
@@ -46,10 +41,10 @@ export default function ApplePage() {
       route: "/smartphones",
     },
     Tablets: { icon: Tablet, displayName: "iPad", route: "/tablets" },
-    "Monitors & Displays": {
-      icon: Monitor,
-      displayName: "Displays",
-      route: "/monitors",
+    Gaming: {
+      icon: GamepadIcon,
+      displayName: "Gaming",
+      route: "/gaming",
     },
     Wearables: { icon: Watch, displayName: "Apple Watch", route: "/wearables" },
     Audio: { icon: Headphones, displayName: "Audio", route: "/audio" },
@@ -58,17 +53,14 @@ export default function ApplePage() {
   const highlights = [
     {
       title: "Seamless Ecosystem",
-      description: "All Apple devices work together seamlessly",
       icon: "🔄",
     },
     {
       title: "Privacy First",
-      description: "Built-in privacy features protect your data",
       icon: "🔒",
     },
     {
       title: "Premium Build",
-      description: "Crafted from premium materials with attention to detail",
       icon: "💎",
     },
   ];
@@ -156,32 +148,9 @@ export default function ApplePage() {
                         <CardTitle className="text-lg group-hover:text-gray-600 transition-colors">
                           {product.name}
                         </CardTitle>
-                        <CardDescription className="text-gray-600">
-                          {product.description ||
-                            "Premium Apple product with innovative features"}
-                        </CardDescription>
                       </CardHeader>
 
                       <CardContent className="space-y-4">
-                        <div className="space-y-2">
-                          <h4 className="font-semibold text-sm text-gray-700">
-                            Key Features:
-                          </h4>
-                          <div className="flex flex-wrap gap-1">
-                            {product.features
-                              .slice(0, 3)
-                              .map((feature, featureIndex) => (
-                                <Badge
-                                  key={featureIndex}
-                                  variant="secondary"
-                                  className="text-xs bg-gray-100"
-                                >
-                                  {feature}
-                                </Badge>
-                              ))}
-                          </div>
-                        </div>
-
                         <div className="pt-2">
                           <Link href={config.route}>
                             <Button
@@ -203,91 +172,6 @@ export default function ApplePage() {
       </section>
 
       {/* Apple Highlights */}
-      <section className="py-16 bg-gray-50 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            The Apple Difference
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
-              <Card key={index} className="text-center border-0 shadow-lg">
-                <CardHeader>
-                  <div className="text-4xl mb-4">{highlight.icon}</div>
-                  <CardTitle className="text-xl">{highlight.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{highlight.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Innovation Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            Innovation at Its Core
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-gray-600 mb-8">
-              Apple has always been at the forefront of technology innovation.
-              From the first iPhone that revolutionized smartphones to the
-              latest M-series chips that redefined computing performance, Apple
-              continues to push the boundaries of what&apos;s possible.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <div className="text-left">
-                <h3 className="text-xl font-semibold mb-4">
-                  Latest Technologies
-                </h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    A17 Pro Chip with 3nm technology
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Pro Camera System with 48MP
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Action Button for quick access
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    USB-C connectivity
-                  </li>
-                </ul>
-              </div>
-              <div className="text-left">
-                <h3 className="text-xl font-semibold mb-4">
-                  Environmental Impact
-                </h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Carbon Neutral by 2030
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Recycled materials in products
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Renewable energy manufacturing
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Trade-in and recycling programs
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

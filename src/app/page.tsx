@@ -2,13 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useModals } from "@/components/modals/ModalProvider";
 import {
@@ -54,7 +48,6 @@ export default function Home() {
     // Generate default colors if not available
     const defaultColors = ["#1d1d1f", "#f5f5dc", "#faf0e6", "#e6e6fa"];
 
-    // Extract key features from specifications
     const features = [];
     if (product.specifications?.chip || product.specifications?.processor) {
       features.push(
@@ -113,28 +106,52 @@ export default function Home() {
     };
   };
 
-  // Get featured products (mix of categories, prioritize flagship devices)
+  // Get featured products (prioritize the specific Samsung products)
   const getFeaturedProducts = () => {
     const products = productsData?.products || [];
 
-    // Prioritize flagship devices and popular categories (removed price-based filtering)
-    const flagship = products.filter(
+    // Filter out products with no images first
+    const productsWithImages = products.filter(
+      (p: any) => p.images && p.images.length > 0
+    );
+
+    // Priority Samsung product IDs that should be featured
+    const prioritySamsungIds = [
+      "samsung-galaxy-a06", // Galaxy A06
+      "samsung-galaxy-s25-edge", // Galaxy S25 Edge
+      "samsung-galaxy-tab-a9", // Galaxy Tab A9
+      "samsung-galaxy-watch7", // Galaxy Watch7
+      "samsung-smarttag-2", // SmartTag 2
+      "samsung-25w-adapter", // 25W USB-C Fast Charger
+    ];
+
+    // Get the priority Samsung products first
+    const prioritySamsung = productsWithImages.filter((p: any) =>
+      prioritySamsungIds.includes(p.id)
+    );
+
+    // Get other flagship/premium products (excluding the priority Samsung ones)
+    const otherPremium = productsWithImages.filter(
       (p: any) =>
-        p.name.toLowerCase().includes("ultra") ||
-        p.name.toLowerCase().includes("pro") ||
-        p.name.toLowerCase().includes("series")
-      // p.price > 800 // Commented out price-based filtering
+        !prioritySamsungIds.includes(p.id) &&
+        (p.name.toLowerCase().includes("ultra") ||
+          p.name.toLowerCase().includes("pro") ||
+          p.name.toLowerCase().includes("series") ||
+          p.name.toLowerCase().includes("iphone") ||
+          p.brand.toLowerCase() === "apple")
     );
 
-    const other = products.filter(
-      (p: any) => !flagship.some((f: any) => f.id === p.id)
-    );
-
-    // Mix flagship and other products, limit to 8 for better carousel display
-    const selected = [...flagship.slice(0, 5), ...other.slice(0, 3)].slice(
-      0,
-      8
-    );
+    // Mix Samsung priority products with other premium products, limit to 8
+    // If we don't have enough premium products, fill with any remaining products with images
+    let selected = [...prioritySamsung, ...otherPremium];
+    if (selected.length < 8) {
+      const remaining = productsWithImages.filter(
+        (p: any) => !selected.some((s: any) => s.id === p.id)
+      );
+      selected = [...selected, ...remaining].slice(0, 8);
+    } else {
+      selected = selected.slice(0, 8);
+    }
 
     return selected.map(transformProductForCarousel);
   };
@@ -147,7 +164,9 @@ export default function Home() {
 
     // Skip products already used in featured
     const featuredIds = featuredProducts.map((p) => p.id);
-    const remaining = products.filter((p: any) => !featuredIds.includes(p.id));
+    const remaining = products.filter(
+      (p: any) => !featuredIds.includes(p.id) && p.images && p.images.length > 0
+    );
 
     // Prioritize products with good stock and variety across categories
     const smartphones = remaining
@@ -279,7 +298,7 @@ export default function Home() {
               <Carousel
                 items={heroItems}
                 autoPlay={true}
-                interval={8000}
+                interval={2000}
                 showDots={true}
                 showProgress={true}
                 showControls={true}
@@ -340,9 +359,6 @@ export default function Home() {
                     <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
                       Apple
                     </CardTitle>
-                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
-                      iPhone, iPad, Apple Watch, Studio Display, MacBook
-                    </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
                     <Link href="/brands/apple" className="block">
@@ -372,9 +388,6 @@ export default function Home() {
                     <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
                       Samsung
                     </CardTitle>
-                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
-                      Galaxy smartphones, tablets, watches, monitors
-                    </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
                     <Link href="/brands/samsung" className="block">
@@ -404,9 +417,6 @@ export default function Home() {
                     <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
                       Google
                     </CardTitle>
-                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
-                      Pixel phones, Pixel Watch, Pixel Tablet, Nest devices
-                    </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
                     <Link href="/brands/google" className="block">
@@ -512,10 +522,6 @@ export default function Home() {
                     <CardTitle className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
                       View All Brands
                     </CardTitle>
-                    <CardDescription className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2 px-1 sm:px-2">
-                      Discover 15+ premium technology brands including Xiaomi,
-                      Realme, JBL, Huawei & more
-                    </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-0 pb-3 sm:pb-4 md:pb-6 px-3 sm:px-4 md:px-6 mt-auto">
                     <Link href="/brands" className="block">
@@ -543,8 +549,8 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    {/* Show popular products from our database */}
-                    {popularProducts.map((product: any, index: number) => (
+                    {/* Show featured Samsung products from our database */}
+                    {featuredProducts.map((product: any, index: number) => (
                       <Card
                         key={product.id}
                         className="group hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-gray-300 hover:-translate-y-1 bg-white relative overflow-hidden"
@@ -563,7 +569,7 @@ export default function Home() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <Image
                               src={
-                                product.images?.[0] ||
+                                product.image ||
                                 "/placeholder-product.png"
                               }
                               alt={product.name || "Product Image"}
@@ -591,35 +597,10 @@ export default function Home() {
                             <CardTitle className="text-lg md:text-xl group-hover:text-gray-700 transition-colors duration-300">
                               {product.name}
                             </CardTitle>
-
-                            <CardDescription className="text-sm text-gray-600 line-clamp-2">
-                              High-quality {product.category.toLowerCase()} with
-                              advanced features and reliable performance for
-                              professional use.
-                            </CardDescription>
                           </div>
                         </CardHeader>
                         <CardContent className="pt-0 space-y-4">
                           {/* Product Features */}
-                          <div className="space-y-2">
-                            <h4 className="font-medium text-sm text-gray-900">
-                              Specifications:
-                            </h4>
-                            <div className="space-y-1">
-                              <div className="flex items-center text-xs text-gray-600">
-                                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
-                                Professional grade quality
-                              </div>
-                              <div className="flex items-center text-xs text-gray-600">
-                                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
-                                Comprehensive warranty
-                              </div>
-                              <div className="flex items-center text-xs text-gray-600">
-                                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
-                                Technical support included
-                              </div>
-                            </div>
-                          </div>
 
                           {/* Status and Actions */}
                           <div className="flex flex-col gap-3 pt-3 border-t border-gray-100">
@@ -952,32 +933,6 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-
-                    {/* Social Proof & Urgency */}
-                    <div className="text-center border-t border-gray-100 pt-8">
-                      <div className="flex flex-wrap justify-center items-center gap-4 mb-4 text-sm text-gray-600">
-                        <div className="flex items-center gap-2">
-                          <div className="flex -space-x-1">
-                            <div className="w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
-                            <div className="w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                            <div className="w-6 h-6 bg-purple-500 rounded-full border-2 border-white"></div>
-                          </div>
-                          <span className="font-medium">
-                            Active quote requests
-                          </span>
-                        </div>
-                        <div className="text-gray-400">•</div>
-                        <span>Responsive service</span>
-                        <div className="text-gray-400">•</div>
-                        <span className="text-green-600 font-medium">
-                          Professional support
-                        </span>
-                      </div>
-
-                      <p className="text-xs text-gray-500">
-                        🔒 Your information is secure and will never be shared
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -1273,7 +1228,7 @@ export default function Home() {
               </div>
 
               {/* World-Class Uniform Card Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
                 {/* Mobile Solutions */}
                 <div className="group relative h-full">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-0 group-hover:opacity-20 transition-all duration-700"></div>
@@ -1382,69 +1337,6 @@ export default function Home() {
                         {/* CTA Button */}
                         <Button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
                           Get Tablet Quote
-                          <svg
-                            className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                          </svg>
-                        </Button>
-                      </div>
-                    </div>
-                  </Card>
-                </div>
-
-                {/* Displays Solutions */}
-                <div className="group relative h-full">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl blur opacity-0 group-hover:opacity-20 transition-all duration-700"></div>
-                  <Card className="relative h-full bg-white/80 backdrop-blur-xl border-0 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer overflow-hidden group-hover:scale-[1.02] group-hover:-translate-y-2 flex flex-col">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-white/50 to-emerald-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-                    <div className="relative z-10 flex flex-col h-full p-8">
-                      {/* Icon Container */}
-                      <div className="flex justify-center mb-6">
-                        <div className="w-20 h-20 relative">
-                          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-                          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
-                          <div className="relative w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                            <Monitor className="w-10 h-10 text-white drop-shadow-lg" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Text Content */}
-                      <div className="text-center flex-1 flex flex-col">
-                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-900 transition-colors duration-300 mb-4">
-                          Displays
-                        </h3>
-                        <p className="text-sm text-gray-600 leading-relaxed font-light mb-6 flex-1">
-                          TVs, monitors, and digital signs for your business.
-                          Great for presentations, menus, and advertising.
-                        </p>
-
-                        {/* Feature Pills */}
-                        <div className="flex flex-wrap gap-2 justify-center mb-6">
-                          <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">
-                            4K Displays
-                          </span>
-                          <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">
-                            Touch Screen
-                          </span>
-                          <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">
-                            Installation
-                          </span>
-                        </div>
-
-                        {/* CTA Button */}
-                        <Button className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                          Get Display Quote
                           <svg
                             className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
                             fill="none"

@@ -3,13 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams, notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Star,
@@ -25,6 +19,7 @@ import {
   Cpu,
   HardDrive,
   Monitor,
+  GamepadIcon,
   Palette,
   ArrowLeft,
   MessageCircle,
@@ -69,7 +64,9 @@ export default function DynamicProductDetailsPage() {
   const generateSpecSheetURL = () => {
     if (!product) return "/contact";
     // In a real implementation, this would link to actual spec sheets
-    return `/contact?type=spec-sheet&product=${product.id}&name=${encodeURIComponent(product.name)}`;
+    return `/contact?type=spec-sheet&product=${
+      product.id
+    }&name=${encodeURIComponent(product.name)}`;
   };
 
   // Show skeleton while loading
@@ -91,8 +88,8 @@ export default function DynamicProductDetailsPage() {
         return <Monitor className="h-4 w-4" />;
       case "laptops":
         return <Monitor className="h-4 w-4" />;
-      case "monitors & displays":
-        return <Monitor className="h-4 w-4" />;
+      case "gaming":
+        return <GamepadIcon className="h-4 w-4" />;
       case "wearables":
         return <Battery className="h-4 w-4" />;
       case "audio":
@@ -216,31 +213,6 @@ export default function DynamicProductDetailsPage() {
               </h1>
             </div>
 
-            {/* Description */}
-            <div>
-              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                {product.description}
-              </p>
-            </div>
-
-            {/* Key Features */}
-            <div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-3">
-                Key Features
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {product.features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 text-gray-700"
-                  >
-                    <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-sm sm:text-base">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* Actions */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link href={generateQuoteURL()} className="flex-1">
@@ -314,7 +286,11 @@ export default function DynamicProductDetailsPage() {
           <h2 className="text-2xl font-bold mb-8">More from {product.brand}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {productsData.products
-              .filter((p) => p.brand === product.brand && p.id !== product.id)
+              .filter(
+                (p) =>
+                  p.brand.toLowerCase() === product.brand.toLowerCase() &&
+                  p.id !== product.id
+              )
               .slice(0, 4)
               .map((relatedProduct) => (
                 <Link

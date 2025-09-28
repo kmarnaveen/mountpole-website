@@ -4,10 +4,21 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Building2, Mail, MessageSquare, Send, Smartphone, Tablet, Watch, Monitor, HeadphonesIcon } from "lucide-react";
+import {
+  Building2,
+  Mail,
+  MessageSquare,
+  Send,
+  Smartphone,
+  Tablet,
+  Watch,
+  Monitor,
+  GamepadIcon,
+  HeadphonesIcon,
+} from "lucide-react";
 
 interface CategoryQuoteFormProps {
-  category: "smartphones" | "tablets" | "wearables" | "monitors" | "audio";
+  category: "smartphones" | "tablets" | "wearables" | "gaming" | "audio";
   onSuccess?: () => void;
   onCancel?: () => void;
 }
@@ -15,31 +26,35 @@ interface CategoryQuoteFormProps {
 const categoryConfig = {
   smartphones: {
     title: "Mobile Quote Request",
-    description: "Get wholesale pricing for smartphones from Apple, Samsung, Google, Xiaomi and more.",
+    description:
+      "Get wholesale pricing for smartphones from Apple, Samsung, Google, Xiaomi and more.",
     icon: Smartphone,
     color: "from-blue-600 to-cyan-600",
     examples: "iPhone 15 Pro, Samsung Galaxy S24, Google Pixel 8, Xiaomi 14...",
   },
   tablets: {
-    title: "Tablet Quote Request", 
-    description: "Request pricing for iPads, Galaxy Tabs and other tablet devices.",
+    title: "Tablet Quote Request",
+    description:
+      "Request pricing for iPads, Galaxy Tabs and other tablet devices.",
     icon: Tablet,
     color: "from-green-600 to-emerald-600",
     examples: "iPad Pro, iPad Air, Samsung Galaxy Tab S9, Surface Pro...",
   },
   wearables: {
     title: "Wearable Quote Request",
-    description: "Get quotes for smartwatches, fitness trackers and wearable tech.",
+    description:
+      "Get quotes for smartwatches, fitness trackers and wearable tech.",
     icon: Watch,
     color: "from-purple-600 to-pink-600",
     examples: "Apple Watch Series 9, Samsung Galaxy Watch, Fitbit, Garmin...",
   },
-  monitors: {
-    title: "Monitor Quote Request",
-    description: "Professional displays, gaming monitors and studio monitors.",
-    icon: Monitor,
+  gaming: {
+    title: "Gaming Quote Request",
+    description: "Gaming gear, accessories and gaming smartphones.",
+    icon: GamepadIcon,
     color: "from-orange-600 to-red-600",
-    examples: "Apple Studio Display, Dell UltraSharp, LG UltraFine, Gaming monitors...",
+    examples:
+      "Gaming controllers, mechanical keyboards, gaming mice, gaming phones...",
   },
   audio: {
     title: "Audio Equipment Quote",

@@ -1,12 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SamsungLogo } from "@/components/BrandLogos";
 import {
@@ -14,6 +8,7 @@ import {
   Tablet,
   Watch,
   Monitor,
+  GamepadIcon,
   ChevronRight,
   Zap,
   Headphones,
@@ -25,7 +20,7 @@ import productsData from "../../../../products.json";
 export default function SamsungPage() {
   // Filter Samsung products from the JSON data
   const samsungProducts = productsData.products.filter(
-    (product) => product.brand === "Samsung"
+    (product) => product.brand.toLowerCase() === "samsung"
   );
 
   // Group products by category
@@ -45,10 +40,10 @@ export default function SamsungPage() {
       route: "/smartphones",
     },
     Tablets: { icon: Tablet, displayName: "Galaxy Tablets", route: "/tablets" },
-    "Monitors & Displays": {
-      icon: Monitor,
-      displayName: "Displays & Monitors",
-      route: "/monitors",
+    Gaming: {
+      icon: GamepadIcon,
+      displayName: "Gaming",
+      route: "/gaming",
     },
     Wearables: {
       icon: Watch,
@@ -160,10 +155,6 @@ export default function SamsungPage() {
                         <CardTitle className="text-lg group-hover:text-blue-600 transition-colors">
                           {product.name}
                         </CardTitle>
-                        <CardDescription className="text-gray-600">
-                          {product.description ||
-                            "Premium Samsung product with innovative features"}
-                        </CardDescription>
                       </CardHeader>
 
                       <CardContent className="space-y-4">
@@ -207,89 +198,8 @@ export default function SamsungPage() {
       </section>
 
       {/* Samsung Highlights */}
-      <section className="py-16 bg-gray-50 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            Samsung Galaxy Advantages
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
-              <Card key={index} className="text-center border-0 shadow-lg">
-                <CardHeader>
-                  <div className="text-4xl mb-4">{highlight.icon}</div>
-                  <CardTitle className="text-xl">{highlight.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{highlight.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Innovation Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            Leading Innovation
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-gray-600 mb-8">
-              Samsung continues to lead the mobile industry with groundbreaking
-              innovations. From foldable displays to advanced camera systems and
-              AI integration, Galaxy devices are designed to enhance every
-              aspect of your digital life.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <div className="text-left">
-                <h3 className="text-xl font-semibold mb-4">
-                  Latest Innovations
-                </h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Galaxy AI across all devices
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    200MP camera with AI enhancement
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Foldable display technology
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />S Pen
-                    integration
-                  </li>
-                </ul>
-              </div>
-              <div className="text-left">
-                <h3 className="text-xl font-semibold mb-4">Sustainability</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Eco-friendly packaging
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Recycled materials
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Energy-efficient manufacturing
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Galaxy Upcycling program
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

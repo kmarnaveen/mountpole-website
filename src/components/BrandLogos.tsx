@@ -81,16 +81,12 @@ export const HuaweiLogo = ({ className = "w-8 h-8" }: { className?: string }) =>
   />
 );
 
-export const HonorLogo = ({
-  className = "w-8 h-8",
-}: {
-  className?: string;
-}) => (
-  <div
-    className={`${className} bg-gradient-to-br from-blue-600 to-cyan-600 rounded flex items-center justify-center`}
-  >
-    <span className="text-white font-bold text-xs">H</span>
-  </div>
+export const HonorLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
+  <img
+    src="https://static.vecteezy.com/system/resources/previews/020/927/024/non_2x/honor-brand-logo-phone-symbol-name-black-design-china-mobile-illustration-free-vector.jpg"
+    alt="Honor"
+    className={`object-contain ${className}`}
+  />
 );
 
 // Brand color constants

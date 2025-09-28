@@ -1,12 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GoogleLogo } from "@/components/BrandLogos";
 import {
@@ -14,6 +8,7 @@ import {
   Tablet,
   Watch,
   Monitor,
+  GamepadIcon,
   ChevronRight,
   Brain,
   Headphones,
@@ -25,7 +20,7 @@ import productsData from "../../../../products.json";
 export default function GooglePage() {
   // Filter Google products from the JSON data
   const googleProducts = productsData.products.filter(
-    (product) => product.brand === "Google"
+    (product) => product.brand.toLowerCase() === "google"
   );
 
   // Group products by category
@@ -45,10 +40,10 @@ export default function GooglePage() {
       route: "/smartphones",
     },
     Tablets: { icon: Tablet, displayName: "Pixel Tablets", route: "/tablets" },
-    "Monitors & Displays": {
-      icon: Monitor,
-      displayName: "Displays",
-      route: "/monitors",
+    Gaming: {
+      icon: GamepadIcon,
+      displayName: "Gaming",
+      route: "/gaming",
     },
     Wearables: { icon: Watch, displayName: "Pixel Watch", route: "/wearables" },
     Audio: { icon: Headphones, displayName: "Audio", route: "/audio" },
@@ -155,43 +150,7 @@ export default function GooglePage() {
                         <CardTitle className="text-lg group-hover:text-blue-600 transition-colors">
                           {product.name}
                         </CardTitle>
-                        <CardDescription className="text-gray-600">
-                          {product.description ||
-                            "Premium Google product with innovative features"}
-                        </CardDescription>
                       </CardHeader>
-
-                      <CardContent className="space-y-4">
-                        <div className="space-y-2">
-                          <h4 className="font-semibold text-sm text-gray-700">
-                            Key Features:
-                          </h4>
-                          <div className="flex flex-wrap gap-1">
-                            {product.features
-                              .slice(0, 3)
-                              .map((feature, featureIndex) => (
-                                <Badge
-                                  key={featureIndex}
-                                  variant="secondary"
-                                  className="text-xs bg-blue-100"
-                                >
-                                  {feature}
-                                </Badge>
-                              ))}
-                          </div>
-                        </div>
-
-                        <div className="pt-2">
-                          <Link href={config.route}>
-                            <Button
-                              className="w-full bg-blue-600 hover:bg-blue-700"
-                              size="sm"
-                            >
-                              Learn More
-                            </Button>
-                          </Link>
-                        </div>
-                      </CardContent>
                     </Card>
                   ))}
                 </div>
@@ -202,121 +161,6 @@ export default function GooglePage() {
       </section>
 
       {/* Google Highlights */}
-      <section className="py-16 bg-gray-50 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            Pixel Advantages
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
-              <Card key={index} className="text-center border-0 shadow-lg">
-                <CardHeader>
-                  <div className="text-4xl mb-4">{highlight.icon}</div>
-                  <CardTitle className="text-xl">{highlight.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{highlight.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* AI Features Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            Powered by Google AI
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-gray-600 mb-8">
-              Pixel devices are built with Google&apos;s most advanced AI
-              technology. From computational photography to real-time language
-              translation, experience features that make your life easier and
-              more connected.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <div className="text-left">
-                <h3 className="text-xl font-semibold mb-4">
-                  AI Camera Features
-                </h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Magic Eraser for photo editing
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Night Sight for low-light photos
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Portrait mode with blur effects
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Real Tone for accurate skin tones
-                  </li>
-                </ul>
-              </div>
-              <div className="text-left">
-                <h3 className="text-xl font-semibold mb-4">Smart Features</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Call Screen to filter spam calls
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Live Translate in 55+ languages
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />
-                    Car Crash Detection
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-blue-500" />7
-                    years of security updates
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reliability Section */}
-      <section className="py-16 bg-blue-50 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            Built to Last
-          </h2>
-          <div className="max-w-2xl mx-auto">
-            <p className="text-lg text-gray-600 mb-8">
-              Pixel devices receive regular security updates and new features
-              for years. Experience the latest Android innovations first with
-              enterprise-grade reliability.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="font-bold text-xl text-blue-600 mb-2">
-                  7 Years
-                </h3>
-                <p className="text-gray-600">Security Updates</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="font-bold text-xl text-green-600 mb-2">Day 1</h3>
-                <p className="text-gray-600">Android Updates</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="font-bold text-xl text-purple-600 mb-2">100%</h3>
-                <p className="text-gray-600">Authentic Products</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -1,22 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useModals } from '@/components/modals/ModalProvider';
+import { useModals } from "@/components/modals/ModalProvider";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AppleLogo, SamsungLogo, GoogleLogo } from "@/components/BrandLogos";
 import {
-  Monitor,
+  GamepadIcon,
   Zap,
   Palette,
-  GamepadIcon,
+  Monitor,
   Eye,
   Settings,
   Cpu,
@@ -36,25 +30,25 @@ import {
 } from "@/components/ui/pagination";
 import productsData from "../../../products.json";
 
-export default function MonitorsPage() {
-  const { openQuoteModal } = useModals()
+export default function GamingPage() {
+  const { openQuoteModal } = useModals();
   const [isLoading, setIsLoading] = useState(true);
 
-  // Filter monitors from the products data
-  const monitors = productsData.products.filter(
-    (product: { category: string }) => product.category === "Monitors"
+  // Filter gaming products from the products data
+  const gamingProducts = productsData.products.filter(
+    (product: { category: string }) => product.category === "Gaming"
   );
 
   // Pagination logic
   const {
     currentPage,
     totalPages,
-    paginatedItems: paginatedMonitors,
+    paginatedItems: paginatedGamingProducts,
     setCurrentPage,
     totalItems,
     startIndex,
     endIndex,
-  } = usePagination(monitors, 9); // 9 items per page for 3x3 grid
+  } = usePagination(gamingProducts, 9); // 9 items per page for 3x3 grid
 
   // Simulate loading
   useEffect(() => {
@@ -72,24 +66,18 @@ export default function MonitorsPage() {
     {
       icon: Palette,
       title: "Creative Work",
-      description:
-        "Color-accurate displays for photo editing, video production, and design",
     },
     {
       icon: GamepadIcon,
       title: "Gaming",
-      description: "High refresh rates and low latency for competitive gaming",
     },
     {
       icon: Settings,
       title: "Productivity",
-      description:
-        "Large workspace for multitasking and professional applications",
     },
     {
       icon: Eye,
       title: "Entertainment",
-      description: "Immersive viewing experience for movies and streaming",
     },
   ];
 
@@ -97,23 +85,18 @@ export default function MonitorsPage() {
     {
       icon: Sun,
       title: "HDR Support",
-      description:
-        "True-to-life colors and contrast with HDR10+ and Dolby Vision support",
     },
     {
       icon: RefreshCw,
       title: "High Refresh Rates",
-      description: "Smooth motion with refresh rates up to 240Hz for gaming",
     },
     {
       icon: Maximize,
       title: "Multiple Sizes",
-      description: "From 27-inch to 49-inch ultrawide for every workspace",
     },
     {
       icon: Wifi,
       title: "Smart Connectivity",
-      description: "USB-C, Thunderbolt, and wireless connectivity options",
     },
   ];
 
@@ -149,13 +132,13 @@ export default function MonitorsPage() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
             {/* Gemini-style gradient text */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
-              Professional Display Solutions
+              Ultimate Gaming Experience
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light mb-6 md:mb-8">
-              Elevate your business workspace with enterprise-grade displays.
-              Professional monitors designed for productivity, collaboration,
-              and exceptional visual performance.
+              Level up your gaming setup with cutting-edge gaming gear. Premium
+              gaming products designed for performance, competition, and
+              immersive entertainment experiences.
             </p>
 
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -167,11 +150,11 @@ export default function MonitorsPage() {
                 }}
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105"
               >
-                View Displays
+                Shop Gaming Gear
               </button>
-              <Link href="/contact?type=business&category=monitors">
+              <Link href="/contact?type=business&category=gaming">
                 <button className="bg-white/20 hover:bg-white/30 text-white border border-white/40 px-6 sm:px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 backdrop-blur-sm">
-                  Get Enterprise Quote
+                  Get Gaming Quote
                 </button>
               </Link>
             </div>
@@ -220,7 +203,7 @@ export default function MonitorsPage() {
       <section id="products-section" className="py-16 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            Featured Monitors
+            Featured Gaming Products
           </h2>
 
           {isLoading ? (
@@ -228,19 +211,19 @@ export default function MonitorsPage() {
           ) : (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-                {paginatedMonitors.map((monitor: any) => (
+                {paginatedGamingProducts.map((product: any) => (
                   <Card
-                    key={monitor.id}
+                    key={product.id}
                     className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                   >
                     <div className="relative">
                       <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
                         <Image
                           src={
-                            monitor.images?.[0] ||
+                            product.images?.[0] ||
                             "https://i.pinimg.com/1200x/6d/c4/0b/6dc40bce4f8fae6c1a44dcb7d221561f.jpg"
                           }
-                          alt={monitor.name}
+                          alt={product.name}
                           width={200}
                           height={192}
                           className="w-full h-full object-contain p-4"
@@ -252,81 +235,37 @@ export default function MonitorsPage() {
                         />
                       </div>
                       <Badge className="absolute top-4 right-4 bg-purple-600">
-                        {monitor.brand}
+                        {product.brand}
                       </Badge>
                     </div>
 
                     <CardHeader>
-                      <CardTitle className="text-lg">{monitor.name}</CardTitle>
-                      <CardDescription>{monitor.description}</CardDescription>
+                      <CardTitle className="text-lg">{product.name}</CardTitle>
                     </CardHeader>
 
                     <CardContent>
                       <div className="space-y-3">
-                        <div className="grid grid-cols-2 gap-2 text-sm">
-                          {monitor.specifications?.display && (
-                            <div className="flex items-center">
-                              <Maximize className="h-4 w-4 mr-2 text-gray-500" />
-                              {monitor.specifications.display}
-                            </div>
-                          )}
-                          {monitor.specifications?.resolution && (
-                            <div className="flex items-center">
-                              <Eye className="h-4 w-4 mr-2 text-gray-500" />
-                              {monitor.specifications.resolution}
-                            </div>
-                          )}
-                          {monitor.specifications?.refreshRate && (
-                            <div className="flex items-center">
-                              <RefreshCw className="h-4 w-4 mr-2 text-gray-500" />
-                              {monitor.specifications.refreshRate}
-                            </div>
-                          )}
-                          {monitor.specifications?.connectivity && (
-                            <div className="flex items-center">
-                              <Zap className="h-4 w-4 mr-2 text-gray-500" />
-                              {monitor.specifications.connectivity}
-                            </div>
-                          )}
-                        </div>
-
-                        {monitor.features && monitor.features.length > 0 && (
-                          <div className="flex flex-wrap gap-1">
-                            {monitor.features
-                              .slice(0, 3)
-                              .map((feature: string, index: number) => (
-                                <Badge
-                                  key={index}
-                                  variant="outline"
-                                  className="text-xs"
-                                >
-                                  {feature}
-                                </Badge>
-                              ))}
-                          </div>
-                        )}
-
                         <div className="flex flex-col gap-2">
                           <Badge
-                            variant={monitor.inStock ? "default" : "secondary"}
+                            variant={product.inStock ? "default" : "secondary"}
                           >
-                            {monitor.inStock ? "In Stock" : "Out of Stock"}
+                            {product.inStock ? "In Stock" : "Out of Stock"}
                           </Badge>
-                          <Link href={`/product/${monitor.id}`}>
+                          <Link href={`/product/${product.id}`}>
                             <Button className="w-full" variant="outline">
                               View Details
                             </Button>
                           </Link>
-                          <Button 
-                            onClick={() => openQuoteModal({
-                              productId: monitor.id,
-                              productName: monitor.name,
-                              category: 'monitors',
-                              type: 'enterprise'
-                            })}
+                          <Button
+                            onClick={() =>
+                              openQuoteModal({
+                                productId: product.id,
+                                productName: product.name,
+                              })
+                            }
                             className="w-full bg-purple-600 hover:bg-purple-700"
                           >
-                            Request Enterprise Quote
+                            Get Gaming Quote
                           </Button>
                         </div>
                       </div>
@@ -363,7 +302,7 @@ export default function MonitorsPage() {
       <section className="py-16 bg-gray-50 px-4">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
-            Perfect for Every Application
+            Perfect for Every Gaming Style
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {useCases.map((useCase, index) => (
@@ -372,31 +311,7 @@ export default function MonitorsPage() {
                   <useCase.icon className="mx-auto h-12 w-12 text-purple-600 mb-4" />
                   <CardTitle className="text-lg">{useCase.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-sm">{useCase.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Key Features */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
-            Advanced Display Technology
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center border-0 shadow-lg">
-                <CardHeader>
-                  <feature.icon className="mx-auto h-12 w-12 text-blue-600 mb-4" />
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-sm">{feature.description}</p>
-                </CardContent>
+                <CardContent></CardContent>
               </Card>
             ))}
           </div>
@@ -407,25 +322,25 @@ export default function MonitorsPage() {
       <section className="py-16 bg-gray-50 px-4">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">
-            Choose Your Size
+            Gaming Categories
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             <Card className="text-center border-0 shadow-lg">
               <CardHeader>
                 <div className="text-3xl font-bold text-purple-600 mb-2">
-                  27&quot;
+                  🎮
                 </div>
-                <CardTitle>Compact Pro</CardTitle>
+                <CardTitle>Console Gaming</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  Perfect for smaller desks while maintaining professional
-                  quality. Ideal for single-application focus work.
+                  Perfect for PlayStation, Xbox, and Nintendo gaming setups with
+                  high-performance controllers and accessories.
                 </p>
                 <div className="space-y-1 text-sm text-gray-500">
-                  <p>• 4K/5K Resolution</p>
-                  <p>• Color Accurate</p>
-                  <p>• Space Efficient</p>
+                  <p>• Wireless Controllers</p>
+                  <p>• Gaming Headsets</p>
+                  <p>• Console Accessories</p>
                 </div>
               </CardContent>
             </Card>
@@ -433,19 +348,19 @@ export default function MonitorsPage() {
             <Card className="text-center border-0 shadow-lg">
               <CardHeader>
                 <div className="text-3xl font-bold text-purple-600 mb-2">
-                  32&quot;
+                  💻
                 </div>
-                <CardTitle>Productivity Plus</CardTitle>
+                <CardTitle>PC Gaming</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  Excellent for multitasking and professional work. Great
-                  balance of size and desk real estate.
+                  High-performance gaming keyboards, mice, and PC accessories
+                  for competitive and casual gaming.
                 </p>
                 <div className="space-y-1 text-sm text-gray-500">
-                  <p>• 4K/6K Resolution</p>
-                  <p>• Multi-window Support</p>
-                  <p>• Gaming Ready</p>
+                  <p>• Mechanical Keyboards</p>
+                  <p>• Gaming Mice</p>
+                  <p>• RGB Accessories</p>
                 </div>
               </CardContent>
             </Card>
@@ -453,19 +368,19 @@ export default function MonitorsPage() {
             <Card className="text-center border-0 shadow-lg">
               <CardHeader>
                 <div className="text-3xl font-bold text-purple-600 mb-2">
-                  49&quot;
+                  📱
                 </div>
-                <CardTitle>Ultrawide Max</CardTitle>
+                <CardTitle>Mobile Gaming</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  Ultimate workspace replacement for dual monitor setups.
-                  Immersive gaming and maximum productivity.
+                  Gaming smartphones and accessories designed for mobile gaming
+                  enthusiasts and competitive players.
                 </p>
                 <div className="space-y-1 text-sm text-gray-500">
-                  <p>• Dual QHD Resolution</p>
-                  <p>• Replace Dual Setup</p>
-                  <p>• Immersive Gaming</p>
+                  <p>• Gaming Phones</p>
+                  <p>• Mobile Controllers</p>
+                  <p>• Cooling Accessories</p>
                 </div>
               </CardContent>
             </Card>
@@ -477,17 +392,17 @@ export default function MonitorsPage() {
       <section className="py-16 px-4">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            Upgrade Your Visual Experience
+            Level Up Your Gaming Setup
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-            From professional color grading to immersive gaming, find the
-            perfect monitor that matches your workflow and enhances your
-            productivity.
+            From competitive esports to casual gaming, find the perfect gaming
+            gear that matches your playstyle and enhances your gaming
+            experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/monitors">
+            <Link href="/gaming">
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                Browse Monitors
+                Shop Gaming Gear
               </Button>
             </Link>
           </div>

@@ -2,13 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Star,
@@ -243,44 +237,12 @@ export default function ProductDetailsPage() {
                 </div>
               </div>
             </div>
-
-            {/* Key Features */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Smartphone className="h-5 w-5 mr-2" />
-                  Key Features
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {productData.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
           </div>
         </div>
 
         {/* Additional Information Tabs */}
         <div className="mt-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Description */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Product Description</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  {productData.description}
-                </p>
-              </CardContent>
-            </Card>
-
             {/* Specifications */}
             <Card>
               <CardHeader>

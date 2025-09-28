@@ -10,7 +10,7 @@ function CategoryQuoteContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [category, setCategory] = useState<
-    "smartphones" | "tablets" | "wearables" | "monitors" | "audio" | null
+    "smartphones" | "tablets" | "wearables" | "gaming" | "audio" | null
   >(null);
 
   useEffect(() => {
@@ -18,12 +18,12 @@ function CategoryQuoteContent() {
       | "smartphones"
       | "tablets"
       | "wearables"
-      | "monitors"
+      | "gaming"
       | "audio";
 
     if (
       categoryParam &&
-      ["smartphones", "tablets", "wearables", "monitors", "audio"].includes(
+      ["smartphones", "tablets", "wearables", "gaming", "audio"].includes(
         categoryParam
       )
     ) {

@@ -489,9 +489,7 @@ function SearchPageContent() {
                               </h3>
                             </div>
                           </div>
-                          <p className="text-xs md:text-sm text-gray-600 line-clamp-2 mb-2 md:mb-3">
-                            {highlightMatch(product.description, searchQuery)}
-                          </p>
+
                           <div className="flex items-center justify-between">
                             <div className="flex gap-1 md:gap-2 flex-wrap">
                               <Badge variant="secondary" className="text-xs">

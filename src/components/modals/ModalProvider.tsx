@@ -16,7 +16,7 @@ interface ModalState {
   };
   categoryQuote: {
     isOpen: boolean;
-    category?: "smartphones" | "tablets" | "wearables" | "monitors" | "audio";
+    category?: "smartphones" | "tablets" | "wearables" | "gaming" | "audio";
   };
   partnership: {
     isOpen: boolean;
@@ -37,7 +37,7 @@ interface ModalContextType {
     productName?: string;
   }) => void;
   openCategoryQuoteModal: (
-    category: "smartphones" | "tablets" | "wearables" | "monitors" | "audio"
+    category: "smartphones" | "tablets" | "wearables" | "gaming" | "audio"
   ) => void;
   openPartnershipModal: (options?: {
     partnershipType?: string;
@@ -82,7 +82,7 @@ export function ModalProvider({ children }: ModalProviderProps) {
   };
 
   const openCategoryQuoteModal = (
-    category: "smartphones" | "tablets" | "wearables" | "monitors" | "audio"
+    category: "smartphones" | "tablets" | "wearables" | "gaming" | "audio"
   ) => {
     setModalState((prev) => ({
       ...prev,

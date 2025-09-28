@@ -1,12 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   AppleLogo,
@@ -38,21 +32,21 @@ export default function BrandsPage() {
     brandData.categories.add(product.category);
 
     return acc;
-  }, {} as Record<string, { count: number; categories: Set<string> | string[] }>);
+  }, {} as Record<string, { count: number; categories: Set<string> }>);
 
-  // Convert categories set to array
-  Object.keys(brandStats).forEach((brand) => {
-    brandStats[brand].categories = Array.from(
-      brandStats[brand].categories as Set<string>
-    );
-  });
+  // Convert categories set to array for display
+  const brandStatsForDisplay = Object.keys(brandStats).reduce((acc, brand) => {
+    acc[brand] = {
+      count: brandStats[brand].count,
+      categories: Array.from(brandStats[brand].categories),
+    };
+    return acc;
+  }, {} as Record<string, { count: number; categories: string[] }>);
 
   const brands = [
     {
       name: "Apple",
       logo: AppleLogo,
-      description:
-        "Think Different. Experience innovation with Apple&apos;s ecosystem of premium devices designed to work seamlessly together.",
       tagline: "Innovation at its finest",
       href: "/brands/apple",
       color: "black",
@@ -62,116 +56,88 @@ export default function BrandsPage() {
         "Seamless Ecosystem",
         "Privacy Focused",
       ],
-      categories: brandStats.Apple?.categories || [],
-      productCount: brandStats.Apple?.count || 0,
+      categories: brandStatsForDisplay.APPLE?.categories || [],
+      productCount: brandStatsForDisplay.APPLE?.count || 0,
     },
     {
       name: "Samsung",
       logo: SamsungLogo,
-      description:
-        "Do What You Can&apos;t. Explore Samsung&apos;s Galaxy of cutting-edge technology and AI-powered innovations.",
       tagline: "Galaxy of possibilities",
       href: "/brands/samsung",
       color: "blue-600",
       gradient: "from-blue-600 to-blue-800",
-      highlights: [
-        "Galaxy AI Features",
-        "S Pen Technology",
-        "Display Innovation",
-      ],
-      categories: brandStats.Samsung?.categories || [],
-      productCount: brandStats.Samsung?.count || 0,
+      categories: brandStatsForDisplay.SAMSUNG?.categories || [],
+      productCount: brandStatsForDisplay.SAMSUNG?.count || 0,
     },
     {
       name: "Google",
       logo: GoogleLogo,
-      description:
-        "Be Together. Not the Same. Discover Pixel devices with Google AI built right in for the best Android experience.",
       tagline: "AI-powered simplicity",
       href: "/brands/google",
       color: "blue-500",
       gradient: "from-blue-500 to-green-500",
-      highlights: ["Pure Android", "Google AI Integration", "Best Camera AI"],
-      categories: brandStats.Google?.categories || [],
-      productCount: brandStats.Google?.count || 0,
+      categories: brandStatsForDisplay.Google?.categories || [],
+      productCount: brandStatsForDisplay.Google?.count || 0,
     },
     {
       name: "Xiaomi",
       logo: XiaomiLogo,
-      description:
-        "Innovation for Everyone. Discover flagship performance at incredible prices with Xiaomi's cutting-edge technology.",
       tagline: "Innovation for everyone",
       href: "/brands/xiaomi",
       color: "orange-600",
       gradient: "from-orange-600 to-orange-500",
-      highlights: ["Flagship Performance", "Fast Charging", "Mi Ecosystem"],
-      categories: brandStats.Xiaomi?.categories || [],
-      productCount: brandStats.Xiaomi?.count || 0,
+      categories: brandStatsForDisplay.Xiaomi?.categories || [],
+      productCount: brandStatsForDisplay.Xiaomi?.count || 0,
     },
     {
       name: "Realme",
       logo: RealmeLogo,
-      description:
-        "Dare to Leap. Experience bold designs and powerful performance with Realme's youth-focused smartphones.",
       tagline: "Dare to leap",
       href: "/brands/realme",
       color: "yellow-600",
       gradient: "from-yellow-500 to-amber-500",
-      highlights: ["Bold Design", "Gaming Performance", "Fast Charging"],
-      categories: brandStats.Realme?.categories || [],
-      productCount: brandStats.Realme?.count || 0,
+      categories: brandStatsForDisplay.Realme?.categories || [],
+      productCount: brandStatsForDisplay.Realme?.count || 0,
     },
     {
       name: "Motorola",
       logo: MotorolaLogo,
-      description:
-        "Hello Moto. Rediscover the pioneer of mobile technology with pure Android experiences and innovative features.",
       tagline: "Mobile innovation pioneer",
       href: "/brands/motorola",
       color: "blue-600",
       gradient: "from-blue-600 to-indigo-600",
-      highlights: ["Pure Android", "Ready For", "Moto Actions"],
-      categories: brandStats.Motorola?.categories || [],
-      productCount: brandStats.Motorola?.count || 0,
+      categories: brandStatsForDisplay.Motorola?.categories || [],
+      productCount: brandStatsForDisplay.Motorola?.count || 0,
     },
     {
       name: "JBL",
       logo: JBLLogo,
-      description:
-        "Pure Sound. Experience legendary audio quality with JBL's professional-grade speakers and headphones.",
       tagline: "Legendary audio experience",
       href: "/brands/jbl",
       color: "orange-600",
       gradient: "from-orange-600 to-red-500",
-      highlights: ["Pro Audio Heritage", "JBL Pure Bass", "Wireless Freedom"],
-      categories: brandStats.JBL?.categories || [],
-      productCount: brandStats.JBL?.count || 0,
+      categories: brandStatsForDisplay.JBL?.categories || [],
+      productCount: brandStatsForDisplay.JBL?.count || 0,
     },
     {
       name: "Huawei",
       logo: HuaweiLogo,
-      description:
-        "Make It Possible. Explore Huawei's innovative ecosystem with Leica cameras and cutting-edge technology.",
       tagline: "Technology leadership",
       href: "/brands/huawei",
       color: "red-600",
       gradient: "from-red-600 to-red-500",
-      highlights: ["Leica Partnership", "5G Leadership", "HarmonyOS"],
-      categories: brandStats.Huawei?.categories || [],
-      productCount: brandStats.Huawei?.count || 0,
+      categories: brandStatsForDisplay.Huawei?.categories || [],
+      productCount: brandStatsForDisplay.Huawei?.count || 0,
     },
     {
       name: "Honor",
       logo: HonorLogo,
-      description:
-        "Honor Magic. Discover intelligent devices with eye comfort technology and powerful performance.",
       tagline: "Intelligent magic",
       href: "/brands/honor",
       color: "blue-600",
       gradient: "from-blue-600 to-purple-600",
-      highlights: ["Eye Comfort", "Magic UI", "AI Photography"],
-      categories: brandStats.Honor?.categories || [],
-      productCount: brandStats.Honor?.count || 0,
+      categories: brandStatsForDisplay.Honor?.categories || [],
+      productCount: brandStatsForDisplay.Honor?.count || 0,
     },
   ];
 
@@ -250,30 +216,6 @@ export default function BrandsPage() {
                 </div>
 
                 <CardContent className="p-8">
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {brand.description}
-                  </p>
-
-                  {/* Highlights */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-2">
-                      Key Highlights:
-                    </h4>
-                    <ul className="space-y-1">
-                      {brand.highlights.map(
-                        (highlight: string, index: number) => (
-                          <li
-                            key={index}
-                            className="flex items-center text-sm text-gray-600"
-                          >
-                            <ChevronRight className="h-3 w-3 mr-2 text-gray-400" />
-                            {highlight}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-
                   <Link href={brand.href}>
                     <Button
                       className={`w-full bg-${brand.color} hover:bg-${brand.color}/90 group-hover:shadow-lg transition-all duration-300`}
@@ -286,62 +228,6 @@ export default function BrandsPage() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose These Brands */}
-      <section className="py-16 bg-gray-50 px-4">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose These Brands?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              These industry leaders consistently deliver innovative products
-              that shape the future of technology.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                Award-Winning Design
-              </h3>
-              <p className="text-gray-600">
-                Recognized globally for exceptional design, build quality, and
-                user experience across all product categories.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                Cutting-Edge Innovation
-              </h3>
-              <p className="text-gray-600">
-                Leading the industry with breakthrough technologies, AI
-                integration, and features that define the future.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                Trusted by Millions
-              </h3>
-              <p className="text-gray-600">
-                Millions of users worldwide trust these brands for their daily
-                technology needs and professional workflows.
-              </p>
-            </div>
           </div>
         </div>
       </section>

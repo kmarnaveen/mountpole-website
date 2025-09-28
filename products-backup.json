@@ -149,6 +149,865 @@
       "tags": ["smartphone", "itel", "budget", "android"]
     },
     {
+      "id": "samsung-a066-4-128-5g-latin",
+      "name": "Samsung Galaxy A06",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 159.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The Samsung Galaxy A06 offers an immersive 6.7-inch display, a high-resolution 50MP camera for capturing detailed photos, and a large 5,000mAh battery to power you through the day. It provides a smooth experience for all your essential tasks.",
+      "images": [],
+      "specifications": {
+        "display": "6.7-inch PLS LCD, 720x1600 pixels",
+        "processor": "MediaTek Helio G85",
+        "ram": "4GB",
+        "storage": "128GB, expandable up to 1TB",
+        "camera": "50MP Main + 2MP Depth",
+        "frontCamera": "8MP",
+        "battery": "5000mAh, 25W Super Fast Charging",
+        "os": "Android 14"
+      },
+      "features": [
+        "Large 6.7-inch display",
+        "50MP high-resolution main camera",
+        "Long-lasting 5000mAh battery",
+        "25W Super Fast Charging support",
+        "Up to 2 major Android OS upgrades"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "4GB",
+          "storage": "128GB",
+          "network": "5G",
+          "region": "Latin",
+          "colors": ["Black"]
+        }
+      ],
+      "sku": "SAM-A066-4128-LAT",
+      "tags": ["smartphone", "samsung", "budget", "android"]
+    },
+    {
+      "id": "samsung-s24-ultra",
+      "name": "Samsung Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1299.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Experience the epic standard with the Galaxy S24 Ultra. Encased in a durable titanium frame, it features a stunning 6.8-inch flat display, a built-in S Pen to revolutionize how you create, and a pro-grade 200MP camera with unparalleled zoom capabilities, all powered by Galaxy AI.",
+      "images": [],
+      "specifications": {
+        "display": "6.8-inch Dynamic AMOLED 2X, 120Hz, QHD+",
+        "processor": "Snapdragon 8 Gen 3 for Galaxy",
+        "ram": "12GB",
+        "storage": "256GB/512GB/1TB",
+        "camera": "200MP Wide, 12MP Ultra Wide, 50MP Telephoto (5x), 10MP Telephoto (3x)",
+        "battery": "5000mAh, 45W Super Fast Charging 2.0",
+        "spen": "Built-in S Pen",
+        "durability": "Titanium frame, IP68 Water & Dust Resistance"
+      },
+      "features": [
+        "Built-in S Pen",
+        "Galaxy AI features including Circle to Search and Live Translate",
+        "Pro-grade 200MP Quad Camera System",
+        "Up to 100x Space Zoom",
+        "Durable titanium frame"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "storage": "256GB",
+          "region": "Latin",
+          "colors": ["Yellow"]
+        },
+        {
+          "storage": "512GB",
+          "region": "Arabic",
+          "colors": ["Black", "Grey", "Violet"]
+        }
+      ],
+      "sku": "SAM-S928-VAR",
+      "tags": ["smartphone", "samsung", "flagship", "s-pen", "ai"]
+    },
+    {
+      "id": "samsung-s25-edge",
+      "name": "Samsung Galaxy S25 Edge",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1199.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The Galaxy S25 Edge combines flagship power with an incredibly slim and light design. It features a stunning edge-to-edge QHD+ display, a powerful 200MP main camera, and the next-generation Snapdragon processor, all enhanced with advanced Galaxy AI tools.",
+      "images": [],
+      "specifications": {
+        "display": "6.7-inch Dynamic AMOLED Edge, 120Hz, QHD+",
+        "processor": "Snapdragon 8 Elite for Galaxy",
+        "ram": "12GB",
+        "storage": "512GB",
+        "camera": "200MP Main + 12MP Ultra Wide",
+        "battery": "3900mAh, 25W Fast Charging",
+        "os": "Android 15 with One UI 7",
+        "durability": "Titanium frame, IP68 Water & Dust Resistance"
+      },
+      "features": [
+        "Ultra-slim 5.8mm design",
+        "Edge-to-edge display design",
+        "200MP high-resolution camera",
+        "Next-generation Snapdragon processor",
+        "7 years of promised software and security updates"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "English",
+          "colors": ["Jet Black", "Silver"]
+        }
+      ],
+      "sku": "SAM-S937-12512-EN",
+      "tags": ["smartphone", "samsung", "flagship", "edge-display"]
+    },
+    {
+      "id": "samsung-s25-ultra",
+      "name": "Samsung Galaxy S25 Ultra",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1399.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The pinnacle of mobile technology, the Galaxy S25 Ultra features a massive 6.9-inch display, the most powerful Snapdragon Elite processor, and an advanced quad-camera system with a 200MP main sensor. It's the ultimate tool for productivity and creativity, complete with an enhanced S Pen and next-gen Galaxy AI.",
+      "images": [],
+      "specifications": {
+        "display": "6.9-inch Dynamic AMOLED 2X, 120Hz, QHD+",
+        "processor": "Snapdragon 8 Elite for Galaxy",
+        "ram": "12GB",
+        "storage": "512GB/1TB",
+        "camera": "200MP Wide, 50MP Ultra Wide, 50MP Telephoto (5x), 10MP Telephoto (3x)",
+        "battery": "5000mAh, 45W Fast Charging",
+        "spen": "Enhanced S Pen with AI features",
+        "durability": "Titanium frame, IP68 Water & Dust Resistance"
+      },
+      "features": [
+        "Enhanced S Pen with AI",
+        "Next-generation 200MP quad-camera system",
+        "Premium titanium build",
+        "Advanced Galaxy AI features",
+        "7 years of OS upgrades and security updates"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "storage": "1TB",
+          "region": "Latin",
+          "colors": ["Black", "Grey", "Silver", "White"]
+        },
+        {
+          "storage": "512GB",
+          "region": "Latin",
+          "colors": ["Black"]
+        }
+      ],
+      "sku": "SAM-S938-VAR",
+      "tags": ["smartphone", "samsung", "flagship", "s-pen", "ai"]
+    },
+    {
+      "id": "samsung-fold6",
+      "name": "Samsung Galaxy Z Fold6",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Unfold a world of possibilities with the Galaxy Z Fold6. Thinner, lighter, and more durable, it features a massive 7.6-inch main display for PC-like productivity and an immersive cinematic experience. Powered by the Snapdragon 8 Gen 3 and enhanced with Galaxy AI, it's the ultimate multitasking machine.",
+      "images": [],
+      "specifications": {
+        "display": "7.6-inch Dynamic AMOLED 2X Main Display, 120Hz",
+        "coverDisplay": "6.3-inch Dynamic AMOLED 2X, 120Hz",
+        "processor": "Snapdragon 8 Gen 3 for Galaxy",
+        "ram": "12GB",
+        "storage": "512GB",
+        "camera": "50MP Wide, 12MP Ultra Wide, 10MP Telephoto (3x)",
+        "battery": "4400mAh",
+        "durability": "IP48 Dust and Water Resistance"
+      },
+      "features": [
+        "Thinner, lighter, and more durable design",
+        "Large 7.6-inch foldable screen",
+        "Galaxy AI for enhanced productivity",
+        "S Pen support for creativity",
+        "PC-like multitasking with Taskbar"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "12GB",
+          "storage": "512GB",
+          "region": "Asian",
+          "colors": ["Pink"]
+        }
+      ],
+      "sku": "SAM-F956-12512-AS",
+      "tags": ["smartphone", "samsung", "foldable", "premium"]
+    },
+    {
+      "id": "samsung-flip7",
+      "name": "Samsung Galaxy Z Flip7",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1099.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Express yourself with the Galaxy Z Flip7. Featuring a larger 4.1-inch cover screen for more functionality when closed, this compact foldable fits perfectly in your pocket. It boasts a powerful new processor, a versatile 50MP camera, and a durable design for peace of mind.",
+      "images": [],
+      "specifications": {
+        "display": "6.9-inch Dynamic AMOLED 2X Main Display, 120Hz",
+        "coverDisplay": "4.1-inch Super AMOLED",
+        "processor": "Samsung Exynos 2500 / Snapdragon 8 Elite",
+        "ram": "12GB",
+        "storage": "256GB/512GB",
+        "camera": "50MP Wide, 12MP Ultra Wide",
+        "battery": "4300mAh",
+        "durability": "IP48 Dust and Water Resistance"
+      },
+      "features": [
+        "Large 4.1-inch cover screen",
+        "Compact and stylish clamshell design",
+        "FlexCam for hands-free photos and videos",
+        "Durable Armor Aluminum frame",
+        "7 years of OS updates"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "storage": "256GB",
+          "region": "Thai",
+          "colors": ["Black", "Blue"]
+        },
+        {
+          "storage": "512GB",
+          "region": "Thai",
+          "colors": ["Black", "Blue"]
+        },
+        {
+          "storage": "512GB",
+          "region": "Arabic",
+          "colors": ["Jet Black"]
+        },
+        {
+          "storage": "512GB",
+          "region": "Canada",
+          "colors": ["Jet Black"]
+        }
+      ],
+      "sku": "SAM-F751-VAR",
+      "tags": ["smartphone", "samsung", "foldable", "clamshell"]
+    },
+    {
+      "id": "samsung-smart-tag-2",
+      "name": "Samsung SmartTag2",
+      "category": "Accessories",
+      "brand": "SAMSUNG",
+      "price": 29.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Keep track of your valuables with the Galaxy SmartTag2. With an enhanced battery life of up to 500 days, an IP67 dust and water resistance rating, and intuitive finding features like Compass View, the SmartTag2 helps you locate your items with ease.",
+      "images": [],
+      "specifications": {
+        "connectivity": "Bluetooth 5.3, UWB",
+        "range": "Up to 120 meters (BLE)",
+        "battery": "Replaceable CR2032, up to 500 days",
+        "waterResistance": "IP67",
+        "compatibility": "Galaxy devices with Android OS 9 or higher"
+      },
+      "features": [
+        "Up to 500-day long battery life",
+        "IP67 Water and Dust Resistance",
+        "Compass View for intuitive direction finding",
+        "Search Nearby feature",
+        "Works with Samsung SmartThings Find network"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "package": "Single Pack",
+          "colors": ["Mix"]
+        }
+      ],
+      "sku": "SAM-T5600-SP",
+      "tags": ["accessory", "samsung", "tracker", "bluetooth"]
+    },
+    {
+      "id": "samsung-adapter-15w-3pin",
+      "name": "Samsung 15W Adapter",
+      "category": "Accessories",
+      "brand": "SAMSUNG",
+      "price": 19.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Give your devices the powerful charging support they deserve with the official Samsung 15W Power Adapter. Enjoy 15W Fast Charging for a wide range of tech essentials with any USB-C enabled device.",
+      "images": [],
+      "specifications": {
+        "power": "15W",
+        "interface": "USB-C",
+        "plug": "3-pin",
+        "fastChargingOutput": "9V / 1.67A",
+        "normalChargeOutput": "5V / 2A"
+      },
+      "features": [
+        "15W Adaptive Fast Charging",
+        "USB-C Power Delivery",
+        "Overcurrent and Short Circuit Protection",
+        "Universal compatibility with USB-C devices"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "power": "15W",
+          "plug": "3-pin",
+          "colors": ["Mix"]
+        }
+      ],
+      "sku": "SAM-T1510-15W-3P",
+      "tags": ["accessory", "samsung", "charger", "fast-charging"]
+    },
+    {
+      "id": "samsung-tab-a9-wifi",
+      "name": "Samsung Galaxy Tab A9",
+      "category": "Tablets",
+      "brand": "SAMSUNG",
+      "price": 199.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Meet the Galaxy Tab A9. Its sleek design and smooth metal body make it easy to handle, while the large, bright display offers an immersive experience for movies and games. Enjoy rich audio with dual speakers and store more of what you love with expandable storage.",
+      "images": [],
+      "specifications": {
+        "display": "8.7-inch TFT LCD, 1340x800",
+        "processor": "MediaTek Helio G99",
+        "ram": "4GB",
+        "storage": "64GB, expandable up to 1TB",
+        "camera": "8MP Rear, 2MP Front",
+        "battery": "5100mAh",
+        "audio": "Dual Speakers with Dolby Atmos"
+      },
+      "features": [
+        "Sleek, lightweight metal body",
+        "8.7-inch immersive display",
+        "Dual Speakers with Dolby Atmos",
+        "Expandable storage up to 1TB",
+        "Multi-task with split-screen functionality"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "4GB",
+          "storage": "64GB",
+          "connectivity": "Wi-Fi",
+          "region": "Arabic",
+          "colors": ["Graphite", "Silver", "Blue"]
+        }
+      ],
+      "sku": "SAM-X110-464-WIFI-AR",
+      "tags": ["tablet", "samsung", "wifi", "budget"]
+    },
+    {
+      "id": "samsung-tab-a9plus-wifi",
+      "name": "Samsung Galaxy Tab A9+",
+      "category": "Tablets",
+      "brand": "SAMSUNG",
+      "price": 269.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Level up your entertainment with the Galaxy Tab A9+. A large 11-inch screen with a smooth 90Hz refresh rate makes everything look and feel amazing. Powered by a Snapdragon processor and featuring Quad Speakers, it’s perfect for gaming, streaming, and multitasking.",
+      "images": [],
+      "specifications": {
+        "display": "11.0-inch TFT LCD, 1920x1200, 90Hz",
+        "processor": "Qualcomm Snapdragon 695",
+        "ram": "4GB",
+        "storage": "64GB, expandable up to 1TB",
+        "camera": "8MP Rear, 5MP Front",
+        "battery": "7040mAh",
+        "audio": "Quad Speakers with Dolby Atmos"
+      },
+      "features": [
+        "Large 11-inch display with 90Hz refresh rate",
+        "Powerful Snapdragon processor",
+        "Immersive Quad Speakers with Dolby Atmos",
+        "Samsung DeX for a PC-like experience",
+        "Up to 3 apps on one screen with split-screen"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "4GB",
+          "storage": "64GB",
+          "connectivity": "Wi-Fi",
+          "region": "Latin",
+          "colors": ["Grey"]
+        }
+      ],
+      "sku": "SAM-X210-464-WIFI-LAT",
+      "tags": ["tablet", "samsung", "wifi", "entertainment"]
+    },
+    {
+      "id": "samsung-tab-a9plus-cellular",
+      "name": "Samsung Galaxy Tab A9+ Cellular",
+      "category": "Tablets",
+      "brand": "SAMSUNG",
+      "price": 329.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Stay connected everywhere with the Galaxy Tab A9+ Cellular. A large 11-inch screen with a smooth 90Hz refresh rate, a Snapdragon processor, and 8GB of RAM for enhanced multitasking. Perfect for work, play, and staying in touch on the go.",
+      "images": [],
+      "specifications": {
+        "display": "11.0-inch TFT LCD, 1920x1200, 90Hz",
+        "processor": "Qualcomm Snapdragon 695",
+        "ram": "8GB",
+        "storage": "128GB, expandable up to 1TB",
+        "camera": "8MP Rear, 5MP Front",
+        "battery": "7040mAh",
+        "connectivity": "Wi-Fi + 5G"
+      },
+      "features": [
+        "5G cellular connectivity",
+        "Large 11-inch 90Hz Display",
+        "8GB RAM for smooth multitasking",
+        "Quad Speakers with Dolby Atmos",
+        "Samsung DeX support"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "8GB",
+          "storage": "128GB",
+          "connectivity": "Wi-Fi + Cellular",
+          "region": "India",
+          "colors": ["Graphite"]
+        }
+      ],
+      "sku": "SAM-X216-8128-CELL-IN",
+      "tags": ["tablet", "samsung", "cellular", "5g"]
+    },
+    {
+      "id": "samsung-tab-s10-fe-5g",
+      "name": "Samsung Galaxy Tab S10 FE",
+      "category": "Tablets",
+      "brand": "SAMSUNG",
+      "price": 599.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Unleash your creativity and productivity with the Galaxy Tab S10 FE. It comes with the versatile S Pen, a powerful Exynos processor, and a large, vibrant display. With 5G connectivity and an all-day battery, it’s designed for work and play anywhere.",
+      "images": [],
+      "specifications": {
+        "display": "10.9-inch TFT LCD, 2304x1440, 90Hz",
+        "processor": "Samsung Exynos 1580",
+        "ram": "8GB",
+        "storage": "128GB, expandable up to 2TB",
+        "camera": "13MP Rear, 12MP Front",
+        "battery": "8000mAh, 45W Super Fast Charging",
+        "spen": "S Pen included",
+        "durability": "IP68 Water & Dust Resistance"
+      },
+      "features": [
+        "S Pen included for notes and drawing",
+        "Vibrant 10.9-inch 90Hz Display",
+        "Powerful Exynos processor for multitasking",
+        "Long-lasting 8000mAh battery",
+        "IP68 Water and Dust Resistance"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "8GB",
+          "storage": "128GB",
+          "connectivity": "Wi-Fi + 5G",
+          "region": "Latin",
+          "colors": ["Grey"]
+        }
+      ],
+      "sku": "SAM-X526-8128-5G-LAT",
+      "tags": ["tablet", "samsung", "5g", "s-pen", "premium"]
+    },
+    {
+      "id": "samsung-tab-s10plus-fe",
+      "name": "Samsung Galaxy Tab S10+ FE",
+      "category": "Tablets",
+      "brand": "SAMSUNG",
+      "price": 549.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Experience more with the Galaxy Tab S10+ FE. A larger premium tablet with enhanced features, a powerful processor for smooth performance, and the creative versatility of the included S Pen. Perfect for professionals and creators on the move.",
+      "images": [],
+      "specifications": {
+        "display": "12.4-inch Display",
+        "processor": "Exynos",
+        "ram": "8GB",
+        "storage": "128GB",
+        "battery": "10090mAh",
+        "spen": "S Pen included"
+      },
+      "features": [
+        "Large premium 12.4-inch display",
+        "S Pen included",
+        "Enhanced performance for productivity",
+        "All-day battery life",
+        "Samsung DeX for a desktop experience"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "ram": "8GB",
+          "storage": "128GB",
+          "colors": ["Graphite", "Blue", "Silver"]
+        }
+      ],
+      "sku": "SAM-X620-8128",
+      "tags": ["tablet", "samsung", "premium", "s-pen"]
+    },
+    {
+      "id": "samsung-watch-7",
+      "name": "Samsung Galaxy Watch7",
+      "category": "Wearables",
+      "brand": "SAMSUNG",
+      "price": 299.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Meet the Galaxy Watch7, powered by a new 3nm processor for supercharged performance. It features an upgraded BioActive Sensor for next-level health tracking precision, dual-frequency GPS for accurate navigation, and new Galaxy AI features to help you understand your body better.",
+      "images": [],
+      "specifications": {
+        "display": "Super AMOLED, Sapphire Crystal",
+        "processor": "Exynos W1000 (3nm)",
+        "ram": "2GB",
+        "storage": "32GB",
+        "battery": "425mAh (44mm) / 300mAh (40mm)",
+        "connectivity": "LTE, Bluetooth 5.3, Wi-Fi, NFC, Dual-Frequency GPS",
+        "sensors": "Upgraded BioActive Sensor (Heart Rate, SpO2, Temp), ECG",
+        "durability": "5ATM + IP68 / MIL-STD-810H"
+      },
+      "features": [
+        "Powerful 3nm processor",
+        "Advanced BioActive Sensor for precise health tracking",
+        "Galaxy AI-powered wellness insights like Energy Score",
+        "FDA-authorized sleep apnea risk detection",
+        "Dual-Frequency GPS for accurate location tracking"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "size": "40MM",
+          "region": "Arabic",
+          "colors": ["Green", "Cream"]
+        },
+        {
+          "size": "44MM",
+          "region": "Arabic",
+          "colors": ["Green", "Cream"]
+        }
+      ],
+      "sku": "SAM-L300-VAR",
+      "tags": ["wearable", "samsung", "smartwatch", "health", "ai"]
+    },
+    {
+      "id": "samsung-watch-8",
+      "name": "Samsung Galaxy Watch8",
+      "category": "Wearables",
+      "brand": "SAMSUNG",
+      "price": 349.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The slimmest Galaxy Watch yet. The Galaxy Watch8 combines an elegant, streamlined profile with powerful performance from its 3nm processor. It features a brilliantly bright 3,000-nit display and introduces groundbreaking AI-driven wellness features like Antioxidant Index and Bedtime Guidance.",
+      "images": [],
+      "specifications": {
+        "display": "Super AMOLED, 3000 nits, Sapphire Crystal",
+        "processor": "Exynos W1000 (3nm)",
+        "ram": "2GB",
+        "storage": "32GB",
+        "battery": "435mAh (44mm) / 325mAh (40mm)",
+        "connectivity": "LTE, Bluetooth 5.3, Wi-Fi, NFC, Dual-Frequency GPS",
+        "sensors": "BioActive Sensor, Antioxidant Index, Vascular Load",
+        "durability": "5ATM + IP68 / MIL-STD-810H"
+      },
+      "features": [
+        "Ultra-slim and light design",
+        "Super bright 3,000-nit display",
+        "Google Gemini assistant built-in",
+        "Advanced AI health tracking (Antioxidant Index, Vascular Load)",
+        "Personalized Running Coach and Energy Score"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "size": "40mm",
+          "region": "Arabic",
+          "colors": ["Silver", "Graphite"]
+        },
+        {
+          "size": "44mm",
+          "region": "Arabic",
+          "colors": ["Silver", "Graphite"]
+        },
+        {
+          "size": "44mm",
+          "region": "Latin",
+          "colors": ["Graphite"]
+        },
+        {
+          "size": "46mm",
+          "region": "Arabic",
+          "colors": ["Black", "White"]
+        },
+        {
+          "size": "46mm",
+          "region": "Latin",
+          "colors": ["Black", "White"]
+        }
+      ],
+      "sku": "SAM-L330-VAR",
+      "tags": ["wearable", "samsung", "smartwatch", "ai", "latest"]
+    },
+    {
+      "id": "samsung-watch-ultra-2025",
+      "name": "Samsung Galaxy Watch Ultra",
+      "category": "Wearables",
+      "brand": "SAMSUNG",
+      "price": 699.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Built for adventurers, the Galaxy Watch Ultra is engineered to thrive in the most challenging environments. It features a rugged titanium case, a brilliant 3,000-nit display, and a battery that lasts up to 100 hours. With dual-frequency GPS and advanced AI-powered health insights, it's the ultimate tool for exploration.",
+      "images": [],
+      "specifications": {
+        "display": "47mm Super AMOLED, 3000 nits, Sapphire Crystal",
+        "processor": "Exynos W1000 (3nm)",
+        "ram": "2GB",
+        "storage": "32GB",
+        "battery": "590mAh, up to 100 hours",
+        "connectivity": "LTE, Bluetooth 5.3, Wi-Fi, NFC, Dual-Frequency GPS",
+        "durability": "Titanium case, 10ATM + IP68 / MIL-STD-810H"
+      },
+      "features": [
+        "Rugged Grade 4 Titanium case",
+        "Up to 100 hours of battery life",
+        "Super bright 3,000-nit display for outdoor visibility",
+        "10ATM water resistance for diving",
+        "Advanced AI-powered health and fitness tracking"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "year": "2025",
+          "region": "Latin",
+          "colors": ["White", "Grey", "Blue", "Silver"]
+        },
+        {
+          "year": "2025",
+          "region": "Arabic",
+          "colors": ["Grey", "Blue", "Silver"]
+        }
+      ],
+      "sku": "SAM-L705-2025-VAR",
+      "tags": ["wearable", "samsung", "smartwatch", "ultra", "rugged"]
+    },
+    {
+      "id": "samsung-galaxy-watch-fit3",
+      "name": "Samsung Galaxy Watch Fit3",
+      "category": "Wearables",
+      "brand": "SAMSUNG",
+      "price": 59.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Your ultimate fitness partner, the Galaxy Fit3 features a large AMOLED display to view your workout data at a glance. It's slim, light, and comfortable, with a battery that lasts up to 13 days. Track over 100 exercises and monitor your health around the clock.",
+      "images": [],
+      "specifications": {
+        "display": "1.6-inch AMOLED, 256x402",
+        "battery": "208mAh, up to 13 days",
+        "sportsModes": "100+",
+        "sensors": "Heart Rate, SpO2, Accelerometer, Barometer",
+        "durability": "5ATM + IP68 Water & Dust Resistance",
+        "body": "Aluminum"
+      },
+      "features": [
+        "Large 1.6-inch AMOLED display",
+        "Up to 13 days of battery life",
+        "Advanced sleep tracking and coaching",
+        "Tracks over 100 different exercises",
+        "Fall Detection and Emergency SOS"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "region": "Arabic",
+          "colors": ["Grey", "Silver"]
+        }
+      ],
+      "sku": "SAM-R390-AR",
+      "tags": ["wearable", "samsung", "fitness", "tracker"]
+    },
+    {
+      "id": "samsung-buds-core",
+      "name": "Samsung Galaxy Buds Core",
+      "category": "Audio",
+      "brand": "SAMSUNG",
+      "price": 79.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Essential true wireless earbuds with quality sound, a comfortable fit, and a compact charging case. Perfect for everyday listening on the go.",
+      "images": [],
+      "specifications": {
+        "connectivity": "Bluetooth 5.3",
+        "battery": "Up to 6 hours playtime, 24 hours with case",
+        "features": "Touch controls, Voice assistant",
+        "waterResistance": "IPX2"
+      },
+      "features": [
+        "Clear and balanced sound",
+        "Comfortable and secure fit",
+        "Intuitive touch controls",
+        "Compact charging case"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "region": "Arabic",
+          "colors": ["Black", "White"]
+        }
+      ],
+      "sku": "SAM-R410-AR",
+      "tags": ["audio", "samsung", "earbuds", "wireless"]
+    },
+    {
+      "id": "samsung-buds-3",
+      "name": "Samsung Galaxy Buds3",
+      "category": "Audio",
+      "brand": "SAMSUNG",
+      "price": 179.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The Galaxy Buds3, with a completely new design for enhanced comfort and sound. Featuring Active Noise Cancellation, 24-bit Hi-Fi audio, and powered by Galaxy AI for real-time translation, they are designed for an immersive listening experience.",
+      "images": [],
+      "specifications": {
+        "connectivity": "Bluetooth 5.4",
+        "audio": "24-bit Hi-Fi Audio",
+        "anc": "Active Noise Cancellation",
+        "battery": "Up to 36 hours with case (ANC off)",
+        "waterResistance": "IP57"
+      },
+      "features": [
+        "Galaxy AI-powered Real-Time Interpreter",
+        "Intelligent Active Noise Cancellation",
+        "24-bit Hi-Fi Audio for studio-quality sound",
+        "Redesigned for a comfortable and secure fit",
+        "IP57 water and dust resistance"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "region": "Arabic",
+          "colors": ["Silver", "White"]
+        }
+      ],
+      "sku": "SAM-R530-AR",
+      "tags": ["audio", "samsung", "earbuds", "anc", "ai"]
+    },
+    {
+      "id": "samsung-buds-pro-3",
+      "name": "Samsung Galaxy Buds Pro3",
+      "category": "Audio",
+      "brand": "SAMSUNG",
+      "price": 249.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Meet the new shape of sound. The Galaxy Buds3 Pro are completely redesigned to bring you deeper into your audio. Featuring a dual-driver system, adaptive noise control powered by Galaxy AI, and an adaptive equalizer for sound tailored to you.",
+      "images": [],
+      "specifications": {
+        "driver": "Dual Driver: Woofer + Tweeter",
+        "anc": "Adaptive Noise Control with Galaxy AI",
+        "audio": "24-bit Hi-Fi Audio, 360 Audio",
+        "connectivity": "Bluetooth 5.4, Super Wideband",
+        "waterResistance": "IP57"
+      },
+      "features": [
+        "Enhanced 2-Way Speaker (Woofer + Tweeter)",
+        "Adaptive Noise Control and Equalizer with Galaxy AI",
+        "Bluetooth Super Wideband for crystal clear calls",
+        "Immersive 360 Audio",
+        "Seamless Auto-Switching between Galaxy devices"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "region": "Arabic",
+          "colors": ["Silver", "White"]
+        }
+      ],
+      "sku": "SAM-R630-AR",
+      "tags": ["audio", "samsung", "earbuds", "pro", "ai"]
+    },
+    {
+      "id": "samsung-galaxy-watch-6-classic",
+      "name": "Samsung Galaxy Watch6 Classic",
+      "category": "Wearables",
+      "brand": "SAMSUNG",
+      "price": 429.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Timeless design meets modern tech. The Galaxy Watch6 Classic brings back the iconic physical rotating bezel for easy navigation on its largest display yet. Track your wellness with advanced health monitoring and personalized heart rate zones.",
+      "images": [],
+      "specifications": {
+        "display": "Super AMOLED, Sapphire Crystal",
+        "processor": "Exynos W930",
+        "ram": "2GB",
+        "storage": "16GB",
+        "connectivity": "LTE, Bluetooth 5.3, Wi-Fi, NFC, GPS",
+        "sensors": "BioActive Sensor (ECG, Heart Rate, BIA), Temperature",
+        "durability": "5ATM + IP68 / MIL-STD-810H"
+      },
+      "features": [
+        "Iconic physical rotating bezel",
+        "Premium stainless steel design",
+        "Advanced sleep coaching and health monitoring",
+        "Personalized Heart Rate Zones for workouts",
+        "Large and vibrant Super AMOLED display"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "size": "47mm",
+          "region": "Arabic",
+          "colors": ["Silver"]
+        },
+        {
+          "size": "47mm",
+          "edition": "ASTRO Edition",
+          "colors": ["Black"]
+        }
+      ],
+      "sku": "SAM-R960-47-VAR",
+      "tags": ["wearable", "samsung", "smartwatch", "classic", "health"]
+    },
+    {
       "id": "playstation-5-console-standard",
       "name": "PlayStation 5 Console",
       "category": "Gaming",
@@ -901,9 +1760,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung Galaxy A06 offers essential smartphone features with a sleek design, reliable performance, and long-lasting battery life for everyday use.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/o/j/u/galaxy-a06-sm-a065fzkgins-samsung-original-imah4az54gd9zhaf.jpeg?q=70&crop=false"
-      ],
+      "images": ["https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/o/j/u/galaxy-a06-sm-a065fzkgins-samsung-original-imah4az54gd9zhaf.jpeg?q=70&crop=false"],
       "specifications": {
         "display": "6.7-inch HD+ display",
         "chip": "MediaTek Helio G85",
@@ -931,14 +1788,7 @@
         }
       ],
       "sku": "SAM-GA06-64-BLK",
-      "tags": [
-        "smartphone",
-        "samsung",
-        "budget",
-        "4g",
-        "android",
-        "long-battery"
-      ]
+      "tags": ["smartphone", "samsung", "budget", "4g", "android", "long-battery"]
     },
     {
       "id": "samsung-galaxy-s25-edge",
@@ -949,9 +1799,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung Galaxy S25 Edge represents the pinnacle of smartphone innovation with its stunning edge display, advanced AI capabilities, and professional-grade camera system.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/j/u/c/-original-imahgfmzrtryrszp.jpeg?q=70&crop=false"
-      ],
+      "images": ["https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/j/u/c/-original-imahgfmzrtryrszp.jpeg?q=70&crop=false"],
       "specifications": {
         "display": "6.8-inch Dynamic AMOLED 2X Edge display, 120Hz",
         "chip": "Snapdragon 8 Gen 4",
@@ -990,9 +1838,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung Galaxy Tab A9 delivers reliable performance for entertainment, productivity, and creativity with its large display and long-lasting battery.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/tablet/x/m/j/-original-imaguyf2qhh2pfbg.jpeg?q=70&crop=false"
-      ],
+      "images": ["https://rukminim2.flixcart.com/image/832/832/xif0q/tablet/x/m/j/-original-imaguyf2qhh2pfbg.jpeg?q=70&crop=false"],
       "specifications": {
         "display": "11-inch LCD display, 90Hz",
         "chip": "MediaTek Helio G99",
@@ -1020,14 +1866,7 @@
         }
       ],
       "sku": "SAM-GTA9-64-GRP",
-      "tags": [
-        "tablet",
-        "samsung",
-        "android",
-        "productivity",
-        "entertainment",
-        "kids-friendly"
-      ]
+      "tags": ["tablet", "samsung", "android", "productivity", "entertainment", "kids-friendly"]
     },
     {
       "id": "samsung-galaxy-watch7",
@@ -1038,9 +1877,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung Galaxy Watch7 combines advanced health monitoring, fitness tracking, and smart connectivity in a sleek, durable design built for active lifestyles.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/s/d/n/-original-imahcc49mx4png6v.jpeg?q=70&crop=false"
-      ],
+      "images": ["https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/s/d/n/-original-imahcc49mx4png6v.jpeg?q=70&crop=false"],
       "specifications": {
         "display": "1.5-inch Super AMOLED always-on display",
         "chip": "Samsung Exynos W1000",
@@ -1104,14 +1941,7 @@
         }
       ],
       "sku": "SAM-ST2-BLK-WHT",
-      "tags": [
-        "tracker",
-        "samsung",
-        "bluetooth",
-        "finder",
-        "smartthings",
-        "accessories"
-      ]
+      "tags": ["tracker", "samsung", "bluetooth", "finder", "smartthings", "accessories"]
     },
     {
       "id": "samsung-25w-adapter",
@@ -1122,9 +1952,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Samsung's 25W USB-C fast charger provides rapid charging for your Galaxy devices with intelligent power management and compact design for portability.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/battery-charger/g/w/j/25w-charger-digie-original-imah3hwm9pzrwytf.jpeg?q=70&crop=false"
-      ],
+      "images": ["https://rukminim2.flixcart.com/image/832/832/xif0q/battery-charger/g/w/j/25w-charger-digie-original-imah3hwm9pzrwytf.jpeg?q=70&crop=false"],
       "specifications": {
         "powerOutput": "25W Super Fast Charging",
         "connector": "USB-C",
@@ -1149,14 +1977,7 @@
         }
       ],
       "sku": "SAM-25W-USBC-WHT",
-      "tags": [
-        "charger",
-        "samsung",
-        "fast-charging",
-        "usb-c",
-        "25w",
-        "accessories"
-      ]
+      "tags": ["charger", "samsung", "fast-charging", "usb-c", "25w", "accessories"]
     }
   ]
 }

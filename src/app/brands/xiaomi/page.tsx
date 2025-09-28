@@ -19,6 +19,7 @@ import {
   Zap,
   Heart,
   Cpu,
+  GamepadIcon,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -27,7 +28,7 @@ import productsData from "../../../../products.json";
 export default function XiaomiPage() {
   // Filter Xiaomi products from the JSON data
   const xiaomiProducts = productsData.products.filter(
-    (product) => product.brand === "Xiaomi"
+    (product) => product.brand.toLowerCase() === "xiaomi"
   );
 
   // Group products by category
@@ -51,10 +52,10 @@ export default function XiaomiPage() {
       displayName: "Mi Pad & Laptops",
       route: "/tablets",
     },
-    "Monitors & Displays": {
-      icon: Monitor,
-      displayName: "Mi Displays",
-      route: "/monitors",
+    Gaming: {
+      icon: GamepadIcon,
+      displayName: "Gaming",
+      route: "/gaming",
     },
     Wearables: {
       icon: Watch,
@@ -165,32 +166,9 @@ export default function XiaomiPage() {
                         <CardTitle className="text-lg group-hover:text-orange-600 transition-colors">
                           {product.name}
                         </CardTitle>
-                        <CardDescription className="text-gray-600">
-                          {product.description ||
-                            "Premium Xiaomi product with innovative features"}
-                        </CardDescription>
                       </CardHeader>
 
                       <CardContent className="space-y-4">
-                        <div className="space-y-2">
-                          <h4 className="font-semibold text-sm text-gray-700">
-                            Key Features:
-                          </h4>
-                          <div className="flex flex-wrap gap-1">
-                            {product.features
-                              .slice(0, 3)
-                              .map((feature, featureIndex) => (
-                                <Badge
-                                  key={featureIndex}
-                                  variant="secondary"
-                                  className="text-xs bg-orange-100"
-                                >
-                                  {feature}
-                                </Badge>
-                              ))}
-                          </div>
-                        </div>
-
                         <div className="pt-2">
                           <Link href={config.route}>
                             <Button
@@ -208,93 +186,6 @@ export default function XiaomiPage() {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* Xiaomi Highlights */}
-      <section className="py-16 bg-gray-50 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            The Xiaomi Difference
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
-              <Card key={index} className="text-center border-0 shadow-lg">
-                <CardHeader>
-                  <div className="flex justify-center mb-4 text-orange-600">
-                    {highlight.icon}
-                  </div>
-                  <CardTitle className="text-xl">{highlight.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{highlight.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Innovation Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            Innovation for Everyone
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-gray-600 mb-8">
-              Xiaomi democratizes innovation by making cutting-edge technology
-              accessible to everyone. From flagship smartphones with Leica
-              cameras to lightning-fast charging solutions, we continue to push
-              boundaries while keeping prices honest.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <div className="text-left">
-                <h3 className="text-xl font-semibold mb-4">
-                  Latest Technologies
-                </h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Leica Camera Partnership
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    120W HyperCharge Technology
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Snapdragon 8 Gen 3 Performance
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    MIUI 15 Experience
-                  </li>
-                </ul>
-              </div>
-              <div className="text-left">
-                <h3 className="text-xl font-semibold mb-4">Mi Ecosystem</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Smart Home Integration
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Seamless Device Connection
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Regular MIUI Updates
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="h-4 w-4 mr-2 text-gray-400" />
-                    Global Community Access
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </div>

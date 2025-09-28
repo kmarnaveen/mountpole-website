@@ -98,7 +98,7 @@ export default function Footer() {
                 { name: "Smartphones", href: "/smartphones" },
                 { name: "Tablets", href: "/tablets" },
                 { name: "Wearables", href: "/wearables" },
-                { name: "Monitors", href: "/monitors" },
+                { name: "Gaming", href: "/gaming" },
               ].map((category) => (
                 <li key={category.name}>
                   <Link

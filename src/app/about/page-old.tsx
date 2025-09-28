@@ -116,7 +116,7 @@ export default function AboutPage() {
                   <p className="text-gray-600">
                     We curate and present detailed information about premium
                     electronics, focusing on smartphones, tablets, wearables,
-                    and monitors from Apple, Samsung, and Google.
+                    and gaming products from Apple, Samsung, and Google.
                   </p>
                 </CardContent>
               </Card>
@@ -232,7 +232,7 @@ export default function AboutPage() {
             Ready to Explore?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-            Discover the latest smartphones, tablets, wearables, and monitors
+            Discover the latest smartphones, tablets, wearables, and gaming gear
             from Apple, Samsung, and Google. Find detailed specifications,
             features, and comparisons.
           </p>

@@ -2,13 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useModals } from "@/components/modals/ModalProvider";
 import { Smartphone, Zap, Camera, Battery, Cpu } from "lucide-react";
@@ -212,33 +206,9 @@ export default function SmartphonesPage() {
                         <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
                           {phone.name}
                         </CardTitle>
-                        <CardDescription className="text-gray-600">
-                          {phone.description ||
-                            "High-quality smartphone with premium features"}
-                        </CardDescription>
                       </CardHeader>
 
                       <CardContent className="space-y-4">
-                        {/* Key Features */}
-                        <div className="space-y-2">
-                          <h4 className="font-semibold text-sm text-gray-700">
-                            Key Features:
-                          </h4>
-                          <div className="flex flex-wrap gap-1">
-                            {phone.features
-                              .slice(0, 4)
-                              .map((feature: string, index: number) => (
-                                <Badge
-                                  key={index}
-                                  variant="secondary"
-                                  className="text-xs"
-                                >
-                                  {feature}
-                                </Badge>
-                              ))}
-                          </div>
-                        </div>
-
                         {/* Action Buttons */}
                         <div className="pt-4 space-y-2">
                           <div className="flex gap-2">

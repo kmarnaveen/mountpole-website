@@ -11,6 +11,7 @@ import {
   Tablet,
   Watch,
   Monitor,
+  GamepadIcon,
   HeadphonesIcon,
   Building2,
   Grid3X3,
@@ -158,9 +159,9 @@ export default function MobileDock() {
       color: "text-purple-600",
     },
     {
-      name: "Monitors",
-      icon: Monitor,
-      href: "/monitors",
+      name: "Gaming",
+      icon: GamepadIcon,
+      href: "/gaming",
       description: "High-resolution displays",
       color: "text-orange-600",
     },
@@ -804,8 +805,7 @@ export default function MobileDock() {
                     openQuoteModal({
                       productId: "mobile-dock-general",
                       productName: "General Quote Request",
-                      category: "general",
-                      type: "bulk",
+                      quoteType: "bulk",
                     });
                     setIsMenuOpen(false);
                   }}

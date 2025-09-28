@@ -3,13 +3,7 @@
 import { useState, useEffect } from "react";
 import { useModals } from '@/components/modals/ModalProvider';
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Watch,
@@ -30,7 +24,7 @@ import {
 import productsData from "../../../products.json";
 
 export default function WearablesPage() {
-  const { openQuoteModal } = useModals()
+  const { openQuoteModal } = useModals();
   const [isLoading, setIsLoading] = useState(true);
 
   // Filter wearables from the products data
@@ -182,53 +176,11 @@ export default function WearablesPage() {
                         <CardTitle className="text-lg group-hover:text-purple-600 transition-colors">
                           {product.name}
                         </CardTitle>
-                        <CardDescription className="text-sm">
-                          {product.description || "Smart wearable technology"}
-                        </CardDescription>
                       </div>
                     </CardHeader>
 
                     <CardContent className="pt-0">
                       <div className="space-y-3">
-                        {/* Specifications */}
-                        {product.specifications && (
-                          <div className="space-y-2">
-                            {product.specifications.battery && (
-                              <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Battery:</span>
-                                <span className="font-medium">
-                                  {product.specifications.battery}
-                                </span>
-                              </div>
-                            )}
-                            {product.specifications.waterResistance && (
-                              <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">
-                                  Water Resistance:
-                                </span>
-                                <span className="font-medium">
-                                  {product.specifications.waterResistance}
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                        )}
-
-                        {/* Features */}
-                        <div className="flex flex-wrap gap-1">
-                          {product.features
-                            ?.slice(0, 3)
-                            .map((feature: string, index: number) => (
-                              <Badge
-                                key={index}
-                                variant="outline"
-                                className="text-xs text-purple-600"
-                              >
-                                {feature}
-                              </Badge>
-                            ))}
-                        </div>
-
                         {/* Stock Info */}
                         {product.stockQuantity && product.inStock && (
                           <div className="text-xs text-gray-500">
@@ -242,13 +194,15 @@ export default function WearablesPage() {
                               View Details
                             </Button>
                           </Link>
-                          <Button 
-                            onClick={() => openQuoteModal({
-                              productId: product.id,
-                              productName: product.name,
-                              category: 'wearables',
-                              type: 'bulk'
-                            })}
+                          <Button
+                            onClick={() =>
+                              openQuoteModal({
+                                productId: product.id,
+                                productName: product.name,
+                                category: "wearables",
+                                type: "bulk",
+                              })
+                            }
                             className="w-full bg-purple-600 hover:bg-purple-700"
                           >
                             Request Quote

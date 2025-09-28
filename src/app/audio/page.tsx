@@ -3,13 +3,7 @@
 import { useState, useEffect } from "react";
 import { useModals } from '@/components/modals/ModalProvider';
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Headphones, Volume2, Mic, Filter } from "lucide-react";
 import Link from "next/link";
@@ -213,9 +207,6 @@ export default function AudioPage() {
                         <CardTitle className="text-lg group-hover:text-purple-600 transition-colors">
                           {product.name}
                         </CardTitle>
-                        <CardDescription className="text-sm">
-                          {product.description || "Premium audio experience"}
-                        </CardDescription>
                       </div>
                     </CardHeader>
 
@@ -273,13 +264,15 @@ export default function AudioPage() {
                               View Details
                             </Button>
                           </Link>
-                          <Button 
-                            onClick={() => openQuoteModal({
-                              productId: product.id,
-                              productName: product.name,
-                              category: 'audio',
-                              type: 'bulk'
-                            })}
+                          <Button
+                            onClick={() =>
+                              openQuoteModal({
+                                productId: product.id,
+                                productName: product.name,
+                                category: "audio",
+                                type: "bulk",
+                              })
+                            }
                             className="w-full bg-purple-600 hover:bg-purple-700"
                           >
                             Get Bulk Pricing

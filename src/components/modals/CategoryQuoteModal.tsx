@@ -7,7 +7,7 @@ import CategoryQuoteFormGlass from "@/components/forms/CategoryQuoteFormGlass";
 interface CategoryQuoteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  category: "smartphones" | "tablets" | "wearables" | "monitors" | "audio";
+  category: "smartphones" | "tablets" | "wearables" | "gaming" | "audio";
 }
 
 export default function CategoryQuoteModal({

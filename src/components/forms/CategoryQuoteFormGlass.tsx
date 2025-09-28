@@ -10,6 +10,7 @@ import {
   Tablet,
   Watch,
   Monitor,
+  GamepadIcon,
   HeadphonesIcon,
   AlertCircle,
 } from "lucide-react";
@@ -28,7 +29,7 @@ import {
 } from "@/components/ui/glassmorphism";
 
 interface CategoryQuoteFormProps {
-  category: "smartphones" | "tablets" | "wearables" | "monitors" | "audio";
+  category: "smartphones" | "tablets" | "wearables" | "gaming" | "audio";
   onSuccess?: () => void;
   onCancel?: () => void;
 }
@@ -58,13 +59,13 @@ const categoryConfig = {
     color: "from-purple-400/80 to-pink-500/80",
     examples: "Apple Watch Series 9, Samsung Galaxy Watch, Fitbit, Garmin...",
   },
-  monitors: {
-    title: "Monitor Quote Request",
-    description: "Professional displays, gaming monitors and studio monitors.",
-    icon: Monitor,
+  gaming: {
+    title: "Gaming Quote Request",
+    description: "Gaming gear, accessories and gaming smartphones.",
+    icon: GamepadIcon,
     color: "from-orange-400/80 to-red-500/80",
     examples:
-      "Apple Studio Display, Dell UltraSharp, LG UltraFine, Gaming monitors...",
+      "Gaming controllers, mechanical keyboards, gaming mice, gaming phones...",
   },
   audio: {
     title: "Audio Equipment Quote",
