@@ -149,7 +149,7 @@ export default function PartnershipFormGlass({
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbxF2G3H4I5J6K7L8M9N0O1P2Q3R4S5T6U7V8W9X0Y1Z2A3B4C5D6E7F8G9H0I1J2K3L4M5N6/exec",
+        "https://script.google.com/macros/s/AKfycbyTqO6ngsDYL0-hcN-Z0hAZUxeuCKYXYb2WNxXgLnpsS2r56r-Vxg1f8Y0jk7KSyGdk/exec",
         {
           method: "POST",
           mode: "no-cors",

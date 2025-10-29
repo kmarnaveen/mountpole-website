@@ -41,7 +41,7 @@ export default function MobileContactForm({
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbyJ7K8L9M0N1O2P3Q4R5S6T7U8V9W0X1Y2Z3A4B5C6D7E8F9G0H1I2J3K4L5M6N7O8P9/exec",
+        "https://script.google.com/macros/s/AKfycbyTqO6ngsDYL0-hcN-Z0hAZUxeuCKYXYb2WNxXgLnpsS2r56r-Vxg1f8Y0jk7KSyGdk/exec",
         {
           method: "POST",
           mode: "no-cors",

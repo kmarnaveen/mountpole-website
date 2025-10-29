@@ -164,7 +164,7 @@ export default function QuoteFormGlass({
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbxJ8K9L3mNpP0Q2R5S6T7U8V9W0X1Y2Z3A4B5C6D7E8F9G0H1I2J3K4L5M6N7O8P9Q0/exec",
+        "https://script.google.com/macros/s/AKfycbyTqO6ngsDYL0-hcN-Z0hAZUxeuCKYXYb2WNxXgLnpsS2r56r-Vxg1f8Y0jk7KSyGdk/exec",
         {
           method: "POST",
           mode: "no-cors",

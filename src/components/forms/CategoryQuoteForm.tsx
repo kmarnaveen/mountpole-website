@@ -92,7 +92,7 @@ export default function CategoryQuoteForm({ category, onSuccess, onCancel }: Cat
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbyA1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0E1F2G3/exec",
+        "https://script.google.com/macros/s/AKfycbyTqO6ngsDYL0-hcN-Z0hAZUxeuCKYXYb2WNxXgLnpsS2r56r-Vxg1f8Y0jk7KSyGdk/exec",
         {
           method: "POST",
           mode: "no-cors",

@@ -168,13 +168,52 @@ function ContactForm() {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission with B2B data
-    console.log("B2B Form Submission:", formData);
-    alert(
-      "Thank you for your inquiry! Our MountPole team will contact you within 24 hours to discuss partnership opportunities."
-    );
+    setIsSubmitting(true);
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyTqO6ngsDYL0-hcN-Z0hAZUxeuCKYXYb2WNxXgLnpsS2r56r-Vxg1f8Y0jk7KSyGdk/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            formType: "Contact Form",
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            referrer: document.referrer,
+          }),
+        }
+      );
+
+      // Reset form
+      setFormData({
+        fullName: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        inquiryType: "",
+        message: "",
+      });
+
+      alert(
+        "Thank you for your inquiry! Our MountPole team will contact you within 24 hours to discuss partnership opportunities."
+      );
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      alert(
+        "Sorry, there was an error submitting your inquiry. Please try again or contact us directly at info@mountpole.com"
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -321,11 +360,21 @@ function ContactForm() {
 
                     <Button
                       type="submit"
+                      disabled={isSubmitting}
                       className="w-full bg-purple-600 hover:bg-purple-700"
                       size="lg"
                     >
-                      <Send className="mr-2 h-5 w-5" />
-                      Submit Inquiry
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-2" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-5 w-5" />
+                          Submit Inquiry
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
