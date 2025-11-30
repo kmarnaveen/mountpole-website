@@ -1,37 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-
-// Define the path to the responses JSON file
-const RESPONSES_FILE = path.join(process.cwd(), "data", "form-responses.json");
-
-// Ensure data directory exists
-function ensureDataDirectory() {
-  const dataDir = path.dirname(RESPONSES_FILE);
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
-  }
-}
-
-// Read existing responses
-function readResponses(): FormResponse[] {
-  ensureDataDirectory();
-  if (!fs.existsSync(RESPONSES_FILE)) {
-    return [];
-  }
-  try {
-    const data = fs.readFileSync(RESPONSES_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-// Write responses to file
-function writeResponses(responses: FormResponse[]) {
-  ensureDataDirectory();
-  fs.writeFileSync(RESPONSES_FILE, JSON.stringify(responses, null, 2), "utf-8");
-}
 
 // Form response interface
 interface FormResponse {
@@ -49,6 +16,31 @@ interface FormResponse {
 // Generate unique ID
 function generateId(): string {
   return `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+}
+
+// Google Sheets Web App URL (optional - set in environment variable)
+const GOOGLE_SHEETS_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+// Send to Google Sheets if configured
+async function sendToGoogleSheets(data: Record<string, unknown>): Promise<boolean> {
+  if (!GOOGLE_SHEETS_URL) {
+    console.log("Google Sheets URL not configured, skipping...");
+    return true; // Return true so form submission still succeeds
+  }
+
+  try {
+    const response = await fetch(GOOGLE_SHEETS_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    return response.ok;
+  } catch (error) {
+    console.error("Error sending to Google Sheets:", error);
+    return false;
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -85,10 +77,16 @@ export async function POST(request: NextRequest) {
     delete response.data.referrer;
     delete response.data.timestamp;
 
-    // Read existing responses and add new one
-    const responses = readResponses();
-    responses.push(response);
-    writeResponses(responses);
+    // Log the submission (will appear in Netlify function logs)
+    console.log("Form submission received:", JSON.stringify(response, null, 2));
+
+    // Try to send to Google Sheets (optional)
+    await sendToGoogleSheets({
+      ...response.data,
+      formType: response.formType,
+      timestamp: response.timestamp,
+      id: response.id,
+    });
 
     return NextResponse.json({
       success: true,
@@ -105,18 +103,12 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-  try {
-    const responses = readResponses();
-    return NextResponse.json({
-      success: true,
-      count: responses.length,
-      responses,
-    });
-  } catch (error) {
-    console.error("Error reading form responses:", error);
-    return NextResponse.json(
-      { success: false, error: "Failed to read form responses" },
-      { status: 500 }
-    );
-  }
+  // In serverless environment, we can't read from filesystem
+  // Return empty array or implement database storage
+  return NextResponse.json({
+    success: true,
+    message: "Form responses are logged to Netlify function logs and Google Sheets (if configured)",
+    count: 0,
+    responses: [],
+  });
 }
