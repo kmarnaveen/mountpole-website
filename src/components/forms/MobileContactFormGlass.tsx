@@ -138,24 +138,24 @@ export default function MobileContactFormGlass({
     trackFormEvent("Mobile Contact", "submit_attempt", variant);
 
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbyTqO6ngsDYL0-hcN-Z0hAZUxeuCKYXYb2WNxXgLnpsS2r56r-Vxg1f8Y0jk7KSyGdk/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...formData,
-            formType: "Mobile Contact",
-            variant: variant,
-            timestamp: new Date().toISOString(),
-            userAgent: navigator.userAgent,
-            referrer: document.referrer,
-          }),
-        }
-      );
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          formType: "Mobile Contact",
+          variant: variant,
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          referrer: document.referrer,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
 
       // Reset form
       setFormData({

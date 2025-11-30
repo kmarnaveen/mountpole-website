@@ -50,9 +50,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The iPhone 16, powered by the A18 chip and built for Apple Intelligence. It features an advanced dual-camera system, the intuitive Action button, and a durable design with Ceramic Shield front.",
-      "images": [
-        "https://vsprod.vijaysales.com/media/catalog/product/2/3/232285-image.jpg?optimize=medium&fit=bounds&height=500&width=500"
-      ],
+      "images": ["/iphone-compare-iphone-17-202509.jpeg"],
       "specifications": {
         "display": "6.1-inch Super Retina XDR display",
         "chip": "A18 chip with 5-core GPU",
@@ -80,6 +78,385 @@
       ],
       "sku": "APL-IP16-256-IN",
       "tags": ["smartphone", "apple", "iphone-16", "ai", "5g"]
+    },
+    {
+      "id": "apple-iphone-air-256gb",
+      "name": "iPhone Air",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 1099.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The thinnest iPhone ever. iPhone Air features an ultra-slim design with aerospace-grade materials, the powerful A19 chip, and an advanced camera system in an impossibly thin form factor.",
+      "images": ["/iphone_air__bggsbnpxcdiq_large_2x.jpg"],
+      "specifications": {
+        "display": "6.6-inch Super Retina XDR OLED display",
+        "chip": "A19 chip with 6-core GPU",
+        "storage": "256GB",
+        "camera": "48MP Main camera with advanced computational photography",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 22 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "Ultra-thin design",
+        "Apple Intelligence",
+        "Dynamic Island",
+        "Face ID",
+        "Aerospace-grade titanium"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Starlight", "Midnight", "Blue"]
+        }
+      ],
+      "sku": "APL-IPAIR-256",
+      "tags": ["smartphone", "apple", "iphone-air", "ultra-thin", "5g"]
+    },
+    {
+      "id": "apple-iphone-16e-128gb",
+      "name": "iPhone 16e",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 599.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "iPhone 16e brings essential iPhone features at an accessible price. Powered by A18 chip with Apple Intelligence, featuring a stunning display and advanced camera capabilities.",
+      "images": ["/iphone-compare-iphone-16e-202509.jpeg"],
+      "specifications": {
+        "display": "6.1-inch Super Retina XDR display",
+        "chip": "A18 chip",
+        "storage": "128GB",
+        "camera": "48MP Main camera",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 26 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 6E, Bluetooth 5.3"
+      },
+      "features": [
+        "Apple Intelligence",
+        "Face ID",
+        "Dynamic Island",
+        "Action Button",
+        "Water resistant"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "storage": "128GB",
+          "colors": ["Black", "White", "Blue", "Pink"]
+        }
+      ],
+      "sku": "APL-IP16E-128",
+      "tags": ["smartphone", "apple", "iphone-16e", "budget", "5g"]
+    },
+    {
+      "id": "apple-iphone-17-pro-256gb",
+      "name": "iPhone 17 Pro",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 1199.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "iPhone 17 Pro features the most advanced pro camera system ever, the A19 Pro chip, and ProRes video recording. Built with grade 5 titanium for exceptional durability.",
+      "images": ["/prores__da2ay2urzh4y_large_2x.jpg"],
+      "specifications": {
+        "display": "6.3-inch Super Retina XDR ProMotion display, 120Hz",
+        "chip": "A19 Pro chip with 6-core GPU",
+        "storage": "256GB",
+        "camera": "Pro camera system: 48MP Main, 12MP Ultra Wide, 12MP 5x Telephoto",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 29 hours video playback",
+        "connectivity": "USB-C 3.2, 5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "ProRes video recording",
+        "Apple Intelligence Pro",
+        "Action Button",
+        "Always-On display",
+        "Titanium design"
+      ],
+      "inStock": true,
+      "stockQuantity": 8,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": [
+            "Natural Titanium",
+            "Blue Titanium",
+            "White Titanium",
+            "Black Titanium"
+          ]
+        }
+      ],
+      "sku": "APL-IP17P-256",
+      "tags": ["smartphone", "apple", "iphone-17-pro", "pro", "5g", "titanium"]
+    },
+    {
+      "id": "apple-iphone-17-256gb",
+      "name": "iPhone 17",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 999.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "iPhone 17 introduces the next generation of iPhone with A19 chip, advanced camera capabilities, and Apple Intelligence built-in for a smarter experience.",
+      "images": [
+        "/AWo7FWu7Li-srQAAZ0yJy-Apple-iPhone17-494741626-i-1-1200Wx1200H.avif"
+      ],
+      "specifications": {
+        "display": "6.1-inch Super Retina XDR display",
+        "chip": "A19 chip with 5-core GPU",
+        "storage": "256GB",
+        "camera": "Advanced dual-camera system: 48MP Main, 12MP Ultra Wide",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 28 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "Apple Intelligence",
+        "Action Button",
+        "Dynamic Island",
+        "Face ID",
+        "Ceramic Shield front"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Blue", "Pink", "Green", "Black", "White"]
+        }
+      ],
+      "sku": "APL-IP17-256",
+      "tags": ["smartphone", "apple", "iphone-17", "ai", "5g"]
+    },
+    {
+      "id": "apple-iphone-16-plus-256gb",
+      "name": "iPhone 16 Plus",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 999.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "iPhone 16 Plus features a larger 6.7-inch display, A18 chip, and all-day battery life. Perfect for those who want a bigger screen experience with Apple Intelligence.",
+      "images": [
+        "/CthE2hE8u1-__eN0xaRWu-Apple-iPhone-16-Plus-494423033-i-1-1200Wx1200H.avif"
+      ],
+      "specifications": {
+        "display": "6.7-inch Super Retina XDR display",
+        "chip": "A18 chip with 5-core GPU",
+        "storage": "256GB",
+        "camera": "Advanced dual-camera system: 48MP Main, 12MP Ultra Wide",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 30 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "Apple Intelligence",
+        "Action Button",
+        "Dynamic Island",
+        "Face ID",
+        "Larger display"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Blue", "Pink", "Green", "Black", "White"]
+        }
+      ],
+      "sku": "APL-IP16P-256",
+      "tags": [
+        "smartphone",
+        "apple",
+        "iphone-16-plus",
+        "ai",
+        "5g",
+        "large-display"
+      ]
+    },
+    {
+      "id": "apple-iphone-16-pro-max-256gb",
+      "name": "iPhone 16 Pro Max",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 1299.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "iPhone 16 Pro Max is the ultimate iPhone experience with the largest display, longest battery life, and most advanced pro camera system. Built with titanium for exceptional durability.",
+      "images": [
+        "/13jsdSUS4M-z7Kmze6BF3-Apple-iPhone16ProMax-494423070-i-1-1200Wx1200H.avif"
+      ],
+      "specifications": {
+        "display": "6.9-inch Super Retina XDR ProMotion display, 120Hz",
+        "chip": "A18 Pro chip with 6-core GPU",
+        "storage": "256GB",
+        "camera": "Pro camera system: 48MP Main, 48MP Ultra Wide, 12MP 5x Telephoto",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 33 hours video playback",
+        "connectivity": "USB-C 3.2, 5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "ProRes video recording",
+        "Apple Intelligence",
+        "Action Button",
+        "Always-On display",
+        "Titanium design"
+      ],
+      "inStock": true,
+      "stockQuantity": 6,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": [
+            "Natural Titanium",
+            "Desert Titanium",
+            "White Titanium",
+            "Black Titanium"
+          ]
+        }
+      ],
+      "sku": "APL-IP16PM-256",
+      "tags": [
+        "smartphone",
+        "apple",
+        "iphone-16-pro-max",
+        "pro",
+        "5g",
+        "titanium"
+      ]
+    },
+    {
+      "id": "apple-iphone-16-pro-256gb",
+      "name": "iPhone 16 Pro",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 1099.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "iPhone 16 Pro features the A18 Pro chip, pro camera system with 5x optical zoom, and titanium design. Capture stunning photos and videos with advanced computational photography.",
+      "images": [
+        "/y9HILY0TSI-r-1FqWy8ILQ-Apple-iPhone-16-Pro-494423043-i-1-1200Wx1200H.avif"
+      ],
+      "specifications": {
+        "display": "6.3-inch Super Retina XDR ProMotion display, 120Hz",
+        "chip": "A18 Pro chip with 6-core GPU",
+        "storage": "256GB",
+        "camera": "Pro camera system: 48MP Main, 48MP Ultra Wide, 12MP 5x Telephoto",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 27 hours video playback",
+        "connectivity": "USB-C 3.2, 5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "ProRes video recording",
+        "Apple Intelligence",
+        "Action Button",
+        "Always-On display",
+        "Titanium design"
+      ],
+      "inStock": true,
+      "stockQuantity": 8,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": [
+            "Natural Titanium",
+            "Desert Titanium",
+            "White Titanium",
+            "Black Titanium"
+          ]
+        }
+      ],
+      "sku": "APL-IP16PR-256",
+      "tags": ["smartphone", "apple", "iphone-16-pro", "pro", "5g", "titanium"]
+    },
+    {
+      "id": "apple-iphone-15-256gb",
+      "name": "iPhone 15",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 799.99,
+      "salePrice": 699.99,
+      "currency": "USD",
+      "description": "iPhone 15 features the Dynamic Island, 48MP camera, and A16 Bionic chip. With USB-C connectivity and a durable color-infused glass design.",
+      "images": [
+        "/31BBhr65GG-JreeHp-WVE-Apple-iPhone-15-256GB-Black-493839314-i-1-1200Wx1200H.avif"
+      ],
+      "specifications": {
+        "display": "6.1-inch Super Retina XDR display",
+        "chip": "A16 Bionic chip",
+        "storage": "256GB",
+        "camera": "Advanced dual-camera system: 48MP Main, 12MP Ultra Wide",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 26 hours video playback",
+        "connectivity": "USB-C, 5G, Wi-Fi 6, Bluetooth 5.3"
+      },
+      "features": [
+        "Dynamic Island",
+        "USB-C",
+        "Face ID",
+        "Ceramic Shield front",
+        "Water resistant"
+      ],
+      "inStock": true,
+      "stockQuantity": 20,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Black", "Blue", "Green", "Yellow", "Pink"]
+        }
+      ],
+      "sku": "APL-IP15-256",
+      "tags": ["smartphone", "apple", "iphone-15", "5g"]
+    },
+    {
+      "id": "apple-iphone-15-pro-256gb",
+      "name": "iPhone 15 Pro",
+      "category": "Smartphones",
+      "brand": "APPLE",
+      "price": 999.99,
+      "salePrice": 899.99,
+      "currency": "USD",
+      "description": "iPhone 15 Pro features the A17 Pro chip, titanium design, and the Action button. With a pro camera system and USB-C with USB 3 speeds.",
+      "images": [
+        "/uXrIoibRzW-4uvkVvrISv-Apple-iPhone15Pro-493839343-i-1-1200Wx1200H.avif"
+      ],
+      "specifications": {
+        "display": "6.1-inch Super Retina XDR ProMotion display, 120Hz",
+        "chip": "A17 Pro chip",
+        "storage": "256GB",
+        "camera": "Pro camera system: 48MP Main, 12MP Ultra Wide, 12MP 3x Telephoto",
+        "frontCamera": "12MP TrueDepth front camera",
+        "battery": "Up to 23 hours video playback",
+        "connectivity": "USB-C 3.2, 5G, Wi-Fi 6E, Bluetooth 5.3"
+      },
+      "features": [
+        "Action Button",
+        "Titanium design",
+        "Always-On display",
+        "ProRes video",
+        "USB 3 speeds"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": [
+            "Natural Titanium",
+            "Blue Titanium",
+            "White Titanium",
+            "Black Titanium"
+          ]
+        }
+      ],
+      "sku": "APL-IP15P-256",
+      "tags": ["smartphone", "apple", "iphone-15-pro", "pro", "5g", "titanium"]
     },
     {
       "id": "apple-iphone-cases-various",
@@ -121,9 +498,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Itel A70 is a budget-friendly smartphone that offers generous storage and a large display. It features a Dynamic Bar for notifications, a long-lasting battery, and expandable memory, making it a great value for everyday use.",
-      "images": [
-        "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQbjiLq_8Ey4hVGEHhaVec33ABqb75pqNdjWMA5U42smF_sSc7kjMkLG9qN6Y3fXWqRcNEcSpCX1ZR2rL4v7_RvDWps1oAmvg"
-      ],
+      "images": ["/itel-a70.jpg"],
       "specifications": {
         "display": "6.6-inch HD+ IPS LCD, 720x1612 pixels",
         "processor": "Unisoc T603 Octa-core",
@@ -204,9 +579,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The most powerful PlayStation ever built. Experience enhanced performance with upgraded GPU, AI-driven upscaling, and improved ray tracing for the ultimate gaming experience.",
-      "images": [
-        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ0J4QM1Ifw4WxSj1GM4lRGdFOokmqbQ15DgaWWjjCbMlf7_uKUwHaYUAl88QurZz5ug_nAkp8tYQpBa4YM9sWJIQdePI-SDg"
-      ],
+      "images": ["/ps5-pro.jpg"],
       "specifications": {
         "cpu": "AMD Zen 2-based CPU with 8 cores at 3.85GHz",
         "gpu": "AMD RDNA 3-based GPU with 16.7 TFLOPs",
@@ -253,9 +626,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The fastest, most powerful Xbox ever. Experience true 4K gaming at up to 120fps, with hardware-accelerated DirectX ray tracing and thousands of games across four generations.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/gamingconsole/0/g/3/1024-xbox-series-x-microsoft-yes-original-imah2mfhzskuvczc.jpeg?q=70&crop=false"
-      ],
+      "images": ["/xbox-series-x.jpg"],
       "specifications": {
         "cpu": "AMD Zen 2 8-core at 3.8GHz",
         "gpu": "AMD RDNA 2 with 12 TFLOPs",
@@ -294,9 +665,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The smallest, sleekest Xbox ever. Experience next-gen speed and performance with the all-digital Xbox Series S. Enjoy thousands of digital games with Xbox Game Pass.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/gamingconsole/k/j/o/512-xbox-series-s-rrs-00166-microsoft-wireless-controller-original-imagvr9wuj5pgxdz.jpeg?q=70&crop=false"
-      ],
+      "images": ["/xbox-series-s.jpg"],
       "specifications": {
         "cpu": "AMD Zen 2 8-core at 3.6GHz",
         "gpu": "AMD RDNA 2 with 4 TFLOPs",
@@ -335,9 +704,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Feel physically responsive feedback to your in-game actions with dual actuators which replace traditional rumble motors. Experience varying levels of force and tension with adaptive triggers.",
-      "images": [
-        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRSA5Mzm9PtzTIFeKD_yhnlfcaT75TIX1jC1HQxWAj2fumUCq9QajDYpzgbLAEC6htXR5uFw24Th7XiaQH18vfdP4fxpP2h4w"
-      ],
+      "images": ["/dualsense-controller.jpg"],
       "specifications": {
         "connectivity": "Wireless via Bluetooth, USB-C wired",
         "battery": "Built-in rechargeable battery (12+ hours)",
@@ -455,6 +822,120 @@
       "tags": ["earbuds", "google", "pixel", "wireless", "noise-cancelling"]
     },
     {
+      "id": "google-pixel-9-256gb",
+      "name": "Google Pixel 9",
+      "category": "Smartphones",
+      "brand": "GOOGLE",
+      "price": 799.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Google Pixel 9 with Gemini AI, 6.3-inch Actua display, and advanced AI-powered photography features for the smartest phone experience.",
+      "images": ["/pixel-9.avif"],
+      "specifications": {
+        "display": "6.3-inch Actua display, 120Hz",
+        "chip": "Google Tensor G4",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP main, 48MP ultrawide",
+        "frontCamera": "10.5MP front camera",
+        "battery": "4700mAh with 27W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "Gemini AI",
+        "Magic Eraser",
+        "Best Take",
+        "7 years updates",
+        "IP68"
+      ],
+      "inStock": true,
+      "stockQuantity": 18,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Obsidian", "Porcelain", "Wintergreen", "Peony"]
+        }
+      ],
+      "sku": "GOO-P9-256",
+      "tags": ["smartphone", "google", "pixel", "ai", "5g"]
+    },
+    {
+      "id": "google-pixel-9-pro-xl-256gb",
+      "name": "Google Pixel 9 Pro XL",
+      "category": "Smartphones",
+      "brand": "GOOGLE",
+      "price": 1099.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The largest Pixel with 6.8-inch Super Actua display, triple camera system with 5x telephoto, and the most advanced Gemini AI features.",
+      "images": ["/pixel-9-pro-xl.avif"],
+      "specifications": {
+        "display": "6.8-inch Super Actua display, 120Hz",
+        "chip": "Google Tensor G4",
+        "storage": "256GB",
+        "ram": "16GB",
+        "camera": "50MP main, 48MP ultrawide, 48MP 5x telephoto",
+        "frontCamera": "42MP front camera",
+        "battery": "5060mAh with 37W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "Gemini AI Pro",
+        "Magic Eraser",
+        "Video Boost",
+        "7 years updates",
+        "IP68"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Obsidian", "Porcelain", "Hazel", "Rose Quartz"]
+        }
+      ],
+      "sku": "GOO-P9PXL-256",
+      "tags": ["smartphone", "google", "pixel", "ai", "5g", "large-display"]
+    },
+    {
+      "id": "google-pixel-8a-128gb",
+      "name": "Google Pixel 8a",
+      "category": "Smartphones",
+      "brand": "GOOGLE",
+      "price": 499.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "The affordable Pixel with flagship AI features, 6.1-inch Actua display, and 7 years of updates at an incredible value.",
+      "images": ["/google-pixel-8a.jpg"],
+      "specifications": {
+        "display": "6.1-inch Actua display, 120Hz",
+        "chip": "Google Tensor G3",
+        "storage": "128GB",
+        "ram": "8GB",
+        "camera": "64MP main, 13MP ultrawide",
+        "frontCamera": "13MP front camera",
+        "battery": "4492mAh with 18W fast charging",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3"
+      },
+      "features": [
+        "Gemini AI",
+        "Magic Eraser",
+        "Best Take",
+        "7 years updates",
+        "IP67"
+      ],
+      "inStock": true,
+      "stockQuantity": 25,
+      "variants": [
+        {
+          "storage": "128GB",
+          "colors": ["Obsidian", "Porcelain", "Bay", "Aloe"]
+        }
+      ],
+      "sku": "GOO-P8A-128",
+      "tags": ["smartphone", "google", "pixel", "ai", "5g", "budget"]
+    },
+    {
       "id": "xiaomi-14-ultra-512gb",
       "name": "Xiaomi 14 Ultra",
       "category": "Smartphones",
@@ -531,6 +1012,150 @@
       "tags": ["earbuds", "xiaomi", "redmi", "wireless", "noise-cancelling"]
     },
     {
+      "id": "xiaomi-14-256gb",
+      "name": "Xiaomi 14",
+      "category": "Smartphones",
+      "brand": "XIAOMI",
+      "price": 899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Xiaomi 14 with Leica optics, Snapdragon 8 Gen 3, and compact flagship design with a stunning 6.36-inch LTPO AMOLED display.",
+      "images": ["/xiaomi-14.jpg"],
+      "specifications": {
+        "display": "6.36-inch LTPO AMOLED, 120Hz",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP Leica main, 50MP ultrawide, 50MP telephoto",
+        "frontCamera": "32MP",
+        "battery": "4610mAh, 90W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Leica optics",
+        "HyperOS",
+        "120W charging",
+        "IP68",
+        "Dolby Vision"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        { "storage": "256GB", "colors": ["Black", "White", "Green"] }
+      ],
+      "sku": "XIA-14-256",
+      "tags": ["smartphone", "xiaomi", "flagship", "leica", "5g"]
+    },
+    {
+      "id": "xiaomi-14t-pro-256gb",
+      "name": "Xiaomi 14T Pro",
+      "category": "Smartphones",
+      "brand": "XIAOMI",
+      "price": 749.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Xiaomi 14T Pro with MediaTek Dimensity 9300+, Leica camera system, and 120W HyperCharge for all-day flagship performance.",
+      "images": ["/xiaomi-14t-pro.jpg"],
+      "specifications": {
+        "display": "6.67-inch CrystalRes AMOLED, 144Hz",
+        "chip": "MediaTek Dimensity 9300+",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP Leica main, 12MP ultrawide, 50MP telephoto",
+        "frontCamera": "32MP",
+        "battery": "5000mAh, 120W HyperCharge",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Leica optics",
+        "AI features",
+        "120W fast charging",
+        "IP68",
+        "Dolby Vision"
+      ],
+      "inStock": true,
+      "stockQuantity": 18,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Titan Black", "Titan Gray", "Titan Blue"]
+        }
+      ],
+      "sku": "XIA-14TP-256",
+      "tags": ["smartphone", "xiaomi", "flagship", "leica", "5g"]
+    },
+    {
+      "id": "redmi-note-13-pro-plus-256gb",
+      "name": "Redmi Note 13 Pro+",
+      "category": "Smartphones",
+      "brand": "XIAOMI",
+      "price": 399.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Redmi Note 13 Pro+ with 200MP camera, 120W fast charging, and flagship-level features at a mid-range price.",
+      "images": ["/redmi-note-13-pro-plus.jpg"],
+      "specifications": {
+        "display": "6.67-inch AMOLED, 120Hz",
+        "chip": "MediaTek Dimensity 7200 Ultra",
+        "storage": "256GB",
+        "ram": "8GB",
+        "camera": "200MP main, 8MP ultrawide, 2MP macro",
+        "frontCamera": "16MP",
+        "battery": "5000mAh, 120W fast charging",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3"
+      },
+      "features": [
+        "200MP camera",
+        "120W charging",
+        "IP68",
+        "Gorilla Glass",
+        "Stereo speakers"
+      ],
+      "inStock": true,
+      "stockQuantity": 30,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Midnight Black", "Ice Blue", "Aurora Purple"]
+        }
+      ],
+      "sku": "XIA-RN13PP-256",
+      "tags": ["smartphone", "xiaomi", "redmi", "midrange", "5g", "200mp"]
+    },
+    {
+      "id": "poco-f6-pro-256gb",
+      "name": "POCO F6 Pro",
+      "category": "Smartphones",
+      "brand": "XIAOMI",
+      "price": 549.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "POCO F6 Pro with Snapdragon 8 Gen 2, flagship performance at an aggressive price point with 120W charging.",
+      "images": ["/poco-f6-pro.jpg"],
+      "specifications": {
+        "display": "6.67-inch AMOLED, 120Hz, 4000 nits",
+        "chip": "Snapdragon 8 Gen 2",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP main, 8MP ultrawide, 2MP macro",
+        "frontCamera": "16MP",
+        "battery": "5000mAh, 120W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "LiquidCool 4.0",
+        "120W charging",
+        "Gorilla Glass Victus",
+        "Stereo speakers",
+        "IR blaster"
+      ],
+      "inStock": true,
+      "stockQuantity": 20,
+      "variants": [{ "storage": "256GB", "colors": ["Black", "White"] }],
+      "sku": "POCO-F6P-256",
+      "tags": ["smartphone", "xiaomi", "poco", "flagship-killer", "5g"]
+    },
+    {
       "id": "motorola-edge-50-ultra",
       "name": "Motorola Edge 50 Ultra",
       "category": "Smartphones",
@@ -539,9 +1164,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Motorola Edge 50 Ultra with premium design, 50MP periscope telephoto camera, and pure Android experience with Moto enhancements.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/o/j/n/-original-imahfyjb3b7dhpzn.jpeg?q=70&crop=false"
-      ],
+      "images": ["/motorola-edge-50-ultra.jpg"],
       "specifications": {
         "display": "6.7-inch pOLED curved display, 144Hz",
         "chip": "Snapdragon 8s Gen 3",
@@ -579,9 +1202,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The most advanced Razr yet with a larger external display, premium materials, and the iconic flip design reinvented for 2024.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/u/o/s/-original-imahggess64y5xhy.jpeg?q=70&crop=false"
-      ],
+      "images": ["/motorola-razr-50-ultra.jpg"],
       "specifications": {
         "display": "6.9-inch pOLED main + 4.0-inch external pOLED",
         "chip": "Snapdragon 8s Gen 3",
@@ -611,6 +1232,121 @@
       "tags": ["smartphone", "motorola", "razr", "foldable", "flip", "5g"]
     },
     {
+      "id": "motorola-edge-50-pro-256gb",
+      "name": "Motorola Edge 50 Pro",
+      "category": "Smartphones",
+      "brand": "MOTOROLA",
+      "price": 699.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Motorola Edge 50 Pro with stunning curved pOLED display, 125W TurboPower charging, and flagship camera system.",
+      "images": ["/motorola-edge-50-pro.jpg"],
+      "specifications": {
+        "display": "6.7-inch pOLED curved, 144Hz",
+        "chip": "Snapdragon 7 Gen 3",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP main, 13MP ultrawide, 10MP telephoto",
+        "frontCamera": "50MP",
+        "battery": "4500mAh, 125W TurboPower",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.4"
+      },
+      "features": [
+        "Pure Android",
+        "125W charging",
+        "IP68",
+        "Ready For",
+        "Moto AI"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Black Beauty", "Luxe Lavender", "Moonlight Pearl"]
+        }
+      ],
+      "sku": "MOT-E50P-256",
+      "tags": ["smartphone", "motorola", "edge", "5g"]
+    },
+    {
+      "id": "motorola-edge-50-fusion-256gb",
+      "name": "Motorola Edge 50 Fusion",
+      "category": "Smartphones",
+      "brand": "MOTOROLA",
+      "price": 399.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Motorola Edge 50 Fusion with sleek design, 144Hz pOLED display, and 68W fast charging at an accessible price.",
+      "images": ["/motorola-edge-50-fusion.jpg"],
+      "specifications": {
+        "display": "6.7-inch pOLED, 144Hz",
+        "chip": "Snapdragon 7s Gen 2",
+        "storage": "256GB",
+        "ram": "8GB",
+        "camera": "50MP main, 13MP ultrawide",
+        "frontCamera": "32MP",
+        "battery": "5000mAh, 68W charging",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2"
+      },
+      "features": [
+        "Pure Android",
+        "68W charging",
+        "IP68",
+        "Moto gestures",
+        "Stereo speakers"
+      ],
+      "inStock": true,
+      "stockQuantity": 22,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Hot Pink", "Forest Blue", "Marshmallow Blue"]
+        }
+      ],
+      "sku": "MOT-E50F-256",
+      "tags": ["smartphone", "motorola", "edge", "midrange", "5g"]
+    },
+    {
+      "id": "motorola-razr-50-256gb",
+      "name": "Motorola Razr 50",
+      "category": "Smartphones",
+      "brand": "MOTOROLA",
+      "price": 799.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Motorola Razr 50 flip phone with large external display, compact folding design, and flagship features at a great price.",
+      "images": ["/motorola-razr-50.jpg"],
+      "specifications": {
+        "display": "6.9-inch foldable pOLED, 165Hz",
+        "coverDisplay": "3.6-inch pOLED",
+        "chip": "MediaTek Dimensity 7300X",
+        "storage": "256GB",
+        "ram": "8GB",
+        "camera": "50MP main, 13MP ultrawide",
+        "frontCamera": "32MP",
+        "battery": "4200mAh, 30W charging",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.4"
+      },
+      "features": [
+        "Flip design",
+        "Large cover display",
+        "IPX8",
+        "Moto AI",
+        "Flex View"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Beach Sand", "Spritz Orange", "Koala Grey"]
+        }
+      ],
+      "sku": "MOT-R50-256",
+      "tags": ["smartphone", "motorola", "razr", "foldable", "flip", "5g"]
+    },
+    {
       "id": "realme-gt-6-256gb",
       "name": "Realme GT 6",
       "category": "Smartphones",
@@ -619,9 +1355,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Realme GT 6 with flagship performance, 120W SuperVOOC charging, and AI-enhanced photography for the ultimate gaming and photography experience.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/m/1/7/gt-6-rmx3851-realme-original-imah2y7ewhzjpfhd.jpeg?q=70&crop=false"
-      ],
+      "images": ["/realme-gt-6.jpg"],
       "specifications": {
         "display": "6.78-inch LTPO AMOLED, 120Hz, 6000 nits peak",
         "chip": "Snapdragon 8s Gen 3",
@@ -700,6 +1434,111 @@
       ]
     },
     {
+      "id": "realme-gt-5-pro-256gb",
+      "name": "Realme GT 5 Pro",
+      "category": "Smartphones",
+      "brand": "REALME",
+      "price": 549.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Realme GT 5 Pro with Snapdragon 8 Gen 3, Sony IMX890 sensor, and 100W SuperVOOC fast charging.",
+      "images": ["/realme-gt-5-pro.jpg"],
+      "specifications": {
+        "display": "6.78-inch AMOLED, 144Hz, 4500 nits",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP Sony main, 8MP ultrawide, 50MP telephoto",
+        "frontCamera": "16MP",
+        "battery": "5400mAh, 100W SuperVOOC",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Snapdragon 8 Gen 3",
+        "100W charging",
+        "IP64",
+        "AI features",
+        "Gaming mode"
+      ],
+      "inStock": true,
+      "stockQuantity": 18,
+      "variants": [
+        { "storage": "256GB", "colors": ["Rock Grey", "Moon White"] }
+      ],
+      "sku": "RLM-GT5P-256",
+      "tags": ["smartphone", "realme", "flagship", "gaming", "5g"]
+    },
+    {
+      "id": "realme-12-pro-plus-256gb",
+      "name": "Realme 12 Pro+",
+      "category": "Smartphones",
+      "brand": "REALME",
+      "price": 399.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Realme 12 Pro+ with periscope telephoto camera, luxury watch design, and flagship camera features.",
+      "images": ["/realme-12-pro-plus.jpg"],
+      "specifications": {
+        "display": "6.7-inch AMOLED, 120Hz",
+        "chip": "Snapdragon 7s Gen 2",
+        "storage": "256GB",
+        "ram": "8GB",
+        "camera": "50MP Sony main, 8MP ultrawide, 64MP periscope",
+        "frontCamera": "32MP",
+        "battery": "5000mAh, 67W charging",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2"
+      },
+      "features": [
+        "Periscope camera",
+        "Luxury design",
+        "67W charging",
+        "Stereo speakers",
+        "AI features"
+      ],
+      "inStock": true,
+      "stockQuantity": 25,
+      "variants": [
+        { "storage": "256GB", "colors": ["Submarine Blue", "Navigator Beige"] }
+      ],
+      "sku": "RLM-12PP-256",
+      "tags": ["smartphone", "realme", "camera", "midrange", "5g"]
+    },
+    {
+      "id": "realme-narzo-70-pro-128gb",
+      "name": "Realme Narzo 70 Pro",
+      "category": "Smartphones",
+      "brand": "REALME",
+      "price": 249.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Realme Narzo 70 Pro with 120Hz display, MediaTek Dimensity 7050, and 67W fast charging for budget gaming.",
+      "images": ["/realme-narzopro-70.jpg"],
+      "specifications": {
+        "display": "6.7-inch AMOLED, 120Hz",
+        "chip": "MediaTek Dimensity 7050",
+        "storage": "128GB",
+        "ram": "8GB",
+        "camera": "50MP Sony main, 2MP depth",
+        "frontCamera": "16MP",
+        "battery": "5000mAh, 67W charging",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3"
+      },
+      "features": [
+        "Gaming chipset",
+        "67W charging",
+        "90fps gaming",
+        "Stereo speakers",
+        "AI features"
+      ],
+      "inStock": true,
+      "stockQuantity": 35,
+      "variants": [
+        { "storage": "128GB", "colors": ["Glass Green", "Glass Black"] }
+      ],
+      "sku": "RLM-N70P-128",
+      "tags": ["smartphone", "realme", "narzo", "budget", "gaming", "5g"]
+    },
+    {
       "id": "jbl-charge-6",
       "name": "JBL Charge 6",
       "category": "Audio",
@@ -776,6 +1615,262 @@
         "noise-cancelling",
         "spatial-sound"
       ]
+    },
+    {
+      "id": "oneplus-13-256gb",
+      "name": "OnePlus 13",
+      "category": "Smartphones",
+      "brand": "ONEPLUS",
+      "price": 899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "OnePlus 13 with Snapdragon 8 Elite, Hasselblad camera system, and 100W SUPERVOOC charging for flagship performance.",
+      "images": ["/oneplus-13.jpg"],
+      "specifications": {
+        "display": "6.82-inch LTPO AMOLED, 120Hz, 4500 nits",
+        "chip": "Snapdragon 8 Elite",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP Hasselblad main, 50MP ultrawide, 50MP telephoto",
+        "frontCamera": "32MP",
+        "battery": "6000mAh, 100W SUPERVOOC",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Hasselblad camera",
+        "100W charging",
+        "IP68/IP69",
+        "OxygenOS 15",
+        "Alert Slider"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Midnight Ocean", "Black Eclipse", "Arctic Dawn"]
+        }
+      ],
+      "sku": "OP-13-256",
+      "tags": ["smartphone", "oneplus", "flagship", "hasselblad", "5g"]
+    },
+    {
+      "id": "oneplus-12-256gb",
+      "name": "OnePlus 12",
+      "category": "Smartphones",
+      "brand": "ONEPLUS",
+      "price": 799.99,
+      "salePrice": 699.99,
+      "currency": "USD",
+      "description": "OnePlus 12 with Snapdragon 8 Gen 3, 4th Gen Hasselblad camera, and 5400mAh battery with 100W charging.",
+      "images": ["/oneplus-12.jpg"],
+      "specifications": {
+        "display": "6.82-inch LTPO AMOLED, 120Hz, 4500 nits",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP Hasselblad main, 64MP periscope, 48MP ultrawide",
+        "frontCamera": "32MP",
+        "battery": "5400mAh, 100W SUPERVOOC",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Hasselblad camera",
+        "100W charging",
+        "IP65",
+        "OxygenOS 14",
+        "Alert Slider"
+      ],
+      "inStock": true,
+      "stockQuantity": 20,
+      "variants": [
+        { "storage": "256GB", "colors": ["Flowy Emerald", "Silky Black"] }
+      ],
+      "sku": "OP-12-256",
+      "tags": ["smartphone", "oneplus", "flagship", "hasselblad", "5g"]
+    },
+    {
+      "id": "oneplus-12r-256gb",
+      "name": "OnePlus 12R",
+      "category": "Smartphones",
+      "brand": "ONEPLUS",
+      "price": 499.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "OnePlus 12R with Snapdragon 8 Gen 2, flagship performance at an incredible price with 100W charging.",
+      "images": ["/oneplus-12r.jpg"],
+      "specifications": {
+        "display": "6.78-inch LTPO AMOLED, 120Hz",
+        "chip": "Snapdragon 8 Gen 2",
+        "storage": "256GB",
+        "ram": "16GB",
+        "camera": "50MP Sony main, 8MP ultrawide, 2MP macro",
+        "frontCamera": "16MP",
+        "battery": "5500mAh, 100W SUPERVOOC",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "100W charging",
+        "Gaming chipset",
+        "IP64",
+        "OxygenOS 14",
+        "Stereo speakers"
+      ],
+      "inStock": true,
+      "stockQuantity": 25,
+      "variants": [
+        { "storage": "256GB", "colors": ["Iron Gray", "Cool Blue"] }
+      ],
+      "sku": "OP-12R-256",
+      "tags": ["smartphone", "oneplus", "value-flagship", "gaming", "5g"]
+    },
+    {
+      "id": "oneplus-nord-4-256gb",
+      "name": "OnePlus Nord 4",
+      "category": "Smartphones",
+      "brand": "ONEPLUS",
+      "price": 399.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "OnePlus Nord 4 with all-metal unibody design, Snapdragon 7+ Gen 3, and flagship-level 50MP camera.",
+      "images": [
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/m/h/c/-original-imah2wz9akfkqxnz.jpeg?q=70&crop=false"
+      ],
+      "specifications": {
+        "display": "6.74-inch AMOLED, 120Hz",
+        "chip": "Snapdragon 7+ Gen 3",
+        "storage": "256GB",
+        "ram": "8GB",
+        "camera": "50MP Sony main, 8MP ultrawide",
+        "frontCamera": "16MP",
+        "battery": "5500mAh, 100W SUPERVOOC",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.4"
+      },
+      "features": [
+        "Metal unibody",
+        "100W charging",
+        "4 years updates",
+        "OxygenOS 14",
+        "Stereo speakers"
+      ],
+      "inStock": true,
+      "stockQuantity": 30,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Mercurial Silver", "Obsidian Midnight", "Oasis Green"]
+        }
+      ],
+      "sku": "OP-N4-256",
+      "tags": ["smartphone", "oneplus", "nord", "midrange", "5g"]
+    },
+    {
+      "id": "vivo-x100-pro-256gb",
+      "name": "Vivo X100 Pro",
+      "category": "Smartphones",
+      "brand": "VIVO",
+      "price": 999.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Vivo X100 Pro with Zeiss optics, Dimensity 9300, and professional-grade 100MP periscope telephoto camera.",
+      "images": ["/vivo-x100-pro.jpg"],
+      "specifications": {
+        "display": "6.78-inch LTPO AMOLED, 120Hz",
+        "chip": "MediaTek Dimensity 9300",
+        "storage": "256GB",
+        "ram": "16GB",
+        "camera": "50MP Zeiss main, 50MP ultrawide, 100MP periscope",
+        "frontCamera": "32MP",
+        "battery": "5400mAh, 100W charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Zeiss optics",
+        "100MP periscope",
+        "V3 imaging chip",
+        "IP68",
+        "Funtouch OS"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        { "storage": "256GB", "colors": ["Asteroid Black", "Stardust Blue"] }
+      ],
+      "sku": "VIV-X100P-256",
+      "tags": ["smartphone", "vivo", "flagship", "zeiss", "camera", "5g"]
+    },
+    {
+      "id": "vivo-v30-pro-256gb",
+      "name": "Vivo V30 Pro",
+      "category": "Smartphones",
+      "brand": "VIVO",
+      "price": 549.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Vivo V30 Pro with Zeiss portrait camera, 3D curved display, and aura light for stunning portrait photography.",
+      "images": ["/vivo-v30-pro.jpg"],
+      "specifications": {
+        "display": "6.78-inch 3D AMOLED curved, 120Hz",
+        "chip": "MediaTek Dimensity 8200",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP Zeiss main, 50MP portrait, 8MP ultrawide",
+        "frontCamera": "50MP",
+        "battery": "5000mAh, 80W charging",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3"
+      },
+      "features": [
+        "Zeiss portraits",
+        "Aura light",
+        "3D curved display",
+        "IP54",
+        "Funtouch OS"
+      ],
+      "inStock": true,
+      "stockQuantity": 18,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Peacock Green", "Himalayan Brown", "Royal Bronze"]
+        }
+      ],
+      "sku": "VIV-V30P-256",
+      "tags": ["smartphone", "vivo", "portrait", "zeiss", "5g"]
+    },
+    {
+      "id": "iqoo-12-256gb",
+      "name": "iQOO 12",
+      "category": "Smartphones",
+      "brand": "VIVO",
+      "price": 599.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "iQOO 12 with Snapdragon 8 Gen 3, 144Hz gaming display, and 120W FlashCharge for ultimate gaming performance.",
+      "images": [
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/u/n/c/-original-imagvh7xpf9tbfeg.jpeg?q=70&crop=false"
+      ],
+      "specifications": {
+        "display": "6.78-inch LTPO AMOLED, 144Hz, 3000 nits",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP main, 64MP telephoto, 8MP ultrawide",
+        "frontCamera": "16MP",
+        "battery": "5000mAh, 120W FlashCharge",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Gaming chipset",
+        "120W charging",
+        "Vapor cooling",
+        "144Hz display",
+        "Stereo speakers"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [{ "storage": "256GB", "colors": ["Legend", "Alpha"] }],
+      "sku": "IQOO-12-256",
+      "tags": ["smartphone", "iqoo", "vivo", "gaming", "flagship", "5g"]
     },
     {
       "id": "huawei-mate-60-pro-512gb",
@@ -869,7 +1964,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Honor Magic 6 Pro with revolutionary Eye Comfort Display, Snapdragon 8 Gen 3 performance, and AI-enhanced photography system.",
-      "images": ["https://m.media-amazon.com/images/I/71+ztCd0AoL._SX679_.jpg"],
+      "images": ["/honor-magic-6-pro.jpg"],
       "specifications": {
         "display": "6.8-inch LTPO OLED curved display, 120Hz, 5000 nits peak",
         "chip": "Snapdragon 8 Gen 3",
@@ -907,7 +2002,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "Affordable wireless earbuds with impressive battery life, clear sound quality, and comfortable fit for all-day listening.",
-      "images": ["https://m.media-amazon.com/images/I/618ZYSJGL7L._SY425_.jpg"],
+      "images": ["/honor-earbuds-x6.jpg"],
       "specifications": {
         "driver": "12mm dynamic drivers",
         "battery": "9 hours + 40 hours with case",
@@ -931,6 +2026,258 @@
       ],
       "sku": "HON-EX6-GLB",
       "tags": ["earbuds", "honor", "wireless", "budget", "long-battery"]
+    },
+    {
+      "id": "huawei-pura-70-ultra-256gb",
+      "name": "Huawei Pura 70 Ultra",
+      "category": "Smartphones",
+      "brand": "HUAWEI",
+      "price": 1299.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Huawei Pura 70 Ultra with revolutionary retractable XMAGE camera, Kirin 9010 processor, and stunning curved display.",
+      "images": ["/huawei-pro-70-ultra.jpg"],
+      "specifications": {
+        "display": "6.8-inch LTPO OLED, 120Hz",
+        "chip": "Kirin 9010",
+        "storage": "256GB",
+        "ram": "16GB",
+        "camera": "50MP retractable main, 40MP ultrawide, 50MP periscope",
+        "frontCamera": "13MP",
+        "battery": "5200mAh, 100W wired + 80W wireless",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.2"
+      },
+      "features": [
+        "Retractable camera",
+        "XMAGE imaging",
+        "100W charging",
+        "IP68",
+        "HarmonyOS 4"
+      ],
+      "inStock": true,
+      "stockQuantity": 8,
+      "variants": [
+        { "storage": "256GB", "colors": ["Black", "White", "Green"] }
+      ],
+      "sku": "HUA-P70U-256",
+      "tags": ["smartphone", "huawei", "pura", "flagship", "camera", "5g"]
+    },
+    {
+      "id": "huawei-pura-70-pro-256gb",
+      "name": "Huawei Pura 70 Pro",
+      "category": "Smartphones",
+      "brand": "HUAWEI",
+      "price": 999.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Huawei Pura 70 Pro with XMAGE camera technology, triple Leica lenses, and HarmonyOS 4.0 experience.",
+      "images": [
+        "https://www.etoren.com/upload/images/0.82251800_1718099685_huawei-pura-70-pro-dual-sim-512gb-blue-12gb-ram-china-version.jpg"
+      ],
+      "specifications": {
+        "display": "6.8-inch LTPO OLED, 120Hz",
+        "chip": "Kirin 9010",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP main, 40MP ultrawide, 48MP telephoto",
+        "frontCamera": "13MP",
+        "battery": "5050mAh, 100W charging",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.2"
+      },
+      "features": [
+        "XMAGE camera",
+        "100W charging",
+        "IP68",
+        "HarmonyOS 4",
+        "Satellite messaging"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        { "storage": "256GB", "colors": ["Blue", "Black", "White", "Green"] }
+      ],
+      "sku": "HUA-P70P-256",
+      "tags": ["smartphone", "huawei", "pura", "flagship", "camera", "5g"]
+    },
+    {
+      "id": "huawei-nova-12-ultra-256gb",
+      "name": "Huawei Nova 12 Ultra",
+      "category": "Smartphones",
+      "brand": "HUAWEI",
+      "price": 599.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Huawei Nova 12 Ultra with stunning selfie camera, physical variable aperture, and 100W SuperCharge.",
+      "images": ["/huawei-nova-12-ultra.jpg"],
+      "specifications": {
+        "display": "6.7-inch OLED curved, 120Hz",
+        "chip": "Kirin 9000SL",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP variable aperture, 8MP ultrawide, 60MP telephoto",
+        "frontCamera": "60MP",
+        "battery": "4600mAh, 100W SuperCharge",
+        "connectivity": "4G LTE, Wi-Fi 6, Bluetooth 5.2"
+      },
+      "features": [
+        "60MP selfie camera",
+        "Variable aperture",
+        "100W charging",
+        "Stylish design",
+        "HarmonyOS"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        { "storage": "256GB", "colors": ["Black", "White", "Green"] }
+      ],
+      "sku": "HUA-N12U-256",
+      "tags": ["smartphone", "huawei", "nova", "selfie", "camera"]
+    },
+    {
+      "id": "honor-magic-v3-512gb",
+      "name": "Honor Magic V3",
+      "category": "Smartphones",
+      "brand": "HONOR",
+      "price": 1799.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Honor Magic V3, the world's thinnest foldable phone at just 9.2mm, with Snapdragon 8 Gen 3 and stunning dual displays.",
+      "images": ["/honor-magic-v3.jpg"],
+      "specifications": {
+        "display": "7.92-inch foldable LTPO OLED, 120Hz",
+        "coverDisplay": "6.43-inch LTPO OLED, 120Hz",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "512GB",
+        "ram": "16GB",
+        "camera": "50MP main, 40MP ultrawide, 50MP periscope",
+        "frontCamera": "20MP",
+        "battery": "5150mAh, 66W charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "9.2mm thin",
+        "Falcon wing hinge",
+        "AI features",
+        "IPX8",
+        "MagicOS"
+      ],
+      "inStock": true,
+      "stockQuantity": 6,
+      "variants": [{ "storage": "512GB", "colors": ["Black", "Green", "Red"] }],
+      "sku": "HON-MV3-512",
+      "tags": ["smartphone", "honor", "foldable", "flagship", "5g"]
+    },
+    {
+      "id": "honor-200-pro-512gb",
+      "name": "Honor 200 Pro",
+      "category": "Smartphones",
+      "brand": "HONOR",
+      "price": 749.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Honor 200 Pro with Studio Harcourt portrait camera, Snapdragon 8s Gen 3, and stunning quad-curved display.",
+      "images": ["/honor-200-pro.jpg"],
+      "specifications": {
+        "display": "6.78-inch AMOLED curved, 120Hz",
+        "chip": "Snapdragon 8s Gen 3",
+        "storage": "512GB",
+        "ram": "12GB",
+        "camera": "50MP main, 50MP telephoto, 12MP ultrawide",
+        "frontCamera": "50MP",
+        "battery": "5200mAh, 100W charging",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3"
+      },
+      "features": [
+        "Studio Harcourt portraits",
+        "100W charging",
+        "AI features",
+        "Dual curved display",
+        "MagicOS"
+      ],
+      "inStock": true,
+      "stockQuantity": 14,
+      "variants": [
+        {
+          "storage": "512GB",
+          "colors": ["Moonlight White", "Ocean Cyan", "Black"]
+        }
+      ],
+      "sku": "HON-200P-512",
+      "tags": ["smartphone", "honor", "camera", "portrait", "5g"]
+    },
+    {
+      "id": "honor-magic-6-256gb",
+      "name": "Honor Magic 6",
+      "category": "Smartphones",
+      "brand": "HONOR",
+      "price": 899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Honor Magic 6 with flagship Snapdragon 8 Gen 3, silicon-carbon battery, and AI-powered MagicOS.",
+      "images": ["/honor-magic-6.jpg"],
+      "specifications": {
+        "display": "6.78-inch LTPO OLED, 120Hz",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP main, 50MP ultrawide, 50MP telephoto",
+        "frontCamera": "50MP",
+        "battery": "5600mAh silicon-carbon, 80W charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3"
+      },
+      "features": [
+        "Silicon-carbon battery",
+        "AI features",
+        "Eye protection display",
+        "IP68",
+        "MagicOS"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        { "storage": "256GB", "colors": ["Black", "Green", "Purple"] }
+      ],
+      "sku": "HON-M6-256",
+      "tags": ["smartphone", "honor", "flagship", "ai", "5g"]
+    },
+    {
+      "id": "honor-90-256gb",
+      "name": "Honor 90",
+      "category": "Smartphones",
+      "brand": "HONOR",
+      "price": 449.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Honor 90 with 200MP main camera, eye-comfort display, and sleek quad-curved design at a great price.",
+      "images": ["/honor-90.jpg"],
+      "specifications": {
+        "display": "6.7-inch AMOLED curved, 120Hz",
+        "chip": "Snapdragon 7 Gen 1",
+        "storage": "256GB",
+        "ram": "8GB",
+        "camera": "200MP main, 12MP ultrawide, 2MP macro",
+        "frontCamera": "50MP",
+        "battery": "5000mAh, 66W charging",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2"
+      },
+      "features": [
+        "200MP camera",
+        "66W charging",
+        "Eye-comfort display",
+        "Quad-curved design",
+        "MagicOS"
+      ],
+      "inStock": true,
+      "stockQuantity": 20,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Diamond Silver", "Emerald Green", "Midnight Black"]
+        }
+      ],
+      "sku": "HON-90-256",
+      "tags": ["smartphone", "honor", "200mp", "midrange", "5g"]
     },
     {
       "id": "samsung-galaxy-a06",
@@ -981,6 +2328,275 @@
       ]
     },
     {
+      "id": "samsung-galaxy-s24-256gb",
+      "name": "Galaxy S24",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 799.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Samsung Galaxy S24 features Galaxy AI, a stunning 6.2-inch Dynamic AMOLED display, and the powerful Snapdragon 8 Gen 3 processor for exceptional performance.",
+      "images": ["/s-24.avif"],
+      "specifications": {
+        "display": "6.2-inch Dynamic AMOLED 2X, 120Hz",
+        "chip": "Snapdragon 8 Gen 3",
+        "storage": "256GB",
+        "ram": "8GB",
+        "camera": "50MP Main, 12MP Ultra Wide, 10MP 3x Telephoto",
+        "frontCamera": "12MP",
+        "battery": "4000mAh, 25W fast charging",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3"
+      },
+      "features": [
+        "Galaxy AI",
+        "Circle to Search",
+        "Live Translate",
+        "IP68 water resistance",
+        "Gorilla Glass Victus 2"
+      ],
+      "inStock": true,
+      "stockQuantity": 15,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": [
+            "Onyx Black",
+            "Marble Gray",
+            "Cobalt Violet",
+            "Amber Yellow"
+          ]
+        }
+      ],
+      "sku": "SAM-GS24-256",
+      "tags": ["smartphone", "samsung", "galaxy-s24", "ai", "5g", "flagship"]
+    },
+    {
+      "id": "samsung-galaxy-s24-ultra-256gb",
+      "name": "Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1299.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Galaxy S24 Ultra is the ultimate Android smartphone with Galaxy AI, a built-in S Pen, titanium frame, and the most advanced camera system for pro-level photography.",
+      "images": ["/s-24-ultra.avif"],
+      "specifications": {
+        "display": "6.8-inch Dynamic AMOLED 2X, 120Hz, 2600 nits",
+        "chip": "Snapdragon 8 Gen 3 for Galaxy",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "200MP Main, 12MP Ultra Wide, 50MP 5x Telephoto, 10MP 3x Telephoto",
+        "frontCamera": "12MP",
+        "battery": "5000mAh, 45W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3, UWB"
+      },
+      "features": [
+        "Galaxy AI",
+        "Built-in S Pen",
+        "Titanium frame",
+        "Circle to Search",
+        "ProVisual Engine"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": [
+            "Titanium Black",
+            "Titanium Gray",
+            "Titanium Violet",
+            "Titanium Yellow"
+          ]
+        }
+      ],
+      "sku": "SAM-GS24U-256",
+      "tags": [
+        "smartphone",
+        "samsung",
+        "galaxy-s24-ultra",
+        "ai",
+        "5g",
+        "flagship",
+        "s-pen"
+      ]
+    },
+    {
+      "id": "samsung-galaxy-s25-256gb",
+      "name": "Galaxy S25",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 849.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Samsung Galaxy S25 features next-gen Galaxy AI, Snapdragon 8 Elite processor, and a refined design with enhanced camera capabilities for 2025.",
+      "images": ["/s-25.avif"],
+      "specifications": {
+        "display": "6.2-inch Dynamic AMOLED 2X, 120Hz",
+        "chip": "Snapdragon 8 Elite",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP Main, 12MP Ultra Wide, 10MP 3x Telephoto",
+        "frontCamera": "12MP",
+        "battery": "4000mAh, 45W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Galaxy AI 2.0",
+        "One UI 7",
+        "Circle to Search",
+        "Live Translate",
+        "IP68 water resistance"
+      ],
+      "inStock": true,
+      "stockQuantity": 12,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Navy", "Icy Blue", "Mint", "Silver Shadow"]
+        }
+      ],
+      "sku": "SAM-GS25-256",
+      "tags": ["smartphone", "samsung", "galaxy-s25", "ai", "5g", "flagship"]
+    },
+    {
+      "id": "samsung-galaxy-s25-ultra-256gb",
+      "name": "Galaxy S25 Ultra",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1349.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Galaxy S25 Ultra is Samsung's most powerful smartphone with the Snapdragon 8 Elite chip, advanced Galaxy AI, titanium build, and a revolutionary 200MP camera system.",
+      "images": ["/s-25-ultra.avif"],
+      "specifications": {
+        "display": "6.9-inch Dynamic AMOLED 2X, 120Hz, 3000 nits",
+        "chip": "Snapdragon 8 Elite for Galaxy",
+        "storage": "256GB",
+        "ram": "16GB",
+        "camera": "200MP Main, 50MP Ultra Wide, 50MP 5x Telephoto, 10MP 3x Telephoto",
+        "frontCamera": "12MP",
+        "battery": "5000mAh, 65W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4, UWB, Satellite"
+      },
+      "features": [
+        "Galaxy AI 2.0",
+        "Built-in S Pen",
+        "Titanium frame",
+        "ProVisual Engine 2.0",
+        "Satellite connectivity"
+      ],
+      "inStock": true,
+      "stockQuantity": 8,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": [
+            "Titanium Black",
+            "Titanium Gray",
+            "Titanium Silverblue",
+            "Titanium Whitesilver"
+          ]
+        }
+      ],
+      "sku": "SAM-GS25U-256",
+      "tags": [
+        "smartphone",
+        "samsung",
+        "galaxy-s25-ultra",
+        "ai",
+        "5g",
+        "flagship",
+        "s-pen"
+      ]
+    },
+    {
+      "id": "samsung-galaxy-z-flip7-256gb",
+      "name": "Galaxy Z Flip 7",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1099.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Galaxy Z Flip 7 is the most compact foldable with a larger Flex Window, Galaxy AI, and improved durability. Flip to capture stunning selfies and hands-free content.",
+      "images": ["/z-flip7.avif"],
+      "specifications": {
+        "display": "6.7-inch Dynamic AMOLED 2X foldable, 120Hz",
+        "coverDisplay": "3.9-inch Super AMOLED",
+        "chip": "Snapdragon 8 Elite",
+        "storage": "256GB",
+        "ram": "12GB",
+        "camera": "50MP Main, 12MP Ultra Wide",
+        "frontCamera": "10MP",
+        "battery": "4000mAh, 25W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4"
+      },
+      "features": [
+        "Galaxy AI",
+        "Flex Mode",
+        "Larger Flex Window",
+        "FlexCam",
+        "IPX8 water resistance"
+      ],
+      "inStock": true,
+      "stockQuantity": 10,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Silver Shadow", "Mint", "Blue", "Peach"]
+        }
+      ],
+      "sku": "SAM-ZF7-256",
+      "tags": ["smartphone", "samsung", "galaxy-z-flip", "foldable", "ai", "5g"]
+    },
+    {
+      "id": "samsung-galaxy-z-fold7-256gb",
+      "name": "Galaxy Z Fold 7",
+      "category": "Smartphones",
+      "brand": "SAMSUNG",
+      "price": 1899.99,
+      "salePrice": null,
+      "currency": "USD",
+      "description": "Galaxy Z Fold 7 is the ultimate productivity powerhouse with a tablet-sized foldable display, Galaxy AI, S Pen support, and multitasking capabilities.",
+      "images": ["/z-fold7.avif"],
+      "specifications": {
+        "display": "7.6-inch Dynamic AMOLED 2X foldable, 120Hz",
+        "coverDisplay": "6.3-inch Dynamic AMOLED, 120Hz",
+        "chip": "Snapdragon 8 Elite",
+        "storage": "256GB",
+        "ram": "16GB",
+        "camera": "50MP Main, 12MP Ultra Wide, 10MP 3x Telephoto",
+        "frontCamera": "10MP Cover, 4MP Under Display",
+        "battery": "4400mAh, 45W fast charging",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4, UWB"
+      },
+      "features": [
+        "Galaxy AI",
+        "S Pen support",
+        "Multi-window multitasking",
+        "Flex Mode",
+        "IPX8 water resistance"
+      ],
+      "inStock": true,
+      "stockQuantity": 6,
+      "variants": [
+        {
+          "storage": "256GB",
+          "colors": ["Navy", "Silver Shadow", "Pink", "White"]
+        }
+      ],
+      "sku": "SAM-ZFO7-256",
+      "tags": [
+        "smartphone",
+        "samsung",
+        "galaxy-z-fold",
+        "foldable",
+        "ai",
+        "5g",
+        "productivity"
+      ]
+    },
+    {
       "id": "samsung-galaxy-s25-edge",
       "name": "Galaxy S25 Edge",
       "category": "Smartphones",
@@ -989,9 +2605,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung Galaxy S25 Edge represents the pinnacle of smartphone innovation with its stunning edge display, advanced AI capabilities, and professional-grade camera system.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/j/u/c/-original-imahgfmzrtryrszp.jpeg?q=70&crop=false"
-      ],
+      "images": ["/galaxy-s25-edge.jpg"],
       "specifications": {
         "display": "6.8-inch Dynamic AMOLED 2X Edge display, 120Hz",
         "chip": "Snapdragon 8 Gen 4",
@@ -1030,9 +2644,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung Galaxy Tab A9 delivers reliable performance for entertainment, productivity, and creativity with its large display and long-lasting battery.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/tablet/x/m/j/-original-imaguyf2qhh2pfbg.jpeg?q=70&crop=false"
-      ],
+      "images": ["/galaxy-tab-a9.jpg"],
       "specifications": {
         "display": "11-inch LCD display, 90Hz",
         "chip": "MediaTek Helio G99",
@@ -1078,9 +2690,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung Galaxy Watch7 combines advanced health monitoring, fitness tracking, and smart connectivity in a sleek, durable design built for active lifestyles.",
-      "images": [
-        "https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/s/d/n/-original-imahcc49mx4png6v.jpeg?q=70&crop=false"
-      ],
+      "images": ["/galaxy-watch7.jpg"],
       "specifications": {
         "display": "1.5-inch Super AMOLED always-on display",
         "chip": "Samsung Exynos W1000",
@@ -1119,7 +2729,7 @@
       "salePrice": null,
       "currency": "USD",
       "description": "The Samsung SmartTag 2 helps you keep track of your valuables with improved Bluetooth range, longer battery life, and enhanced finding capabilities.",
-      "images": ["https://m.media-amazon.com/images/I/613JjjQhVAL._SX679_.jpg"],
+      "images": ["/Samsung-smarttag2.jpg"],
       "specifications": {
         "connectivity": "Bluetooth LE",
         "range": "Up to 120 meters",

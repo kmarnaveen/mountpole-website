@@ -73,20 +73,23 @@ export default function MobileDock() {
     setIsSubmitting(true);
 
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbwzOlcIiyseWdYs7zJgm7qMB3whg3JQvUwy-NawF4yDjBiEX9F-_zC6doe0yoWzmccdzw/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...formData,
-            timestamp: new Date().toISOString(),
-          }),
-        }
-      );
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          formType: "Mobile Dock Contact",
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          referrer: document.referrer,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
 
       // Mark form as submitted to prevent auto-popup in future visits
       localStorage.setItem("contactFormSubmitted", "true");

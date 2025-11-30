@@ -79,6 +79,10 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "i.pinimg.com",
       },
+      {
+        protocol: "https",
+        hostname: "rukminim2.flixcart.com",
+      },
     ],
   },
 };

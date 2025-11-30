@@ -239,8 +239,7 @@ export default function Home() {
       title: "Scale Fast. Profit More.",
       description:
         "Retailers trust us for protected margins, authentic products, and supply chains that never fail. Join 500+ growing businesses.",
-      image:
-        "https://webobjects2.cdw.com/is/image/CDW/multi-product-apple-feb-2024?$transparent$&$transparent$",
+      image: "/s-25-ultra.avif",
       textPosition: "top-center" as const,
       cta: {
         text: "Partner With MountPole",
