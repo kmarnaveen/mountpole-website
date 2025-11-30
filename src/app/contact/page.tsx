@@ -316,7 +316,7 @@ function ContactForm() {
                     {/* Inquiry Type Dropdown */}
                     <div>
                       <Label htmlFor="inquiryType">
-                        I'm interested in... *
+                        I&apos;m interested in... *
                       </Label>
                       <Select
                         value={formData.inquiryType}
@@ -445,7 +445,7 @@ function ContactForm() {
             Need Quick Help?
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Explore our products and learn more about MountPole's business
+            Explore our products and learn more about MountPole&apos;s business
             solutions and partnership opportunities.
           </p>
 

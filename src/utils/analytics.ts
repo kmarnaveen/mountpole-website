@@ -1,8 +1,8 @@
 // Enhanced Analytics & Tracking
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
+    gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
   }
 }
 
@@ -26,7 +26,7 @@ export const trackFormAnalytics = (data: FormAnalytics) => {
 
   // Google Analytics 4
   if (typeof window !== "undefined" && window.gtag) {
-    const eventData: any = {
+    const eventData: Record<string, string | number> = {
       event_category: "Form",
       event_label: formType,
       form_type: formType,
@@ -127,7 +127,10 @@ export const trackFormAbandonment = (
 };
 
 // Middleware integration helper
-export const sendToMiddleware = async (formData: any, formType: string) => {
+export const sendToMiddleware = async (
+  formData: Record<string, unknown>,
+  formType: string
+) => {
   // This can be expanded to send to Zapier, Make.com, or custom webhooks
   const webhookUrls = {
     Partnership: process.env.NEXT_PUBLIC_PARTNERSHIP_WEBHOOK,

@@ -196,7 +196,7 @@ export const StreamSearch: React.FC<StreamSearchProps> = ({
                   <div className="flex items-center justify-center gap-1.5 md:gap-2 text-blue-600 font-medium">
                     <Search className="h-3 w-3 md:h-4 md:w-4" />
                     <span className="text-xs md:text-sm">
-                      View all results for "{query}"
+                      View all results for &quot;{query}&quot;
                     </span>
                   </div>
                 </button>

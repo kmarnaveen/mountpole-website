@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Newsletter, Send, Gift } from "lucide-react";
+import { Mail, Send, Gift } from "lucide-react";
 
 interface NewsletterFormProps {
   variant?: "footer" | "popup" | "sidebar" | "checkout";
@@ -61,6 +61,7 @@ export default function NewsletterForm({
       setFormData({
         email: "",
         firstName: "",
+        subscribeUpdates: false,
       });
 
       alert(
@@ -83,7 +84,7 @@ export default function NewsletterForm({
       <div className="bg-gradient-to-br from-blue-900 to-purple-900 p-6 rounded-2xl">
         <div className="flex items-center mb-4">
           <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mr-3">
-            <Newsletter className="h-5 w-5 text-white" />
+            <Mail className="h-5 w-5 text-white" />
           </div>
           <div>
             <h3 className="text-lg font-semibold text-white">Stay Updated</h3>
@@ -255,7 +256,7 @@ export default function NewsletterForm({
             </>
           ) : (
             <>
-              <Newsletter className="h-4 w-4 mr-2" />
+              <Mail className="h-4 w-4 mr-2" />
               Subscribe
             </>
           )}
@@ -336,7 +337,7 @@ export default function NewsletterForm({
             </>
           ) : (
             <>
-              <Newsletter className="h-4 w-4 mr-2" />
+              <Mail className="h-4 w-4 mr-2" />
               Subscribe
             </>
           )}

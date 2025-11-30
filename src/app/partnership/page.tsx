@@ -6,14 +6,11 @@ import {
   Building2,
   Users,
   Globe,
-  Handshake,
   TrendingUp,
   Shield,
-  Clock,
   CheckCircle,
 } from "lucide-react";
 import PartnershipFormGlass from "@/components/forms/PartnershipFormGlass";
-import { trackFormEvent } from "@/utils/formValidation";
 
 // Partnership journey stages for sophisticated UX
 type PartnershipStage =
@@ -31,7 +28,7 @@ type PartnershipType =
   | "technology-partner"
   | "regional-partner";
 
-interface PartnershipPageProps {}
+type PartnershipPageProps = Record<string, never>;
 
 function PartnershipPageContent() {
   const searchParams = useSearchParams();

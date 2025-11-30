@@ -96,8 +96,8 @@ function ThankYouContent() {
             <p className="text-white/70 leading-relaxed">
               Your quote request has been received and our sales team will
               prepare competitive pricing within {responseTimeMap[quoteType]}.
-              We're committed to providing the best wholesale rates for your
-              business.
+              We&apos;re committed to providing the best wholesale rates for
+              your business.
             </p>
           </div>
         </div>

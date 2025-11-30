@@ -29,11 +29,7 @@ export default function NewsletterModal({
       title="Subscribe to Newsletter"
       className="bg-white/10 backdrop-blur-md border border-white/20"
     >
-      <NewsletterFormGlass
-        variant={variant}
-        onSuccess={handleSuccess}
-        onCancel={onClose}
-      />
+      <NewsletterFormGlass variant={variant} onSuccess={handleSuccess} />
     </FormModal>
   );
 }

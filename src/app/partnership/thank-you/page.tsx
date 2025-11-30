@@ -88,7 +88,7 @@ function ThankYouContent() {
             </p>
             <p className="text-white/70 leading-relaxed">
               Your application has been received and our business development
-              team will begin the review process immediately. We're excited
+              team will begin the review process immediately. We&apos;re excited
               about the possibility of working together.
             </p>
           </div>

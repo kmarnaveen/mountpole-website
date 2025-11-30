@@ -257,8 +257,8 @@ export default function TabletsPage() {
                               openQuoteModal({
                                 productId: tablet.id,
                                 productName: tablet.name,
-                                category: "tablets",
-                                type: "bulk",
+                                productContext: "tablets",
+                                quoteType: "bulk",
                               })
                             }
                             className="flex-1 w-full bg-blue-600 hover:bg-blue-700"

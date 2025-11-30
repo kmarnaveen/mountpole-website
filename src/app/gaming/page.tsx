@@ -5,16 +5,11 @@ import { useModals } from "@/components/modals/ModalProvider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { AppleLogo, SamsungLogo, GoogleLogo } from "@/components/BrandLogos";
 import {
   GamepadIcon,
-  Zap,
   Palette,
-  Monitor,
   Eye,
   Settings,
-  Cpu,
-  HardDrive,
   Wifi,
   RefreshCw,
   Maximize,
@@ -23,6 +18,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { ProductGridSkeleton } from "@/components/skeletons/ProductSkeleton";
+import { Product } from "@/types/product";
 import {
   Pagination,
   usePagination,
@@ -211,7 +207,7 @@ export default function GamingPage() {
           ) : (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-                {paginatedGamingProducts.map((product: any) => (
+                {paginatedGamingProducts.map((product: Product) => (
                   <Card
                     key={product.id}
                     className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow"

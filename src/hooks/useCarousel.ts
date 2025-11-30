@@ -148,11 +148,8 @@ export function useCarousel({
       return;
     }
 
-    let progressInterval: NodeJS.Timeout;
-    let slideInterval: NodeJS.Timeout;
-
     // Progress tracking (using requestAnimationFrame for better performance)
-    let lastTime = Date.now();
+    const lastTime = Date.now();
     const updateProgress = () => {
       const now = Date.now();
       const elapsed = now - lastTime;
@@ -174,7 +171,7 @@ export function useCarousel({
     requestAnimationFrame(updateProgress);
 
     // Auto-advance slides
-    slideInterval = setInterval(() => {
+    const slideInterval = setInterval(() => {
       nextSlide();
     }, autoPlayInterval);
 

@@ -21,15 +21,15 @@ import {
   Send,
   AlertCircle,
 } from "lucide-react";
-import { 
-  validateEmail, 
-  validatePhone, 
-  validateCompanyName, 
+import {
+  validateEmail,
+  validatePhone,
+  validateCompanyName,
   validateMessage,
-  trackFormEvent 
-} from "@/lib/validation";
-import { HoneypotField } from "@/components/ui/honeypot";
-import { attributionOptions } from "@/lib/constants";
+  trackFormEvent,
+  HoneypotField,
+  attributionOptions,
+} from "@/utils/formValidation";
 
 interface PartnershipFormProps {
   onSuccess?: () => void;
@@ -502,9 +502,9 @@ export default function PartnershipForm({
           {/* Footer Note */}
           <div className="text-center pt-4">
             <p className="text-xs text-gray-500 leading-relaxed">
-              We review all partnership applications within 24 hours. You'll
-              receive a response from our business development team with next
-              steps and requirements.
+              We review all partnership applications within 24 hours.
+              You&apos;ll receive a response from our business development team
+              with next steps and requirements.
             </p>
           </div>
         </form>

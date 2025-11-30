@@ -73,7 +73,10 @@ export const GlassInput = ({
   className = "",
   error = false,
   ...props
-}: any) => (
+}: React.InputHTMLAttributes<HTMLInputElement> & {
+  error?: boolean;
+  className?: string;
+}) => (
   <input
     className={`
       w-full px-4 py-4 sm:py-3 rounded-xl
@@ -100,7 +103,10 @@ export const GlassTextarea = ({
   className = "",
   error = false,
   ...props
-}: any) => (
+}: React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+  error?: boolean;
+  className?: string;
+}) => (
   <textarea
     className={`
       w-full px-4 py-4 sm:py-3 rounded-xl resize-none
@@ -130,11 +136,10 @@ export const GlassButton = ({
   variant = "primary",
   className = "",
   ...props
-}: {
+}: React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "outline";
   className?: string;
-  [key: string]: any;
 }) => {
   const variants = {
     primary:

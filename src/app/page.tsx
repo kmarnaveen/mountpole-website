@@ -11,15 +11,12 @@ import {
   Watch,
   Monitor,
   Shield,
-  Zap,
   Eye,
   ShoppingCart,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Carousel } from "@/components/ui/carousel";
-import ProductCarousel from "@/components/ui/product-carousel";
-import { BorderBeam } from "@/components/magicui/border-beam";
 import {
   HeroSkeleton,
   ProductCarouselSkeleton,
@@ -28,6 +25,7 @@ import {
   FeaturedProductsSkeleton,
 } from "@/components/skeletons/HomeSkeleton";
 import productsData from "../../products.json";
+import { Product } from "@/types/product";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,7 +42,7 @@ export default function Home() {
   }, []);
 
   // Transform products from JSON to carousel format
-  const transformProductForCarousel = (product: any) => {
+  const transformProductForCarousel = (product: Product) => {
     // Generate default colors if not available
     const defaultColors = ["#1d1d1f", "#f5f5dc", "#faf0e6", "#e6e6fa"];
 
@@ -70,21 +68,22 @@ export default function Home() {
     // Create quick specs from specifications
     const quickSpecs: { [key: string]: string } = {};
     if (product.specifications?.storage) {
-      quickSpecs.Storage = product.specifications.storage;
+      quickSpecs.Storage = String(product.specifications.storage);
     }
     if (product.specifications?.ram) {
-      quickSpecs.RAM = product.specifications.ram;
+      quickSpecs.RAM = String(product.specifications.ram);
     }
     if (product.specifications?.display) {
-      quickSpecs.Display = product.specifications.display.includes("inch")
-        ? product.specifications.display.split(" ")[0] + " inch"
-        : product.specifications.display;
+      const display = String(product.specifications.display);
+      quickSpecs.Display = display.includes("inch")
+        ? display.split(" ")[0] + " inch"
+        : display;
     }
-    if (
-      product.specifications?.camera &&
-      product.specifications.camera.includes("MP")
-    ) {
-      quickSpecs.Camera = product.specifications.camera.split(" ")[0];
+    if (product.specifications?.camera) {
+      const camera = String(product.specifications.camera);
+      if (camera.includes("MP")) {
+        quickSpecs.Camera = camera.split(" ")[0];
+      }
     }
 
     return {
@@ -97,7 +96,8 @@ export default function Home() {
         product.name.includes("Series 9") ||
         product.name.includes("iPhone 16"),
       isBestSeller:
-        product.stockQuantity >= 10 && product.category === "Smartphones", // Removed price-based logic
+        (product.stockQuantity ?? 0) >= 10 &&
+        product.category === "Smartphones", // Removed price-based logic
       // discount: product.salePrice ? `${Math.round(((product.price - product.salePrice) / product.price) * 100)}% off` : null, // Commented out discount
       discount: undefined, // No discounts displayed
       colors: defaultColors,
@@ -112,7 +112,7 @@ export default function Home() {
 
     // Filter out products with no images first
     const productsWithImages = products.filter(
-      (p: any) => p.images && p.images.length > 0
+      (p: Product) => p.images && p.images.length > 0
     );
 
     // Priority Samsung product IDs that should be featured
@@ -126,13 +126,13 @@ export default function Home() {
     ];
 
     // Get the priority Samsung products first
-    const prioritySamsung = productsWithImages.filter((p: any) =>
+    const prioritySamsung = productsWithImages.filter((p: Product) =>
       prioritySamsungIds.includes(p.id)
     );
 
     // Get other flagship/premium products (excluding the priority Samsung ones)
     const otherPremium = productsWithImages.filter(
-      (p: any) =>
+      (p: Product) =>
         !prioritySamsungIds.includes(p.id) &&
         (p.name.toLowerCase().includes("ultra") ||
           p.name.toLowerCase().includes("pro") ||
@@ -146,7 +146,7 @@ export default function Home() {
     let selected = [...prioritySamsung, ...otherPremium];
     if (selected.length < 8) {
       const remaining = productsWithImages.filter(
-        (p: any) => !selected.some((s: any) => s.id === p.id)
+        (p: Product) => !selected.some((s: Product) => s.id === p.id)
       );
       selected = [...selected, ...remaining].slice(0, 8);
     } else {
@@ -165,22 +165,23 @@ export default function Home() {
     // Skip products already used in featured
     const featuredIds = featuredProducts.map((p) => p.id);
     const remaining = products.filter(
-      (p: any) => !featuredIds.includes(p.id) && p.images && p.images.length > 0
+      (p: Product) =>
+        !featuredIds.includes(p.id) && p.images && p.images.length > 0
     );
 
     // Prioritize products with good stock and variety across categories
     const smartphones = remaining
-      .filter((p: any) => p.category === "Smartphones")
+      .filter((p: Product) => p.category === "Smartphones")
       .slice(0, 2);
     const tablets = remaining
-      .filter((p: any) => p.category === "Tablets")
+      .filter((p: Product) => p.category === "Tablets")
       .slice(0, 1);
     const wearables = remaining
-      .filter((p: any) => p.category === "Wearables")
+      .filter((p: Product) => p.category === "Wearables")
       .slice(0, 1);
     const accessories = remaining
       .filter(
-        (p: any) => p.category === "Accessories" || p.category === "Audio"
+        (p: Product) => p.category === "Accessories" || p.category === "Audio"
       )
       .slice(0, 2);
 
@@ -191,7 +192,7 @@ export default function Home() {
     if (selected.length < 6) {
       const usedIds = selected.map((p) => p.id);
       const additional = remaining
-        .filter((p: any) => !usedIds.includes(p.id))
+        .filter((p: Product) => !usedIds.includes(p.id))
         .slice(0, 6 - selected.length);
       selected.push(...additional);
     }
@@ -549,7 +550,7 @@ export default function Home() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {/* Show featured Samsung products from our database */}
-                    {featuredProducts.map((product: any, index: number) => (
+                    {featuredProducts.map((product, index: number) => (
                       <Card
                         key={product.id}
                         className="group hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-gray-300 hover:-translate-y-1 bg-white relative overflow-hidden"
@@ -567,10 +568,7 @@ export default function Home() {
                           <div className="aspect-square bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-xl mb-6 flex items-center justify-center overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
                             <div className="absolute inset-0 bg-gradient-to-t from-black/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <Image
-                              src={
-                                product.image ||
-                                "/placeholder-product.png"
-                              }
+                              src={product.image || "/placeholder-product.png"}
                               alt={product.name || "Product Image"}
                               width={300}
                               height={300}

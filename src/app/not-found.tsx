@@ -27,29 +27,30 @@ export default function NotFound() {
             Page Not Found
           </h2>
           <p className="text-gray-600 mb-6">
-            Sorry, the page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+            Sorry, the page you&apos;re looking for doesn&apos;t exist. It might
+            have been moved, deleted, or you entered the wrong URL.
           </p>
         </div>
 
         {/* Action Buttons */}
         <div className="space-y-4">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="inline-flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
           >
             <Home className="w-5 h-5 mr-2" />
             Go to Homepage
           </Link>
 
-          <Link 
-            href="/search" 
+          <Link
+            href="/search"
             className="inline-flex items-center justify-center w-full bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 font-medium py-3 px-6 rounded-lg transition-colors duration-200"
           >
             <Search className="w-5 h-5 mr-2" />
             Search Products
           </Link>
 
-          <button 
+          <button
             onClick={() => window.history.back()}
             className="inline-flex items-center justify-center w-full text-gray-600 hover:text-gray-800 font-medium py-3 px-6 transition-colors duration-200"
           >
@@ -64,26 +65,26 @@ export default function NotFound() {
             Popular Categories
           </h3>
           <div className="grid grid-cols-2 gap-3 text-sm">
-            <Link 
-              href="/smartphones" 
+            <Link
+              href="/smartphones"
               className="text-blue-600 hover:text-blue-800 transition-colors"
             >
               Smartphones
             </Link>
-            <Link 
-              href="/tablets" 
+            <Link
+              href="/tablets"
               className="text-blue-600 hover:text-blue-800 transition-colors"
             >
               Tablets
             </Link>
-            <Link 
-              href="/wearables" 
+            <Link
+              href="/wearables"
               className="text-blue-600 hover:text-blue-800 transition-colors"
             >
               Wearables
             </Link>
-            <Link 
-              href="/audio" 
+            <Link
+              href="/audio"
               className="text-blue-600 hover:text-blue-800 transition-colors"
             >
               Audio
@@ -99,15 +100,16 @@ export default function NotFound() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "404 Page Not Found",
-            "description": "The requested page could not be found on MountPole website",
-            "url": "https://mountpole.com/404",
-            "isPartOf": {
+            name: "404 Page Not Found",
+            description:
+              "The requested page could not be found on MountPole website",
+            url: "https://mountpole.com/404",
+            isPartOf: {
               "@type": "WebSite",
-              "name": "MountPole",
-              "url": "https://mountpole.com"
-            }
-          })
+              name: "MountPole",
+              url: "https://mountpole.com",
+            },
+          }),
         }}
       />
     </div>

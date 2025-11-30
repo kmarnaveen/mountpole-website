@@ -513,9 +513,9 @@ export default function PartnershipFormGlass({
               {/* Footer Note */}
               <div className="text-center pt-4">
                 <p className="text-xs text-white/60 leading-relaxed">
-                  We review all partnership applications within 24 hours. You'll
-                  receive a response from our business development team with
-                  next steps and requirements.
+                  We review all partnership applications within 24 hours.
+                  You&apos;ll receive a response from our business development
+                  team with next steps and requirements.
                 </p>
               </div>
             </form>

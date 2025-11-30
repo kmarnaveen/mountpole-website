@@ -23,7 +23,7 @@ export interface ConversionFunnel {
   stage: "impression" | "click" | "form_start" | "form_submit" | "conversion";
   ctaId: string;
   timestamp: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, string | number | boolean>;
 }
 
 class CTATracker {
@@ -91,8 +91,8 @@ class CTATracker {
     };
 
     // Update conversion funnel and store locally
-    this.updateConversionFunnel("click", analytics.ctaId);
-    this.storeAnalyticsLocally(fullAnalytics);
+    this.updateConversionFunnel("click", analytics.ctaId || "");
+    this.storeAnalyticsLocally(fullAnalytics as unknown as Record<string, unknown>);
   }
 
   /**
@@ -101,7 +101,7 @@ class CTATracker {
   trackFormInteraction(
     formType: string,
     action: string,
-    metadata?: Record<string, any>
+    metadata?: Record<string, string | number | boolean>
   ): void {
     const event = {
       eventType: "form_interaction",
@@ -112,7 +112,10 @@ class CTATracker {
       sessionId: this.sessionId,
     };
 
-    this.updateConversionFunnel(action as any, `${formType}_form`);
+    this.updateConversionFunnel(
+      action as ConversionFunnel["stage"],
+      `${formType}_form`
+    );
   }
 
   /**
@@ -121,7 +124,7 @@ class CTATracker {
   trackPartnershipJourney(
     stage: string,
     partnershipType: string,
-    metadata?: Record<string, any>
+    metadata?: Record<string, string | number | boolean>
   ): void {
     const journeyEvent = {
       eventType: "partnership_journey",
@@ -137,7 +140,7 @@ class CTATracker {
     this.storeAnalyticsLocally(journeyEvent);
   }
 
-  private storeAnalyticsLocally(data: any): void {
+  private storeAnalyticsLocally(data: Record<string, unknown>): void {
     const stored = JSON.parse(
       localStorage.getItem("mountpole_analytics") || "[]"
     );
@@ -278,7 +281,7 @@ export function handlePartnershipCTA(
   handleCTAClick(ctaId, ctaText, "partnership", source, intent, campaign);
   ctaTracker.trackPartnershipJourney("cta_click", intent, {
     source,
-    campaign,
+    campaign: campaign || "",
     ctaText,
   });
 }
@@ -291,9 +294,10 @@ export function getPartnershipCTAVariant():
   | "variant_a"
   | "variant_b" {
   return (
-    (ctaTracker
-      .getExperimentVariants()
-      .get("partnership_cta_variant") as any) || "control"
+    (ctaTracker.getExperimentVariants().get("partnership_cta_variant") as
+      | "control"
+      | "variant_a"
+      | "variant_b") || "control"
   );
 }
 

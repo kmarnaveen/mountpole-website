@@ -8,7 +8,7 @@ export interface Product {
   currency: string;
   description: string;
   images: string[];
-  specifications?: any; // Allow flexible specifications structure
+  specifications?: Record<string, string | number | boolean | undefined>; // Allow flexible specifications structure
   features?: string[];
   inStock: boolean;
   stockQuantity?: number;

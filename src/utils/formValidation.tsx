@@ -67,6 +67,13 @@ export const validatePhone = (
   return { isValid: true, formatted };
 };
 
+// Format phone number for display
+export const formatPhone = (phone: string): string => {
+  if (!phone) return "";
+  const cleaned = phone.replace(/[^\d+]/g, "");
+  return cleaned.startsWith("+") ? cleaned : `+${cleaned}`;
+};
+
 export const validateCompanyName = (
   name: string
 ): { isValid: boolean; error?: string } => {

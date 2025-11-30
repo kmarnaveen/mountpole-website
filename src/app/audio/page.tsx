@@ -269,8 +269,7 @@ export default function AudioPage() {
                               openQuoteModal({
                                 productId: product.id,
                                 productName: product.name,
-                                category: "audio",
-                                type: "bulk",
+                                quoteType: "bulk",
                               })
                             }
                             className="w-full bg-purple-600 hover:bg-purple-700"

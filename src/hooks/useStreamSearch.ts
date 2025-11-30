@@ -37,7 +37,7 @@ export const useStreamSearch = (
 
   // Debounced search function
   const debouncedSearch = useCallback(
-    debounce((searchQuery: string) => {
+    debounce(((searchQuery: string) => {
       if (searchQuery.length < minQueryLength) {
         setResults([]);
         setSuggestions(searchEngine.getInstantSuggestions(''));
@@ -51,7 +51,7 @@ export const useStreamSearch = (
       setResults(searchResults);
       setSuggestions(searchSuggestions);
       setIsLoading(false);
-    }, debounceMs),
+    }) as (...args: unknown[]) => unknown, debounceMs),
     [searchEngine, maxResults, minQueryLength]
   );
 
@@ -82,7 +82,7 @@ export const useStreamSearch = (
 };
 
 // Debounce utility function
-function debounce<T extends (...args: any[]) => any>(
+function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): T & { cancel: () => void } {

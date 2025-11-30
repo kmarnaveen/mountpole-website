@@ -22,6 +22,7 @@ import {
   PaginationInfo,
 } from "@/components/ui/pagination";
 import productsData from "../../../products.json";
+import { Product } from "@/types/product";
 
 export default function WearablesPage() {
   const { openQuoteModal } = useModals();
@@ -142,7 +143,7 @@ export default function WearablesPage() {
           ) : (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-8">
-                {paginatedWearables.map((product: any) => (
+                {paginatedWearables.map((product: Product) => (
                   <Card
                     key={product.id}
                     className="group hover:shadow-xl transition-all duration-300 border border-gray-200"
@@ -199,8 +200,8 @@ export default function WearablesPage() {
                               openQuoteModal({
                                 productId: product.id,
                                 productName: product.name,
-                                category: "wearables",
-                                type: "bulk",
+                                productContext: "wearables",
+                                quoteType: "bulk",
                               })
                             }
                             className="w-full bg-purple-600 hover:bg-purple-700"

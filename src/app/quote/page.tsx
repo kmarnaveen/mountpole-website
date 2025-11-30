@@ -13,12 +13,11 @@ import {
   Truck,
 } from "lucide-react";
 import QuoteFormGlass from "@/components/forms/QuoteFormGlass";
-import { trackFormEvent } from "@/utils/formValidation";
 
 // Quote types for sophisticated routing
 type QuoteType = "general" | "bulk" | "enterprise" | "custom" | "urgent";
 
-interface QuotePageProps {}
+type QuotePageProps = Record<string, never>;
 
 function QuotePageContent() {
   const searchParams = useSearchParams();
@@ -36,16 +35,6 @@ function QuotePageContent() {
     const source = searchParams.get("source");
     const quantity = searchParams.get("quantity");
     const urgency = searchParams.get("urgency");
-
-    // Track quote page entry with full context
-    trackFormEvent("Quote Page", "page_entry", {
-      type: type || "general",
-      product: product || "none",
-      category: category || "general",
-      source: source || "direct",
-      quantity: quantity || "unknown",
-      timestamp: new Date().toISOString(),
-    });
 
     // Determine quote type based on parameters
     if (urgency === "high" || source === "urgent-inquiry") {
@@ -169,13 +158,6 @@ function QuotePageContent() {
   const handleFormSuccess = () => {
     setIsFormSubmitted(true);
 
-    // Track successful submission with quote context
-    trackFormEvent("Quote Form", "submit_success", {
-      quoteType,
-      productContext,
-      timestamp: new Date().toISOString(),
-    });
-
     // Advanced UX: Auto-redirect to thank you page with context
     setTimeout(() => {
       router.push(
@@ -203,7 +185,9 @@ function QuotePageContent() {
               {config.turnaround}.
             </p>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-left">
-              <h3 className="text-white font-semibold mb-2">What's Next:</h3>
+              <h3 className="text-white font-semibold mb-2">
+                What&apos;s Next:
+              </h3>
               <ul className="text-white/70 space-y-1 text-sm">
                 <li>• Quote processing: {config.turnaround}</li>
                 <li>• Pricing review and approval</li>
@@ -328,7 +312,8 @@ function QuotePageContent() {
                 Submit Your Quote Request
               </h2>
               <p className="text-white/70 text-lg">
-                Provide your requirements and we'll deliver competitive pricing
+                Provide your requirements and we&apos;ll deliver competitive
+                pricing
               </p>
             </div>
 
