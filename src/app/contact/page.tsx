@@ -116,9 +116,9 @@ function ContactForm() {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "MountPole USA",
-      primary: "8333 NW 53RD Street, Suite 450",
-      secondary: "Doral FL – 33166, USA",
+      title: "MountPole Canada",
+      primary: "4920 Tomken Rd unit 4",
+      secondary: "Mississauga, ON L4W 1J8, Canada",
       tertiary: "North America Operations",
     },
     {

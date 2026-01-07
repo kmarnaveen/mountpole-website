@@ -121,8 +121,8 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 mt-1 flex-shrink-0" />
                 <div className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                  <p>8333 NW 53RD Street, Suite 450</p>
-                  <p>Doral FL – 33166, USA</p>
+                  <p>4920 Tomken Rd unit 4</p>
+                  <p>Mississauga, ON L4W 1J8, Canada</p>
                 </div>
               </div>
 

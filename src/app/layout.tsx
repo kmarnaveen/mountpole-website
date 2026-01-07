@@ -11,9 +11,8 @@ import { OrganizationSchema, WebsiteSchema } from "@/components/seo/StructuredDa
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Force dynamic rendering globally
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// Force dynamic rendering for pages with interactive modals
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mountpole.com'),
